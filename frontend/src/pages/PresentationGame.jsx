@@ -1,6 +1,5 @@
 function PresentationGame() {
-    return <div>PresentationGame</div>;
-  }
-  
-  export default PresentationGame;
-  
+  return <div>PresentationGame</div>;
+}
+
+export default PresentationGame;
