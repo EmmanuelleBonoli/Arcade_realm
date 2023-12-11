@@ -7,11 +7,14 @@
 
 
 
-
 .App{
     display:flex;
     flex-direction: column;
     min-height: 100vh;
+    background: url("./public/images/fond.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 
     .footerContainer{
         flex-grow: 1;
