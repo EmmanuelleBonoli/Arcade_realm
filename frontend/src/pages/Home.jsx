@@ -43,14 +43,13 @@ function Home() {
               <img src="Images/affiche_accueil.png" className="acc-affiche-2" />
             </div>
             <div className="Carouselle-2">
-              <img src="Images/affiche_accueil.png"/>
-              <div className="text-evenements-2">
+              <div className="text-classement">
                 <h1>PODIUM DES JOUEURS</h1>
                 <p>
                   Retrouver le top 3 de nos meilleurs joueurs de la semaine !
                 </p>
               </div>
-              <img src="Images/affiche_accueil.png"  />
+              <img src="Images/affiche_accueil.png"/>
             </div>
             </Carousel>
         </div>

@@ -19,28 +19,28 @@
     margin-top: 10px;
     background-color: #000000b6;
 
-    .npm-Carouselle{
-        height: 100%;
-        img{
-            width: 22%;
-        }
+    .npm-Carouselle {
+      height: 100%;
+      img {
+        width: 22%;
+      }
 
-    .Carouselle-1{
+      .Carouselle-1 {
         display: flex;
         justify-content: space-around;
         align-items: center;
         height: 100%;
-    
 
-    .acc-affiche-1 {
-      transform: rotate(7deg);
-    }
+        .acc-affiche-1 {
+          transform: rotate(7deg);
+        }
 
-    .acc-affiche-2 {
-      transform: rotate(-7deg);
+        .acc-affiche-2 {
+          transform: rotate(-7deg);
+        }
+      }
     }
-  }}
-}
+  }
 
   .text-evenements {
     height: 100%;
@@ -49,27 +49,25 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    h1{
-        font-family: var(--primary-font);
-        font-size: 2.4rem;
-        padding: 20px;
-        border-bottom: 1px solid white;
+    h1 {
+      font-family: var(--primary-font);
+      font-size: 2.4rem;
+      padding: 20px;
+      border-bottom: 1px solid white;
     }
-    p{
-        font-family: var(--secondary-font);
-        font-style: italic;
-        font-size: 2rem;
-        line-height: 30px;
-        padding: 20px;
+    p {
+      font-family: var(--secondary-font);
+      font-style: italic;
+      font-size: 2rem;
+      line-height: 30px;
+      padding: 20px;
     }
   }
 }
 
 .presentation {
   padding: 10px;
-
   width: 100%;
-
   display: flex;
   background-color: #003d48b4;
   border-top: 1px solid white;

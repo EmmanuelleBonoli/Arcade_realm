@@ -28,7 +28,22 @@
   background-attachment: fixed;
   overflow-x: hidden;
 
+
   .footerContainer {
     flex-grow: 1;
   }
+}
+
+.fond1 {
+  background: url("./public/images/fond.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.fond2 {
+  background: url("./public/images/fond-presentation.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
