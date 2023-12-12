@@ -13,10 +13,10 @@ function NavBar() {
     <div className="navBar">
       <div className="Int-navBar">
         <nav className="nav-pt-1">
-          <NavLink to={"/"} className={determineActive}>
+          <NavLink to="/" className={determineActive}>
             HOME
           </NavLink>
-          <NavLink to={"/Contact"}> CONTACT</NavLink>
+          <NavLink to="/Contact"> CONTACT</NavLink>
         </nav>
         <img src="./images/logo.png" alt="logo-arcade" />
         <nav className="nav-pt-2">
