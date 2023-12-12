@@ -1,0 +1,18 @@
+.presentationReservation {
+  display: flex;
+  flex-direction: column;
+  padding: 2% 0 2% 0;
+  .descReservation {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .bannerReservation {
+    width: 80vw;
+    align-self: center;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+}
