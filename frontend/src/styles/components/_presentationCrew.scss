@@ -21,8 +21,9 @@
     height: 100%;
     width: 30vw;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 2vh 1.5vw;
 
     img {
       height: 30vh;
