@@ -15,12 +15,16 @@ function PresentationSpaces() {
         <p>
           Que vous soyez un fan inconditionnel des jeux de plateforme des années
           80, des combats de rue des années 90, ou des jeux de tir à la première
-          personne des débuts des années 2000, Arcade Realm a tout ce qu'il vous
-          faut.
+          personne des débuts des années 2000,
+          <span style={{ fontWeight: "bold" }}> Arcade Realm</span> a tout ce
+          qu'il vous faut.
         </p>
         <p>
-          Retrouvez notre espace restauration avec menus Rétro Gourmand et
-          boissons rafraîchissantes.
+          Retrouvez notre espace restauration avec menus
+          <span style={{ fontWeight: "bold" }}> Rétro Gourmand</span> et
+          <span style={{ fontWeight: "bold" }}>
+            {` boissons rafraîchissantes.`}
+          </span>
         </p>
       </div>
       <div className="imgSpaces">
