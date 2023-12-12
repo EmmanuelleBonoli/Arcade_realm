@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-    height: 80vh;
+    min-height: 80vh;
     background-color: black;
     opacity: 0.8;
     padding : 2%;
@@ -10,7 +10,7 @@
     margin-top: 2%;
 
   .descReservation {
-    height: 50vh;
+    min-height: 50vh;
     width: 80%;
 
     text-align: justify;
