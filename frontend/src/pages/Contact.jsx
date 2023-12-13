@@ -23,17 +23,19 @@ function Contact() {
                 placeholder="Entrez votre message"
                 className="message"
               />
-            </div>
-            <button type="submit" className="btn-contact">
+               <button type="submit" className="btn-contact">
               Envoyer
             </button>
-<div className="adresse">
-            <p>
-              Nous retrouver:<br></br> 4 rue Baron, 44000 Nantes
-            </p>
+            </div>
+           
+            <div className="adresse">
+              <img src="./images/Contact/map.png" alt="map" className="map" />
+              <p>
+                Nous retrouver:<br></br> 4 rue Baron, 44000 Nantes
+              </p>
             </div>
             <div className="reseaux-sociaux">
-            <p>Nos réseaux :</p>
+              <p>Nos réseaux :</p>
             </div>
           </div>
         </div>

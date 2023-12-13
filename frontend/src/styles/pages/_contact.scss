@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
-  padding-top: 6%;
+  padding-top: 5%;
 
   .container-form {
     font-family: var(--secondary-font);
@@ -12,59 +12,89 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 600px;
-    height: 550px;
+    width: 620px;
+    height: 620px;
 
     .form-contact {
-        border: 2px solid rgb(0, 51, 255);
       display: flex;
       flex-direction: column;
-      width: 450px;
-      height: 450px;
+      width: 470px;
 
       .header-contact {
-        border: 2px solid red;
         display: flex;
         align-items: center;
         justify-content: center;
         h1 {
           color: var(--secondary-color);
           font-family: var(--primary-font);
-          font-size: 20px;
+          font-size: 35px;
         }
         .pacman {
           transform: rotate(15deg);
-          width: 40px;
+          width: 60px;
         }
       }
 
       .input-container {
-        justify-content: center;
-        border: 1px solid green;
+        padding-top: 30px;
+
+        padding-left: 35px;
         width: 450px;
         height: 350px;
-      }
-      p {
-        font-size: 13px;
-      }
 
+        .name,
+        .email {
+          border-radius: 5px;
+          border: none;
+          background-color: rgba(255, 255, 255, 0.79);
+          width: 400px;
+          height: 40px;
+        }
+
+        .message {
+          border-radius: 5px;
+          border: none;
+          background-color: rgba(255, 255, 255, 0.79);
+          width: 400px;
+          height: 150px;
+        }
+        p {
+          margin: 5px;
+          font-size: 20px;
+        }
+      }
       .btn-contact {
+        margin-top: 20px;
+        font-size: 18px;
         color: white;
         font-family: var(--primary-font);
         font-weight: bold;
         border-radius: 3px;
         background-color: #b45843;
-        border: 1px solid yellow;
-        width: 90px;
-        height: 25px;
+        border: none;
+        width: 110px;
+        height: 40px;
       }
 
       .adresse {
+        display: flex;
+        margin-top: 50px;
+        width: 280px;
         border: 1px solid red;
+
+        .map {
+            width: 40px;
+        }
+        p {
+          font-size: 16px;
+        }
       }
 
       .reseaux-sociaux {
         border: 1px solid red;
+        p {
+          font-size: 18px;
+        }
       }
     }
   }
