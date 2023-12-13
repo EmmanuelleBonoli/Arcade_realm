@@ -22,19 +22,19 @@ function PresentationEvents() {
         </div>
         <div className="imgEvents">
           <img
-            src="./public/images/Presentation_evenement/p_evenement_1.png"
-            alt=""
+            src="./images/Presentation_evenement/p_evenement_1.png"
+            alt="borne d'arcade"
           />
           <img
-            src="./public/images/Presentation_evenement/p_evenement_2.png"
-            alt=""
+            src="./images/Presentation_evenement/p_evenement_2.png"
+            alt="borne d'arcade"
           />
         </div>
       </div>
       <img
         className="bannerEvents"
-        src="./public/images/Presentation_evenement/p_evenement_3.jpg"
-        alt=""
+        src="./images/Presentation_evenement/p_evenement_3.jpg"
+        alt="foule humaine"
       />
     </div>
   );
