@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #003d48;
+  --secondary-color: #fbb169;
+  --third-color: #1d1d1d;
+  --fourth-color: #5caab8;
+  --spacing: 10px;
+  font-size: 10px;
+  --primary-font: "Orbitron", sans-serif;
+  --secondary-font: "Montserrat", sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url("./public/images/fond.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  // overflow-x: hidden;
+
+  .footerContainer {
+    flex-grow: 1;
+  }
+}
+
+.fond1 {
+  background: url("./public/images/fond.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.fond2 {
+  background: url("./public/images/fond-presentation.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
