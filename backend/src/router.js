@@ -10,6 +10,7 @@ const router = express.Router();
 const evenementControllers = require("./controllers/evenementControllers");
 const jeuxControllers = require("./controllers/jeuxControllers");
 const lotControllers = require("./controllers/lotControllers");
+const lotControllers = require("./controllers/lotControllers");
 const scoreControllers = require("./controllers/scoreControllers");
 const utilisateurControllers = require("./controllers/utilisateurControllers");
 
@@ -17,7 +18,7 @@ const utilisateurControllers = require("./controllers/utilisateurControllers");
 router.get("/evenement", evenementControllers.browse);
 router.get("/jeu", jeuxControllers.browse);
 router.get("/score", scoreControllers.browse);
-router.get("lot", lotControllers.browse);
+router.get("/lot", lotControllers.browse);
 router.get("/utilisateur", utilisateurControllers.browse);
 
 // Route to get a specific item by ID
