@@ -1,0 +1,14 @@
+.presentation {
+  width: 100%;
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+  padding: 2%;
+
+  h2 {
+    font-family: var(--primary-font);
+    color: var(--secondary-color);
+  }
+  p {
+    color: white;
+  }
+}

@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: url("./public/images/fond.jpg");
+  background: url("./images/fond.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -30,4 +30,18 @@
   .footerContainer {
     flex-grow: 1;
   }
+}
+
+.fond1 {
+  background: url("./images/fond.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.fond2 {
+  background: url("./images/fond-presentation.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
