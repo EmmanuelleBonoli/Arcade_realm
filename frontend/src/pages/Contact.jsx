@@ -18,24 +18,39 @@ function Contact() {
               <p>E-mail</p>
               <input type="text" placeholder="" className="email" />
               <p>Message</p>
-              <input
-                type="text"
-                placeholder="Entrez votre message"
+
+              <textarea
                 className="message"
+                placeholder="Entrez votre message"
               />
-               <button type="submit" className="btn-contact">
-              Envoyer
-            </button>
+              <button type="submit" className="btn-contact">
+                Envoyer
+              </button>
             </div>
-           
-            <div className="adresse">
-              <img src="./images/Contact/map.png" alt="map" className="map" />
-              <p>
-                Nous retrouver:<br></br> 4 rue Baron, 44000 Nantes
-              </p>
-            </div>
-            <div className="reseaux-sociaux">
-              <p>Nos réseaux :</p>
+
+            <div className="container-adresse">
+              <div className="adresse">
+                <img src="./images/Contact/map.png" alt="map" className="map" />
+                <p>
+                  <strong>Nous retrouver:</strong>
+                  <br></br>4 rue Baron,<br></br> 44000 Nantes
+                </p>
+              </div>
+              <div className="reseaux-sociaux">
+                <p>
+                  <strong>Nos réseaux :</strong>
+                </p>
+                <img
+                  src="/images/Contact/facebook.png"
+                  alt="facebook"
+                  className="facebook"
+                />
+                <img
+                  src="/images/Contact/instagram.png"
+                  alt="instagram"
+                  className="instagram"
+                />
+              </div>
             </div>
           </div>
         </div>

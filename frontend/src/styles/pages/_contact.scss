@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
-  padding-top: 5%;
+  padding-top: 3%;
 
   .container-form {
     font-family: var(--secondary-font);
@@ -12,8 +12,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 620px;
-    height: 620px;
+    width: 35vw;
+    height: 72vh;
 
     .form-contact {
       display: flex;
@@ -24,6 +24,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 2%;
         h1 {
           color: var(--secondary-color);
           font-family: var(--primary-font);
@@ -31,40 +32,51 @@
         }
         .pacman {
           transform: rotate(15deg);
-          width: 60px;
+          width: 85px;
         }
       }
 
       .input-container {
-        padding-top: 30px;
-
-        padding-left: 35px;
-        width: 450px;
-        height: 350px;
+        width: 100%;
+        height: 100%;
 
         .name,
         .email {
+          padding-left: 3%;
+          font-size: 20px;
           border-radius: 5px;
           border: none;
           background-color: rgba(255, 255, 255, 0.79);
-          width: 400px;
-          height: 40px;
+          width: 100%;
+          height: 5vh;
         }
 
         .message {
+          padding-left: 3%;
+          font-size: 20px;
           border-radius: 5px;
           border: none;
           background-color: rgba(255, 255, 255, 0.79);
-          width: 400px;
-          height: 150px;
+          width: 100%;
+          height: 15vh;
+        }
+
+        textarea::placeholder {
+          padding: 2%;
+          font-style: italic;
+          font-family: var(--secondary-font);
         }
         p {
-          margin: 5px;
-          font-size: 20px;
+          font-family: var(--secondary-font);
+          margin: 2%;
+          font-size: 23px;
         }
       }
       .btn-contact {
-        margin-top: 20px;
+        cursor: pointer;
+
+        margin-top: 5%;
+        margin-left: 17vw;
         font-size: 18px;
         color: white;
         font-family: var(--primary-font);
@@ -72,28 +84,44 @@
         border-radius: 3px;
         background-color: #b45843;
         border: none;
-        width: 110px;
-        height: 40px;
+        width: 7vw;
+        height: 4vh;
       }
 
-      .adresse {
+      .container-adresse {
         display: flex;
-        margin-top: 50px;
-        width: 280px;
-        border: 1px solid red;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-between;
+        padding-top: 1vw;
 
-        .map {
-            width: 40px;
-        }
-        p {
-          font-size: 16px;
-        }
-      }
+        .adresse {
+          display: flex;
 
-      .reseaux-sociaux {
-        border: 1px solid red;
-        p {
-          font-size: 18px;
+          .map {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+          }
+          p {
+            font-size: 18px;
+          }
+        }
+
+        .reseaux-sociaux {
+          justify-content: space-between;
+          width: 7vw;
+          p {
+            padding: 2%;
+            font-size: 18px;
+          }
+
+          .facebook,
+          .instagram {
+            cursor: pointer;
+            margin-left: 10%;
+            width: 45px;
+          }
         }
       }
     }
