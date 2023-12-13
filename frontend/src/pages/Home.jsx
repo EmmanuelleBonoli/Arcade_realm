@@ -11,7 +11,6 @@ function Home() {
             className="npm-Carouselle"
             showThumbs={false}
             showStatus={false}
-
             showIndicators={false}
             infiniteLoop={true}
             autoPlay={true}
@@ -42,11 +41,11 @@ function Home() {
                   Retrouver le top 3 de nos meilleurs joueurs de la semaine !
                 </p>
               </div>
-              <img src="Images/podium.png" />
+              <img src="./images/podium.png" />
             </div>
             <div className="Carouselle-3">
               <div className="bloc-mario">
-                <img src="Images/mario.png" className="mario" />
+                <img src="./images/mario.png" className="mario" />
               </div>
               <div className="text-contact">
                 <h1>CONTACTEZ - NOUS</h1>
