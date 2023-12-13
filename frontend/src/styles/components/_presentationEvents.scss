@@ -23,7 +23,8 @@
     .imgEvents {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: center;
+      gap: 2vw;
       width: 45vw;
 
       img {

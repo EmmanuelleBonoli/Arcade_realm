@@ -3,6 +3,7 @@
   justify-content: space-around;
   min-height: 80vh;
   background-color: rgba(0, 0, 0, 0.808);
+
   padding: 2%;
   border-radius: 15px;
   margin-top: 2%;
@@ -20,8 +21,9 @@
     height: 100%;
     width: 30vw;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 2vh 1.5vw;
 
     img {
       height: 30vh;

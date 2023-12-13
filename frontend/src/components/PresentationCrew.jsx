@@ -43,10 +43,10 @@ function PresentationCrew() {
         </div>
       </div>
       <div className="imgCrew">
-        <img src="./public/images/Presentation_equipe/p1.jpg" alt="crew" />
-        <img src="./public/images/Presentation_equipe/p4.jpg" alt="crew" />
-        <img src="./public/images/Presentation_equipe/p3(2).jpg" alt="crew" />
-        <img src="./public/images/Presentation_equipe/p2.jpg" alt="crew" />
+        <img src="./images/Presentation_equipe/p1.jpg" alt="crew" />
+        <img src="./images/Presentation_equipe/p4.jpg" alt="crew" />
+        <img src="./images/Presentation_equipe/p3(2).jpg" alt="crew" />
+        <img src="./images/Presentation_equipe/p2.png" alt="crew" />
       </div>
     </div>
   );

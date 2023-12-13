@@ -11,13 +11,17 @@ function Home() {
             className="npm-Carouselle"
             showThumbs={false}
             showStatus={false}
+
             showIndicators={false}
             infiniteLoop={true}
             autoPlay={true}
             interval={4000}
           >
             <div className="Carouselle-1">
-              <img src="Images/affiche_accueil.png" className="acc-affiche-1" />
+              <img
+                src="./images/affiche_accueil.png"
+                className="acc-affiche-1"
+              />
               <div className="text-evenements">
                 <h1>NOS ÉVÉNEMENTS À VENIR</h1>
                 <p>
@@ -26,7 +30,10 @@ function Home() {
                   <br /> renseignements.
                 </p>
               </div>
-              <img src="Images/affiche_accueil.png" className="acc-affiche-2" />
+              <img
+                src="./images/affiche_accueil.png"
+                className="acc-affiche-2"
+              />
             </div>
             <div className="Carouselle-2">
               <div className="text-classement">
@@ -63,9 +70,9 @@ function Home() {
           </p>
         </div>
         <div className="metal-texte">
-          <img src="/Images/metal-slug.png" alt="metal-slug" />
+          <img src="./images/metal-slug.png" alt="metal-slug" />
           <p>
-            <Link to={"/presentationarcaderealm"}>
+            <Link to="/presentationarcaderealm">
               <span>Découvrir-ici</span>
             </Link>
           </p>
@@ -74,19 +81,19 @@ function Home() {
       <div className="cards">
         <div className="cards-1 card-global">
           <p className="texte-cards">JEUX DU MOMENT</p>
-          <img src="Images/Jeux.png" />
+          <img src="./images/Jeux.png" />
         </div>
-        <Link to={"/classementetlots"}>
+        <Link to="/classementetlots">
           <div className="cards-2 card-global">
             <p className="texte-cards">CLASSEMENT ET LOT</p>
-            <img src="Images/Coupe.png" />
-            <img src="Images/SuperNes3.png" />
+            <img src="./images/Coupe.png" />
+            <img src="./images/SuperNes3.png" />
           </div>
         </Link>
-        <Link to={"/evenements"}>
+        <Link to="/evenements">
           <div className="cards-3 card-global">
             <p className="texte-cards">ÉVÈNEMENTS</p>
-            <img src="Images/affiche_accueil.png" />
+            <img src="./images/affiche_accueil.png" />
           </div>
         </Link>
       </div>
