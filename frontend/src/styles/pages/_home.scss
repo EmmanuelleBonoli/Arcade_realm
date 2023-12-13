@@ -19,16 +19,10 @@
       background-color: #000000b6;
 
       .npm-Carouselle {
-        height: 100%;
-        img {
-          width: 22%;
-        }
-
         .Carouselle-1 {
           display: flex;
           justify-content: space-around;
           align-items: center;
-          height: 100%;
 
           .acc-affiche-1 {
             transform: rotate(7deg);
@@ -37,29 +31,82 @@
           .acc-affiche-2 {
             transform: rotate(-7deg);
           }
+          img {
+            width: 22%;
+          }
+          .text-evenements {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            h1 {
+              font-family: var(--primary-font);
+              font-size: 2.4rem;
+              padding: 20px;
+              border-bottom: 1px solid white;
+            }
+            p {
+              font-family: var(--secondary-font);
+              font-style: italic;
+              font-size: 2rem;
+              line-height: 30px;
+              padding: 20px;
+            }
+          }
         }
-      }
-    }
+        .Carouselle-2 {
+          h1 {
+            font-family: var(--primary-font);
+            font-size: 2.4rem;
+            padding: 20px;
+            border-bottom: 1px solid white;
+          }
+          p {
+            font-family: var(--secondary-font);
+            font-style: italic;
+            font-size: 2rem;
+            line-height: 30px;
+            padding: 20px;
+          }
+          img {
+            width: 22%;
+          }
+        }
+        .Carouselle-3 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          .bloc-mario {
+            width: 35%;
+            display: flex;
+            justify-content: end;
+            .mario {
+              width: 70%;
+            }
+          }
 
-    .text-evenements {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      h1 {
-        font-family: var(--primary-font);
-        font-size: 2.4rem;
-        padding: 20px;
-        border-bottom: 1px solid white;
-      }
-      p {
-        font-family: var(--secondary-font);
-        font-style: italic;
-        font-size: 2rem;
-        line-height: 30px;
-        padding: 20px;
+          .text-contact {
+            padding: 20px;
+            width: 65%;
+            text-align: left;
+            h1 {
+              font-family: var(--primary-font);
+              font-size: 2.4rem;
+              padding-bottom: 20px;
+              border-bottom: 1px solid white;
+            }
+            p {
+              font-family: var(--secondary-font);
+              font-style: italic;
+              font-size: 2rem;
+              line-height: 30px;
+              padding-top: 20px;
+            }
+          }
+        }
       }
     }
   }

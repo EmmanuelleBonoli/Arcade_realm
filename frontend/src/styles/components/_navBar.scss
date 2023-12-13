@@ -1,5 +1,5 @@
 .navBar {
-  width: 100vw;
+  width: 100%;
   padding: var(--spacing);
   background-color: #1d1d1d41;
   border-bottom: 1px solid white;
@@ -8,20 +8,13 @@
     display: flex;
     justify-content: space-between;
 
-    img {
-      width: 10%;
-    }
-
     .nav-pt-1 {
       width: calc(100vw / 3);
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       padding: var(--spacing);
-
-      .active {
-        color: var(--secondary-color);
-      }
+      flex: 1;
 
       a {
         text-decoration: none;
@@ -29,15 +22,25 @@
         font-family: var(--primary-font);
         font-size: 1.8rem;
         font-weight: 400;
+
+        &.active {
+          color: var(--secondary-color);
+        }
       }
+    }
+
+    .logo {
+      width: 10%;
     }
 
     .nav-pt-2 {
       width: calc(100vw / 3);
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 50px;
+      gap: 5%;
       justify-content: end;
+      flex: 1;
     }
     p {
       color: white;
@@ -48,5 +51,78 @@
       font-weight: 400;
       cursor: pointer;
     }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 36px;
+    top: 36px;
+  }
+
+  .bm-burger-bars {
+    background: white;
+    border-radius: 5px;
+  }
+
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  .bm-cross {
+    background: white;
+  }
+  //   .bm-menu-wrap {
+  //     position: fixed;
+  //     height: 100%;
+  //   }
+
+  //   .bm-menu {
+  //     background: var(--primary-color);
+  //     padding: 2.5em 1.5em 0;
+  //     font-size: 1.15em;
+  //     display: flex;
+  //     flex-direction: column;
+  //     justify-content: space-around;
+  //   }
+
+  /*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+  }
+
+  /* General sidebar styles */
+  .bm-menu {
+    background: var(--primary-color);
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
   }
 }

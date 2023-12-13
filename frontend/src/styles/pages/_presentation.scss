@@ -1,13 +1,14 @@
 .presentation {
-    width: 100vw;
-    font-family: var(--secondary-font);
-    font-size: 2rem;
-    padding: 2%;
+  width: 100%;
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+  padding: 2%;
 
-    h2{
-        color : var(--secondary-color)
-    }
-    p{
-        color: white;
-    }
+  h2 {
+    font-family: var(--primary-font);
+    color: var(--secondary-color);
+  }
+  p {
+    color: white;
+  }
 }

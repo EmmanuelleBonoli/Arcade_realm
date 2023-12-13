@@ -3,8 +3,7 @@
   flex-direction: column;
   width: 100%;
   min-height: 90vh;
-  background-color: black;
-  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.815);
   padding: 2%;
   border-radius: 15px;
   margin-top: 2%;
@@ -13,6 +12,7 @@
     display: flex;
     justify-content: space-around;
     padding-bottom: 2%;
+    padding-left: 2%;
 
     .textEvents {
       display: flex;
@@ -24,7 +24,7 @@
     .imgEvents {
       display: flex;
       flex-wrap: wrap;
-     justify-content: center;
+      justify-content: center;
       gap: 2vw;
       width: 45vw;
 

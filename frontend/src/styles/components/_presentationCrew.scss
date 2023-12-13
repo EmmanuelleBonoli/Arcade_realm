@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-around;
   min-height: 80vh;
-  background-color: black;
-  opacity: 0.8;
-  padding : 2%;
+  background-color: rgba(0, 0, 0, 0.808);
+
+  padding: 2%;
   border-radius: 15px;
   margin-top: 2%;
 
@@ -23,7 +23,8 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2vh 1.5vw;
+    gap: 2.5vh 1.5vw;
+    padding: 3%;
 
     img {
       height: 30vh;
