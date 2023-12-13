@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
-  padding-top: 3%;
+  padding-top: 6%;
 
   .container-form {
     font-family: var(--secondary-font);
@@ -12,22 +12,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 370px;
+    width: 600px;
+    height: 550px;
 
     .form-contact {
+        border: 2px solid rgb(0, 51, 255);
       display: flex;
       flex-direction: column;
-      width: 320px;
-      height: 330px;
+      width: 450px;
+      height: 450px;
 
       .header-contact {
+        border: 2px solid red;
         display: flex;
         align-items: center;
         justify-content: center;
         h1 {
           color: var(--secondary-color);
           font-family: var(--primary-font);
+          font-size: 20px;
         }
         .pacman {
           transform: rotate(15deg);
@@ -38,8 +41,8 @@
       .input-container {
         justify-content: center;
         border: 1px solid green;
-        width: 300px;
-        height: 200px;
+        width: 450px;
+        height: 350px;
       }
       p {
         font-size: 13px;
@@ -47,10 +50,10 @@
 
       .btn-contact {
         color: white;
-        font-family: var( --primary-font);
+        font-family: var(--primary-font);
         font-weight: bold;
         border-radius: 3px;
-        background-color: #B45843;
+        background-color: #b45843;
         border: 1px solid yellow;
         width: 90px;
         height: 25px;
