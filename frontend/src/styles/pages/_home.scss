@@ -105,11 +105,11 @@
               line-height: 30px;
               padding-top: 20px;
             }
-
           }
         }
       }
     }
+  }
 
   .presentation {
     padding: 10px;
@@ -202,6 +202,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
       img {
         width: 50%;
       }
@@ -212,3 +213,4 @@
     }
   }
 }
+

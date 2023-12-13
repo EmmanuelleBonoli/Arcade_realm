@@ -29,7 +29,8 @@ function NavBar() {
               <NavLink to="/">HOME</NavLink>
               <NavLink to="/Contact">CONTACT</NavLink>
             </nav>
-            <img src="./images/logo.png" alt="logo-arcade" />
+            <div className="logo">
+            <img src="./images/logo.png" alt="logo-arcade" /></div>
             <nav className="nav-pt-2">
               <p>INSCRIPTION</p>
               <p>CONNEXION</p>
