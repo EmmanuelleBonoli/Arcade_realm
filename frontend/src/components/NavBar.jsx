@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
-import { useState, useEffect } from "react";
 
 function NavBar() {
   return (
@@ -15,24 +14,25 @@ function NavBar() {
           <p>INSCRIPTION</p>
           <p>CONNEXION</p>
         </nav>
-
-        <Menu right width="300px">
-          <NavLink to="/" className="menu-item">
-            <span style={{ color: "#fbb169" }}>H</span>ome
-          </NavLink>
-          <NavLink to="/presentationarcaderealm" className="menu-item">
-            <span style={{ color: "#fbb169" }}>P</span>résentation de la salle
-          </NavLink>
-          <NavLink to="/evenement" className="menu-item">
-            <span style={{ color: "#fbb169" }}>L</span>es Evènements
-          </NavLink>
-          <NavLink to="/classementetlots" className="menu-item">
-            <span style={{ color: "#fbb169" }}>C</span>lassement et Lots
-          </NavLink>
-          <NavLink to="/contact" className="menu-item">
-            <span style={{ color: "#fbb169" }}>C</span>ontact
-          </NavLink>
-        </Menu>
+        <div className="menuBurger">
+          <Menu right width="300px">
+            <NavLink to="/" className="menu-item">
+              <span style={{ color: "#fbb169" }}>H</span>ome
+            </NavLink>
+            <NavLink to="/presentationarcaderealm" className="menu-item">
+              <span style={{ color: "#fbb169" }}>P</span>résentation de la salle
+            </NavLink>
+            <NavLink to="/evenements" className="menu-item">
+              <span style={{ color: "#fbb169" }}>L</span>es Evènements
+            </NavLink>
+            <NavLink to="/classementetlots" className="menu-item">
+              <span style={{ color: "#fbb169" }}>C</span>lassement et Lots
+            </NavLink>
+            <NavLink to="/contact" className="menu-item">
+              <span style={{ color: "#fbb169" }}>C</span>ontact
+            </NavLink>
+          </Menu>
+        </div>
       </div>
     </div>
   );
