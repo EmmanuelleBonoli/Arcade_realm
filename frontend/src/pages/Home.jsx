@@ -1,34 +1,20 @@
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
-
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 3,
-    slidesToSlide: 3,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 3,
-    slidesToSlide: 3,
-  },
-};
-
+import { Carousel } from "react-responsive-carousel";
 
 function Home() {
   return (
     <div className="HomePage">
       <div className="Carouselle">
         <div className="Int-carouselle">
-          <Carousel className="npm-Carouselle"
-          showThumbs={false}
-          showStatus={false}
+          <Carousel
+            className="npm-Carouselle"
+            showThumbs={false}
+            showStatus={false}
+            showIndicators={false}
+            infiniteLoop={true}
+            autoPlay={true}
+            interval={4000}
           >
             <div className="Carouselle-1">
               <img src="Images/affiche_accueil.png" className="acc-affiche-1" />
@@ -49,9 +35,22 @@ function Home() {
                   Retrouver le top 3 de nos meilleurs joueurs de la semaine !
                 </p>
               </div>
-              <img src="Images/affiche_accueil.png"/>
+              <img src="Images/podium.png" />
             </div>
-            </Carousel>
+            <div className="Carouselle-3">
+              <div className="bloc-mario">
+                <img src="Images/mario.png" className="mario" />
+              </div>
+              <div className="text-contact">
+                <h1>CONTACTEZ - NOUS</h1>
+                <p>
+                  Une idée d'amélioration, de nouveaux jeux à proposer, un
+                  commentaire négatif sur notre personnel super gentil ?
+                  Partagez vos avis dans notre espace de contact.
+                </p>
+              </div>
+            </div>
+          </Carousel>
         </div>
       </div>
       <div className="presentation">

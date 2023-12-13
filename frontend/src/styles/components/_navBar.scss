@@ -1,5 +1,5 @@
 .navBar {
-  width: 100vw;
+  width: 100%;
   padding: var(--spacing);
   background-color: #1d1d1d41;
   border-bottom: 1px solid white;
@@ -8,16 +8,13 @@
     display: flex;
     justify-content: space-between;
 
-    img {
-      width: 10%;
-    }
-
     .nav-pt-1 {
       width: calc(100vw / 3);
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       padding: var(--spacing);
+      flex: 1;
 
       .active {
         color: var(--secondary-color);
@@ -32,12 +29,23 @@
       }
     }
 
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      img {
+        width: 25%;
+      }
+    }
+
     .nav-pt-2 {
       width: calc(100vw / 3);
       display: flex;
       align-items: center;
       gap: 50px;
       justify-content: end;
+      flex: 1;
     }
     p {
       color: white;
