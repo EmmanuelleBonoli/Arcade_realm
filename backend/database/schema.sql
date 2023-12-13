@@ -16,7 +16,7 @@ CREATE TABLE jeu (
   id INT primary key auto_increment NOT NULL,
   name varchar(255) NOT NULL,
   image VARCHAR(255) NOT NULL,
-  regles VARCHAR(250) NOT NULL,
+  regles TEXT NOT NULL,
   actif BOOLEAN NOT NULL,
   physique BOOLEAN NOT NULL,
   date DATE NOT NULL,
