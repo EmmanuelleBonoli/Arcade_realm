@@ -35,7 +35,29 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
+const edit = async (req, res, next) => {
+  // Extract the updated item data from the request body
+  const updatedUtilisateurData = req.body;
+
+  try {
+    // Update the item in the database based on the provided ID
+    const updatedUtilisateur = await tables.utilisateur.update(
+      req.params.id,
+      updatedUtilisateurData
+    );
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the updated item in JSON format
+    if (updatedUtilisateur == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(updatedUtilisateur);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -55,13 +77,29 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  try {
+    // Delete the item from the database based on the provided ID
+    const deletedUtilisateur = await tables.utilisateur.delete(req.params.id);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the deleted item in JSON format
+    if (deletedUtilisateur == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(deletedUtilisateur);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
-  // edit,
+  edit,
   add,
-  // destroy,
+  destroy,
 };
