@@ -43,11 +43,11 @@ function Home() {
                   Retrouver le top 3 de nos meilleurs joueurs de la semaine !
                 </p>
               </div>
-              <img src="Images/podium.png" alt="podium" />
+              <img src="./images/podium.png" alt="podium" />
             </div>
             <div className="Carouselle-3">
               <div className="bloc-mario">
-                <img src="Images/mario.png" className="mario" alt="mario" />
+                <img src="./images/mario.png" className="mario" alt="mario" />
               </div>
               <div className="text-contact">
                 <h1>CONTACTEZ - NOUS</h1>
