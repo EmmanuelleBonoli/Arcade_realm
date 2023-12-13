@@ -16,6 +16,8 @@
     height: 370px;
 
     .form-contact {
+      display: flex;
+      flex-direction: column;
       width: 320px;
       height: 330px;
 
@@ -24,14 +26,42 @@
         align-items: center;
         justify-content: center;
         h1 {
-            color: var( --secondary-color);
+          color: var(--secondary-color);
           font-family: var(--primary-font);
         }
         .pacman {
           transform: rotate(15deg);
-
           width: 40px;
         }
+      }
+
+      .input-container {
+        justify-content: center;
+        border: 1px solid green;
+        width: 300px;
+        height: 200px;
+      }
+      p {
+        font-size: 13px;
+      }
+
+      .btn-contact {
+        color: white;
+        font-family: var( --primary-font);
+        font-weight: bold;
+        border-radius: 3px;
+        background-color: #B45843;
+        border: 1px solid yellow;
+        width: 90px;
+        height: 25px;
+      }
+
+      .adresse {
+        border: 1px solid red;
+      }
+
+      .reseaux-sociaux {
+        border: 1px solid red;
       }
     }
   }
