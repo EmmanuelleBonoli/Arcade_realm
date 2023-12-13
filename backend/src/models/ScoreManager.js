@@ -7,10 +7,10 @@ class ScoreManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create({ utilisateurid, jeuid, points }) {
+  async create({ utilisateur_id: utilisateurId, jeu_id: jeuId, points }) {
     const [result] = await this.database.query(
       `insert into ${this.table} (utilisateur_id, jeu_id, points) values (?,?,?)`,
-      [utilisateurid, jeuid, points]
+      [utilisateurId, jeuId, points]
     );
     return result;
   }
