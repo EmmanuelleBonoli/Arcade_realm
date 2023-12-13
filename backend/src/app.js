@@ -1,11 +1,11 @@
 // Load the express module to create a web application
 
 const express = require("express");
-const path = require('path');
+const path = require("path");
 const cors = require("cors");
 
 const app = express();
-app.use(express.static("./public"))
+app.use(express.static("./public"));
 
 // Configure it
 
