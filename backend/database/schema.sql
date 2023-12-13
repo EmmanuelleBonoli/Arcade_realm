@@ -28,7 +28,7 @@ CREATE TABLE lot (
   id INT PRIMARY KEY auto_increment NOT NULL,
   name VARCHAR(80) NOT NULL,
   image VARCHAR(250) NOT NULL,
-  description VARCHAR(300),
+  description VARCHAR(400),
   utilisateur_id INT,
   disponible BOOLEAN NOT NULL,
   CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id)
@@ -57,20 +57,20 @@ VALUES
 
 INSERT INTO lot (name, image, description, utilisateur_id, disponible)
 VALUES
-("Mug Collector", "/images/lots/InvadersMug.png", "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo", 1, 1)
-("Peluche Pac-Man", "/images/lots/PeluchePacman.png", "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!", 2, 1);
+("Mug Collector", "/images/Lots/InvadersMug.png", "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo", 1, 1),
+("Peluche Pac-Man", "/images/Lots/PeluchePacman.png", "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!", 2, 1);
 
-INSERT INTO jeu (name, image, regles, actif, physique, date, nbborne, description) VALUES 
+INSERT INTO jeu (name, image, regles, actif, physique, date, nb_borne, description) VALUES 
 (
 "Super Smash Bross Ultimate",
-"/images/jeux/Super_Smash_Bros_Ultimate.webp"
+"/images/jeux/Super_Smash_Bros_Ultimate.webp",
 "Contrairement aux jeux de combat plus traditionnels, dans Super Smash Bros. Ultimate vous devez éjecter vos adversaires hors du stage et hors de l'écran. Utilisez toute une panoplie d'attaques pour faire augmenter les dégâts de vos rivaux avant de les envoyer valdinguer hors du stage : plus un combattant accumule de dégâts plus il sera éjecté loin !",
 1,
 1,
 "2018-07-12",
 4,
 "Il s'agit du cinquième épisode de la série Super Smash Bros.. Annoncé lors du Nintendo Direct du 8 mars 2018 , il est sorti mondialement le 7 décembre 2018 exclusivement sur Nintendo Switch."
-)
+),
 (
 "Guitar Hero",
 "/images/jeux/guitare_hero.webp",
