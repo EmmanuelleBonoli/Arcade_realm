@@ -10,7 +10,6 @@ const router = express.Router();
 const evenementControllers = require("./controllers/evenementControllers");
 const jeuxControllers = require("./controllers/jeuxControllers");
 const lotControllers = require("./controllers/lotControllers");
-const lotControllers = require("./controllers/lotControllers");
 const scoreControllers = require("./controllers/scoreControllers");
 const utilisateurControllers = require("./controllers/utilisateurControllers");
 
