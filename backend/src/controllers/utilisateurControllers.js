@@ -5,7 +5,7 @@ const tables = require("../tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const utilisateurs = await tables.utilisateurs.readAll();
+    const utilisateurs = await tables.utilisateur.readAll();
 
     // Respond with the items in JSON format
     res.json(utilisateurs);
