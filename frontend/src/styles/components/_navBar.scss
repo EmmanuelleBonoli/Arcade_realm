@@ -30,7 +30,13 @@
     }
 
     .logo {
-        width: 10%;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      img{
+        width: 25%;
+      }
+       
     }
 
     .nav-pt-2 {
