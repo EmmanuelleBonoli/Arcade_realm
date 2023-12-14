@@ -1,6 +1,5 @@
 .navBar {
   width: 100%;
-  padding: var(--spacing);
   background-color: #1d1d1d41;
   border-bottom: 1px solid white;
 
@@ -30,7 +29,13 @@
     }
 
     .logo {
-      width: 10%;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 1%;
+      img {
+        width: 25%;
+      }
     }
 
     .nav-pt-2 {
@@ -87,18 +92,11 @@
     border-radius: 5px;
   }
 
-  .bm-cross-button {
-    button {
-      // taille de la croix ne fonctionne pas, à creuser ?
-    }
-  }
-
   .bm-cross {
     background: white;
   }
 
   .bm-menu {
-    // background: var(--primary-color);
     background-color: rgba(0, 61, 72, 0.9);
   }
 

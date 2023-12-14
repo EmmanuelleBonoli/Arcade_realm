@@ -1,5 +1,22 @@
 .events {
   display: flex;
   justify-content: center;
-  padding: 1%;
+  flex-direction: column;
+  width: 100%;
+
+h1{
+  font-size: 5rem;
+  width: 100%;
+  font-family: var(--primary-font);
+  color: white;
+  text-align: center;
+  padding: 30px;
 }
+
+.container-affiches{
+  width: 100%;
+display: flex;
+justify-content: space-around;
+padding: 20px;
+
+}}
