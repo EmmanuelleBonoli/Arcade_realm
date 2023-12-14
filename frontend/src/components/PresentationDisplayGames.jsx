@@ -30,7 +30,9 @@ function PresentationDisplayGames() {
         />
         <div className="displayGames">
           {games
-            .filter((search) => search.name.toLowerCase().includes(searchGame))
+            .filter((search) =>
+              search.name.toLowerCase().includes(searchGame.toLowerCase())
+            )
             .map((game) => {
               return (
                 <img
