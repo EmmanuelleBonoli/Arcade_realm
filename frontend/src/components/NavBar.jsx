@@ -12,9 +12,12 @@ function NavBar() {
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
-        </nav>
+       
 
-        <img className="logo" src="./images/logo.png" alt="logo-arcade" />
+        <div className="logo">
+          <img src="./images/logo.png" alt="logo-arcade" />
+        </div>
+
         <nav className="nav-pt-2">
           <p>INSCRIPTION</p>
           <p>CONNEXION</p>
