@@ -9,15 +9,15 @@
   border-radius: 15px;
 
   h2{
-    padding-left: 8%;
+    padding-left: 4%;
   }
   .games{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-     gap: 4vh;
-    padding: 1.5%;
+    gap: 4vh;
+    padding: 3%;
   
     input{
       width: 20vw;
@@ -26,11 +26,11 @@
   .displayGames{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     gap:2vh;
 
     .displayGameImage{
-      width: 12vw;
+  
       height: 20vh;
       // object-fit: contain;
       cursor: pointer;

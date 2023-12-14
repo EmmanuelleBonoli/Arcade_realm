@@ -62,6 +62,166 @@ VALUES
 
 INSERT INTO jeu (name, image, regles, actif, physique, date, nb_borne, description) VALUES 
 (
+"Metal Slug",
+"/images/jeux/mslug.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Super Mario Classic",
+"/images/jeux/mario.png",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Defender",
+"/images/jeux/defender.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Guitar Hero",
+"/images/jeux/guitare_hero.jpg",
+"Contrairement aux jeux musicaux plus traditionnels, dans Guitar Hero, votre objectif est de jouer des morceaux de musique en appuyant sur les boutons correspondants à la guitare. Suivez le rythme de la musique et appuyez sur les bonnes touches pour marquer des points. Plus vous jouez avec précision, plus votre public applaudit et votre performance s'améliore !",
+1,
+1,
+"2005-08-12",
+4,
+"Guitar Hero est une série emblématique de jeux musicaux. Annoncé lors d'un événement spécial, il a été lancé mondialement à la date de sortie. Plongez dans le monde de la musique, défiez vos amis en mode multijoueur, et devenez une rockstar virtuelle !"
+),
+(
+"Time Crisis",
+"/images/jeux/time-crisis-bg.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Sonic Racing",
+"/images/jeux/sonic.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Cars",
+"/images/jeux/Cars_(video_game).jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Batman",
+"/images/jeux/batman_arcade.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Jurassic Parc",
+"/images/jeux/jurassic_shooter.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Racing Hero",
+"/images/jeux/racing_hero.png",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Space Invaders",
+"/images/jeux/space_invaders.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Mortal Kombat",
+"/images/jeux/mortal_kombat.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Final Fight",
+"/images/jeux/final_fight.webp",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Tetris",
+"/images/jeux/tetris.png",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Donkey Kong",
+"/images/jeux/donkey-kong.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Street Fighter II",
+"/images/jeux/street_2.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
 "Super Smash Bross Ultimate",
 "/images/jeux/Super_Smash_Bros_Ultimate.webp",
 "Contrairement aux jeux de combat plus traditionnels, dans Super Smash Bros. Ultimate vous devez éjecter vos adversaires hors du stage et hors de l'écran. Utilisez toute une panoplie d'attaques pour faire augmenter les dégâts de vos rivaux avant de les envoyer valdinguer hors du stage : plus un combattant accumule de dégâts plus il sera éjecté loin !",
@@ -72,15 +232,36 @@ INSERT INTO jeu (name, image, regles, actif, physique, date, nb_borne, descripti
 "Il s'agit du cinquième épisode de la série Super Smash Bros.. Annoncé lors du Nintendo Direct du 8 mars 2018 , il est sorti mondialement le 7 décembre 2018 exclusivement sur Nintendo Switch."
 ),
 (
-"Guitar Hero",
-"/images/jeux/guitare_hero.webp",
-"Contrairement aux jeux musicaux plus traditionnels, dans Guitar Hero, votre objectif est de jouer des morceaux de musique en appuyant sur les boutons correspondants à la guitare. Suivez le rythme de la musique et appuyez sur les bonnes touches pour marquer des points. Plus vous jouez avec précision, plus votre public applaudit et votre performance s'améliore !",
+"Pac Man",
+"/images/jeux/PAC-MAN.webp",
+"blabla regles",
+0,
 1,
+"2018-07-12",
 1,
-"2005-08-12",
-4,
-"Guitar Hero est une série emblématique de jeux musicaux. Annoncé lors d'un événement spécial, il a été lancé mondialement à la date de sortie. Plongez dans le monde de la musique, défiez vos amis en mode multijoueur, et devenez une rockstar virtuelle !"
-);
+"blabla description"
+),
+(
+"Just Dance 2024",
+"/images/jeux/just_dance.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+),
+(
+"Galaga",
+"/images/jeux/galaga.jpg",
+"blabla regles",
+0,
+1,
+"2018-07-12",
+1,
+"blabla description"
+)
+;
 
 
 INSERT INTO evenement (image) VALUES 
