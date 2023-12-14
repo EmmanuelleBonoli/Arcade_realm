@@ -1,7 +1,7 @@
 import Inscription from "../components/Inscription";
 
 function Classement() {
-  return <div></div>;
+  return <div>Classement</div>;
 }
 
 export default Classement;

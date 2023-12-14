@@ -5,16 +5,15 @@ import { slide as Menu } from "react-burger-menu";
 
 function NavBar() {
   return (
-  
     <div className="navBar">
-    {/* <Connexion/>
+      {/* <Connexion/>
     <Inscription/> */}
       <div className="Int-navBar">
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
         </nav>
-        
+
         <img className="logo" src="./images/logo.png" alt="logo-arcade" />
         <nav className="nav-pt-2">
           <p>INSCRIPTION</p>
