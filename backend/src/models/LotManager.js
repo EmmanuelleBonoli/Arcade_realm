@@ -5,10 +5,16 @@ class LotManager extends AbstractManager {
     super({ table: "lot" });
   }
 
-  async create({ name, image, description, utilisateurid, disponible }) {
+  async create({
+    name,
+    image,
+    description,
+    utilisateur_id: utilisateurId,
+    disponible,
+  }) {
     const [result] = await this.database.query(
       `insert into ${this.table} (name, image, description, utilisateur_id, disponible) values (?, ?, ?, ?, ?)`,
-      [name, image, description, utilisateurid, disponible]
+      [name, image, description, utilisateurId, disponible]
     );
 
     return result;
@@ -29,12 +35,18 @@ class LotManager extends AbstractManager {
     return result;
   }
 
-  async update({ id, name, image, description, utilisateurid, disponible }) {
+  async update({
+    id,
+    name,
+    image,
+    description,
+    utilisateur_id: utilisateurId,
+    disponible,
+  }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET name = ?, image = ?, description = ?,  utilisateur_id = ?, disponible= ?, WHERE id = ?`,
-      [name, image, description, utilisateurid, disponible, id]
+      `UPDATE ${this.table} SET name = ?, image = ?, description = ?,  utilisateur_id = ?, disponible= ? WHERE id = ?`,
+      [name, image, description, utilisateurId, disponible, id]
     );
-
     return result;
   }
 
