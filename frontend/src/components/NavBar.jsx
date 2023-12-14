@@ -1,19 +1,26 @@
 import { NavLink } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
+// import Inscription from "./Inscription";
+// import Connexion from "./Connexion";
 
 function NavBar() {
   return (
+  
     <div className="navBar">
+    {/* <Connexion/>
+    <Inscription/> */}
       <div className="Int-navBar">
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
         </nav>
+        
         <img className="logo" src="./images/logo.png" alt="logo-arcade" />
         <nav className="nav-pt-2">
           <p>INSCRIPTION</p>
           <p>CONNEXION</p>
         </nav>
+
         <div className="menuBurger">
           <Menu right width="300px">
             <NavLink to="/" className="menu-item">
