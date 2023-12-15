@@ -53,7 +53,7 @@ class JeuxManager extends AbstractManager {
     description,
   }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET name=?, image=?, regles=?, actif=?, physique=?, date=?, nb_borne=?, description=?, WHERE id=?`,
+      `UPDATE ${this.table} SET name=?, image=?, regles=?, actif=?, physique=?, date=?, nb_borne=?, description=? WHERE id=?`,
       [name, image, regles, actif, physique, date, nbborne, description, id]
     );
     return result;

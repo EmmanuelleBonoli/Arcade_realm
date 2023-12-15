@@ -36,28 +36,26 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  // Extract the updated item data from the request body
-  const updatedScoreData = req.body;
-
+  const { utilisateurid, jeuid, points } = req.body;
+  const updatedScore = {
+    id: req.params.id,
+    utilisateurid,
+    jeuid,
+    points,
+  };
   try {
-    // Update the item in the database based on the provided ID
-    const updatedScore = await tables.score.update(
-      req.params.id,
-      updatedScoreData
-    );
-
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the updated item in JSON format
-    if (updatedScore == null) {
-      res.sendStatus(404);
+    const existingScore = await tables.score.read(req.params.id);
+    if (existingScore == null) {
+      res.status(404).send("Score not found");
     } else {
-      res.json(updatedScore);
+      const result = await tables.score.update(updatedScore);
+      res.status(200).json({ result });
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
+// This operation is not yet implemented
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -76,15 +74,18 @@ const add = async (req, res, next) => {
   }
 };
 
+// The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
   try {
     const result = await tables.score.delete(req.params.id);
-
     res.status(201).send(result);
   } catch (err) {
+    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
+// This operation is not yet implemented
 
 // Ready to export the controller functions
 module.exports = {

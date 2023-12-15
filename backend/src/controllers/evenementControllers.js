@@ -36,25 +36,20 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  // Extract the updated item data from the request body
-  const updatedEvenementData = req.body;
-
+  const { image } = req.body;
+  const updatedEvent = {
+    id: req.params.id,
+    image,
+  };
   try {
-    // Update the item in the database based on the provided ID
-    const updatedEvenement = await tables.evenement.update(
-      req.params.id,
-      updatedEvenementData
-    );
-
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the updated item in JSON format
-    if (updatedEvenement == null) {
-      res.sendStatus(404);
+    const existingEvent = await tables.evenement.read(req.params.id);
+    if (existingEvent == null) {
+      res.status(404).send("Lot not found");
     } else {
-      res.json(updatedEvenement);
+      const result = await tables.evenement.update(updatedEvent);
+      res.status(200).json({ result });
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
@@ -67,7 +62,6 @@ const add = async (req, res, next) => {
   try {
     // Insert the item into the database
     const insertId = await tables.evenement.create(evenement);
-
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });
   } catch (err) {
@@ -79,16 +73,8 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    // Delete the item from the database based on the provided ID
-    const deletedEvenement = await tables.evenement.delete(req.params.id);
-
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the deleted item in JSON format
-    if (deletedEvenement == null) {
-      res.sendStatus(404);
-    } else {
-      res.json(deletedEvenement);
-    }
+    const result = await tables.lot.delete(req.params.id);
+    res.status(201).send(result);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

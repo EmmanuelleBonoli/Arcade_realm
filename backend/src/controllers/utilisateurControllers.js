@@ -35,26 +35,27 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
+// This operation is not yet implemented
 const edit = async (req, res, next) => {
-  // Extract the updated item data from the request body
-  const updatedUtilisateurData = req.body;
-
+  const { pseudo, email, password, image, admin, points } = req.body;
+  const updatedUtilisateur = {
+    id: req.params.id,
+    pseudo,
+    email,
+    password,
+    image,
+    admin,
+    points,
+  };
   try {
-    // Update the item in the database based on the provided ID
-    const updatedUtilisateur = await tables.utilisateur.update(
-      req.params.id,
-      updatedUtilisateurData
-    );
-
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the updated item in JSON format
-    if (updatedUtilisateur == null) {
-      res.sendStatus(404);
+    const existingUtilisateur = await tables.utilisateur.read(req.params.id);
+    if (existingUtilisateur == null) {
+      res.status(404).send("Utilisateur not found");
     } else {
-      res.json(updatedUtilisateur);
+      const result = await tables.utilisateur.update(updatedUtilisateur);
+      res.status(200).json({ result });
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
@@ -76,19 +77,14 @@ const add = async (req, res, next) => {
   }
 };
 
-// The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
   try {
-    // Delete the item from the database based on the provided ID
-    const deletedUtilisateur = await tables.utilisateur.delete(req.params.id);
+    // Insert the item into the database
+    const result = await tables.utilisateur.delete(req.params.id);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the deleted item in JSON format
-    if (deletedUtilisateur == null) {
-      res.sendStatus(404);
-    } else {
-      res.json(deletedUtilisateur);
-    }
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).send(result);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

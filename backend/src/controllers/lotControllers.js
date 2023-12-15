@@ -36,22 +36,24 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  // Extract the updated item data from the request body
-  const updatedLotData = req.body;
-
+  const { name, image, description, utilisateurId, disponible } = req.body;
+  const updatedLot = {
+    id: req.params.id,
+    name,
+    image,
+    description,
+    utilisateurId,
+    disponible,
+  };
   try {
-    // Update the item in the database based on the provided ID
-    const updatedLot = await tables.lot.update(req.params.id, updatedLotData);
-
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the updated item in JSON format
-    if (updatedLot == null) {
-      res.sendStatus(404);
+    const existingLot = await tables.lot.read(req.params.id);
+    if (existingLot == null) {
+      res.status(404).send("Lot not found");
     } else {
-      res.json(updatedLot);
+      const result = await tables.lot.update(updatedLot);
+      res.status(200).json({ result });
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
@@ -64,7 +66,6 @@ const add = async (req, res, next) => {
   try {
     // Insert the item into the database
     const insertId = await tables.lot.create(lot);
-
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });
   } catch (err) {
@@ -75,17 +76,10 @@ const add = async (req, res, next) => {
 
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
   try {
-    // Delete the item from the database based on the provided ID
-    const deletedLot = await tables.lot.delete(req.params.id);
-
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the deleted item in JSON format
-    if (deletedLot == null) {
-      res.sendStatus(404);
-    } else {
-      res.json(deletedLot);
-    }
+    const result = await tables.lot.delete(req.params.id);
+    res.status(201).send(result);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

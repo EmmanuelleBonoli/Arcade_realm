@@ -5,6 +5,35 @@
   width: 100%;
   min-height: 80vh;
   background-color: rgba(0, 0, 0, 0.815);
-  padding: 2%;
+  padding: 2.5%;
   border-radius: 15px;
+
+  h2 {
+    padding-left: 4%;
+  }
+  .games {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+    padding: 3%;
+
+    input {
+      width: 20vw;
+    }
+
+    .displayGames {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2vh;
+
+      .displayGameImage {
+        height: 20vh;
+        // object-fit: contain;
+        cursor: pointer;
+      }
+    }
+  }
 }
