@@ -83,7 +83,6 @@ function Home() {
       <div className="cards">
         <div className="cards-1 card-global">
           <p className="texte-cards">JEUX DU MOMENT</p>
-          <img src="./images/Jeux.png" alt="jeux-du-moment" />
           <img src="./images/jeux_accueil.png" alt="jeux-accueil" />
         </div>
         <Link to="/classementetlots">
