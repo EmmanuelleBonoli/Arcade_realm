@@ -78,18 +78,10 @@ const add = async (req, res, next) => {
 
 const destroy = async (req, res, next) => {
   try {
-    // Delete the item from the database based on the provided ID
-    const deletedScore = await tables.score.delete(req.params.id);
+    const result = await tables.score.delete(req.params.id);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the deleted item in JSON format
-    if (deletedScore == null) {
-      res.sendStatus(404);
-    } else {
-      res.json(deletedScore);
-    }
+    res.status(201).send(result);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
