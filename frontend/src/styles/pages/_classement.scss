@@ -1,0 +1,149 @@
+.parent-container {
+  display: flex;
+  height: 100%;
+  .classement-recompense {
+    height: 100%;
+    border: 1px solid white;
+    width: 70vw;
+    .classement {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 50vh;
+
+      h1 {
+        font-family: "Orbitron";
+        padding: 1vh;
+        color: white;
+        text-align: center;
+        font-size: 35px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+      .podium-img {
+        width: 35%;
+      }
+
+      .top-3 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        align-items: end;
+
+        img {
+          width: 90px;
+          height: 90px;
+        }
+
+        p {
+          color: white;
+          font-family: "Orbitron";
+          font-size: 15px;
+          font-weight: bold;
+          text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .winner1 {
+          padding-bottom: 4%;
+        }
+      }
+    }
+
+    .recompenses {
+      width: 100%;
+      height: 27vh;
+      border-top: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 15px;
+      font-family: "Orbitron";
+      .winners {
+        display: flex;
+        justify-content: space-around;
+        height: 75%;
+
+        .medaille {
+          width: 2.5vw;
+        }
+
+        .container-winner1-3 {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 100%;
+        }
+      }
+
+      h2 {
+        font-family: "Orbitron";
+        color: var(--secondary-color);
+        text-align: center;
+        font-size: 25px;
+        padding: 1vh;
+      }
+
+      .container-winners4-6 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+
+        .winners4-6 {
+          display: flex;
+          align-items: center;
+          color: white;
+          font-family: "Orbitron";
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  .lots {
+    width: 40%;
+    height: 75vh;
+    flex-shrink: 0;
+
+    h2 {
+      font-family: "Orbitron";
+      padding: 1vh;
+      font-size: 34px;
+      color: white;
+      text-align: center;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    img {
+      width: 8vw;
+    }
+    .container-lotswin {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      padding: 4% 0 0 12%;
+
+      .lotswin {
+        display: flex;
+        color: white;
+        font-size: 15px;
+        font-family: "Orbitron";
+        align-items: center;
+      }
+    }
+  }
+
+  .imageLot {
+    width: 3vw;
+  }
+
+  .tickets {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.8rem;
+    font-family: "Orbitron";
+    font-weight: bold;
+  }
+}

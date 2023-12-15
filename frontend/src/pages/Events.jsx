@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 function Events() {
   const [events, setEvents] = useState([]);
 
@@ -22,6 +23,7 @@ function Events() {
             <img
               key={event.id}
               src={`${import.meta.env.VITE_BACKEND_URL}${event.image}`}
+              alt="affiches"
             />
           </div>
         ))}

@@ -85,6 +85,7 @@ const destroy = async (req, res, next) => {
     next(err);
   }
 };
+
 // Ready to export the controller functions
 module.exports = {
   browse,
