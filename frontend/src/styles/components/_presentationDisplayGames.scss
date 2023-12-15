@@ -17,10 +17,19 @@
     justify-content: center;
     align-items: center;
     gap: 4vh;
-    padding: 3%;
+    padding: 2%;
 
     input {
       width: 20vw;
+      border-radius: 10px;
+      border: none;
+      height: 30px;
+      padding: 15px;
+      font-family: var(--primary-font);
+      font-weight: bold;
+      border: 5px solid var(--primary-color);
+      
+
     }
 
     .displayGames {
