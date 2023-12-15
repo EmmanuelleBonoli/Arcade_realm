@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import Inscription from "../components/Inscription";
+// import Inscription from "../components/Inscription";
 
 function Home() {
   return (
@@ -13,14 +13,15 @@ function Home() {
             showThumbs={false}
             showStatus={false}
             showIndicators={false}
-            infiniteLoop={true}
-            autoPlay={true}
+            infiniteLoop
+            autoPlay
             interval={4000}
           >
             <div className="Carouselle-1">
               <img
                 src="./images/affiche_accueil.png"
                 className="acc-affiche-1"
+                alt=""
               />
               <div className="text-evenements">
                 <h1>NOS ÉVÉNEMENTS À VENIR</h1>
@@ -33,6 +34,7 @@ function Home() {
               <img
                 src="./images/affiche_accueil.png"
                 className="acc-affiche-2"
+                alt=""
               />
             </div>
             <div className="Carouselle-2">
@@ -42,11 +44,11 @@ function Home() {
                   Retrouver le top 3 de nos meilleurs joueurs de la semaine !
                 </p>
               </div>
-              <img src="./images/podium.png" />
+              <img src="./images/podium.png" alt="podium" />
             </div>
             <div className="Carouselle-3">
               <div className="bloc-mario">
-                <img src="./images/mario.png" className="mario" />
+                <img src="./images/mario.png" className="mario" alt="mario" />
               </div>
               <div className="text-contact">
                 <h1>CONTACTEZ - NOUS</h1>
@@ -81,21 +83,24 @@ function Home() {
       <div className="cards">
         <div className="cards-1 card-global">
           <p className="texte-cards">JEUX DU MOMENT</p>
-          <img src="./images/jeux_accueil.png" />
+          <img src="./images/Jeux.png" alt="jeux-du-moment" />
+          <img src="./images/jeux_accueil.png" alt="jeux-accueil" />
         </div>
         <Link to="/classementetlots">
           <div className="cards-2 card-global">
             <p className="texte-cards">CLASSEMENT ET LOT</p>
+            <img src="./images/Coupe.png" alt="classement-et-lot" />
+            <img src="./images/SuperNes3.png" alt="super-nes" />
             <div className="Image-lot">
-              <img src="./images/Coupe.png" />
-              <img src="./images/SuperNes3.png" />
+              <img src="./images/Coupe.png" alt="coupe" />
+              <img src="./images/SuperNes3.png" alt="supernes" />
             </div>
           </div>
         </Link>
         <Link to="/evenements">
           <div className="cards-3 card-global">
             <p className="texte-cards">ÉVÈNEMENTS</p>
-            <img src="./images/affiche_accueil.png" />
+            <img src="./images/affiche_accueil.png" alt="evenements" />
           </div>
         </Link>
       </div>
