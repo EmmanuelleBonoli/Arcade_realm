@@ -199,14 +199,18 @@ function Classement() {
       <div className="lots">
         <h2>Lots à gagner</h2>
         <div className="container-lotswin">
-          <div className="tickets">
-            <img
-              className="imageLot"
-              src={`${import.meta.env.VITE_BACKEND_URL}${lots[0].image}`}
-              alt={lots[0].name}
-            />
-            {lots[0].name}
-          </div>
+          {lots[0] ? (
+            <div className="tickets">
+              <img
+                className="imageLot"
+                src={`${import.meta.env.VITE_BACKEND_URL}${lots[0].image}`}
+                alt={lots[0].name}
+              />
+              {lots[0].name}
+            </div>
+          ) : (
+            ""
+          )}
           {lotsFuture.map((lot) => (
             <div key={lot.id} className="lotswin">
               <img
