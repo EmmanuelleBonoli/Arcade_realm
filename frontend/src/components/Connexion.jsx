@@ -7,17 +7,39 @@ export default function Connexion({ onClose }) {
     setMotDePasseVisible(!motDePasseVisible);
   };
 
+  const handleInputClick = (e) => {
+    e.stopPropagation();
+  };
 
-    const handleInputClick = (e) => {
+  const [pseudo, setPseudo] = useState("");
+  const [password, setPassword] = useState("");
 
-      e.stopPropagation();
-    };
-  
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3310/api/utilisateur",
+        {
+          pseudo:pseudo,
+          password: password,
+        }
+      );
+
+      if (response.data.success) {
+        alert("Connexion réussie");
+        // Rediriger ou effectuer d'autres actions après la connexion réussie
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.error("Une erreur s'est produite lors de la connexion", error);
+      alert("Une erreur s'est produite lors de la connexion.");
+    }
+  };
 
   return (
     <>
       <div className="container-connexion" onClick={onClose}>
-        <div className="connexion-form"onClick={(e) => e.stopPropagation()}>
+        <div className="connexion-form" onClick={(e) => e.stopPropagation()}>
           <div className="header-container">
             <h1>Connexion</h1>
             <img
@@ -28,13 +50,22 @@ export default function Connexion({ onClose }) {
           </div>
           <div className="login-container">
             <p>Entrez votre pseudo</p>
-            <input type="text" className="pseudo" onClick={handleInputClick} />
+            <input
+              type="text"
+              className="pseudo"
+              onClick={handleInputClick}
+              value={pseudo}
+              onChange={(e) => setPseudo(e.target.value)}
+            />
 
             <p>Entrez votre mot de passe</p>
             <div className="mdp-container">
               <input
                 type={motDePasseVisible ? "text" : "password"}
-                className="motdepasse" onClick={handleInputClick}
+                className="motdepasse"
+                value={password}
+                onClick={handleInputClick}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <img
                 src={
@@ -47,7 +78,11 @@ export default function Connexion({ onClose }) {
                 onClick={toggleMotDePasseVisibility}
               />
             </div>
-            <button type="submit" className="btn-inscription">
+            <button
+              onClick={handleLogin}
+              type="submit"
+              className="btn-inscription"
+            >
               Se connecter
             </button>
           </div>
