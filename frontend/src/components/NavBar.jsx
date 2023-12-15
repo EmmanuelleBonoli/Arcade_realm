@@ -1,21 +1,41 @@
 import { NavLink } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
+import { useState } from "react";
+import Inscription from "./Inscription";
+import Connexion from "./Connexion";
 
 function NavBar() {
+  const [connexionModal, setConnexionModal] = useState(false);
+  const [inscriptionModal, setInscriptionModal] = useState(false);
+
+  const openConnexionModal = () => {
+    setConnexionModal(true);
+  };
+
+  const openInscriptionModal = () => {
+    setInscriptionModal(true);
+  };
+
   return (
     <div className="navBar">
+      {/* <Inscription/>  */}
       <div className="Int-navBar">
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
-        </nav>
+       </nav>
+
         <div className="logo">
           <img src="./images/logo.png" alt="logo-arcade" />
         </div>
+
         <nav className="nav-pt-2">
-          <p>INSCRIPTION</p>
-          <p>CONNEXION</p>
+          <p onClick={openInscriptionModal}>INSCRIPTION</p>
+          <p onClick={openConnexionModal}>CONNEXION</p>
+          {inscriptionModal && <Inscription />}
+          {connexionModal && <Connexion />}
         </nav>
+
         <div className="menuBurger">
           <Menu right width="300px">
             <NavLink to="/" className="menu-item">

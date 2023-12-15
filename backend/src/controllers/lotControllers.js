@@ -35,7 +35,28 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
+const edit = async (req, res, next) => {
+  const { name, image, description, utilisateurId, disponible } = req.body;
+  const updatedLot = {
+    id: req.params.id,
+    name,
+    image,
+    description,
+    utilisateurId,
+    disponible,
+  };
+  try {
+    const existingLot = await tables.lot.read(req.params.id);
+    if (existingLot == null) {
+      res.status(404).send("Lot not found");
+    } else {
+      const result = await tables.lot.update(updatedLot);
+      res.status(200).json({ result });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -45,7 +66,6 @@ const add = async (req, res, next) => {
   try {
     // Insert the item into the database
     const insertId = await tables.lot.create(lot);
-
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });
   } catch (err) {
@@ -55,13 +75,21 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
-
+const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
+  try {
+    const result = await tables.lot.delete(req.params.id);
+    res.status(201).send(result);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
-  // edit,
+  edit,
   add,
-  // destroy,
+  destroy,
 };

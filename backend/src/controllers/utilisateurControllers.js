@@ -61,11 +61,28 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 // This operation is not yet implemented
 
+const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
+  try {
+    // Insert the item into the database
+    const result = await tables.utilisateur.delete(req.params.id);
+
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).send(result);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
   // edit,
   add,
-  // destroy,
+
+  destroy,
+
+
 };
