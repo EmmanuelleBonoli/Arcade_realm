@@ -36,13 +36,12 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  const { utilisateurid, jeuid, points, id } = req.body;
+  const { utilisateurid, jeuid, points } = req.body;
   const updatedScore = {
     id: req.params.id,
-    utilisateurid, 
-    jeuid, 
-    points, 
-    id
+    utilisateurid,
+    jeuid,
+    points,
   };
   try {
     const existingScore = await tables.score.read(req.params.id);

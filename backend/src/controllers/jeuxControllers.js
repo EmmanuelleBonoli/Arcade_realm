@@ -36,17 +36,18 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  const { name, image, regles, actif, physique, date, nbborne, description } = req.body;
+  const { name, image, regles, actif, physique, date, nbborne, description } =
+    req.body;
   const updatedJeu = {
     id: req.params.id,
-    name, 
-    image, 
-    regles, 
-    actif, 
-    physique, 
-    date, 
-    nbborne, 
-    description
+    name,
+    image,
+    regles,
+    actif,
+    physique,
+    date,
+    nbborne,
+    description,
   };
   try {
     const existingJeu = await tables.jeu.read(req.params.id);
@@ -60,8 +61,6 @@ const edit = async (req, res, next) => {
     next(err);
   }
 };
-
-
 
 // This operation is not yet implemented
 
@@ -101,5 +100,5 @@ module.exports = {
   read,
   edit,
   add,
- destroy,
+  destroy,
 };
