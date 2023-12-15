@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 
 function Contact() {
+ 
   return (
     <div>
       <div className="container">
@@ -37,9 +38,7 @@ function Contact() {
             <div className="container-adresse">
               <div className="adresse">
                 <Link
-                  to={
-                    "https://www.google.com/maps/place/4+Rue+Baron,+44000+Nantes/data=!4m2!3m1!1s0x4805eeb04e035b03:0xfe166fb643fd3846?sa=X&ved=2ahUKEwi4wozOz4-DAxVDVqQEHTGkDJIQ8gF6BAgREAA"
-                  }
+                  to="https://www.google.com/maps/place/4+Rue+Baron,+44000+Nantes/data=!4m2!3m1!1s0x4805eeb04e035b03:0xfe166fb643fd3846?sa=X&ved=2ahUKEwi4wozOz4-DAxVDVqQEHTGkDJIQ8gF6BAgREAA"
                   target="_blank"
                 >
                   <img
@@ -59,7 +58,7 @@ function Contact() {
                 </p>
                 <div className="img-reseaux">
                   <Link
-                    to={"https://www.facebook.com/?locale=fr_FR"}
+                    to="https://www.facebook.com/?locale=fr_FR"
                     target="_blank"
                   >
                     <img
@@ -69,7 +68,7 @@ function Contact() {
                     />
                   </Link>
 
-                  <Link to={"https://www.instagram.com/"} target="_blank">
+                  <Link to="https://www.instagram.com/" target="_blank">
                     <img
                       src="/images/Contact/instagram.png"
                       alt="instagram"
@@ -85,5 +84,6 @@ function Contact() {
     </div>
   );
 }
+
 
 export default Contact;

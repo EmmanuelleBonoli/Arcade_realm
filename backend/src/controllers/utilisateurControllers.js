@@ -77,9 +77,6 @@ const add = async (req, res, next) => {
   }
 };
 
-// The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
-
 const destroy = async (req, res, next) => {
   // Extract the item data from the request body
   try {
@@ -100,6 +97,5 @@ module.exports = {
   read,
   edit,
   add,
-
   destroy,
 };
