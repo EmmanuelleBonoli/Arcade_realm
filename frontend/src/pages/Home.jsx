@@ -5,9 +5,7 @@ import Inscription from "../components/Inscription";
 
 function Home() {
   return (
-    
     <div className="HomePage">
-     
       <div className="Carouselle">
         <div className="Int-carouselle">
           <Carousel
