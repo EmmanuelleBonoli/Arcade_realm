@@ -16,9 +16,16 @@ function NavBar() {
     setInscriptionModal(true);
   };
 
+    const closeInscriptionModal = () => {
+    setInscriptionModal(false);
+  };
+
+const closeConnexionModal = () =>{
+  setConnexionModal(false);
+}
+
   return (
     <div className="navBar">
-      {/* <Inscription/>  */}
       <div className="Int-navBar">
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>
@@ -32,9 +39,9 @@ function NavBar() {
         <nav className="nav-pt-2">
           <p onClick={openInscriptionModal}>INSCRIPTION</p>
           <p onClick={openConnexionModal}>CONNEXION</p>
-          {inscriptionModal && <Inscription />}
-          {connexionModal && <Connexion />}
         </nav>
+        {inscriptionModal && <Inscription onClose={closeInscriptionModal} />}
+          {connexionModal && <Connexion onClose={closeConnexionModal} />}
 
         <div className="menuBurger">
           <Menu right width="300px">

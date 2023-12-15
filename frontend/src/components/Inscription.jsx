@@ -1,7 +1,12 @@
-export default function Inscription() {
+import React, {useState} from "react";
+
+
+export default function Inscription({ onClose }) {
+
+
   return (
     <>
-      <div className="container-inscription">
+      <div className="container-inscription" onClick={onClose}>
         <div className="inscription-form">
           <div className="header-container">
             <h1>Inscription</h1>
@@ -12,6 +17,7 @@ export default function Inscription() {
             />
           </div>
           <div className="login-container">
+
             <p>Choisissez votre pseudo</p>
             <input type="text" className="pseudo" />
 
