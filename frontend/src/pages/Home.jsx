@@ -83,14 +83,11 @@ function Home() {
       <div className="cards">
         <div className="cards-1 card-global">
           <p className="texte-cards">JEUX DU MOMENT</p>
-          <img src="./images/Jeux.png" alt="jeux-du-moment" />
           <img src="./images/jeux_accueil.png" alt="jeux-accueil" />
         </div>
         <Link to="/classementetlots">
           <div className="cards-2 card-global">
             <p className="texte-cards">CLASSEMENT ET LOT</p>
-            <img src="./images/Coupe.png" alt="classement-et-lot" />
-            <img src="./images/SuperNes3.png" alt="super-nes" />
             <div className="Image-lot">
               <img src="./images/Coupe.png" alt="coupe" />
               <img src="./images/SuperNes3.png" alt="supernes" />

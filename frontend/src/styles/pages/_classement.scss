@@ -99,36 +99,36 @@
       }
     }
   }
-}
 
-.lots {
-  width: 40%;
-  height: 75vh;
-  flex-shrink: 0;
+  .lots {
+    width: 40%;
+    height: 75vh;
+    flex-shrink: 0;
 
-  h2 {
-    font-family: "Orbitron";
-    padding: 1vh;
-    font-size: 34px;
-    color: white;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  img {
-    width: 8vw;
-  }
-  .container-lotswin {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    padding: 4% 0 0 12%;
-
-    .lotswin {
-      display: flex;
-      color: white;
-      font-size: 15px;
+    h2 {
       font-family: "Orbitron";
-      align-items: center;
+      padding: 1vh;
+      font-size: 34px;
+      color: white;
+      text-align: center;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    img {
+      width: 8vw;
+    }
+    .container-lotswin {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      padding: 4% 0 0 12%;
+
+      .lotswin {
+        display: flex;
+        color: white;
+        font-size: 15px;
+        font-family: "Orbitron";
+        align-items: center;
+      }
     }
   }
 }
