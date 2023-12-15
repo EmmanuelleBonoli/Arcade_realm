@@ -38,7 +38,7 @@ function Contact() {
                 <Link
                   to={
                     "https://www.google.com/maps/place/4+Rue+Baron,+44000+Nantes/data=!4m2!3m1!1s0x4805eeb04e035b03:0xfe166fb643fd3846?sa=X&ved=2ahUKEwi4wozOz4-DAxVDVqQEHTGkDJIQ8gF6BAgREAA"
-                  }
+                  } target="_blank"
                 >
                   <img
                     src="./images/Contact/map.png"
@@ -56,7 +56,7 @@ function Contact() {
                   <strong>Nos réseaux :</strong>
                 </p>
                 <div className="img-reseaux">
-                  <Link to={"https://www.facebook.com/?locale=fr_FR"}>
+                  <Link to={"https://www.facebook.com/?locale=fr_FR"} target="_blank">
                     <img
                       src="/images/Contact/facebook.png"
                       alt="facebook"
@@ -64,7 +64,7 @@ function Contact() {
                     />
                   </Link>
 
-                  <Link to={"https://www.instagram.com/"}>
+                  <Link to={"https://www.instagram.com/"} target="_blank">
                     <img
                       src="/images/Contact/instagram.png"
                       alt="instagram"
