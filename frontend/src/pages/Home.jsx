@@ -80,13 +80,15 @@ function Home() {
       <div className="cards">
         <div className="cards-1 card-global">
           <p className="texte-cards">JEUX DU MOMENT</p>
-          <img src="./images/Jeux.png" />
+          <img src="./images/jeux_accueil.png" />
         </div>
         <Link to="/classementetlots">
           <div className="cards-2 card-global">
             <p className="texte-cards">CLASSEMENT ET LOT</p>
-            <img src="./images/Coupe.png" />
-            <img src="./images/SuperNes3.png" />
+            <div className="Image-lot">
+              <img src="./images/Coupe.png" />
+              <img src="./images/SuperNes3.png" />
+            </div>
           </div>
         </Link>
         <Link to="/evenements">

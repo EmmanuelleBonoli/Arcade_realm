@@ -172,6 +172,7 @@
     a {
       display: flex;
       color: white;
+      text-decoration: none;
     }
 
     .card-global {
@@ -180,11 +181,11 @@
       background-color: #000000cb;
       border: 1px solid white;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
 
       p {
-        position: absolute;
-        top: 0;
-        left: 0;
+
         background-color: black;
         width: 100%;
         padding: var(--spacing);
@@ -195,18 +196,31 @@
 
     .cards-1 {
       display: flex;
-    }
+      align-items: center;
+
+      img{
+        width: 100%;
+      }}
 
     .cards-2 {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-
+  
+      .Image-lot{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        height: 100%;
+        img:nth-child(1){
+          width: 70%;
+        }
       img {
         width: 50%;
       }
-    }
+    }}
     .cards-3 {
       display: flex;
       align-items: end;
@@ -214,3 +228,14 @@
   }
 }
 
+
+
+::-webkit-scrollbar {
+  width: 8px; /* Largeur de la barre de défilement */
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #003d48b4; /* Couleur de la poignée de la barre de défilement */
+  border-radius: 5px; /* Coins arrondis de la poignée */
+}
