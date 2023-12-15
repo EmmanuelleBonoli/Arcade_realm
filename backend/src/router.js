@@ -36,16 +36,16 @@ router.post("/utilisateur", utilisateurControllers.add);
 
 // Route to modify an item
 router.put("/evenement/:id", evenementControllers.edit);
-// router.put("/jeu/:id", jeuxControllers.update);
-// router.put("/score/:id", scoreControllers.update);
+router.put("/jeu/:id", jeuxControllers.edit);
+router.put("/score/:id", scoreControllers.edit);
 router.put("/lot/:id", lotControllers.edit);
 router.put("/utilisateur/:id", utilisateurControllers.edit);
 
 
 // Route to delete an item
 router.delete("/evenement/:id", evenementControllers.destroy);
-// router.delete("/jeu/:id", jeuxControllers.delete);
-// router.delete("/score/:id", scoreControllers.delete);
+router.delete("/jeu/:id", jeuxControllers.destroy);
+router.delete("/score/:id", scoreControllers.destroy);
 router.delete("/lot/:id", lotControllers.destroy);
 router.delete("/utilisateur/:id", utilisateurControllers.destroy);
 
