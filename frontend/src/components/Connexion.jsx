@@ -23,7 +23,7 @@ export default function Connexion({ onClose }) {
             <p>Entrez votre pseudo</p>
             <input type="text" className="pseudo" />
 
-            <p xlass>Entrez votre mot de passe</p>
+            <p>Entrez votre mot de passe</p>
             <div className="mdp-container">
               <input
                 type={motDePasseVisible ? "text" : "password"}
