@@ -46,7 +46,7 @@ const edit = async (req, res, next) => {
     if (existingEvent == null) {
       res.status(404).send("Lot not found");
     } else {
-      const result = await tables.lot.update(updatedEvent);
+      const result = await tables.evenement.update(updatedEvent);
       res.status(200).json({ result });
     }
   } catch (err) {
