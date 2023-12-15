@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Connexion( { onClose } ) {
+export default function Connexion({ onClose }) {
   const [motDePasseVisible, setMotDePasseVisible] = useState(false);
 
   const toggleMotDePasseVisibility = () => {

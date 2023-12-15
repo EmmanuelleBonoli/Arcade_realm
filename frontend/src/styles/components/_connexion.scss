@@ -49,7 +49,7 @@
     font-family: var(--secondary-font);
     font-size: 18px;
     color: #ffffff;
-text-align: center;
+    text-align: center;
   }
 
   input {
@@ -67,19 +67,17 @@ text-align: center;
     width: 15vw;
     height: 45px;
   }
-.mdp-container {
-  position: relative;
-      display: flex;
-      align-items: center;
-  .mdp {
-    width: 25px;
-    position: absolute;
-    right: 10px; // Ajuste la position de l'icône
-    cursor: pointer;
-    
-    
+  .mdp-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    .mdp {
+      width: 25px;
+      position: absolute;
+      right: 10px; // Ajuste la position de l'icône
+      cursor: pointer;
+    }
   }
-}
   .btn-inscription {
     cursor: pointer;
     font-family: var(--primary-font);

@@ -52,7 +52,7 @@
         }
 
         .message {
-          padding : 5px;
+          padding: 5px;
           font-size: 2rem;
           border-radius: 5px;
           border: none;
@@ -73,25 +73,25 @@
         }
       }
 
-      .button-contact{
+      .button-contact {
         width: 100%;
         padding-top: 10px;
         display: flex;
         justify-content: end;
-        
-      .btn-contact {
-        cursor: pointer;
-        width: 30%;
-        font-size: 1.8rem;
-        color: white;
-        font-family: var(--primary-font);
-        font-weight: bold;
-        border-radius: 3px;
-        background-color: #b45843;
-        border: none;
-        padding: 10px;
+
+        .btn-contact {
+          cursor: pointer;
+          width: 30%;
+          font-size: 1.8rem;
+          color: white;
+          font-family: var(--primary-font);
+          font-weight: bold;
+          border-radius: 3px;
+          background-color: #b45843;
+          border: none;
+          padding: 10px;
+        }
       }
-    }
       .container-adresse {
         display: flex;
         align-items: start;
@@ -124,20 +124,20 @@
             padding: 2%;
             font-size: 1.8rem;
           }
-          .img-reseaux{
+          .img-reseaux {
             width: 100%;
             padding: 5px;
             display: flex;
             justify-content: end;
             gap: 20px;
 
-          .facebook,
-          .instagram {
-            cursor: pointer;
-            margin-left: 10%;
-            width: 45px;
+            .facebook,
+            .instagram {
+              cursor: pointer;
+              margin-left: 10%;
+              width: 45px;
+            }
           }
-        }
         }
       }
     }

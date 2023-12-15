@@ -16,13 +16,13 @@ function NavBar() {
     setInscriptionModal(true);
   };
 
-    const closeInscriptionModal = () => {
+  const closeInscriptionModal = () => {
     setInscriptionModal(false);
   };
 
-const closeConnexionModal = () =>{
-  setConnexionModal(false);
-}
+  const closeConnexionModal = () => {
+    setConnexionModal(false);
+  };
 
   return (
     <div className="navBar">
@@ -30,7 +30,7 @@ const closeConnexionModal = () =>{
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
-       </nav>
+        </nav>
 
         <div className="logo">
           <img src="./images/logo.png" alt="logo-arcade" />
@@ -41,7 +41,7 @@ const closeConnexionModal = () =>{
           <p onClick={openConnexionModal}>CONNEXION</p>
         </nav>
         {inscriptionModal && <Inscription onClose={closeInscriptionModal} />}
-          {connexionModal && <Connexion onClose={closeConnexionModal} />}
+        {connexionModal && <Connexion onClose={closeConnexionModal} />}
 
         <div className="menuBurger">
           <Menu right width="300px">
