@@ -46,15 +46,16 @@
       gap: 5%;
       justify-content: end;
       flex: 1;
-    }
-    p {
-      color: white;
-      font-family: var(--primary-font);
-      font-size: 1.8rem;
-      padding: var(--spacing);
-      padding-right: 60px;
-      font-weight: 400;
-      cursor: pointer;
+
+      p {
+        color: white;
+        font-family: var(--primary-font);
+        font-size: 1.8rem;
+        padding: var(--spacing);
+        padding-right: 60px;
+        font-weight: 400;
+        cursor: pointer;
+      }
     }
   }
   .menuBurger {

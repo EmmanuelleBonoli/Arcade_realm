@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Connexion() {
+export default function Connexion({ onClose }) {
   const [motDePasseVisible, setMotDePasseVisible] = useState(false);
 
   const toggleMotDePasseVisibility = () => {
@@ -9,7 +9,7 @@ export default function Connexion() {
 
   return (
     <>
-      <div className="container-connexion">
+      <div className="container-connexion" onClick={onClose}>
         <div className="connexion-form">
           <div className="header-container">
             <h1>Connexion</h1>
