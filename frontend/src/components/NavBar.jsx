@@ -26,6 +26,7 @@ function NavBar() {
 
   return (
     <div className="navBar">
+    
       <div className="Int-navBar">
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>

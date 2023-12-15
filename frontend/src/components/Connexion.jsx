@@ -7,10 +7,17 @@ export default function Connexion({ onClose }) {
     setMotDePasseVisible(!motDePasseVisible);
   };
 
+
+    const handleInputClick = (e) => {
+
+      e.stopPropagation();
+    };
+  
+
   return (
     <>
       <div className="container-connexion" onClick={onClose}>
-        <div className="connexion-form">
+        <div className="connexion-form"onClick={(e) => e.stopPropagation()}>
           <div className="header-container">
             <h1>Connexion</h1>
             <img
@@ -21,13 +28,13 @@ export default function Connexion({ onClose }) {
           </div>
           <div className="login-container">
             <p>Entrez votre pseudo</p>
-            <input type="text" className="pseudo" />
+            <input type="text" className="pseudo" onClick={handleInputClick} />
 
             <p>Entrez votre mot de passe</p>
             <div className="mdp-container">
               <input
                 type={motDePasseVisible ? "text" : "password"}
-                className="motdepasse"
+                className="motdepasse" onClick={handleInputClick}
               />
               <img
                 src={

@@ -39,7 +39,7 @@ router.put("/evenement/:id", evenementControllers.edit);
 router.put("/jeu/:id", jeuxControllers.edit);
 router.put("/score/:id", scoreControllers.edit);
 router.put("/lot/:id", lotControllers.edit);
-// router.put("/utilisateur/:id", utilisateurControllers.update);
+router.put("/utilisateur/:id", utilisateurControllers.edit);
 
 
 // Route to delete an item
