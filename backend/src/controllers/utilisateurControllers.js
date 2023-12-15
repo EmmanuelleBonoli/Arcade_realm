@@ -37,6 +37,10 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 
+
+
+
+
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the item data from the request body
@@ -77,5 +81,8 @@ module.exports = {
   read,
   // edit,
   add,
+
   destroy,
+
+
 };

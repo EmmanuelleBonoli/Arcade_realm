@@ -28,7 +28,7 @@
         h1 {
           color: var(--secondary-color);
           font-family: var(--primary-font);
-          font-size: 35px;
+          font-size: 3.5rem;
         }
         .pacman {
           transform: rotate(15deg);
@@ -42,8 +42,8 @@
 
         .name,
         .email {
-          padding-left: 3%;
-          font-size: 20px;
+          padding: 5px;
+          font-size: 2rem;
           border-radius: 5px;
           border: none;
           background-color: rgba(255, 255, 255, 0.79);
@@ -52,8 +52,8 @@
         }
 
         .message {
-          padding-left: 3%;
-          font-size: 20px;
+          padding : 5px;
+          font-size: 2rem;
           border-radius: 5px;
           border: none;
           background-color: rgba(255, 255, 255, 0.79);
@@ -62,40 +62,47 @@
         }
 
         textarea::placeholder {
-          padding: 2%;
           font-style: italic;
           font-family: var(--secondary-font);
         }
         p {
           font-family: var(--secondary-font);
-          margin: 2%;
-          font-size: 23px;
+          padding-top: 2%;
+          padding-bottom: 2%;
+          font-size: 2.3rem;
         }
       }
+
+      .button-contact{
+        width: 100%;
+        padding-top: 10px;
+        display: flex;
+        justify-content: end;
+        
       .btn-contact {
         cursor: pointer;
-        margin-top: 5%;
-        margin-left: 17vw;
-        font-size: 18px;
+        width: 30%;
+        font-size: 1.8rem;
         color: white;
         font-family: var(--primary-font);
         font-weight: bold;
         border-radius: 3px;
         background-color: #b45843;
         border: none;
-        width: 7vw;
-        height: 4vh;
+        padding: 10px;
       }
-
+    }
       .container-adresse {
         display: flex;
-        align-items: center;
+        align-items: start;
         justify-content: center;
-        justify-content: space-between;
-        padding-top: 1vw;
+        padding-top: 10px;
 
         .adresse {
           display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 50%;
 
           .map {
             cursor: pointer;
@@ -103,17 +110,26 @@
             height: 50px;
           }
           p {
-            font-size: 18px;
+            font-size: 1.8rem;
+            padding: 5px;
           }
         }
 
         .reseaux-sociaux {
-          justify-content: space-between;
-          width: 7vw;
+          display: flex;
+          flex-direction: column;
+          align-items: end;
+          width: 50%;
           p {
             padding: 2%;
-            font-size: 18px;
+            font-size: 1.8rem;
           }
+          .img-reseaux{
+            width: 100%;
+            padding: 5px;
+            display: flex;
+            justify-content: end;
+            gap: 20px;
 
           .facebook,
           .instagram {
@@ -121,6 +137,7 @@
             margin-left: 10%;
             width: 45px;
           }
+        }
         }
       }
     }
