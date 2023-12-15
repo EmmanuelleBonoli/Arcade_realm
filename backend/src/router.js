@@ -41,12 +41,14 @@ router.put("/evenement/:id", evenementControllers.edit);
 router.put("/lot/:id", lotControllers.edit);
 // router.put("/utilisateur/:id", utilisateurControllers.update);
 
+
 // Route to delete an item
 router.delete("/evenement/:id", evenementControllers.destroy);
 // router.delete("/jeu/:id", jeuxControllers.delete);
 // router.delete("/score/:id", scoreControllers.delete);
 router.delete("/lot/:id", lotControllers.destroy);
-// router.delete("/utilisateur/:id", utilisateurControllers.delete);
+router.delete("/utilisateur/:id", utilisateurControllers.destroy);
+
 
 /* ************************************************************************* */
 
