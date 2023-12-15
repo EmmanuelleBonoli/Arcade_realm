@@ -18,7 +18,7 @@ function NavBar() {
 
   return (
     <div className="navBar">
-      {/* <Inscription/>  */}
+    
       <div className="Int-navBar">
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>
