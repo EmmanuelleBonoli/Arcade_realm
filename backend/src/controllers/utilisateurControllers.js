@@ -36,10 +36,29 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
-
-
-
-
+const edit = async (req, res, next) => {
+  const { pseudo, email, password, image, admin, points } = req.body;
+  const updatedUtilisateur = {
+    id: req.params.id,
+    pseudo,
+    email,
+    password,
+    image,
+    admin,
+    points,
+  };
+  try {
+    const existingUtilisateur = await tables.utilisateur.read(req.params.id);
+    if (existingUtilisateur == null) {
+      res.status(404).send("Utilisateur not found");
+    } else {
+      const result = await tables.utilisateur.update(updatedUtilisateur);
+      res.status(200).json({ result });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -79,10 +98,8 @@ const destroy = async (req, res, next) => {
 module.exports = {
   browse,
   read,
-  // edit,
+  edit,
   add,
 
   destroy,
-
-
 };
