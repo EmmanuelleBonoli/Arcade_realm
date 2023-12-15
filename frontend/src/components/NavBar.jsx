@@ -26,7 +26,6 @@ function NavBar() {
 
   return (
     <div className="navBar">
-    
       <div className="Int-navBar">
         <nav className="nav-pt-1">
           <NavLink to="/">HOME</NavLink>
@@ -38,8 +37,12 @@ function NavBar() {
         </div>
 
         <nav className="nav-pt-2">
-          <p onClick={openInscriptionModal}>INSCRIPTION</p>
-          <p onClick={openConnexionModal}>CONNEXION</p>
+          <p onClick={openInscriptionModal} role="presentation">
+            INSCRIPTION
+          </p>
+          <p onClick={openConnexionModal} role="presentation">
+            CONNEXION
+          </p>
         </nav>
         {inscriptionModal && <Inscription onClose={closeInscriptionModal} />}
         {connexionModal && <Connexion onClose={closeConnexionModal} />}
