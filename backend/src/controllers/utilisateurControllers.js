@@ -77,5 +77,8 @@ module.exports = {
   read,
   // edit,
   add,
+
   destroy,
+
+
 };
