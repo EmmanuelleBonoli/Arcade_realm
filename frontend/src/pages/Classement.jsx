@@ -3,13 +3,20 @@ import axios from "axios";
 
 function Classement() {
   const [lots, setLots] = useState([]);
+  const [lotsFuture, setLotsFuture] = useState([]);
   const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const copylots = [...lots];
+    const newlotsFuture = copylots.splice(4, 3);
+    setLotsFuture(newlotsFuture);
+  }, [lots]);
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/lot`)
       .then((response) => {
-        const sortedLots = response.data.slice(0, 4);
+        const sortedLots = response.data.slice(0, 7);
         setLots(sortedLots);
       })
       .catch((error) => {
@@ -97,6 +104,13 @@ function Classement() {
                       {users[0].pseudo}
                       {" - "}
                       {lots[1].name}
+                      <img
+                        className="imageLot"
+                        src={`${import.meta.env.VITE_BACKEND_URL}${
+                          lots[1].image
+                        }`}
+                        alt={lots[1].name}
+                      />
                     </div>
                     <div>
                       <img
@@ -107,6 +121,13 @@ function Classement() {
                       {users[1].pseudo}
                       {" - "}
                       {lots[2].name}
+                      <img
+                        className="imageLot"
+                        src={`${import.meta.env.VITE_BACKEND_URL}${
+                          lots[2].image
+                        }`}
+                        alt={lots[2].name}
+                      />
                     </div>
                     <div>
                       <img
@@ -117,6 +138,13 @@ function Classement() {
                       {users[2].pseudo}
                       {" - "}
                       {lots[3].name}
+                      <img
+                        className="imageLot"
+                        src={`${import.meta.env.VITE_BACKEND_URL}${
+                          lots[3].image
+                        }`}
+                        alt={lots[3].name}
+                      />
                     </div>
                   </>
                 )}
@@ -128,16 +156,37 @@ function Classement() {
                     {users[3].pseudo}
                     {" - "}
                     {lots[0].name}
+                    <img
+                      className="imageLot"
+                      src={`${import.meta.env.VITE_BACKEND_URL}${
+                        lots[0].image
+                      }`}
+                      alt={lots[0].name}
+                    />
                   </div>
                   <div className="winners4-6">
                     {users[4].pseudo}
                     {" - "}
                     {lots[0].name}
+                    <img
+                      className="imageLot"
+                      src={`${import.meta.env.VITE_BACKEND_URL}${
+                        lots[0].image
+                      }`}
+                      alt={lots[0].name}
+                    />
                   </div>
                   <div className="winners4-6">
                     {users[5].pseudo}
                     {" - "}
                     {lots[0].name}
+                    <img
+                      className="imageLot"
+                      src={`${import.meta.env.VITE_BACKEND_URL}${
+                        lots[0].image
+                      }`}
+                      alt={lots[0].name}
+                    />
                   </div>
                 </>
               ) : (
@@ -150,7 +199,19 @@ function Classement() {
       <div className="lots">
         <h2>Lots à gagner</h2>
         <div className="container-lotswin">
-          {lots.map((lot) => (
+          {lots[0] ? (
+            <div className="tickets">
+              <img
+                className="imageLot"
+                src={`${import.meta.env.VITE_BACKEND_URL}${lots[0].image}`}
+                alt={lots[0].name}
+              />
+              {lots[0].name}
+            </div>
+          ) : (
+            ""
+          )}
+          {lotsFuture.map((lot) => (
             <div key={lot.id} className="lotswin">
               <img
                 src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
