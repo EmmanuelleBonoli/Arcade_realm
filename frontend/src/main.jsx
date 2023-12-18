@@ -10,7 +10,7 @@ import Presentation from "./pages/Presentation";
 import PresentationGame from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
-
+import ProfileAdmin from "./pages/ProfileAdmin";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,13 +42,16 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: "/profiladmin",
+        element: <ProfileAdmin />,
+      },
+      {
         path: "/profilutilisateur",
         element: <Profile />,
       },
     ],
   },
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
