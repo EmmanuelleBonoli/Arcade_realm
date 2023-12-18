@@ -1,3 +1,5 @@
+import DonneesPerso from "../components/DonneesPerso"
+
 function ProfileAdmin() {
     return (
       <div className="profileAdmin">
@@ -6,6 +8,7 @@ function ProfileAdmin() {
             <button type="button" className="">
               Données Personnelles
             </button>
+           
             <button type="button" className="">
               Gestion des services
             </button>
@@ -13,7 +16,9 @@ function ProfileAdmin() {
               Gestion des profils
             </button>
           </div>
-          <div className="displayChoice" />
+          <div className="displayChoice">
+          <DonneesPerso />
+          </div>
         </div>
       </div>
     );
