@@ -12,31 +12,6 @@ export default function Connexion({ onClose }) {
     e.stopPropagation();
   };
 
-  const [pseudo, setPseudo] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:3310/api/utilisateur",
-        {
-          pseudo:pseudo,
-          password: password,
-        }
-      );
-
-      if (response.data.success) {
-        alert("Connexion réussie");
-        // Rediriger ou effectuer d'autres actions après la connexion réussie
-      } else {
-        alert(response.data.message);
-      }
-    } catch (error) {
-      console.error("Une erreur s'est produite lors de la connexion", error);
-      alert("Une erreur s'est produite lors de la connexion.");
-    }
-  };
-
   return (
     <div className="container-connexion" onClick={onClose} role="presentation">
       <div

@@ -3,6 +3,7 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  
 
   h1 {
     font-size: 5rem;
@@ -14,9 +15,15 @@
   }
 
   .container-affiches {
+   
     width: 100%;
     display: flex;
     justify-content: space-around;
     padding: 20px;
+  }
+
+  img {
+
+    border: 3px solid rgb(255, 255, 255);
   }
 }
