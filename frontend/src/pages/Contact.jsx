@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Contact() {
+ 
   return (
     <div>
       <div className="container">
@@ -26,9 +27,11 @@ function Contact() {
                 placeholder="Entrez votre message"
               />
               <div className="button-contact">
-                <button type="submit" className="btn-contact">
-                  Envoyer
-                </button>
+                <NavLink to="/">
+                  <button type="submit" className="btn-contact">
+                    Envoyer
+                  </button>
+                </NavLink>
               </div>
             </div>
 
@@ -81,5 +84,6 @@ function Contact() {
     </div>
   );
 }
+
 
 export default Contact;

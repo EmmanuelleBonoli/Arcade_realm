@@ -76,9 +76,13 @@
       .button-contact {
         width: 100%;
         padding-top: 10px;
-        display: flex;
-        justify-content: end;
+  
 
+        a { 
+          width: 100%;
+          display: flex;
+          justify-content: end;
+          text-decoration: none;
         .btn-contact {
           cursor: pointer;
           width: 30%;
@@ -91,6 +95,7 @@
           border: none;
           padding: 10px;
         }
+      }
       }
       .container-adresse {
         display: flex;
