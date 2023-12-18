@@ -1,0 +1,55 @@
+.profileAdmin {
+  display: flex;
+  height: 79vh;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 9%;
+
+  .adminLayout {
+    border: solid 2px white;
+    width: 50vw;
+    height: 50vh;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.61);
+
+    .buttonsChoice {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+
+      padding: 8% 4% 8% 4%;
+      gap: 3vh;
+
+      button {
+        background-color: #00212a;
+        color: var(--fourth-color);
+        padding: 1% 2% 1% 2%;
+        height: 6vh;
+        width: 15vw;
+        border-radius: 5px;
+        border: solid 1px white;
+        font-family: var(--secondary-font);
+        font-size: 1.8rem;
+        font-weight: bold;
+
+        &.active {
+          color: var(--secondary-color);
+        }
+      }
+    }
+
+    .displayChoice {
+      border: 2px solid white;
+      width: 50%;
+      height: 70%;
+      border-radius: 5px;
+      background-color: #00212a;
+    }
+  }
+}
