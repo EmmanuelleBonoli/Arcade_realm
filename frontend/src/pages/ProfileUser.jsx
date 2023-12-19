@@ -12,9 +12,7 @@ function Profile() {
           <h2>Mes Lots/Echanges</h2>
           <h2>Mes jeux favoris</h2>
         </div>
-        <div className="profil-pt2">
-        {/* <MeilleursScore /> */}
-        </div>
+        <div className="profil-pt2">{/* <MeilleursScore /> */}</div>
       </div>
       <div className="avatar">
         <img src="/images/Login/GhostLogin.png" alt="avatar" />
