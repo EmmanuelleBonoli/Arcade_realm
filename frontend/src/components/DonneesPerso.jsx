@@ -26,20 +26,29 @@ export default function DonneesPerso() {
         <div className="container-user">
           <div className="header-wrapper">
             <div className="img-wrapper">
-          <img src="/images/Edit.png" />
+              <img src="/images/Edit.png" alt="edit" />
+            </div>
+            <h1>ADMIN</h1>
           </div>
-          <h1>Admin</h1>
-          </div>
-          
+
           <div className="information-user">
             <p>
-              <strong><span>Pseudo</span></strong> : {user.pseudo}
+              <strong>
+                <span>Pseudo</span>
+              </strong>{" "}
+              : {user.pseudo}
             </p>
             <p>
-              <strong><span>Email</span></strong> : {user.email}
+              <strong>
+                <span>Email</span>
+              </strong>{" "}
+              : {user.email}
             </p>
             <p>
-              <strong><span>Mot de passe</span></strong> : {user.password}
+              <strong>
+                <span>Mot de passe</span>
+              </strong>{" "}
+              : {user.password}
             </p>
           </div>
           <div className="btn-profil">

@@ -53,8 +53,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/echange",
-        element: <Echange/>
-      }
+        element: <Echange />,
+      },
     ],
   },
 ]);

@@ -1,4 +1,6 @@
-import DonneesPerso from "../components/DonneesPerso";
+import PropTypes from "prop-types";
+// import DonneesPerso from "../components/DonneesPerso";
+import AdminUserProfile from "../components/AdminUserProfile";
 
 function ProfileAdmin({ userConnected }) {
   return (
@@ -27,7 +29,8 @@ function ProfileAdmin({ userConnected }) {
               </button>
             </div>
             <div className="displayChoice">
-              <DonneesPerso />
+              {/* <DonneesPerso /> */}
+              <AdminUserProfile />
             </div>
           </div>
         </div>
@@ -38,3 +41,7 @@ function ProfileAdmin({ userConnected }) {
   );
 }
 export default ProfileAdmin;
+
+ProfileAdmin.propTypes = {
+  userConnected: PropTypes.objectOf.isRequired,
+};

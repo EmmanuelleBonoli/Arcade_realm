@@ -49,6 +49,7 @@
     justify-content: center;
 
     .deleteprofil {
+      cursor: pointer;
       color: rgba(255, 255, 255, 0.683);
       font-family: var(--secondary-font);
       border: none;
@@ -58,7 +59,6 @@
       background-color: rgba(0, 0, 0, 0.61);
       font-size: 1.8rem;
       font-style: italic;
-     
     }
   }
 }
