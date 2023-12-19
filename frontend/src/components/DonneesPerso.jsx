@@ -8,10 +8,10 @@ export default function DonneesPerso() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur`
+          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/3`
         );
-        setUser(response.data);
-        console.log(response.data);
+        setUser(response.data[0]);
+        console.log(user);
       } catch (error) {
         console.error(error.message);
       }
@@ -22,25 +22,35 @@ export default function DonneesPerso() {
 
   return (
     <div>
-      {user[2] ? (
+      {user ? (
         <div className="container-user">
+          <div className="header-wrapper">
+            <div className="img-wrapper">
+          <img src="/images/Edit.png" />
+          </div>
           <h1>Admin</h1>
+          </div>
+          
           <div className="information-user">
-            <p>Pseudo : {user[2].pseudo}</p>
-            <p>Email : {user[2].email}</p>
-            <p>Mot de passe : {user[2].password}</p>
+            <p>
+              <strong><span>Pseudo</span></strong> : {user.pseudo}
+            </p>
+            <p>
+              <strong><span>Email</span></strong> : {user.email}
+            </p>
+            <p>
+              <strong><span>Mot de passe</span></strong> : {user.password}
+            </p>
           </div>
           <div className="btn-profil">
-        <button className="deleteprofil" type="button">
-          Supprimer le profil
-        </button>
-      </div>
+            <button className="deleteprofil" type="button">
+              Supprimer le profil
+            </button>
+          </div>
         </div>
       ) : (
         ""
       )}
-
-     
     </div>
   );
 }
