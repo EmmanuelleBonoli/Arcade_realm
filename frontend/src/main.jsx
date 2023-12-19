@@ -16,6 +16,7 @@ import Echange from "./pages/Echange";
 import DonneesPerso from "./components/DonneesPerso";
 import AdminServices from "./components/AdminServices";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +60,7 @@ const router = createBrowserRouter([
             element: <AdminServices />,
           },
         ],
+
       },
       {
         path: "/echange",
@@ -67,6 +69,7 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(

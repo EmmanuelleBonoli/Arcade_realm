@@ -76,26 +76,25 @@
       .button-contact {
         width: 100%;
         padding-top: 10px;
-  
 
-        a { 
+        a {
           width: 100%;
           display: flex;
           justify-content: end;
           text-decoration: none;
-        .btn-contact {
-          cursor: pointer;
-          width: 30%;
-          font-size: 1.8rem;
-          color: white;
-          font-family: var(--primary-font);
-          font-weight: bold;
-          border-radius: 3px;
-          background-color: #b45843;
-          border: none;
-          padding: 10px;
+          .btn-contact {
+            cursor: pointer;
+            width: 30%;
+            font-size: 1.8rem;
+            color: white;
+            font-family: var(--primary-font);
+            font-weight: bold;
+            border-radius: 3px;
+            background-color: #b45843;
+            border: none;
+            padding: 10px;
+          }
         }
-      }
       }
       .container-adresse {
         display: flex;

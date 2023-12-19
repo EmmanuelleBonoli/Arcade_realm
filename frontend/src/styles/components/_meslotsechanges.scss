@@ -1,0 +1,22 @@
+.container-mle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  height: 75%;
+  border-radius: 6px;
+  border: 2px solid #fff;
+  background: #00212a;
+
+  .pseudo-joueur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #5caab8;
+    font-size: 1rem;
+    font-family: "Orbitron";
+    padding: 20px;
+  }
+}
