@@ -4,7 +4,7 @@ function MeilleursScore() {
   return (
     <div className="container-MeilleursScore">
       <div className="user-name">
-        <img src="/images/Utilisateur/Rectangle 142.png" />
+        <img src="/images/Utilisateur/Rectangle 142.png" alt="rectangle" />
         <h1>Wild_Gamer</h1>
       </div>
       <div className="liste-jeux-points">
@@ -14,7 +14,7 @@ function MeilleursScore() {
           <p>Pacman</p>
         </div>
         <div className="gl-trait">
-          <div className="trait"></div>
+          <div className="trait" />
         </div>
         <div className="user-point">
           <p>9 542 pts</p>

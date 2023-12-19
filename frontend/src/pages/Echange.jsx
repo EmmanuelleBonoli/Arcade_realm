@@ -29,10 +29,12 @@ function Echange() {
           </div>
         </div>
       </div>
+      </div>
 
       <div className="avatar">
         <img src="/images/Login/GhostLogin.png" alt="avatar" />
       </div>
+    </div>
     </div>
   );
 }
