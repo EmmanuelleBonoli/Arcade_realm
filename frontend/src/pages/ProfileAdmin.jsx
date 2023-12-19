@@ -1,7 +1,6 @@
-
-import DonneesPerso from "../components/DonneesPerso";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import DonneesPerso from "../components/DonneesPerso";
 
 function ProfileAdmin() {
   const [user, setUser] = useState([]);
@@ -13,7 +12,7 @@ function ProfileAdmin() {
           `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur`
         );
         setUser(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
         console.error(error.message);
       }
@@ -36,7 +35,6 @@ function ProfileAdmin() {
           <div className="adminLayout">
             <div className="buttonsChoice">
               <button type="button" className="">
-                
                 Données Personnelles
               </button>
 

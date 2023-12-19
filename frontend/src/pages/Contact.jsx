@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 
 function Contact() {
- 
   return (
     <div>
       <div className="container">
@@ -84,6 +83,5 @@ function Contact() {
     </div>
   );
 }
-
 
 export default Contact;
