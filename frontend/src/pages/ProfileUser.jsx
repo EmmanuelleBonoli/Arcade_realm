@@ -15,7 +15,7 @@ function ProfileUser({ userConnected }) {
           <h2>Mes jeux favoris</h2>
         </div>
         <div className="profil-pt2">
-          {/* <MeilleursScore /> <MesLotsEchanges /> */}
+          {/*  <MesLotsEchanges /> <MeilleursScore /> */}
         </div>
       </div>
       <div className="avatar">

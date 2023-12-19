@@ -1,52 +1,37 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+
+import { NavLink, Outlet } from "react-router-dom";
+import PropTypes from "prop-types";
 import DonneesPerso from "../components/DonneesPerso";
+// import axios from "axios";
+// import { useState, useEffect } from "react";
 
-function ProfileAdmin() {
-  const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur`
-        );
-        setUser(response.data);
-        // console.log(response.data);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-
-    fetchData();
-  }, []);
+function ProfileAdmin({ userConnected }) {
   return (
     <div>
-      {user[2] ? (
+      {userConnected ? (
         <div className="profileAdmin">
           <div className="avatar">
             <img
-              key={user.id}
-              src={`${import.meta.env.VITE_BACKEND_URL}${user[2].image}`}
+              // key={userConnected.id}
+              src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
               alt="avatar"
             />
           </div>
 
           <div className="adminLayout">
             <div className="buttonsChoice">
-              <button type="button" className="">
-                Données Personnelles
-              </button>
+              <NavLink to="/profilutilisateur" className="">
 
-              <button type="button" className="">
+                Données Personnelles
+              </NavLink>
+
+              <NavLink to="/profilutilisateur/adminservices" className="">
                 Gestion des services
-              </button>
-              <button type="button" className="">
-                Gestion des profils
-              </button>
+              </NavLink>
+              <NavLink className="">Gestion des profils</NavLink>
             </div>
             <div className="displayChoice">
-              <DonneesPerso />
+              <Outlet />
             </div>
           </div>
         </div>
@@ -56,4 +41,17 @@ function ProfileAdmin() {
     </div>
   );
 }
+
+ProfileAdmin.propTypes = {
+  userConnected: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    pseudo: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    admin: PropTypes.number.isRequired,
+    points: PropTypes.number.isRequired,
+  }).isRequired,
+};
+
 export default ProfileAdmin;

@@ -8,6 +8,7 @@
 }
 
 :root {
+  
   --primary-color: rgb(0, 61, 72);
   --secondary-color: #fbb169;
   --third-color: #1d1d1d;
@@ -22,10 +23,6 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: url("./images/fond.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 
   .footerContainer {
     flex-grow: 1;
@@ -33,14 +30,14 @@
 }
 
 .fond1 {
-  background: url("./images/fond.jpg");
+  background: url("/images/fond.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .fond2 {
-  background: url("./images/fond-presentation.png");
+  background: url("/images/fond-presentation.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
