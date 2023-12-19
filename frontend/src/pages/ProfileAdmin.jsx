@@ -8,7 +8,6 @@ function ProfileAdmin({ userConnected }) {
         <div className="profileAdmin">
           <div className="avatar">
             <img
-              // key={userConnected.id}
               src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
               alt="avatar"
             />

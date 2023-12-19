@@ -1,31 +1,71 @@
 .adminServices {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
-  .itemServices {
-    width: 5vw;
-    height: 10vh;
-    border: 2px solid white;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    color: var(--fourth-color);
-    font-family: var(--secondary-font);
-    font-size: 8rem;
-  }
-  .events,
-  .lots {
+    .events,
+  .lots, .games {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding: 5%;
+    padding: 4%;
+    width: 100%;
+    gap: 1vw;
+    overflow-x: auto;
+   
+    
+
+    .itemServices {
+      width: 15vw;
+      height: 8vh;
+      border: 2px solid white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      color: var(--fourth-color);
+      font-family: var(--secondary-font);
+      font-size: 8rem;
+      position: relative;
+    }
 
     img {
       height: 90%;
       border: none;
       object-fit: contain;
     }
+    .addBox {
+      cursor: pointer;
+      width: 5vw;
+
+      .add {
+        height: 35%;
+        width: 4vw;
+      }
+    }
+  
+    .suppr {
+      position: absolute;
+      top: -15px;
+      right: -7px;
+      height: 15px;
+      cursor: pointer;
+    }
+  }
+  // .lots {
+  //   overflow-x: scroll;
+  //   width: 100%;
+  // }
+
+  ::-webkit-scrollbar {
+    height: 7px;
+    width: 4vw;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--fourth-color);
+    border-radius: 5px;
+    
   }
 }
+
