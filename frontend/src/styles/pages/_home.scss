@@ -231,13 +231,14 @@
     color: white;
     text-decoration: none;
   }
+  ::-webkit-scrollbar {
+    width: 8px; /* Largeur de la barre de défilement */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #003d48b4; /* Couleur de la poignée de la barre de défilement */
+    border-radius: 5px; /* Coins arrondis de la poignée */
+  }
+  
 }
 
-::-webkit-scrollbar {
-  width: 8px; /* Largeur de la barre de défilement */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #003d48b4; /* Couleur de la poignée de la barre de défilement */
-  border-radius: 5px; /* Coins arrondis de la poignée */
-}

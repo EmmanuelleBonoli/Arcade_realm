@@ -1,12 +1,79 @@
-.container-user {
+.container-player {
+  display: flex;
+  flex-direction: column;
   h1 {
+    text-align: center;
+    font-family: var(--primary-font);
+    color: var(--fourth-color);
+    padding: 3%;
+    font-size: 3rem;
+  }
+  .overflow-player {
+    overflow-y: scroll;
+    width: 99%;
+    height: 26vh;
+
+    .player-list {
+      width: 85%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      padding: 6% 0% 0% 16%;
+
+      p {
+        font-family: var(--primary-font);
+        font-size: 2rem;
+      }
+
+      img {
+        cursor: pointer;
+        transform: translateY(-10%);
+        width: 9%;
+      }
+    }
+  }
+  .wrapper-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 6%;
+      position: absolute;
+      top: 50%;
+      right: 18%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .input-search-player {
+      position: relative;
+      border-radius: 20px;
+      height: 4vh;
+      width: 35vh;
+      border: 2px solid var(--fourth-color);
+      background-color: var(--primary-color);
+      color: var(--third-color);
+      font-size: 1.8rem;
+      padding: 4%;
+      font-family: var(--secondary-font);
+
+      &::placeholder {
+        font-style: italic;
+        color: var(--third-color);
+        padding: 5%;
+        font-size: 1.6rem;
+      }
+    }
+  }
+  ::-webkit-scrollbar {
+    cursor: pointer;
+    width: 8px;
   }
 
-  .input-search-player {
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--fourth-color);
+    border-radius: 5px;
   }
-
-  //     img {
-  // width: 30%;
-
-  //     }
 }

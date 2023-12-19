@@ -15,6 +15,7 @@ import Profile from "./pages/Profile";
 import Echange from "./pages/Echange";
 import DonneesPerso from "./components/DonneesPerso";
 import AdminServices from "./components/AdminServices";
+import AdminUserProfile from "./components/AdminUserProfile";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
           {
             path: "/profilutilisateur/adminservices",
             element: <AdminServices />,
+          },
+          {
+            path: "/profilutilisateur/gestionprofils",
+            element: <AdminUserProfile />,
           },
         ],
       },
