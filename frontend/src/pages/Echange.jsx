@@ -6,8 +6,8 @@ function Echange() {
           <p>Retour à mon profil</p>
         </div>
         <div className="mes-lots">
-          <h1></h1>
-          <div className="lots-scores"></div>
+          <h1>Texte</h1>
+          <div className="lots-scores" />
         </div>
       </div>
 
