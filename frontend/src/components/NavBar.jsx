@@ -33,7 +33,7 @@ function NavBar() {
         </nav>
 
         <div className="logo">
-          <img src="./images/logo.png" alt="logo-arcade" />
+          <img src="/images/logo.png" alt="logo-arcade" />
         </div>
 
         <nav className="nav-pt-2">

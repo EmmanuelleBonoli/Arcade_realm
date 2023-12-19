@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
 
-  .itemServices{
+  .itemServices {
     width: 5vw;
     height: 10vh;
     border: 2px solid white;
@@ -15,11 +15,12 @@
     font-family: var(--secondary-font);
     font-size: 8rem;
   }
-  .events, .lots {
+  .events,
+  .lots {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding : 5%;
+    padding: 5%;
 
     img {
       height: 90%;
@@ -28,4 +29,3 @@
     }
   }
 }
-
