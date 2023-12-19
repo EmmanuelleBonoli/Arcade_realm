@@ -1,0 +1,64 @@
+.container-user {
+  font-family: var(--secondary-font);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .header-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+
+    .img-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      width: 30%;
+
+      img {
+        width: 30%;
+      }
+    }
+    h1 {
+      width: 55%;
+
+      text-align: right;
+      font-family: var(--primary-font);
+      font-size: 3rem;
+      color: var(--fourth-color);
+    }
+  }
+  .information-user {
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+
+    span {
+      color: var(--fourth-color);
+    }
+    p {
+      padding: 5% 0% 0% 15%;
+      font-size: 2rem;
+    }
+  }
+
+  .btn-profil {
+    display: flex;
+    justify-content: center;
+
+    .deleteprofil {
+      color: rgba(255, 255, 255, 0.683);
+      font-family: var(--secondary-font);
+      border: none;
+      border-radius: 6px;
+      width: 28vh;
+      height: 5vh;
+      background-color: rgba(0, 0, 0, 0.61);
+      font-size: 1.8rem;
+      font-style: italic;
+     
+    }
+  }
+}
