@@ -1,0 +1,32 @@
+.home-echange {
+    width: 100%;
+    height: 79vh;
+    padding-top: 7%;
+    position: relative;
+  
+    .container-echange {
+      margin: 0 auto;
+      width: 50vw;
+      height: 60vh;
+      border: 2px solid white;
+      background-color: #0000008a;
+      border-radius: 15px;
+      display: flex;
+    }
+
+    .avatar {
+        position: absolute;
+        top: 2%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 2px solid white;
+        display: flex;
+        justify-content: center;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        background-color: #00212a;
+      }
+
+
+}
