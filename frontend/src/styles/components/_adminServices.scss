@@ -15,7 +15,8 @@
     font-family: var(--secondary-font);
     font-size: 8rem;
   }
-  .events {
+  .events,
+  .lots {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

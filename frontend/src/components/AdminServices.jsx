@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 
 function AdminServices() {
   const [dataEvents, setDataEvents] = useState([]);
-  const [setDataLots] = useState([]);
-  const [setDataGames] = useState([]);
+  const [dataLots, setDataLots] = useState([]);
+  const [dataGames, setDataGames] = useState([]);
 
   useEffect(() => {
     const getEvents = async () => {
@@ -33,7 +33,18 @@ function AdminServices() {
 
   return (
     <div className="adminServices">
-      <div className="lots" />
+      <div className="lots">
+        {dataLots.map((lot) => {
+          return (
+            <div className="itemServices" key={lot.id}>
+              <img
+                src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                alt="lot à gagner"
+              />
+            </div>
+          );
+        })}
+      </div>
       <div className="events">
         {dataEvents.map((event) => {
           return (

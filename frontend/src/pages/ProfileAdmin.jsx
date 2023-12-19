@@ -1,6 +1,8 @@
+import { NavLink, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
-// import DonneesPerso from "../components/DonneesPerso";
-import AdminUserProfile from "../components/AdminUserProfile";
+import DonneesPerso from "../components/DonneesPerso";
+// import axios from "axios";
+// import { useState, useEffect } from "react";
 
 function ProfileAdmin({ userConnected }) {
   return (
@@ -9,7 +11,7 @@ function ProfileAdmin({ userConnected }) {
         <div className="profileAdmin">
           <div className="avatar">
             <img
-              key={userConnected.id}
+              // key={userConnected.id}
               src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
               alt="avatar"
             />
@@ -17,20 +19,17 @@ function ProfileAdmin({ userConnected }) {
 
           <div className="adminLayout">
             <div className="buttonsChoice">
-              <button type="button" className="">
+              <NavLink to="/profilutilisateur" className="">
                 Données Personnelles
-              </button>
+              </NavLink>
 
-              <button type="button" className="">
+              <NavLink to="/profilutilisateur/adminservices" className="">
                 Gestion des services
-              </button>
-              <button type="button" className="">
-                Gestion des profils
-              </button>
+              </NavLink>
+              <NavLink className="">Gestion des profils</NavLink>
             </div>
             <div className="displayChoice">
-              {/* <DonneesPerso /> */}
-              <AdminUserProfile />
+              <Outlet />
             </div>
           </div>
         </div>
@@ -40,6 +39,19 @@ function ProfileAdmin({ userConnected }) {
     </div>
   );
 }
+
+ProfileAdmin.propTypes = {
+  userConnected: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    pseudo: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    admin: PropTypes.number.isRequired,
+    points: PropTypes.number.isRequired,
+  }).isRequired,
+};
+
 export default ProfileAdmin;
 
 ProfileAdmin.propTypes = {

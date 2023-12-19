@@ -43,7 +43,8 @@
       justify-content: center;
       padding: 8% 4% 8% 4%;
       gap: 3vh;
-      button {
+
+      a {
         background-color: #00212a;
         color: var(--fourth-color);
         padding: 1% 2% 1% 2%;
@@ -54,6 +55,10 @@
         font-family: var(--secondary-font);
         font-size: 1.8rem;
         font-weight: bold;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &.active {
           color: var(--secondary-color);
         }
