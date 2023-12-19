@@ -9,8 +9,9 @@ import Classement from "./pages/Classement";
 import Presentation from "./pages/Presentation";
 import PresentationGame from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
-import Profile from "./pages/Profile";
+import ProfileUser from "./pages/ProfileUser";
 import ProfileAdmin from "./pages/ProfileAdmin";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,11 +48,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/profilutilisateur",
-        element: <Profile />,
+        element: <ProfileUser />,
       },
     ],
   },
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(

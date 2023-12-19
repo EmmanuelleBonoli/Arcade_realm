@@ -1,6 +1,5 @@
 .home-profil {
   width: 100%;
-  border: 1px solid red;
   height: 79vh;
   padding-top: 9%;
   position: relative;
@@ -32,27 +31,29 @@
         font-family: var(--secondary-font);
         font-size: 2rem;
         text-align: center;
-        background-color: #00212A;
+        background-color: #00212a;
         box-shadow: 1px 3px 5px black;
       }
     }
     .profil-pt2 {
       width: 50%;
       height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-
   }
-  .avatar{
+  .avatar {
     position: absolute;
     top: 8%;
     left: 50%;
     transform: translateX(-50%);
-    border:2px solid white;
+    border: 2px solid white;
     display: flex;
     justify-content: center;
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    background-color:#00212a ;
-}
+    background-color: #00212a;
+  }
 }
