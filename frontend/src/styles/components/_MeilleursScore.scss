@@ -1,0 +1,71 @@
+.container-MeilleursScore {
+  border: 2px solid white;
+  height: 75%;
+  width: 65%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .user-name {
+    font-size: 1.4rem;
+    font-family: var(--primary-font);
+    color: var(--fourth-color);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      padding: 20px;
+    }
+  }
+  .liste-jeux-points {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: var(--secondary-font);
+    font-size: 1.8rem;
+    flex: 1;
+    font-weight: bold;
+    .nom-jeux {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+      padding: 10px;
+    }
+
+    .gl-trait {
+      width: 10%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .trait {
+        width: 3px;
+        background-color: white;
+        height: 55%;
+        border-radius: 10px;
+      }
+    }
+
+    .user-point {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+      color: var(--secondary-color);
+      padding: 10px;
+    }
+  }
+  .total-points {
+    padding: 10px;
+    font-family: var(--secondary-font);
+    font-size: 1.8rem;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+}
