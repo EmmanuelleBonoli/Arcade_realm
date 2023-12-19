@@ -6,6 +6,7 @@
 @import "./pages/home";
 @import "./pages/presentation";
 @import "./pages/profileadmin";
+
 @import "./components/footer";
 @import "./components/navBar";
 @import "./components/presentationSpaces";
@@ -17,5 +18,9 @@
 @import "./components/inscription";
 @import "./components/mesjeuxfavoris";
 @import "./components/meslotsechanges";
+@import "./components/donneesperso"; //
+@import "./components/MeilleursScore";
+@import "./pages/echange";
+@import "./components/adminServices";
 
 @import "settings";

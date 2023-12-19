@@ -11,6 +11,8 @@ import PresentationGame from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
 import ProfileUser from "./pages/ProfileUser";
 import ProfileAdmin from "./pages/ProfileAdmin";
+// import MeilleursScore from "./components/MeilleursScore";
+import Echange from "./pages/Echange";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/profilutilisateur",
         element: <ProfileUser />,
+      },
+      {
+        path: "/echange",
+        element: <Echange />,
       },
     ],
   },

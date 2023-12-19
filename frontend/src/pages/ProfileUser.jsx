@@ -1,4 +1,7 @@
 // import MesLotsEchanges from "../components/MesLotsEchanges";
+// import axios from "axios";
+// import { Outlet } from "react-router-dom";
+// import MeilleursScore from "../components/MeilleursScore";
 
 function ProfileUser() {
   return (
@@ -10,7 +13,9 @@ function ProfileUser() {
           <h2>Mes Lots/Echanges</h2>
           <h2>Mes jeux favoris</h2>
         </div>
-        <div className="profil-pt2">{/* <MesLotsEchanges /> */}</div>
+        <div className="profil-pt2">
+          {/* <MeilleursScore /> <MesLotsEchanges /> */}
+        </div>
       </div>
       <div className="avatar">
         <img src="/images/Login/GhostLogin.png" alt="avatar" />
