@@ -1,9 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
-import DonneesPerso from "../components/DonneesPerso";
-
-// import axios from "axios";
-// import { useState, useEffect } from "react";
 
 function ProfileAdmin({ userConnected }) {
   return (
@@ -12,7 +8,6 @@ function ProfileAdmin({ userConnected }) {
         <div className="profileAdmin">
           <div className="avatar">
             <img
-              // key={userConnected.id}
               src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
               alt="avatar"
             />
@@ -20,14 +15,11 @@ function ProfileAdmin({ userConnected }) {
 
           <div className="adminLayout">
             <div className="buttonsChoice">
-              <NavLink to="/profilutilisateur" className="">
-                Données Personnelles
-              </NavLink>
-
-              <NavLink to="/profilutilisateur/adminservices" className="">
+              <NavLink to="/profilutilisateur">Données Personnelles</NavLink>
+              <NavLink to="/profilutilisateur/adminservices">
                 Gestion des services
               </NavLink>
-              <NavLink className="">Gestion des profils</NavLink>
+              <NavLink>Gestion des profils</NavLink>
             </div>
             <div className="displayChoice">
               <Outlet />
