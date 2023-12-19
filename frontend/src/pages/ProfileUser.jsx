@@ -1,6 +1,6 @@
-import axios from "axios";
-import { Outlet } from "react-router-dom";
-import MeilleursScore from "../components/MeilleursScore";
+// import axios from "axios";
+// import { Outlet } from "react-router-dom";
+// import MeilleursScore from "../components/MeilleursScore";
 
 function Profile() {
   return (
