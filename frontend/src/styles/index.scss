@@ -2,7 +2,7 @@
 @import "./pages/contact";
 @import "./pages/events";
 @import "./pages/presentationGame";
-@import "./pages/profile";
+@import "./pages/profileuser";
 @import "./pages/home";
 @import "./pages/presentation";
 @import "./pages/profileadmin";
@@ -15,5 +15,6 @@
 @import "./components/presentationEvents";
 @import "./components/connexion";
 @import "./components/inscription";
-
+@import "./components/MeilleursScore";
+@import "./pages/echange";
 @import "settings";
