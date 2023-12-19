@@ -1,4 +1,4 @@
-// import MesLotsEchanges from "../components/MesLotsEchanges";
+import MesLotsEchanges from "../components/MesLotsEchanges";
 // import axios from "axios";
 // import { Outlet } from "react-router-dom";
 // import MeilleursScore from "../components/MeilleursScore";
@@ -14,7 +14,7 @@ function ProfileUser() {
           <h2>Mes jeux favoris</h2>
         </div>
         <div className="profil-pt2">
-          {/* <MeilleursScore /> <MesLotsEchanges /> */}
+          <MesLotsEchanges />
         </div>
       </div>
       <div className="avatar">
