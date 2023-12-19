@@ -12,6 +12,30 @@
     background-color: #0000008a;
     border-radius: 15px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+
+.retour-page{
+  border: 1px solid red;
+  padding: var(--spacing);
+  width: 30%;
+  text-align: center;
+  font-size: 1.4rem;
+  color: white;
+  font-family: var(--secondary-font);
+  background-color: rgba(0, 0, 0, 0.575);
+  border-radius: 10px;
+}
+
+.mes-lots{
+  width: 80%;
+  height: 20vh;
+  border: 1px solid red;
+}
+
+
   }
 
   .avatar {
@@ -27,4 +51,5 @@
     border-radius: 50%;
     background-color: #00212a;
   }
+
 }

@@ -2,9 +2,9 @@
 // import axios from "axios";
 // import { Outlet } from "react-router-dom";
 // import MeilleursScore from "../components/MeilleursScore";
+import PropTypes from "prop-types";
 
 function ProfileUser({ userConnected }) {
-function ProfileUser() {
   return (
     <div className="home-profil">
       <div className="container-profil">
@@ -26,8 +26,15 @@ function ProfileUser() {
 }
 
 ProfileUser.propTypes = {
-  userConnected: PropTypes.string.isRequired,
+  userConnected: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    pseudo: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    admin: PropTypes.number.isRequired,
+    points: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
-export default ProfileUser;
 export default ProfileUser;
