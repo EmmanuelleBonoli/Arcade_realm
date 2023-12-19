@@ -34,6 +34,16 @@ export default function AdminUserProfile() {
 
     setFilteredUsers(filteredUsersResult);
   };
+  const handleDeletePlayer = async (data) => {
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${data}`
+      );
+      setUser(user.filter((player) => player.id !== data));
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div>
@@ -53,7 +63,12 @@ export default function AdminUserProfile() {
           {filteredUsers.map((player) => (
             <div className="player-list" key={player.id}>
               <p>{player.pseudo}</p>
-              <img src="/images/Banned.png" alt="Banned" />
+              <img
+                src="/images/Banned.png"
+                onClick={() => handleDeletePlayer(player.id)}
+                alt="Banned"
+                role="presentation"
+              />
             </div>
           ))}
         </div>
