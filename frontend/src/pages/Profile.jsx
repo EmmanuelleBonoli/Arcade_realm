@@ -34,14 +34,10 @@ function Profile() {
   }
 
   if (userConnected) {
-    return (
-      <div>
-        {adminOrNot ? (
-          <ProfileAdmin userConnected={userConnected} />
-        ) : (
-          <ProfileUser userConnected={userConnected} />
-        )}
-      </div>
+    return adminOrNot ? (
+      <ProfileAdmin userConnected={userConnected} />
+    ) : (
+      <ProfileUser userConnected={userConnected} />
     );
   }
 }
