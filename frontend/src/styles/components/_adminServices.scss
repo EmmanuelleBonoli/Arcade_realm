@@ -1,0 +1,30 @@
+.adminServices {
+  display: flex;
+  flex-direction: column;
+
+  .itemServices{
+    width: 5vw;
+    height: 10vh;
+    border: 2px solid white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: var(--fourth-color);
+    font-family: var(--secondary-font);
+    font-size: 8rem;
+  }
+  .events {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding : 5%;
+
+    img {
+      height: 90%;
+      border: none;
+      object-fit: contain;
+    }
+  }
+}

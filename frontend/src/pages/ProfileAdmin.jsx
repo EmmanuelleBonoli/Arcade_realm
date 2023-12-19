@@ -1,21 +1,25 @@
+import AdminServices from "../components/AdminServices";
+
 function ProfileAdmin() {
-    return (
-      <div className="profileAdmin">
-        <div className="adminLayout">
-          <div className="buttonsChoice">
-            <button type="button" className="">
-              Données Personnelles
-            </button>
-            <button type="button" className="">
-              Gestion des services
-            </button>
-            <button type="button" className="">
-              Gestion des profils
-            </button>
-          </div>
-          <div className="displayChoice" />
+  return (
+    <div className="profileAdmin">
+      <div className="adminLayout">
+        <div className="buttonsChoice">
+          <button type="button" className="">
+            Données Personnelles
+          </button>
+          <button type="button" className="">
+            Gestion des services
+          </button>
+          <button type="button" className="">
+            Gestion des profils
+          </button>
+        </div>
+        <div className="displayChoice">
+          <AdminServices />
         </div>
       </div>
-    );
-  }
-  export default ProfileAdmin;
+    </div>
+  );
+}
+export default ProfileAdmin;

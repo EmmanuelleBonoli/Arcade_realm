@@ -11,6 +11,7 @@ import PresentationGame from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import ProfileAdmin from "./pages/ProfileAdmin";
+
 const router = createBrowserRouter([
   {
     path: "/",
