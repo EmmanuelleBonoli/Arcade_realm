@@ -1,8 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
-// import DonneesPerso from "../components/DonneesPerso";
-// import axios from "axios";
-// import { useState, useEffect } from "react";
 
 function ProfileAdmin({ userConnected }) {
   return (
@@ -25,7 +22,9 @@ function ProfileAdmin({ userConnected }) {
               <NavLink to="/profilutilisateur/adminservices" className="">
                 Gestion des services
               </NavLink>
-              <NavLink>Gestion des profils</NavLink>
+              <NavLink to="/profilutilisateur/gestionprofils" className="">
+                Gestion des profils
+              </NavLink>
             </div>
             <div className="displayChoice">
               <Outlet />
