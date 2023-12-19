@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 export default function AdminUserProfile() {
   const [user, setUser] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState(user);
   const [filterPseudo, setFilterPseudo] = useState("");
 
   useEffect(() => {
@@ -12,7 +12,9 @@ export default function AdminUserProfile() {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/`
         );
+
         setUser(response.data);
+        setFilteredUsers(response.data); // Affiche tous les utilisateurs initialement
       } catch (error) {
         console.error(error.message);
       }
@@ -25,7 +27,7 @@ export default function AdminUserProfile() {
     const inputValue = event.target.value;
     setFilterPseudo(inputValue);
 
-    // Filter users based on the entered pseudonym
+    // Filtrer les utilisateurs en fonction du pseudonyme saisi
     const filteredUsersResult = user.filter((users) =>
       users.pseudo.includes(inputValue)
     );
@@ -45,17 +47,16 @@ export default function AdminUserProfile() {
             value={filterPseudo}
             onChange={handleInput}
           />
+          <img src="/images/Search.png" alt="Search" />
         </div>{" "}
-        {user.length > 0 && (
-          <div className="overflow-player">
-            {filteredUsers.map((player) => (
-              <div className="player-list" key={player.id}>
-                <p>{player.pseudo}</p>
-                <img src="/images/Banned.png" alt="Banned" />
-              </div>
-            ))}
-          </div>
-        )}
+        <div className="overflow-player">
+          {filteredUsers.map((player) => (
+            <div className="player-list" key={player.id}>
+              <p>{player.pseudo}</p>
+              <img src="/images/Banned.png" alt="Banned" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
