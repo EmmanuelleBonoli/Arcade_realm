@@ -36,7 +36,7 @@ CREATE TABLE
         description VARCHAR(400),
         utilisateur_id INT,
         disponible BOOLEAN NOT NULL,
-        CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id)
+        CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 
 CREATE TABLE
@@ -50,8 +50,8 @@ CREATE TABLE
         utilisateur_id INT NOT NULL,
         jeu_id INT NOT NULL,
         points INT NOT NULL,
-        CONSTRAINT fk_score_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id),
-        CONSTRAINT fk_score_jeu FOREIGN KEY (jeu_id) REFERENCES jeu(id)
+        CONSTRAINT fk_score_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION,
+        CONSTRAINT fk_score_jeu FOREIGN KEY (jeu_id) REFERENCES jeu(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 
 INSERT INTO
