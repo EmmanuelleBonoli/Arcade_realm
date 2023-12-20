@@ -1,10 +1,12 @@
+import { NavLink } from "react-router-dom";
+
 function Echange() {
   return (
     <div className="home-echange">
       <div className="container-echange">
-        <div className="retour-page">
-          <p>Retour à mon profil</p>
-        </div>
+        <NavLink to="/profilutilisateur/meslotsechanges">
+          <div className="retour-page">Retour à mon profil</div>
+        </NavLink>
         <div className="mes-lots">
           <h1>Wild_Gamer</h1>
           <div className="lots-user">

@@ -72,7 +72,8 @@ const router = createBrowserRouter([
           {
             path: "/profilutilisateur/meslotsechanges",
             element: <MesLotsEchanges />,
-          },{
+          },
+          {
             path: "/profilutilisateur/mesjeuxfavoris",
             element: <MesJeuxFavoris />,
           },

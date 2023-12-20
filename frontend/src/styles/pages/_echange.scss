@@ -17,19 +17,18 @@
     align-items: center;
     gap: 10px;
 
-    .retour-page {
+    a {
       padding: 5px;
       width: 25%;
       text-align: center;
       color: white;
       font-family: var(--secondary-font);
       background-color: rgba(0, 0, 0, 0.575);
-      border-radius: 5pxpx;
+      border-radius: 5px;
       padding: var(--spacing);
-      p {
-        font-size: 1.5rem;
-      }
-    }
+      text-decoration: none;
+      font-size: 1.5rem;
+      cursor: pointer;    }
 
     .mes-lots {
       width: 80%;

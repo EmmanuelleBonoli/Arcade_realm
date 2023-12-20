@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  background: #00212a;
 
   .pseudo-joueur {
     display: flex;
@@ -14,18 +13,17 @@
     color: var(--fourth-color);
     font-size: 1.4rem;
     font-family: var(--primary-font);
-    padding: 20px;
+    padding: 5%;
 
     h1 {
-      padding: 20px;
-    }
-  }
+      padding: 0 0 0 5%;
+    }}
 
   .mes-lots {
     display: flex;
     flex-direction: column;
     padding: var(--spacing);
-    gap: 15px;
+    gap: 5px;
     .t-1 {
       display: flex;
       .premier-prix {
@@ -90,17 +88,21 @@
       }
     }
   }
+  a{
+text-decoration: none;
+
   .bouton-echangerlot {
     display: flex;
     gap: 10px;
     justify-content: center;
+    align-items: center;
     width: 70%;
     margin: 0 auto;
     color: #ffff;
     font-size: 1rem;
     font-family: "Montserrat";
     font-size: 1.8rem;
-    padding: 20px;
+    padding: 2%;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.56);
 
@@ -108,4 +110,5 @@
       width: 10%;
     }
   }
+}
 }
