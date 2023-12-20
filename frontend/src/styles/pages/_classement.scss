@@ -3,7 +3,8 @@
   height: 100%;
   .classement-recompense {
     height: 100%;
-    border: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
     width: 70vw;
     .classement {
       display: flex;
