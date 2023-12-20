@@ -30,7 +30,7 @@ function ProfileAdmin({ userConnected }) {
               </NavLink>
             </div>
             <div className="displayChoice">
-              <Outlet context={userConnected2}/>
+              <Outlet context={userConnected2} />
             </div>
           </div>
         </div>
