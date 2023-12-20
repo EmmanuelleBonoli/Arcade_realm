@@ -11,9 +11,101 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: #5caab8;
-    font-size: 1rem;
-    font-family: "Orbitron";
+    color: var(--fourth-color);
+    font-size: 1.4rem;
+    font-family: var(--primary-font);
     padding: 20px;
+
+    h1 {
+      padding: 20px;
+    }
+  }
+
+  .mes-lots {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing);
+    gap: 15px;
+    .t-1 {
+      display: flex;
+      .premier-prix {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 50%;
+        .titre-prix {
+          font-family: var(--secondary-font);
+          font-weight: 700;
+          font-size: 2rem;
+          color: var(--secondary-color);
+        }
+        .nom-item {
+          font-family: var(--secondary-font);
+          color: #fff;
+          font-weight: 400;
+          font-style: italic;
+          font-size: 1.9rem;
+        }
+      }
+
+      .img-prix {
+        padding: 10px;
+        width: 50%;
+        text-align: center;
+        img {
+          width: 60%;
+        }
+      }
+    }
+    .t-2 {
+      display: flex;
+      .deuxieme-prix {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 50%;
+        .titre-prix {
+          font-family: var(--secondary-font);
+          font-weight: 700;
+          font-size: 2rem;
+          color: var(--secondary-color);
+        }
+        .nom-item {
+          font-family: var(--secondary-font);
+          color: #fff;
+          font-weight: 400;
+          font-style: italic;
+          font-size: 1.9rem;
+        }
+      }
+
+      .img-prix {
+        padding: 10px;
+        width: 50%;
+        text-align: center;
+
+        img {
+          width: 50%;
+        }
+      }
+    }
+  }
+  .bouton-echangerlot {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+    color: #ffff;
+    font-size: 1rem;
+    font-family: "Montserrat";
+    font-size: 1.8rem;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.56);
+
+    img {
+      width: 10%;
+    }
   }
 }
