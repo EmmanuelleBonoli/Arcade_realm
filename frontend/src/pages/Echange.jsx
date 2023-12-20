@@ -4,7 +4,7 @@ function Echange() {
   return (
     <div className="home-echange">
       <div className="container-echange">
-        <NavLink to="/profilutilisateur/meslotsechanges">
+        <NavLink to="/profilutilisateur">
           <div className="retour-page">Retour à mon profil</div>
         </NavLink>
         <div className="mes-lots">

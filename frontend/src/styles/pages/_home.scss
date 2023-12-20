@@ -240,3 +240,27 @@
     border-radius: 5px; /* Coins arrondis de la poignée */
   }
 }
+
+
+@media screen and (max-width : 1440px) {
+  .HomePage{
+  .presentation{
+    .titre-texte{
+      width: 70%;
+  
+    }
+  }
+  
+}}
+
+
+@media screen and (max-width : 1024px) {
+  .HomePage{
+  .presentation{
+    .titre-texte{
+      width: 70%;
+  
+    }
+  }
+  
+}}
