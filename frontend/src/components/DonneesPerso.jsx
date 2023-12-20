@@ -1,28 +1,11 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 
-export default function DonneesPerso() {
-  const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/3`
-        );
-        setUser(response.data[0]);
-        // console.log(user);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-
-    fetchData();
-  }, []);
+function DonneesPerso() {
+  const userConnected = useOutletContext();
 
   return (
     <div>
-      {user ? (
+      {userConnected ? (
         <div className="container-user">
           <div className="header-wrapper">
             <div className="img-wrapper">
@@ -36,19 +19,19 @@ export default function DonneesPerso() {
               <strong>
                 <span>Pseudo</span>
               </strong>{" "}
-              : {user.pseudo}
+              : {userConnected.pseudo}
             </p>
             <p>
               <strong>
                 <span>Email</span>
               </strong>{" "}
-              : {user.email}
+              : {userConnected.email}
             </p>
             <p>
               <strong>
                 <span>Mot de passe</span>
               </strong>{" "}
-              : {user.password}
+              : {userConnected.password}
             </p>
           </div>
           <div className="btn-profil">
@@ -63,3 +46,5 @@ export default function DonneesPerso() {
     </div>
   );
 }
+
+export default DonneesPerso;

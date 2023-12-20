@@ -1,7 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 function ProfileAdmin({ userConnected }) {
+  const [userConnected2] = useState(userConnected);
+
   return (
     <div>
       {userConnected ? (
@@ -27,7 +30,7 @@ function ProfileAdmin({ userConnected }) {
               </NavLink>
             </div>
             <div className="displayChoice">
-              <Outlet />
+              <Outlet context={userConnected2}/>
             </div>
           </div>
         </div>

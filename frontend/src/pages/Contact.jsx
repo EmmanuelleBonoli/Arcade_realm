@@ -8,7 +8,7 @@ function Contact() {
           <div className="form-contact">
             <div className="header-contact">
               <img
-                src="./images/Contact/PacmanContact.png"
+                src="/images/Contact/PacmanContact.png"
                 alt="logo-contact"
                 className="pacman"
               />
@@ -43,7 +43,7 @@ function Contact() {
                   target="_blank"
                 >
                   <img
-                    src="./images/Contact/map.png"
+                    src="/images/Contact/map.png"
                     alt="map"
                     className="map"
                   />

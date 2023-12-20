@@ -7,13 +7,206 @@
   .container-echange {
     margin: 0 auto;
     width: 50vw;
-    height: 60vh;
+    height: 65vh;
     border: 2px solid white;
     background-color: #0000008a;
     border-radius: 15px;
     display: flex;
-  }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 
+    a {
+      padding: 5px;
+      width: 25%;
+      text-align: center;
+      color: white;
+      font-family: var(--secondary-font);
+      background-color: rgba(0, 0, 0, 0.575);
+      border-radius: 5px;
+      padding: var(--spacing);
+      text-decoration: none;
+      font-size: 1.5rem;
+      cursor: pointer;    }
+
+    .mes-lots {
+      width: 80%;
+      height: 15vh;
+      border: 2px solid white;
+      background-color: var(--primary-color);
+      border-radius: 6px;
+      padding: 8px;
+
+      h1 {
+        width: 100%;
+        padding: 1px;
+        text-align: center;
+        font-family: var(--primary-font);
+        color: var(--fourth-color);
+      }
+
+      .lots-user {
+        height: 80%;
+        display: flex;
+        .gl-trait-echange {
+          width: 4%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .trait-echange {
+            width: 1px;
+            background-color: white;
+            height: 60%;
+            border-radius: 10px;
+          }
+        }
+
+        .lots-scores {
+          height: 100%;
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          p {
+            font-family: var(--secondary-font);
+            color: white;
+            font-size: 1.6rem;
+          }
+          .images-recompense {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            position: relative;
+
+            img {
+              width: 80%;
+            }
+
+            .elispe-coché {
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 100%;
+              text-align: right;
+              img {
+                width: 20%;
+              }
+            }
+          }
+        }
+        .user-score {
+          width: 30%;
+          font-family: var(--primary-font);
+          color: white;
+          font-size: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: var(--spacing);
+        }
+      }
+    }
+    .image-echangeur {
+      width: 80%;
+      text-align: center;
+      img {
+        width: 5%;
+      }
+    }
+
+    .echange-joueur {
+      width: 80%;
+      height: 20vh;
+      border: 2px solid white;
+      background-color: var(--primary-color);
+      border-radius: 6px;
+      display: flex;
+      padding: var(--spacing);
+
+      .Joueurs-p1 {
+        width: 70%;
+        h1 {
+          padding: 1px;
+          font-family: var(--primary-font);
+          text-align: center;
+          color: var(--fourth-color);
+        }
+        p {
+          font-family: var(--secondary-font);
+          color: white;
+          font-size: 1.6rem;
+        }
+        .lots-disponibles{
+          display: flex;
+          align-items: center;
+          height: 75%;
+          .images-echange {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            position: relative;
+
+            img {
+              width: 85%;
+            }
+
+            .elispe-coché-echange {
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 100%;
+              text-align: right;
+              img {
+                width: 20%;
+              }
+            }
+          }
+        }
+
+      }
+      .gl-trait-echange-2 {
+        width: 4%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .trait-echange-2 {
+          width: 1px;
+          background-color: white;
+          height: 80%;
+          border-radius: 10px;
+        }
+      }
+    }
+    .Joueurs-p2 {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+    h1 {
+      padding: 1px;
+      font-family: var(--primary-font);
+      color: var(--fourth-color);
+    }
+    p {
+      font-family: var(--primary-font);
+      color: white;
+      font-size: 2rem;
+    }
+    img {
+      width: 50%;
+    }
+  }
   .avatar {
     position: absolute;
     top: 2%;

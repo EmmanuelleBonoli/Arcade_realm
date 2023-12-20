@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import AdminUploadLot from "./AdminUploadLot";
 
 function AdminServices() {
   const [dataEvents, setDataEvents] = useState([]);
   const [dataLots, setDataLots] = useState([]);
   const [dataGames, setDataGames] = useState([]);
+  const [uploadLotModal, setUploadLotModal] = useState(false);
+  // const [uploadEventModal, setUploadEventModal] = useState(false);
+  // const [uploadGameModal, setUploadGameModal] = useState(false);
 
   const handleDeleteDataLots = async (data) => {
     try {
@@ -70,10 +74,33 @@ function AdminServices() {
     getGames();
   }, []);
 
+  const openUploadLotModal = () => {
+    setUploadLotModal(true);
+  };
+
+  const closeUploadLotModal = () => {
+    setUploadLotModal(false);
+  };
+  // const handleUpload = async () => {
+  //   try {
+  //     const fetchLots = await axios.post(
+  //       `${import.meta.env.VITE_BACKEND_URL}/api/lot`
+  //     );
+  //     setDataLots(fetchLots.data);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
   return (
     <div className="adminServices">
+      {uploadLotModal && <AdminUploadLot onClose={closeUploadLotModal} />}
       <div className="lots">
-        <div className="itemServices addBox">
+        <div
+          className="itemServices addBox"
+          onClick={openUploadLotModal}
+          role="presentation"
+        >
           <img
             className="add"
             src="/images/Utilisateur/plus.png"

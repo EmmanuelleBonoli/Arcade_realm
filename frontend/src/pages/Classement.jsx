@@ -98,7 +98,7 @@ function Classement() {
                     <div>
                       <img
                         className="medaille"
-                        src="./images/Podium/1st.png"
+                        src="/images/Podium/1st.png"
                         alt="1st"
                       />
                       {users[0].pseudo}
@@ -115,7 +115,7 @@ function Classement() {
                     <div>
                       <img
                         className="medaille"
-                        src="./images/Podium/2nd.png"
+                        src="/images/Podium/2nd.png"
                         alt="2nd"
                       />
                       {users[1].pseudo}
@@ -132,7 +132,7 @@ function Classement() {
                     <div>
                       <img
                         className="medaille"
-                        src="./images/Podium/3rd.png"
+                        src="/images/Podium/3rd.png"
                         alt="3rd"
                       />
                       {users[2].pseudo}

@@ -25,7 +25,7 @@ function PresentationReservation() {
       </div>
       <img
         className="bannerReservation"
-        src="./images/Presentation_reservation/reservation_1.jpg"
+        src="/images/Presentation_reservation/reservation_1.jpg"
         alt="meeting"
       />
     </div>

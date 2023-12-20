@@ -19,7 +19,7 @@ function Home() {
           >
             <div className="Carouselle-1">
               <img
-                src="./images/affiche_accueil.png"
+                src="/images/affiche_accueil.png"
                 className="acc-affiche-1"
                 alt=""
               />
@@ -32,7 +32,7 @@ function Home() {
                 </p>
               </div>
               <img
-                src="./images/affiche_accueil.png"
+                src="/images/affiche_accueil.png"
                 className="acc-affiche-2"
                 alt=""
               />
@@ -44,11 +44,11 @@ function Home() {
                   Retrouver le top 3 de nos meilleurs joueurs de la semaine !
                 </p>
               </div>
-              <img src="./images/podium.png" alt="podium" />
+              <img src="/images/podium.png" alt="podium" />
             </div>
             <div className="Carouselle-3">
               <div className="bloc-mario">
-                <img src="./images/mario.png" className="mario" alt="mario" />
+                <img src="/images/mario.png" className="mario" alt="mario" />
               </div>
               <div className="text-contact">
                 <h1>CONTACTEZ - NOUS</h1>
@@ -72,7 +72,7 @@ function Home() {
           </p>
         </div>
         <div className="metal-texte">
-          <img src="./images/metal-slug.png" alt="metal-slug" />
+          <img src="/images/metal-slug.png" alt="metal-slug" />
           <p>
             <Link to="/presentationarcaderealm">
               <span>Découvrir-ici</span>
@@ -83,21 +83,21 @@ function Home() {
       <div className="cards">
         <div className="cards-1 card-global">
           <p className="texte-cards">JEUX DU MOMENT</p>
-          <img src="./images/jeux_accueil.png" alt="jeux-accueil" />
+          <img src="/images/jeux_accueil.png" alt="jeux-accueil" />
         </div>
         <Link to="/classementetlots">
           <div className="cards-2 card-global">
             <p className="texte-cards">CLASSEMENT ET LOT</p>
             <div className="Image-lot">
-              <img src="./images/Coupe.png" alt="coupe" />
-              <img src="./images/SuperNes3.png" alt="supernes" />
+              <img src="/images/Coupe.png" alt="coupe" />
+              <img src="/images/SuperNes3.png" alt="supernes" />
             </div>
           </div>
         </Link>
         <Link to="/evenements">
           <div className="cards-3 card-global">
             <p className="texte-cards">ÉVÈNEMENTS</p>
-            <img src="./images/affiche_accueil.png" alt="evenements" />
+            <img src="/images/affiche_accueil.png" alt="evenements" />
           </div>
         </Link>
       </div>
