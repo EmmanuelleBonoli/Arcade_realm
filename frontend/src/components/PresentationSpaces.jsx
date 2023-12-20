@@ -29,19 +29,19 @@ function PresentationSpaces() {
       </div>
       <div className="imgSpaces">
         <img
-          src="./images/Presentation_espaces/espace_2.jpg"
+          src="/images/Presentation_espaces/espace_2.jpg"
           alt="bornes d'arcade"
         />
         <img
-          src="./images/Presentation_espaces/espace_1.jpg"
+          src="/images/Presentation_espaces/espace_1.jpg"
           alt="bornes d'arcade"
         />
         <img
-          src="./images/Presentation_espaces/Espace3Bar.jpeg"
+          src="/images/Presentation_espaces/Espace3Bar.jpeg"
           alt="bar Arcade Realm"
         />
         <img
-          src="./images/Presentation_espaces/Espace4NourriturePokemon.jpg"
+          src="/images/Presentation_espaces/Espace4NourriturePokemon.jpg"
           alt="Exemple nourriture proposé"
         />
       </div>

@@ -147,3 +147,155 @@
     }
   }
 }
+
+// RESPONSIVE
+
+@media screen and (max-width: 1400px) {
+  .container {
+    .container-form {
+      width: 45%;
+      margin-top: 5%;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .container {
+    .container-form {
+      width: 55%;
+      margin-top: 5%;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    .container-form {
+      width: 65%;
+      margin-top: 5%;
+      .form-contact {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    .container-form {
+      width: 75%;
+      margin-top: 10%;
+
+      .form-contact {
+        width: 80%;
+
+        .container-adresse {
+          .adresse {
+            width: 50%;
+            .map {
+              width: 40px;
+              height: 40px;
+            }
+            p {
+              font-size: 1.5rem;
+              padding: 0;
+            }
+          }
+          .reseaux-sociaux {
+            width: 50%;
+            p {
+              padding: 0;
+              font-size: 1.5rem;
+            }
+            .img-reseaux {
+              gap: 10px;
+
+              .facebook,
+              .instagram {
+                width: 38px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    .container-form {
+      width: 90%;
+      height: 60vh;
+      margin-top: 15%;
+
+      .form-contact {
+        width: 90%;
+
+        .header-contact {
+          h1 {
+            font-size: 3rem;
+          }
+          .pacman {
+            width: 70px;
+          }
+        }
+
+        .input-container {
+          .name,
+          .email {
+            font-size: 1.2rem;
+            width: 100%;
+            height: 4vh;
+          }
+
+          .message {
+            font-size: 1.5rem;
+            height: 12vh;
+          }
+
+          textarea::placeholder {
+          }
+          p {
+            font-size: 1.8rem;
+          }
+        }
+        .button-contact {
+          a {
+            .btn-contact {
+              width: 15vh;
+              font-size: 1.6rem;
+            }
+          }
+        }
+        .container-adresse {
+          .adresse {
+            width: 50%;
+            .map {
+              width: 40px;
+              height: 40px;
+            }
+            p {
+              font-size: 1.3rem;
+              padding: 0;
+            }
+          }
+          .reseaux-sociaux {
+            width: 50%;
+            p {
+              padding: 0;
+              font-size: 1.3rem;
+            }
+            .img-reseaux {
+              gap: 10px;
+
+              .facebook,
+              .instagram {
+                width: 38px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
