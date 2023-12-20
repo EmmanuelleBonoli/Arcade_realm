@@ -1,26 +1,40 @@
-// import MesLotsEchanges from "../components/MesLotsEchanges";
-// import axios from "axios";
-// import { Outlet } from "react-router-dom";
-// import MeilleursScore from "../components/MeilleursScore";
+import { NavLink, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function ProfileUser({ userConnected }) {
   return (
-    <div className="home-profil">
-      <div className="container-profil">
-        <div className="profil-pt1">
-          <h2>Données personnelles</h2>
-          <h2>Mes meilleurs scores</h2>
-          <h2>Mes Lots/Echanges</h2>
-          <h2>Mes jeux favoris</h2>
+    <div>
+      {userConnected ? (
+        <div className="home-profil">
+          <div className="container-profil">
+            <div className="profil-pt1">
+              <NavLink to="/profilutilisateur">Données personnelles</NavLink>
+              <NavLink to="/profilutilisateur/meilleursscores">
+                Mes Meilleurs Scores
+              </NavLink>
+              <NavLink to="/profilutilisateur/meslotsechanges">
+                Mes Lots/Echanges
+              </NavLink>
+              <NavLink to="/profilutilisateur/mesjeuxfavoris">
+                Mes Jeux Favoris
+              </NavLink>
+            </div>
+            <div className="profil-pt2">
+              <div className="displayChoice">
+                <Outlet />
+              </div>
+            </div>
+          </div>
+          <div className="avatar">
+            <img
+              src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
+              alt="avatar"
+            />
+          </div>
         </div>
-        <div className="profil-pt2">
-          {/*  <MesLotsEchanges /> <MeilleursScore /> */}
-        </div>
-      </div>
-      <div className="avatar">
-        <img src="/images/Login/GhostLogin.png" alt="avatar" />
-      </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

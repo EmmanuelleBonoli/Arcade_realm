@@ -11,11 +11,13 @@ import PresentationGame from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 // import ProfileAdmin from "./pages/ProfileAdmin";
-// import MeilleursScore from "./components/MeilleursScore";
+import MeilleursScore from "./components/MeilleursScore";
 import Echange from "./pages/Echange";
 import DonneesPerso from "./components/DonneesPerso";
 import AdminServices from "./components/AdminServices";
 import AdminUserProfile from "./components/AdminUserProfile";
+import MesLotsEchanges from "./components/MesLotsEchanges";
+import MesJeuxFavoris from "./components/MesJeuxFavoris";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +64,17 @@ const router = createBrowserRouter([
           {
             path: "/profilutilisateur/gestionprofils",
             element: <AdminUserProfile />,
+          },
+          {
+            path: "/profilutilisateur/meilleursscores",
+            element: <MeilleursScore />,
+          },
+          {
+            path: "/profilutilisateur/meslotsechanges",
+            element: <MesLotsEchanges />,
+          },{
+            path: "/profilutilisateur/mesjeuxfavoris",
+            element: <MesJeuxFavoris />,
           },
         ],
       },
