@@ -1,7 +1,8 @@
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 function DonneesPerso() {
-  const userConnected = useOutletContext();
+  const { userConnected } = useContext(UserContext);
 
   return (
     <div>

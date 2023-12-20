@@ -1,6 +1,23 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+// import axios from "axios";
+import UserContext from "../contexts/UserContext";
 
 function MesLotsEchanges() {
+  const { userConnected } = useContext(UserContext);
+  // const [lots, setLots] = useState([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/lot/`, {
+  //       params: {
+  //         join: "utilisateur_id",
+  //       },
+  //     })
+  //     .then((response) => setLots(response.data))
+  //     .catch((error) => console.error(error));
+  // }, []);
+
   return (
     <div className="container-mle">
       <div className="pseudo-joueur">
@@ -8,27 +25,20 @@ function MesLotsEchanges() {
           src="/images/Utilisateur/Rectangle 144.png"
           alt="medaille vector"
         />
-        <h1>Wild_Gamer</h1>
+        <h1>{userConnected.pseudo}</h1>
       </div>
       <div className="mes-lots">
-        <div className="t-1">
-          <div className="premier-prix">
-            <p className="titre-prix">1er prix</p>
-            <p className="nom-item">Nintendo Nes</p>
+        {/* {lots.map((lot) => (
+          <div key={lot.id} className="t-1">
+            <div className="premier-prix">
+              <p className="titre-prix">1er prix</p>
+              <p className="nom-item">{lot.name}</p>
+            </div>
+            <div className="img-prix">
+              <img src={lot.image} alt={lot.name} />
+            </div>
           </div>
-          <div className="img-prix">
-            <img src="/images/SuperNes3.png" alt="nintendo-nes" />
-          </div>
-        </div>
-        <div className="t-2">
-          <div className="deuxieme-prix">
-            <p className="titre-prix">2ème prix</p>
-            <p className="nom-item">Mug Space Invaders</p>
-          </div>
-          <div className="img-prix">
-            <img src="/images/Utilisateur/InvadersMug.png" alt="invaders-mug" />
-          </div>
-        </div>
+        ))} */}
       </div>
       <NavLink to="/echange">
         <div className="bouton-echangerlot">
