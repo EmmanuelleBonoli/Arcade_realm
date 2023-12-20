@@ -73,7 +73,7 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    const result = await tables.lot.delete(req.params.id);
+    const result = await tables.evenement.delete(req.params.id);
     res.status(201).send(result);
   } catch (err) {
     // Pass any errors to the error-handling middleware
