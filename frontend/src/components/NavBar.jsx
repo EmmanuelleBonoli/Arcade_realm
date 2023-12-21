@@ -1,10 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Inscription from "./Inscription";
 import Connexion from "./Connexion";
+import UserContext from "../contexts/UserContext";
 
 function NavBar() {
+  const { userConnected, setUserConnected } = useContext(UserContext);
+  const navigate = useNavigate();
   const [connexionModal, setConnexionModal] = useState(false);
   const [inscriptionModal, setInscriptionModal] = useState(false);
 
@@ -24,11 +27,21 @@ function NavBar() {
     setConnexionModal(false);
   };
 
+  const handletest = () => {
+    setUserConnected(null);
+  };
+
+  const handleProfile = () => {
+    navigate("/profilutilisateur");
+  };
+
   return (
     <div className="navBar">
       <div className="Int-navBar">
         <nav className="nav-pt-1">
-          <NavLink to="/">HOME</NavLink>
+          <NavLink to="/" onClick={handletest}>
+            HOME
+          </NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
         </nav>
 
@@ -36,14 +49,38 @@ function NavBar() {
           <img src="/images/logo.png" alt="logo-arcade" />
         </div>
 
-        <nav className="nav-pt-2">
-          <p onClick={openInscriptionModal} role="presentation">
-            INSCRIPTION
-          </p>
-          <p onClick={openConnexionModal} role="presentation">
-            CONNEXION
-          </p>
-        </nav>
+        {userConnected ? (
+          <div className="nav-pt-2">
+            <div className="avatar_user">
+              <div className="pseudo">
+                <p>
+                  <strong>BONJOUR :</strong>
+                </p>
+                <p>{userConnected.pseudo}</p>
+              </div>
+              <div className="bloc-image">
+                <img
+                  src={`${import.meta.env.VITE_BACKEND_URL}${
+                    userConnected.image
+                  }`}
+                  alt="avataruser"
+                  role="presentation"
+                  onClick={handleProfile}
+                />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <nav className="nav-pt-2">
+            <p onClick={openInscriptionModal} role="presentation">
+              INSCRIPTION
+            </p>
+            <p onClick={openConnexionModal} role="presentation">
+              CONNEXION
+            </p>
+          </nav>
+        )}
+
         {inscriptionModal && <Inscription onClose={closeInscriptionModal} />}
         {connexionModal && <Connexion onClose={closeConnexionModal} />}
 

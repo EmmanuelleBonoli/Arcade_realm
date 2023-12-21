@@ -18,6 +18,7 @@ import AdminServices from "./components/AdminServices";
 import AdminUserProfile from "./components/AdminUserProfile";
 import MesLotsEchanges from "./components/MesLotsEchanges";
 import MesJeuxFavoris from "./components/MesJeuxFavoris";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -51,31 +52,59 @@ const router = createBrowserRouter([
       },
       {
         path: "/profilutilisateur",
-        element: <Profile />,
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
         children: [
           {
             index: true,
-            element: <DonneesPerso />,
+            element: (
+              <ProtectedRoute>
+                <DonneesPerso />
+              </ProtectedRoute>
+            ),
           },
           {
             path: "/profilutilisateur/adminservices",
-            element: <AdminServices />,
+            element: (
+              <ProtectedRoute>
+                <AdminServices />
+              </ProtectedRoute>
+            ),
           },
           {
             path: "/profilutilisateur/gestionprofils",
-            element: <AdminUserProfile />,
+            element: (
+              <ProtectedRoute>
+                <AdminUserProfile />
+              </ProtectedRoute>
+            ),
           },
           {
             path: "/profilutilisateur/meilleursscores",
-            element: <MeilleursScore />,
+            element: (
+              <ProtectedRoute>
+                <MeilleursScore />
+              </ProtectedRoute>
+            ),
           },
           {
             path: "/profilutilisateur/meslotsechanges",
-            element: <MesLotsEchanges />,
+            element: (
+              <ProtectedRoute>
+                <MesLotsEchanges />
+              </ProtectedRoute>
+            ),
           },
           {
             path: "/profilutilisateur/mesjeuxfavoris",
-            element: <MesJeuxFavoris />,
+            element: (
+              <ProtectedRoute>
+                <MesJeuxFavoris />
+              </ProtectedRoute>
+            ),
           },
         ],
       },

@@ -37,10 +37,10 @@ export default function Inscription({ onClose }) {
             onClick={handleInputClick}
           />
 
-<div className="container-button">
-          <button type="submit" className="btn-inscription">
-            S'inscrire
-          </button>
+          <div className="container-button">
+            <button type="submit" className="btn-inscription">
+              S'inscrire
+            </button>
           </div>
         </div>
       </div>
