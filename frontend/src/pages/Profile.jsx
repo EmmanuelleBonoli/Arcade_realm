@@ -12,7 +12,7 @@ function Profile() {
     const getUser = async () => {
       try {
         const dataUser = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/3`
+          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/4`
         );
         setUserConnected(dataUser.data[0]);
       } catch (error) {
