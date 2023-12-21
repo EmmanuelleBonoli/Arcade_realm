@@ -63,6 +63,45 @@
   }
 }
 
+@media screen and (max-width: 1440px) {
+  .navBar {
+    .Int-navBar {
+      .logo {
+        padding: 1%;
+        img {
+          width: 25%;
+        }
+      }
+      .nav-pt-2 {
+        padding-right: 10px;
+        p {
+          padding-right: 10px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .navBar {
+    .Int-navBar {
+      .logo {
+        padding: 1%;
+        img {
+          width: 40%;
+        }
+      }
+      .nav-pt-2 {
+        p {
+          padding-right: 10px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .navBar {
     .menuBurger {
@@ -96,7 +135,7 @@
     width: 36px;
     height: 30px;
     right: 36px;
-    top: 36px;
+    top: 25px;
   }
 
   .bm-burger-bars {
@@ -130,3 +169,82 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .navBar {
+    .Int-navBar {
+      flex-direction: row-reverse;
+
+      .logo {
+        img {
+          width: 40%;
+        }
+      }
+      .nav-pt-2 {
+        gap: 10px;
+        justify-content: start;
+        p {
+          padding-right: 0px;
+          padding-left: var(--spacing);
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .navBar {
+    .Int-navBar {
+      flex-direction: row-reverse;
+      .bm-burger-button {
+        position: fixed;
+        width: 36px;
+        height: 30px;
+        right: 36px;
+        top: 30px;
+      }
+      .logo {
+        img {
+          width: 100%;
+        }
+      }
+      .nav-pt-2 {
+        gap: 0;
+        justify-content: start;
+        p {
+          padding-right: 10px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .navBar {
+    .Int-navBar {
+      flex-direction: row-reverse;
+      .bm-burger-button {
+        position: fixed;
+        width: 36px;
+        height: 30px;
+        right: 36px;
+        top: 20px;
+      }
+      .logo {
+        padding: 1%;
+        img {
+          width: 100%;
+        }
+      }
+      .nav-pt-2 {
+        gap: 0;
+        justify-content: start;
+        p {
+          padding-right: 10px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
