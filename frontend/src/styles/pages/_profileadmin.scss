@@ -58,6 +58,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
         &.active {
           color: var(--secondary-color);
         }
@@ -69,6 +70,65 @@
       height: 70%;
       border-radius: 5px;
       background-color: #00212a;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .profileAdmin {
+    .avatar {
+      height: 150px;
+      width: 150px;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .profileAdmin {
+    flex-wrap: wrap;
+
+    .avatar {
+      height: 100px;
+      width: 100px;
+    }
+
+    .adminLayout {
+      flex-direction: column;
+      width: 75vw;
+      height: 65vh;
+
+      .buttonsChoice {
+        flex-direction: row;
+        height: initial;
+        padding: 8% 4% 4% 4%;
+
+        a {
+          font-size: 1.3rem;
+          width: 17vw;
+          text-align: center;
+        }
+      }
+
+      .displayChoice {
+        width: 80%;
+      }
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .profileAdmin {
+      .adminLayout {
+        flex-direction: column;
+        width: 90vw;
+        height: 65vh;
+
+        .buttonsChoice {
+          padding: 12% 4% 4% 4%;
+
+          a {
+width: 25vw;
+          }
+        }
+      }
     }
   }
 }
