@@ -21,7 +21,6 @@ function AdminUploadLot({ onClose }) {
         disponible: false,
       };
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/lot`, data);
-      
       onClose();
     } catch (err) {
       console.error(err);
