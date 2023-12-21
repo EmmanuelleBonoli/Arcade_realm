@@ -1,12 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AdminUploadLot from "./AdminUploadLot";
+import AdminUploadEvent from "./AdminUploadEvent";
+import AdminUploadGame from "./AdminUploadGame";
 
 function AdminServices() {
   const [dataEvents, setDataEvents] = useState([]);
   const [dataLots, setDataLots] = useState([]);
   const [dataGames, setDataGames] = useState([]);
   const [uploadLotModal, setUploadLotModal] = useState(false);
+  const [resetUploadLot, setResetUploadLot] = useState(false);
+  const [uploadEventModal, setUploadEventModal] = useState(false);
+  const [resetUploadEvent, setResetUploadEvent] = useState(false);
+  const [uploadGameModal, setUploadGameModal] = useState(false);
+  const [resetUploadGame, setResetUploadGame] = useState(false);
 
   const handleDeleteDataLots = async (data) => {
     try {
@@ -70,7 +77,7 @@ function AdminServices() {
     getEvents();
     getLots();
     getGames();
-  }, []);
+  }, [resetUploadLot, resetUploadEvent, resetUploadGame]);
 
   const openUploadLotModal = () => {
     setUploadLotModal(true);
@@ -79,10 +86,44 @@ function AdminServices() {
   const closeUploadLotModal = () => {
     setUploadLotModal(false);
   };
+  const openUploadEventModal = () => {
+    setUploadEventModal(true);
+  };
+
+  const closeUploadEventModal = () => {
+    setUploadEventModal(false);
+  };
+  const openUploadGameModal = () => {
+    setUploadGameModal(true);
+  };
+
+  const closeUploadGameModal = () => {
+    setUploadGameModal(false);
+  };
 
   return (
     <div className="adminServices">
-      {uploadLotModal && <AdminUploadLot onClose={closeUploadLotModal} />}
+      {uploadLotModal && (
+        <AdminUploadLot
+          onClose={closeUploadLotModal}
+          setResetUploadLot={setResetUploadLot}
+          resetUploadLot={resetUploadLot}
+        />
+      )}
+      {uploadEventModal && (
+        <AdminUploadEvent
+          onClose={closeUploadEventModal}
+          setResetUploadEvent={setResetUploadEvent}
+          resetUploadEvent={resetUploadEvent}
+        />
+      )}
+      {uploadGameModal && (
+        <AdminUploadGame
+          onClose={closeUploadGameModal}
+          setResetUploadGame={setResetUploadGame}
+          resetUploadGame={resetUploadGame}
+        />
+      )}
       <div className="lots">
         <div
           className="itemServices addBox"
@@ -131,7 +172,11 @@ function AdminServices() {
             </div>
           );
         })}
-        <div className="itemServices addBox">
+        <div
+          onClick={openUploadEventModal}
+          role="presentation"
+          className="itemServices addBox"
+        >
           <img
             className="add"
             src="/images/Utilisateur/plus.png"
@@ -139,7 +184,7 @@ function AdminServices() {
           />
         </div>
       </div>
-      <div className="games">
+      <div role="presentation" onClick={openUploadGameModal} className="games">
         <div className="itemServices addBox">
           <img
             className="add"

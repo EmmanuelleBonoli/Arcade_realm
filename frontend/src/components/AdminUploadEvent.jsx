@@ -1,10 +1,9 @@
 import { PropTypes } from "prop-types";
 import axios from "axios";
-import { useState } from "react";
+// import { useState } from "react";
 
-function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
-  const [nameLot, setNameLot] = useState("");
-  const [descLot, setDescLot] = useState("");
+function AdminUploadEvent({ onClose, resetUploadEvent, setResetUploadEvent }) {
+  //   const [nameEvent, setNameEvent] = useState("");
   // const [setImageLot] = useState("");
 
   const handleInputClick = (e) => {
@@ -15,13 +14,13 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
     event.preventDefault();
     try {
       const data = {
-        name: nameLot,
-        description: descLot,
-        image: `/images/Lots/cadeauSuppl.png`,
-        disponible: false,
+        image: `/images/Evenements/affiche_accueil.png`,
       };
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/lot`, data);
-      setResetUploadLot(!resetUploadLot);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/evenement`,
+        data
+      );
+      setResetUploadEvent(!resetUploadEvent);
       onClose();
     } catch (err) {
       console.error(err);
@@ -36,20 +35,13 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
         role="presentation"
       >
         <div className="header-container">
-          <h1>Création d'un nouveau lot</h1>
+          <h1>Création d'un nouvel évènement</h1>
         </div>
         <form onSubmit={handleSubmit} className="upload-container">
-          <p>Nom du lot</p>
+          <p>Nom de l'évènement</p>
           <input
             type="text"
-            onChange={(event) => setNameLot(event.target.value)}
-            onClick={handleInputClick}
-          />
-
-          <p>Description du lot</p>
-          <input
-            type="text"
-            onChange={(event) => setDescLot(event.target.value)}
+            // onChange={(event) => setNameEvent(event.target.value)}
             onClick={handleInputClick}
           />
 
@@ -68,10 +60,10 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
   );
 }
 
-AdminUploadLot.propTypes = {
+AdminUploadEvent.propTypes = {
   onClose: PropTypes.func.isRequired,
-  setResetUploadLot: PropTypes.func.isRequired,
-  resetUploadLot: PropTypes.bool.isRequired,
+  setResetUploadEvent: PropTypes.func.isRequired,
+  resetUploadEvent: PropTypes.bool.isRequired,
 };
 
-export default AdminUploadLot;
+export default AdminUploadEvent;
