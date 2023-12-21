@@ -27,8 +27,7 @@ function Home() {
                 <h1>NOS ÉVÉNEMENTS À VENIR</h1>
                 <p>
                   De nombreux lots à gagner !<br />
-                  Nous contacter pour toute inscription ou
-                  <br /> renseignements.
+                  Nous contacter pour toute inscription ou renseignements.
                 </p>
               </div>
               <img
