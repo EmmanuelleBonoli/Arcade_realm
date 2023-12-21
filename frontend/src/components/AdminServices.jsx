@@ -7,7 +7,6 @@ function AdminServices() {
   const [dataLots, setDataLots] = useState([]);
   const [dataGames, setDataGames] = useState([]);
   const [uploadLotModal, setUploadLotModal] = useState(false);
-const
 
   const handleDeleteDataLots = async (data) => {
     try {

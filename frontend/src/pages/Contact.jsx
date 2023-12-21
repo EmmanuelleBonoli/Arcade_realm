@@ -14,7 +14,7 @@ function Contact() {
               />
               <h1>Contact</h1>
             </div>
-            <div className="input-container">
+            <form className="input-container">
               <p>Nom, Prénom</p>
               <input type="text" id="name" required className="name" />
               <p>E-mail</p>
@@ -34,7 +34,7 @@ function Contact() {
                   </button>
                 </NavLink>
               </div>
-            </div>
+            </form>
 
             <div className="container-adresse">
               <div className="adresse">
