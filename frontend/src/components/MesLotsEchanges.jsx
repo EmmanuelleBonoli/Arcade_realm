@@ -47,6 +47,7 @@ function MesLotsEchanges() {
                 <div className="img-prix">
                   <img
                     src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    title={lot.description}
                     alt={lot.name}
                   />
                 </div>

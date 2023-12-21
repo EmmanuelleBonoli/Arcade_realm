@@ -160,7 +160,7 @@ INSERT INTO
 VALUES (
         "5x Tickets Gratuits",
         "/images/Lots/ticketgratuit.png",
-        "blabla3",
+        "5 tickets gratuits pour jouer à n'importe quel jeu de votre choix dans notre salle d'arcade !",
         4,
         1
     ),
