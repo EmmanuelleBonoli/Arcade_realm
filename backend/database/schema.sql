@@ -161,21 +161,21 @@ VALUES (
         "5x Tickets Gratuits",
         "/images/Lots/ticketgratuit.png",
         "blabla3",
-        2,
+        4,
         1
     ),
 
 (
-    "Mug Collector",
+    "Mug Space Invaders",
     "/images/Lots/InvadersMug.png",
     "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo",
-    1,
+    4,
     1
 ), (
     "Peluche Pac-Man",
     "/images/Lots/PeluchePacman.png",
     "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!",
-    2,
+    1,
     1
 ), (
     "Mini Arcade",

@@ -17,7 +17,8 @@
 
     h1 {
       padding: 0 0 0 5%;
-    }}
+    }
+  }
 
   .mes-lots {
     display: flex;
@@ -51,7 +52,7 @@
         width: 50%;
         text-align: center;
         img {
-          width: 60%;
+          width: 50%;
         }
       }
     }
@@ -88,27 +89,27 @@
       }
     }
   }
-  a{
-text-decoration: none;
+  a {
+    text-decoration: none;
 
-  .bouton-echangerlot {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    margin: 0 auto;
-    color: #ffff;
-    font-size: 1rem;
-    font-family: "Montserrat";
-    font-size: 1.8rem;
-    padding: 2%;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.56);
+    .bouton-echangerlot {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      width: 70%;
+      margin: 0 auto;
+      color: #ffff;
+      font-size: 1rem;
+      font-family: "Montserrat";
+      font-size: 1.8rem;
+      padding: 2%;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.56);
 
-    img {
-      width: 10%;
+      img {
+        width: 10%;
+      }
     }
   }
-}
 }
