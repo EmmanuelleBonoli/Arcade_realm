@@ -12,6 +12,7 @@ const jeuxControllers = require("./controllers/jeuxControllers");
 const lotControllers = require("./controllers/lotControllers");
 const scoreControllers = require("./controllers/scoreControllers");
 const utilisateurControllers = require("./controllers/utilisateurControllers");
+const authControllers = require("./controllers/authControllers");
 
 // Route to get a list of items
 router.get("/evenement", evenementControllers.browse);
@@ -33,7 +34,8 @@ router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
 router.post("/lot", lotControllers.add);
 router.post("/utilisateur", utilisateurControllers.add);
-// router.post("/login", authController.login);
+router.post("/login", authControllers.login);
+router.post("/signin", authControllers.signin);
 
 // Route to modify an item
 router.put("/evenement/:id", evenementControllers.edit);
