@@ -17,7 +17,7 @@ const utilisateurControllers = require("./controllers/utilisateurControllers");
 router.get("/evenement", evenementControllers.browse);
 router.get("/jeu", jeuxControllers.browse);
 router.get("/score", scoreControllers.browse);
-router.get("/lot", lotControllers.browse);
+router.get("/lot", lotControllers.browse); 
 router.get("/utilisateur", utilisateurControllers.browse);
 
 // Route to get a specific item by ID
@@ -33,6 +33,7 @@ router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
 router.post("/lot", lotControllers.add);
 router.post("/utilisateur", utilisateurControllers.add);
+// router.post("/login", authController.login);
 
 // Route to modify an item
 router.put("/evenement/:id", evenementControllers.edit);
@@ -40,6 +41,7 @@ router.put("/jeu/:id", jeuxControllers.edit);
 router.put("/score/:id", scoreControllers.edit);
 router.put("/lot/:id", lotControllers.edit);
 router.put("/utilisateur/:id", utilisateurControllers.edit);
+
 
 // Route to delete an item
 router.delete("/evenement/:id", evenementControllers.destroy);

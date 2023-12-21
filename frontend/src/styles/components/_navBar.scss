@@ -130,27 +130,3 @@
   }
 }
 
-@media screen and (max-width: 800px) {
-  .navBar {
-    .menuBurger {
-      
-    }
-
-    .Int-navBar {
-    
-      .logo {
-        padding: 1%;
-        img {
-          width: 15vw;
-        }
-      }
-      .nav-pt-2 {
-        p {
-          font-size: 1.6rem;
-          // padding: var(--spacing);
-        }
-      }
-    }
-  }
-
-}
