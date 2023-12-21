@@ -1,4 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import ContactModale from "../components/ContactModale";
 
 function Contact() {
   return (
@@ -79,6 +81,7 @@ function Contact() {
                 </div>
               </div>
             </div>
+            <ContactModale />
           </div>
         </div>
       </div>

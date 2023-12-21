@@ -28,7 +28,8 @@
       padding: var(--spacing);
       text-decoration: none;
       font-size: 1.5rem;
-      cursor: pointer;    }
+      cursor: pointer;
+    }
 
     .mes-lots {
       width: 80%;
@@ -141,7 +142,7 @@
           color: white;
           font-size: 1.6rem;
         }
-        .lots-disponibles{
+        .lots-disponibles {
           display: flex;
           align-items: center;
           height: 75%;
@@ -168,7 +169,6 @@
             }
           }
         }
-
       }
       .gl-trait-echange-2 {
         width: 4%;
