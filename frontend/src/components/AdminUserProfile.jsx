@@ -29,11 +29,12 @@ export default function AdminUserProfile() {
 
     // Filtrer les utilisateurs en fonction du pseudonyme saisi
     const filteredUsersResult = user.filter((users) =>
-      users.pseudo.includes(inputValue)
+      users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
     );
 
     setFilteredUsers(filteredUsersResult);
   };
+
   const handleDeletePlayer = async (data) => {
     try {
       await axios.delete(
@@ -57,14 +58,14 @@ export default function AdminUserProfile() {
             value={filterPseudo}
             onChange={handleInput}
           />
-          <img src="/images/Search.png" alt="Search" />
+          {/* <img src="/images/Search.png" alt="Search" /> */}
         </div>{" "}
         <div className="overflow-player">
           {filteredUsers.map((player) => (
             <div className="player-list" key={player.id}>
               <p>{player.pseudo}</p>
               <img
-                src="/images/Banned.png"
+                src="/images/Utilisateur/Banned.png"
                 onClick={() => handleDeletePlayer(player.id)}
                 alt="Banned"
                 role="presentation"
