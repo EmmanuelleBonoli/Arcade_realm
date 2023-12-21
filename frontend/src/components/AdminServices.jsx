@@ -7,8 +7,6 @@ function AdminServices() {
   const [dataLots, setDataLots] = useState([]);
   const [dataGames, setDataGames] = useState([]);
   const [uploadLotModal, setUploadLotModal] = useState(false);
-  // const [uploadEventModal, setUploadEventModal] = useState(false);
-  // const [uploadGameModal, setUploadGameModal] = useState(false);
 
   const handleDeleteDataLots = async (data) => {
     try {
@@ -81,16 +79,6 @@ function AdminServices() {
   const closeUploadLotModal = () => {
     setUploadLotModal(false);
   };
-  // const handleUpload = async () => {
-  //   try {
-  //     const fetchLots = await axios.post(
-  //       `${import.meta.env.VITE_BACKEND_URL}/api/lot`
-  //     );
-  //     setDataLots(fetchLots.data);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
   return (
     <div className="adminServices">

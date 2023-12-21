@@ -107,12 +107,23 @@
     .menuBurger {
       visibility: visible;
     }
-  }
 
-  .Int-navBar {
-    flex-direction: row-reverse;
+    .Int-navBar {
+      flex-direction: row-reverse;
+      .logo {
+        padding: 1%;
+        img {
+          width: 15vw;
+        }
+      }
+      .nav-pt-2 {
+        p {
+          font-size: 1.6rem;
+          padding: var(--spacing);
+        }
+      }
+    }
   }
-
   .nav-pt-1 {
     width: 0;
     a {
