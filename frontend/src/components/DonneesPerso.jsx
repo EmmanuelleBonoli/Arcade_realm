@@ -1,7 +1,8 @@
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 function DonneesPerso() {
-  const userConnected = useOutletContext();
+  const { userConnected } = useContext(UserContext);
 
   return (
     <div>
@@ -9,7 +10,7 @@ function DonneesPerso() {
         <div className="container-user">
           <div className="header-wrapper">
             <div className="img-wrapper">
-              <img src="/images/Edit.png" alt="edit-img" />
+              <img src="/images/Utilisateur/Edit.png" alt="edit-img" />
             </div>
             <h1>Admin</h1>
           </div>

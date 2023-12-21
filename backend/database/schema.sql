@@ -34,8 +34,8 @@ CREATE TABLE
         name VARCHAR(80) NOT NULL,
         image VARCHAR(250) NOT NULL,
         description VARCHAR(400),
-        utilisateur_id INT,
-        disponible BOOLEAN NOT NULL,
+        utilisateur_id INT DEFAULT NULL,
+        disponible BOOLEAN NOT NULL DEFAULT FALSE,
         CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 

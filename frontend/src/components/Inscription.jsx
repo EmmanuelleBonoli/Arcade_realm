@@ -28,6 +28,8 @@ export default function Inscription({ onClose }) {
           <p>Choisissez votre pseudo</p>
           <input type="text" className="pseudo" onClick={handleInputClick} />
 
+          <p>Entrez votre e-mail</p>
+          <input type="text" className="pseudo" onClick={handleInputClick} />
           <p>Choisissez votre mot de passe</p>
           <input
             type="text"
@@ -35,9 +37,11 @@ export default function Inscription({ onClose }) {
             onClick={handleInputClick}
           />
 
+<div className="container-button">
           <button type="submit" className="btn-inscription">
             S'inscrire
           </button>
+          </div>
         </div>
       </div>
     </div>

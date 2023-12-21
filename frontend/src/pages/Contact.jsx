@@ -1,4 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import ContactModale from "../components/ContactModale";
 
 function Contact() {
   return (
@@ -14,25 +16,27 @@ function Contact() {
               />
               <h1>Contact</h1>
             </div>
-            <div className="input-container">
+            <form className="input-container">
               <p>Nom, Prénom</p>
-              <input type="text" placeholder="" className="name" />
+              <input type="text" id="name" required className="name" />
               <p>E-mail</p>
-              <input type="text" placeholder="" className="email" />
+              <input type="text" id="email" required className="email" />
               <p>Message</p>
 
               <textarea
                 className="message"
+                id="message"
+                required
                 placeholder="Entrez votre message"
               />
               <div className="button-contact">
                 <NavLink to="/">
-                  <button type="submit" className="btn-contact">
+                  <button type="submit" value="Submit" className="btn-contact">
                     Envoyer
                   </button>
                 </NavLink>
               </div>
-            </div>
+            </form>
 
             <div className="container-adresse">
               <div className="adresse">
@@ -77,6 +81,7 @@ function Contact() {
                 </div>
               </div>
             </div>
+            <ContactModale />
           </div>
         </div>
       </div>

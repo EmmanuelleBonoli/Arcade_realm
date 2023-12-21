@@ -1,9 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import React, { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
-function ProfileUser({ userConnected }) {
-  const [userConnected2] = useState(userConnected);
+function ProfileUser() {
+  const { userConnected } = useContext(UserContext);
 
   return (
     <div>
@@ -24,7 +25,7 @@ function ProfileUser({ userConnected }) {
             </div>
             <div className="profil-pt2">
               <div className="displayChoice">
-                <Outlet context={userConnected2} />
+                <Outlet />
               </div>
             </div>
           </div>
