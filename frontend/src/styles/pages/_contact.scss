@@ -52,6 +52,7 @@
         }
 
         .message {
+          font-family: var(--secondary-font);
           padding: 5px;
           font-size: 2rem;
           border-radius: 5px;
@@ -77,22 +78,26 @@
         width: 100%;
         padding-top: 10px;
 
-        a {
-          width: 100%;
-          display: flex;
-          justify-content: end;
-          text-decoration: none;
-          .btn-contact {
-            cursor: pointer;
-            width: 30%;
-            font-size: 1.8rem;
-            color: white;
-            font-family: var(--primary-font);
-            font-weight: bold;
-            border-radius: 3px;
-            background-color: #b45843;
-            border: none;
-            padding: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        text-decoration: none;
+        .btn-contact {
+          cursor: pointer;
+          width: 30%;
+          font-size: 1.8rem;
+          color: white;
+          font-family: var(--primary-font);
+          font-weight: bold;
+          border-radius: 3px;
+          background-color: #b45843;
+          border: none;
+          padding: 10px;
+
+          &:disabled {
+            background-color: #ac6a5b;
+            color: rgba(255, 253, 253, 0.445);
+           cursor: initial;
           }
         }
       }
