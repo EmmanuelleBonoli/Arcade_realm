@@ -52,15 +52,13 @@ function DonneesPerso() {
       {userConnected ? (
         <div className="container-user">
           <div className="header-wrapper">
-            <div className="img-wrapper">
-              <img
-                src="/images/Utilisateur/Edit.png"
-                alt="edit-img"
-                onClick={handleEdit}
-                role="presentation"
-              />
-            </div>
             <h1>Profil</h1>
+            {/* <img
+              src="/images/Utilisateur/Edit.png"
+              alt="edit-img"
+              onClick={handleEdit}
+              role="presentation"
+            /> */}
           </div>
           {!isEditing ? (
             <form className="information-user">
@@ -90,11 +88,11 @@ function DonneesPerso() {
                   </NavLink>
                 </button>
               </div>
-              <div className="btn-profil">
+              {/* <div className="btn-profil">
                 <button className="deleteprofil" type="button">
                   Supprimer le profil
                 </button>
-              </div>
+              </div> */}
             </form>
           ) : (
             <div className="edit-user">
