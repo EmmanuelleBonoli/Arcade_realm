@@ -80,10 +80,10 @@ function Home() {
         </div>
       </div>
       <div className="cards">
-        {/* <div className="cards-1 card-global">
+        <div className="cards-1 card-global">
           <p className="texte-cards">JEUX DU MOMENT</p>
           <img src="/images/jeux_accueil.png" alt="jeux-accueil" />
-        </div> */}
+        </div>
         <Link to="/classementetlots">
           <div className="cards-2 card-global">
             <p className="texte-cards">CLASSEMENT ET LOT</p>

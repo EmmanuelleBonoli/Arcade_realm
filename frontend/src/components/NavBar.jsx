@@ -27,7 +27,6 @@ function NavBar() {
     setConnexionModal(false);
   };
 
-
   const handleProfile = () => {
     navigate("/profilutilisateur");
   };
@@ -36,9 +35,7 @@ function NavBar() {
     <div className="navBar">
       <div className="Int-navBar">
         <nav className="nav-pt-1">
-          <NavLink to="/">
-            HOME
-          </NavLink>
+          <NavLink to="/">HOME</NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
         </nav>
 
@@ -69,11 +66,10 @@ function NavBar() {
           </div>
         ) : (
           <nav className="nav-pt-2">
-            <div className="inscription">
-              <p onClick={openInscriptionModal} role="presentation">
-                INSCRIPTION
-              </p>
-            </div>
+            <p onClick={openInscriptionModal} role="presentation">
+              INSCRIPTION
+            </p>
+
             <p onClick={openConnexionModal} role="presentation">
               CONNEXION
             </p>

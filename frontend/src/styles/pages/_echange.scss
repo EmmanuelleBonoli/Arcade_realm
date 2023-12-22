@@ -18,8 +18,8 @@
     gap: 10px;
 
     a {
-      padding: 5px;
       width: 25%;
+
       text-align: center;
       color: white;
       font-family: var(--secondary-font);
@@ -29,8 +29,11 @@
       text-decoration: none;
       font-size: 1.5rem;
       cursor: pointer;
-    }
 
+      img {
+        width: 10%;
+      }
+    }
     .mes-lots {
       width: 80%;
       height: 15vh;

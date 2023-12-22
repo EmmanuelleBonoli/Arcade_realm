@@ -28,9 +28,8 @@ export default function AdminUserProfile() {
     setFilterPseudo(inputValue);
 
     // Filtrer les utilisateurs en fonction du pseudonyme saisi
-    const filteredUsersResult = user.filter(
-      (users) =>
-        users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
+    const filteredUsersResult = user.filter((users) =>
+      users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
     );
 
     setFilteredUsers(filteredUsersResult);
@@ -41,7 +40,7 @@ export default function AdminUserProfile() {
       await axios.delete(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${data}`
       );
-      setUser(user.filter((player) => player.id !== data));
+      setFilteredUsers(filteredUsers.filter((player) => player.id !== data));
     } catch (err) {
       console.error(err);
     }
