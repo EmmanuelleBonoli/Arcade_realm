@@ -28,9 +28,8 @@ export default function AdminUserProfile() {
     setFilterPseudo(inputValue);
 
     // Filtrer les utilisateurs en fonction du pseudonyme saisi
-    const filteredUsersResult = user.filter(
-      (users) =>
-        users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
+    const filteredUsersResult = user.filter((users) =>
+      users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
     );
 
     setFilteredUsers(filteredUsersResult);
