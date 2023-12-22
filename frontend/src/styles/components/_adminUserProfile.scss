@@ -52,7 +52,7 @@
       position: relative;
       border-radius: 20px;
       height: 4vh;
-      width: 35vh;
+      width: 18vw;
       border: 2px solid var(--fourth-color);
       background-color: var(--primary-color);
       color: white;
@@ -76,5 +76,15 @@
   ::-webkit-scrollbar-thumb {
     background-color: var(--fourth-color);
     border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .container-player {
+    .wrapper-container {
+      .input-search-player {
+        width: 30vw;
+      }
+    }
   }
 }

@@ -1,8 +1,43 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ContactModale from "../components/ContactModale";
 
 function Contact() {
+  const navigate = useNavigate();
+  const [formModal, setFormModal] = useState(false);
+  const [emailError, setEmailError] = useState("");
+
+  const [formData, setFormData] = useState({
+    nom: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    if (id === "email" && !value.includes("@")) {
+      setEmailError("Format d'e-mail non valide");
+    } else {
+      setEmailError("");
+    }
+
+    setFormData({
+      ...formData,
+      [id]: value,
+    });
+  };
+
+  const openFormModal = (event) => {
+    event.preventDefault();
+
+    setFormModal(true);
+
+    setTimeout(() => {
+      setFormModal(false);
+      navigate("/");
+    }, 3500);
+  };
+
   return (
     <div>
       <div className="container">
@@ -16,26 +51,57 @@ function Contact() {
               />
               <h1>Contact</h1>
             </div>
-            <form className="input-container">
+            <form onSubmit={openFormModal} className="input-container">
               <p>Nom, Prénom</p>
-              <input type="text" id="name" required className="name" />
+              <input
+                type="text"
+                id="nom"
+                required
+                className="name"
+                onChange={handleChange}
+                value={formData.nom}
+              />
               <p>E-mail</p>
-              <input type="text" id="email" required className="email" />
+              <input
+                type="text"
+                id="email"
+                required
+                className="email"
+                onChange={handleChange}
+                value={formData.email}
+              />
+              {emailError && (
+                <p
+                  style={{
+                    color: "red",
+                    fontSize: "14px",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {emailError}
+                </p>
+              )}
               <p>Message</p>
-
               <textarea
                 className="message"
                 id="message"
                 required
                 placeholder="Entrez votre message"
+                onChange={handleChange}
+                value={formData.message}
               />
               <div className="button-contact">
-                <NavLink to="/">
-                  <button type="submit" value="Submit" className="btn-contact">
-                    Envoyer
-                  </button>
-                </NavLink>
+                <button
+                  type="submit"
+                  className="btn-contact"
+                  disabled={
+                    !formData.nom || !formData.email || !formData.message
+                  }
+                >
+                  Envoyer
+                </button>
               </div>
+              {formModal && <ContactModale setFormModal={setFormModal} />}
             </form>
 
             <div className="container-adresse">
@@ -50,6 +116,7 @@ function Contact() {
                     className="map"
                   />
                 </Link>
+
                 <p>
                   <strong>Nous retrouver:</strong>
                   <br />4 rue Baron, 44000 Nantes
@@ -81,7 +148,6 @@ function Contact() {
                 </div>
               </div>
             </div>
-            <ContactModale />
           </div>
         </div>
       </div>

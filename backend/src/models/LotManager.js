@@ -58,6 +58,15 @@ class LotManager extends AbstractManager {
 
     return result;
   }
+
+  async readByUserId(userId) {
+    const [result] = await this.database.query(
+      `select * from ${this.table} where utilisateur_id = ?`,
+      [userId]
+    );
+
+    return result;
+  }
 }
 
 module.exports = LotManager;
