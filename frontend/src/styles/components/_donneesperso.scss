@@ -3,29 +3,18 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   .header-wrapper {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    gap: 20px;
     padding: 4%;
-
-    .img-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      width: 30%;
-
       img {
-        width: 40%;
+        width: 10%;
         cursor: pointer;
       }
-    }
     h1 {
-      width: 60%;
-
-      text-align: right;
       font-family: var(--primary-font);
       font-size: 3rem;
       color: var(--fourth-color);
@@ -41,7 +30,7 @@
       color: var(--fourth-color);
     }
     p {
-      padding: 5% 0% 0% 15%;
+      padding: 4% 0% 0% 15%;
       font-size: 2rem;
       color: white;
     }
@@ -81,7 +70,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 7%;
+    padding-top: 5%;
 
     button {
       background-color:rgba(0, 0, 0, 0.61);
