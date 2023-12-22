@@ -28,8 +28,9 @@ export default function AdminUserProfile() {
     setFilterPseudo(inputValue);
 
     // Filtrer les utilisateurs en fonction du pseudonyme saisi
-    const filteredUsersResult = user.filter((users) =>
-      users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
+    const filteredUsersResult = user.filter(
+      (users) =>
+        users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
     );
 
     setFilteredUsers(filteredUsersResult);
@@ -61,17 +62,20 @@ export default function AdminUserProfile() {
           {/* <img src="/images/Search.png" alt="Search" /> */}
         </div>{" "}
         <div className="overflow-player">
-          {filteredUsers.map((player) => (
-            <div className="player-list" key={player.id}>
-              <p>{player.pseudo}</p>
-              <img
-                src="/images/Utilisateur/Banned.png"
-                onClick={() => handleDeletePlayer(player.id)}
-                alt="Banned"
-                role="presentation"
-              />
-            </div>
-          ))}
+          {filteredUsers.map(
+            (player) =>
+              !player.admin && (
+                <div className="player-list" key={player.id}>
+                  <p>{player.pseudo}</p>
+                  <img
+                    src="/images/Utilisateur/Banned.png"
+                    onClick={() => handleDeletePlayer(player.id)}
+                    alt="Banned"
+                    role="presentation"
+                  />
+                </div>
+              )
+          )}
         </div>
       </div>
     </div>

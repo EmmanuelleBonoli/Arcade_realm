@@ -27,9 +27,6 @@ function NavBar() {
     setConnexionModal(false);
   };
 
-  const handletest = () => {
-    setUserConnected(null);
-  };
 
   const handleProfile = () => {
     navigate("/profilutilisateur");
@@ -39,7 +36,7 @@ function NavBar() {
     <div className="navBar">
       <div className="Int-navBar">
         <nav className="nav-pt-1">
-          <NavLink to="/" onClick={handletest}>
+          <NavLink to="/">
             HOME
           </NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
