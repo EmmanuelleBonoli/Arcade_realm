@@ -1,4 +1,4 @@
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
@@ -54,7 +54,7 @@ function MesLotsEchanges() {
               </div>
             ))}
           </div>
-          {/* <NavLink to="/echange">
+          <NavLink to="/echange">
             <div className="bouton-echangerlot">
               <img
                 src="/images/Utilisateur/Rectangle 139.png"
@@ -62,7 +62,7 @@ function MesLotsEchanges() {
               />
               <p>Échanger un lot</p>
             </div>
-          </NavLink> */}
+          </NavLink>
         </div>
       ) : (
         ""
