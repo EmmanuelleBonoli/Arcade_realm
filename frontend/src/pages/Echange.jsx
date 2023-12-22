@@ -5,7 +5,10 @@ function Echange() {
     <div className="home-echange">
       <div className="container-echange">
         <NavLink to="/profilutilisateur">
-          <div className="retour-page">Retour à mon profil</div>
+          <div className="retour-page">
+            <img src="/images/Utilisateur/retour.png" alt="retour" />
+            Retour à mon profil
+          </div>
         </NavLink>
         <div className="mes-lots">
           <h1>Wild_Gamer</h1>
