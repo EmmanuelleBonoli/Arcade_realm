@@ -26,14 +26,14 @@ function ProfileAdmin() {
               <NavLink to="/profilutilisateur/adminservices" className="">
                 Gestion des services
               </NavLink>
-              <NavLink to="/profilutilisateur/gestionprofils" className="">
+              {/* <NavLink to="/profilutilisateur/gestionprofils" className="">
                 Gestion des profils
-              </NavLink>
+              </NavLink> */}
             </div>
             <div className="displayChoice">
-            <div className="displaycenter">
-                  <Outlet />
-                </div>
+              <div className="displaycenter">
+                <Outlet />
+              </div>
             </div>
           </div>
         </div>
