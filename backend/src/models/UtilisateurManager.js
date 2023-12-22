@@ -50,10 +50,26 @@ class UtilisateurManager extends AbstractManager {
     return result;
   }
 
-  async getByPseudo(pseudo, password) {
+  // async getByPseudo({ pseudo, password }) {
+  //   const [result] = await this.database.query(
+  //     `select * from ${this.table} where pseudo = ? and password =?`,
+  //     [pseudo, password]
+  //   );
+  //   return result;
+  // }
+
+  // async getByPseudo({ pseudo, password }) {
+  //   const [result] = await this.database.query(
+  //     `SELECT * FROM ${this.table} WHERE pseudo = ?`,
+  //     [pseudo, password]
+  //   );
+  //   return result;
+  // }
+
+  async getByPseudo(pseudo) {
     const [result] = await this.database.query(
-      `select * from ${this.table} where pseudo = ? and password =?`,
-      [pseudo, password]
+      `SELECT * FROM ${this.table} WHERE pseudo = ?`,
+      [pseudo]
     );
     return result;
   }

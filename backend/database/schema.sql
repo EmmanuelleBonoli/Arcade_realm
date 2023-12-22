@@ -12,7 +12,7 @@ CREATE TABLE
         password VARCHAR(250) NOT NULL,
         image VARCHAR(250) NOT NULL DEFAULT '',
         admin BOOLEAN NOT NULL DEFAULT FALSE,
-        points INT NOT NULL DeFault NULL
+        points INT NOT NULL DEFAULT FALSE
     );
 
 CREATE TABLE

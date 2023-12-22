@@ -1,15 +1,17 @@
-const UtilisateurManager = require("../models/UtilisateurManager");
-// const tables = require("../tables");
+const tables = require("../tables");
 
 const login = async (req, res, next) => {
   try {
-    const user = await UtilisateurManager.getByPseudo(req.body.pseudo);
+    const user = await tables.utilisateur.getByPseudo(req.body.pseudo);
 
-    const { password } = req.body.password;
-    if (user.password === password) {
-      res.status(200).send(user);
+    if (!user[0]) {
+      res.status(400).send("Incorrect pseudo or password");
+    }
+
+    if (user[0].password === req.body.password) {
+      res.status(200).send(user[0]);
     } else {
-      res.status(400).send("Incorrect email or password");
+      res.status(400).send("Incorrect pseudo or password");
     }
   } catch (err) {
     next(err);
@@ -20,7 +22,7 @@ const signin = async (req, res, next) => {
   try {
     const { pseudo, email, password, image, admin, points } = req.body;
 
-    const result = await UtilisateurManager.create({
+    const result = await tables.utilisateur.create({
       pseudo,
       email,
       password,
@@ -37,6 +39,7 @@ const signin = async (req, res, next) => {
     next(err);
   }
 };
+
 module.exports = {
   login,
   signin,
