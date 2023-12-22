@@ -31,7 +31,9 @@ function ProfileAdmin() {
               </NavLink>
             </div>
             <div className="displayChoice">
-              <Outlet />
+            <div className="displaycenter">
+                  <Outlet />
+                </div>
             </div>
           </div>
         </div>
