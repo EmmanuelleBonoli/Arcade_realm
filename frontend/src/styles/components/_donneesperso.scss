@@ -6,11 +6,12 @@
   justify-content: space-between;
 
   .header-wrapper {
+    border: 1px solid red;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    padding: 4%;
+ 
 
     .img-wrapper {
       display: flex;
@@ -24,8 +25,6 @@
     }
     h1 {
       width: 60%;
-
-      text-align: right;
       font-family: var(--primary-font);
       font-size: 3rem;
       color: var(--fourth-color);
@@ -41,7 +40,7 @@
       color: var(--fourth-color);
     }
     p {
-      padding: 5% 0% 0% 15%;
+      padding: 2% 0% 0% 15%;
       font-size: 2rem;
       color: white;
     }
@@ -84,7 +83,7 @@
     padding-top: 7%;
 
     button {
-      background-color:rgba(0, 0, 0, 0.61);
+      background-color: rgba(0, 0, 0, 0.61);
       border-radius: 6px;
       border: none;
       a {
@@ -92,13 +91,10 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-
         gap: 10px;
-
         cursor: pointer;
         width: 28vh;
         height: 5vh;
-        
 
         p {
           padding: 0;
