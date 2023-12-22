@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 // import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
@@ -6,13 +7,18 @@ function DonneesPerso() {
   // const [nameEdit, setNameEdit] = useState("");
   // const [emailEdit, setEmailEdit] = useState("");
   // const [passwordEdit, setPasswordEdit] = useState("");
-  const { userConnected } = useContext(UserContext);
+  const { userConnected, setUserConnected } = useContext(UserContext);
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState({
     pseudo: userConnected.pseudo,
     email: userConnected.email,
     password: userConnected.password,
   });
+
+  const handletest = () => {
+    setUserConnected(null);
+  };
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -54,7 +60,7 @@ function DonneesPerso() {
                 role="presentation"
               />
             </div>
-            <h1>Utilisateur</h1>
+            <h1>Profil</h1>
           </div>
           {!isEditing ? (
             <form className="information-user">
@@ -76,6 +82,14 @@ function DonneesPerso() {
                 </strong>{" "}
                 {editedText.password}
               </p>
+              <div className="btn-logout">
+                <button onClick={handletest} type="button">
+                  <NavLink to="/">
+                    <img src="/images/Utilisateur/logout.png" alt="logout" />
+                    <p>Se déconnecter</p>
+                  </NavLink>
+                </button>
+              </div>
               <div className="btn-profil">
                 <button className="deleteprofil" type="button">
                   Supprimer le profil

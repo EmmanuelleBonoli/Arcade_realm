@@ -10,7 +10,7 @@
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    padding: 5%;
+    padding: 4%;
 
     .img-wrapper {
       display: flex;
@@ -23,7 +23,7 @@
       }
     }
     h1 {
-      width: 90%;
+      width: 60%;
 
       text-align: right;
       font-family: var(--primary-font);
@@ -58,13 +58,69 @@
       height: 3.5vh;
     }
   }
-}
-.btn-profil {
-  display: flex;
-  justify-content: center;
-  padding-top: 10%;
+  .btn-profil {
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
 
-  .deleteprofil {
+    .deleteprofil {
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.683);
+      font-family: var(--secondary-font);
+      border: none;
+      border-radius: 6px;
+      width: 20vh;
+      height: 5vh;
+      background-color: rgba(0, 0, 0, 0.61);
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+  }
+
+  .btn-logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7%;
+
+    button {
+      background-color:rgba(0, 0, 0, 0.61);
+      border-radius: 6px;
+      border: none;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+
+        gap: 10px;
+
+        cursor: pointer;
+        width: 28vh;
+        height: 5vh;
+        
+
+        p {
+          padding: 0;
+          color: var(--secondary-color);
+          font-weight: bold;
+          font-size: 1.8rem;
+          font-family: var(--primary-font);
+        }
+        img {
+          width: 16%;
+        }
+      }
+    }
+  }
+
+  .edit-profil {
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+  }
+
+  .saveprofil {
     cursor: pointer;
     color: rgba(255, 255, 255, 0.683);
     font-family: var(--secondary-font);
@@ -76,22 +132,4 @@
     font-size: 1.8rem;
     font-style: italic;
   }
-}
-.edit-profil {
-  display: flex;
-  justify-content: center;
-  padding-top: 3%;
-}
-
-.saveprofil {
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.683);
-  font-family: var(--secondary-font);
-  border: none;
-  border-radius: 6px;
-  width: 28vh;
-  height: 5vh;
-  background-color: rgba(0, 0, 0, 0.61);
-  font-size: 1.8rem;
-  font-style: italic;
 }
