@@ -54,7 +54,7 @@ function DonneesPerso() {
                 role="presentation"
               />
             </div>
-            <h1>Admin</h1>
+            <h1>Utilisateur</h1>
           </div>
           {!isEditing ? (
             <form className="information-user">
