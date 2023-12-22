@@ -8,6 +8,7 @@ function App() {
   const location = useLocation();
   const [background, setBackground] = useState("fond1");
   const [userConnected, setUserConnected] = useState(null);
+  const [adminOrNot, setAdminOrNot] = useState(false);
 
   useEffect(() => {
     const currentUrl = location.pathname;
@@ -19,19 +20,20 @@ function App() {
   }, [location]);
 
   return (
-    <div className={`App ${background}`}>
-      <NavBar />
-      <UserContext.Provider
-        value={useMemo(
-          () => ({ userConnected, setUserConnected }),
-          [userConnected, setUserConnected]
-        )}
-      >
+    <UserContext.Provider
+      value={useMemo(
+        () => ({ userConnected, setUserConnected, adminOrNot, setAdminOrNot }),
+        [userConnected, setUserConnected, adminOrNot, setAdminOrNot]
+      )}
+    >
+      <div className={`App ${background}`}>
+        <NavBar />
         <Outlet />
-      </UserContext.Provider>
-      <div className="footerContainer" />
-      <Footer />
-    </div>
+
+        <div className="footerContainer" />
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 }
 
