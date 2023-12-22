@@ -6,7 +6,7 @@ function ProtectedRoute({ children }) {
   const { userConnected } = useContext(UserContext);
   const navigate = useNavigate();
   useEffect(() => {
-    if (!userConnected && !userConnected.admin) {
+    if (!userConnected && !userConnected?.admin) {
       navigate("/");
     }
   }, []);
