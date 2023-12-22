@@ -14,6 +14,7 @@ function ProfileAdmin() {
             <img
               src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
               alt="avatar"
+              role="presentation"
             />
           </div>
 
