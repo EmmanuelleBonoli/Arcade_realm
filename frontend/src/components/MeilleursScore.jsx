@@ -1,8 +1,29 @@
-import React, { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
 function MeilleursScore() {
   const { userConnected } = useContext(UserContext);
+  const [scores, setScores] = useState([]);
+
+  useEffect(() => {
+    if (userConnected) {
+      const getScores = async () => {
+        try {
+          const dataScores = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/score/email/${
+              userConnected.id
+            }`
+          );
+          setScores(dataScores.data);
+        } catch (e) {
+          console.error(e);
+        }
+      };
+      getScores();
+    }
+  }, []);
+
   return (
     <div className="container-MeilleursScore">
       <div className="user-name">
@@ -11,22 +32,22 @@ function MeilleursScore() {
       </div>
       <div className="liste-jeux-points">
         <div className="nom-jeux">
-          <p>Guitar Hero</p>
-          <p>Death Sh.</p>
-          <p>Pacman</p>
+          {scores.map((score) => (
+            <p key={score.name}>{score.name}</p>
+          ))}
         </div>
         <div className="gl-trait">
           <div className="trait" />
         </div>
         <div className="user-point">
-          <p>9 542 pts</p>
-          <p>6 021 pts</p>
-          <p>600pts</p>
+          {scores.map((score) => (
+            <p key={score.name}>{score.points}</p>
+          ))}
         </div>
       </div>
-      <div className="total-points">
+      {/* <div className="total-points">
         <p>Total points : 16163 pts</p>
-      </div>
+      </div> */}
     </div>
   );
 }

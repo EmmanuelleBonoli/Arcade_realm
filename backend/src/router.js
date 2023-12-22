@@ -28,6 +28,7 @@ router.get("/score/:id", scoreControllers.read);
 router.get("/lot/:id", lotControllers.read);
 router.get("/utilisateur/:id", utilisateurControllers.read);
 router.get("/lot/email/:id", lotControllers.readByUserId);
+router.get("/score/email/:id", scoreControllers.readByUserId);
 
 // Route to add a new item
 router.post("/evenement", evenementControllers.add);
