@@ -18,7 +18,7 @@ const authControllers = require("./controllers/authControllers");
 router.get("/evenement", evenementControllers.browse);
 router.get("/jeu", jeuxControllers.browse);
 router.get("/score", scoreControllers.browse);
-router.get("/lot", lotControllers.browse); 
+router.get("/lot", lotControllers.browse);
 router.get("/utilisateur", utilisateurControllers.browse);
 
 // Route to get a specific item by ID
@@ -27,6 +27,8 @@ router.get("/jeu/:id", jeuxControllers.read);
 router.get("/score/:id", scoreControllers.read);
 router.get("/lot/:id", lotControllers.read);
 router.get("/utilisateur/:id", utilisateurControllers.read);
+router.get("/lot/email/:id", lotControllers.readByUserId);
+router.get("/score/email/:id", scoreControllers.readByUserId);
 
 // Route to add a new item
 router.post("/evenement", evenementControllers.add);
@@ -43,7 +45,6 @@ router.put("/jeu/:id", jeuxControllers.edit);
 router.put("/score/:id", scoreControllers.edit);
 router.put("/lot/:id", lotControllers.edit);
 router.put("/utilisateur/:id", utilisateurControllers.edit);
-
 
 // Route to delete an item
 router.delete("/evenement/:id", evenementControllers.destroy);
