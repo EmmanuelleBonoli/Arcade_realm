@@ -46,6 +46,7 @@ function Echange() {
   }
 
   return (
+
     <div>
       {userConnected ? (
         <div className="home-echange">
@@ -88,6 +89,7 @@ function Echange() {
                     <strong>Score : </strong>
                   </p>
                   <p>24 500 pts</p>
+
                 </div>
               </div>
             </div>
