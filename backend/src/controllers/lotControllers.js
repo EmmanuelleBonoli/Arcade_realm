@@ -86,6 +86,20 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const readByUserId = async (req, res, next) => {
+  try {
+    const result = await tables.lot.readByUserId(req.params.id);
+    if (result.length > 0) {
+      res.status(201).send(result);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -93,4 +107,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  readByUserId,
 };
