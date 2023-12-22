@@ -56,6 +56,29 @@
         font-weight: 400;
         cursor: pointer;
       }
+      .avatar_user{
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        padding-right: 10%;
+
+        p{
+          padding : 0 50px 0 0;
+          line-height: 40px;
+        }
+        .bloc-image{
+          border: 2px solid white;
+          background-color: var(--primary-color);
+          width: 20%;
+          border-radius: 50%;
+          cursor : pointer;
+        }
+        img{
+          padding: 15%;
+          width: 100%;
+          
+        }
+      }
     }
   }
   .menuBurger {
