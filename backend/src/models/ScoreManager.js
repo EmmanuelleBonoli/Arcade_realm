@@ -49,6 +49,18 @@ class ScoreManager extends AbstractManager {
     );
     return result;
   }
+
+  async readByUserId(userId) {
+    const [result] = await this.database.query(
+      `select ${this.table}.points, jeu.name, utilisateur.id from ${this.table} 
+      JOIN utilisateur ON utilisateur.id = ${this.table}.utilisateur_id
+      JOIN jeu ON jeu.id = ${this.table}.jeu_id
+      WHERE utilisateur_id = ?`,
+      [userId]
+    );
+
+    return result;
+  }
 }
 
 module.exports = ScoreManager;
