@@ -18,12 +18,12 @@
       width: 30%;
 
       img {
-        width: 30%;
+        width: 40%;
         cursor: pointer;
       }
     }
     h1 {
-      width: 55%;
+      width: 90%;
 
       text-align: right;
       font-family: var(--primary-font);
@@ -31,7 +31,8 @@
       color: var(--fourth-color);
     }
   }
-  .information-user {
+  .information-user,
+  .edit-user {
     display: flex;
     flex-direction: column;
     height: 20vh;
@@ -44,23 +45,53 @@
       font-size: 2rem;
       color: white;
     }
-  }
 
-  .btn-profil {
-    display: flex;
-    justify-content: center;
-
-    .deleteprofil {
-      cursor: pointer;
-      color: rgba(255, 255, 255, 0.683);
+    .input-edit {
+      background-color: var(--third-color);
+      color: white;
+      font-size: 1.5rem;
       font-family: var(--secondary-font);
-      border: none;
-      border-radius: 6px;
-      width: 28vh;
-      height: 5vh;
-      background-color: rgba(0, 0, 0, 0.61);
-      font-size: 1.8rem;
-      font-style: italic;
+      border-radius: 5px;
+      border: 2px solid var(--fourth-color);
+      padding: 3%;
+      width: 25vh;
+      height: 3.5vh;
     }
   }
+}
+.btn-profil {
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+
+  .deleteprofil {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.683);
+    font-family: var(--secondary-font);
+    border: none;
+    border-radius: 6px;
+    width: 28vh;
+    height: 5vh;
+    background-color: rgba(0, 0, 0, 0.61);
+    font-size: 1.8rem;
+    font-style: italic;
+  }
+}
+.edit-profil {
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
+}
+
+.saveprofil {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.683);
+  font-family: var(--secondary-font);
+  border: none;
+  border-radius: 6px;
+  width: 28vh;
+  height: 5vh;
+  background-color: rgba(0, 0, 0, 0.61);
+  font-size: 1.8rem;
+  font-style: italic;
 }

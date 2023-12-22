@@ -71,7 +71,7 @@ const add = async (req, res, next) => {
 
   try {
     // Insert the item into the database
-    const insertId = await tables.jeux.create(jeu);
+    const insertId = await tables.jeu.create(jeu);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });

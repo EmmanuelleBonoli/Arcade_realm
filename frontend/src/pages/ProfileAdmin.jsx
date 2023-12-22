@@ -1,5 +1,4 @@
 import { NavLink, Outlet } from "react-router-dom";
-import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 
@@ -14,6 +13,7 @@ function ProfileAdmin() {
             <img
               src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
               alt="avatar"
+              role="presentation"
             />
           </div>
 
@@ -41,17 +41,5 @@ function ProfileAdmin() {
     </div>
   );
 }
-
-ProfileAdmin.propTypes = {
-  userConnected: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    pseudo: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    admin: PropTypes.number.isRequired,
-    points: PropTypes.number.isRequired,
-  }).isRequired,
-};
 
 export default ProfileAdmin;
