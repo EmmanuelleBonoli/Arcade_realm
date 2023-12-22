@@ -18,9 +18,9 @@ function ProfileUser() {
               <NavLink to="/profilutilisateur/meslotsechanges">
                 Mes Lots/Echanges
               </NavLink>
-              <NavLink to="/profilutilisateur/mesjeuxfavoris">
+              {/* <NavLink to="/profilutilisateur/mesjeuxfavoris">
                 Mes Jeux Favoris
-              </NavLink>
+              </NavLink> */}
             </div>
             <div className="profil-pt2">
               <div className="displayChoice">
