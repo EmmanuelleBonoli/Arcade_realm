@@ -12,7 +12,7 @@ function DonneesPerso() {
             <div className="img-wrapper">
               <img src="/images/Utilisateur/Edit.png" alt="edit-img" />
             </div>
-            <h1>Admin</h1>
+            <h1>Profil</h1>
           </div>
 
           <div className="information-user">
