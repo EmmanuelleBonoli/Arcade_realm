@@ -19,6 +19,7 @@ import AdminUserProfile from "./components/AdminUserProfile";
 import MesLotsEchanges from "./components/MesLotsEchanges";
 import MesJeuxFavoris from "./components/MesJeuxFavoris";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ArcadeGame2 from "./pages/ArcadeGame";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/evenements",
         element: <Events />,
+      },
+      {
+        path: "/gamesonline",
+        element: <ArcadeGame2 />,
       },
       {
         path: "/classementetlots",
