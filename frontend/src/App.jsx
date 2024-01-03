@@ -29,6 +29,7 @@ function App() {
   const [scorePlayer, setScorePlayer] = useState(0);
   const [count, setCount] = useState(5);
   const [launchGuitarHero, setLaunchGuitarHero] = useState(false);
+  const [missedArrow, setMissedArrow] = useState([]);
 
   useEffect(() => {
     const currentUrl = location.pathname;
@@ -49,6 +50,8 @@ function App() {
       <GameContext.Provider
         value={useMemo(
           () => ({
+            missedArrow,
+            setMissedArrow,
             launchGuitarHero,
             setLaunchGuitarHero,
             chooseArrow,
@@ -75,6 +78,8 @@ function App() {
             setChooseScreen,
           }),
           [
+            missedArrow,
+            setMissedArrow,
             launchGuitarHero,
             setLaunchGuitarHero,
             chooseArrow,

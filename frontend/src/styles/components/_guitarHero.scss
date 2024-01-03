@@ -8,30 +8,34 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding: 5%;
+    padding: 5% 5% 5% 0;
     gap: 3vh;
-    width: 50%;
+    width: 40%;
     img {
       width: 1vw;
       cursor: pointer;
     }
   }
   .spaceArrows {
+    background-color: black;
     display: flex;
     justify-content: center;
-    padding: 10% 5% 5% 5%;
-    width: 80%;
+    padding-top: 5%;
+    margin-top: 2%;
+    width: 50%;
+    height: 98%;
+
     .emptyDiv {
-      min-width: 2.5vw;
+      min-width: 3vw;
       display: inline-block;
     }
     .arrowBlue,
     .arrowYellow,
     .arrowGreen,
     .arrowRed {
-      width: 2.5vw;
+      width: 3vw;
       animation-name: fall;
-      animation-duration: 2.5s;
+      animation-duration: 3s;
       animation-iteration-count: infinite;
     }
   }
@@ -41,7 +45,7 @@
       transform: translateY(0);
     }
     100% {
-      transform: translateY(50vh);
+      transform: translateY(37vh);
     }
   }
 }

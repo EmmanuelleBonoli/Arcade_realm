@@ -42,4 +42,56 @@
       }
     }
   }
+  .gameOverGuitarHero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    justify-content: space-around;
+    align-items: center;
+    h2 {
+      font-size: 6rem;
+    }
+    button {
+      padding: 2% 5% 2% 5%;
+      border-radius: 5px;
+      border: 1px solid black;
+      background-color: var(--secondary-color);
+      font-weight: bold;
+      font-family: var(--third-font);
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .insideScreen {
+    .menuScreen {
+      .games {
+        img {
+          height: 10vh;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 835px) {
+  .insideScreen {
+    .menuScreen {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .insideScreen {
+    .menuScreen {
+      font-size: 1.5rem;
+      .games {
+        img {
+          height: 8vh;
+        }
+      }
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import GameContext from "../contexts/GameContext";
 import ScreenArcade from "../components/ScreenArcade";
@@ -30,8 +30,15 @@ function ArcadeGame() {
     // setCount,
   } = useContext(GameContext);
 
+  const chooseArrowRef = useRef(chooseArrow);
+
+  useEffect(() => {
+    chooseArrowRef.current = chooseArrow;
+  }, [chooseArrow]);
+
   function handleClose() {
     setOpenGames(!openGames);
+    setChooseScreen("start");
     navigate("/");
   }
 
@@ -41,12 +48,10 @@ function ArcadeGame() {
       setIsPressedBlue(false);
     }, 100);
 
-    if (chooseScreen === "guitarHero") {
-      if (chooseArrow[0]) {
-        const newChooseArrow = [false, false, false, false];
-        setChooseArrow(newChooseArrow);
-        setScorePlayer(scorePlayer + 100);
-      }
+    if (chooseScreen === "guitarHero" && chooseArrowRef.current[0]) {
+      const newChooseArrow = [false, false, false, false];
+      setChooseArrow(newChooseArrow);
+      setScorePlayer(scorePlayer + 100);
     }
   }
   function handlePushRed() {
@@ -60,12 +65,10 @@ function ArcadeGame() {
     if (chooseScreen === "menu" && gameSelected[0] === "choose") {
       setChooseScreen("guitarHero");
     }
-    if (chooseScreen === "guitarHero") {
-      if (chooseArrow[3]) {
-        const newChooseArrow = [false, false, false, false];
-        setChooseArrow(newChooseArrow);
-        setScorePlayer(scorePlayer + 100);
-      }
+    if (chooseScreen === "guitarHero" && chooseArrowRef.current[3]) {
+      const newChooseArrow = [false, false, false, false];
+      setChooseArrow(newChooseArrow);
+      setScorePlayer(scorePlayer + 100);
     }
   }
   function handlePushGreen() {
@@ -73,12 +76,10 @@ function ArcadeGame() {
     setTimeout(() => {
       setIsPressedGreen(false);
     }, 100);
-    if (chooseScreen === "guitarHero") {
-      if (chooseArrow[1]) {
-        const newChooseArrow = [false, false, false, false];
-        setChooseArrow(newChooseArrow);
-        setScorePlayer(scorePlayer + 100);
-      }
+    if (chooseScreen === "guitarHero" && chooseArrowRef.current[1]) {
+      const newChooseArrow = [false, false, false, false];
+      setChooseArrow(newChooseArrow);
+      setScorePlayer(scorePlayer + 100);
     }
   }
   function handlePushYellow() {
@@ -86,12 +87,10 @@ function ArcadeGame() {
     setTimeout(() => {
       setIsPressedYellow(false);
     }, 100);
-    if (chooseScreen === "guitarHero") {
-      if (chooseArrow[2]) {
-        const newChooseArrow = [false, false, false, false];
-        setChooseArrow(newChooseArrow);
-        setScorePlayer(scorePlayer + 100);
-      }
+    if (chooseScreen === "guitarHero" && chooseArrowRef.current[2]) {
+      const newChooseArrow = [false, false, false, false];
+      setChooseArrow(newChooseArrow);
+      setScorePlayer(scorePlayer + 100);
     }
   }
   function handleNavigateJoystick() {

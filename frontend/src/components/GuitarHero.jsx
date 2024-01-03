@@ -1,4 +1,5 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useRef } from "react";
+import { uid } from "uid";
 import GameContext from "../contexts/GameContext";
 
 function GuitarHero() {
@@ -9,29 +10,47 @@ function GuitarHero() {
     chooseArrow,
     setChooseArrow,
     scorePlayer,
+    setScorePlayer,
+    missedArrow,
+    setMissedArrow,
   } = useContext(GameContext);
 
+  const chooseArrowRef = useRef(chooseArrow);
+
   useEffect(() => {
-    // if (launchGuitarHero) {
+    chooseArrowRef.current = chooseArrow;
+  }, [chooseArrow]);
+
+  useEffect(() => {
     const newGame = setInterval(() => {
       const randomArrow = Math.floor(Math.random() * 4);
-      const newChooseArrow = [...chooseArrow];
+      const newChooseArrow = [...chooseArrowRef.current];
       newChooseArrow[randomArrow] = !newChooseArrow[randomArrow];
       setChooseArrow(newChooseArrow);
-      setTimeout(() => {
-        setChooseArrow([false, false, false, false]);
-      }, 950);
-    }, 1000);
+    }, 3000);
+
+    if (missedArrow.length === 3) {
+      clearInterval(newGame);
+      setChooseScreen("guitarHeroGameOver");
+    }
     return () => clearInterval(newGame);
-    // }
-  }, [
-    // launchGuitarHero,
-    chooseArrow,
-  ]);
+  }, [missedArrow]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (chooseArrowRef.current.includes(true)) {
+        setChooseArrow([false, false, false, false]);
+        const newMissedArrow = [...missedArrow];
+        newMissedArrow.push("missed");
+        setMissedArrow(newMissedArrow);
+      }
+    }, 2900);
+  }, [chooseArrow]);
 
   function closeGame() {
     setChooseScreen("menu");
-    // setLaunchGuitarHero(false);
+    setMissedArrow([]);
+    setScorePlayer(0);
   }
 
   return (
@@ -48,7 +67,18 @@ function GuitarHero() {
           <p>Score : {scorePlayer}</p>
         </div>
         <div className="missedArrow">
-          <p>Missed :</p>
+          <p>
+            Missed :
+            {missedArrow.map(() => {
+              return (
+                <img
+                  key={uid(5)}
+                  src="/images/Jeux_ligne/GuitarHero/redCross.png"
+                  alt="missed"
+                />
+              );
+            })}
+          </p>
         </div>
       </div>
 
