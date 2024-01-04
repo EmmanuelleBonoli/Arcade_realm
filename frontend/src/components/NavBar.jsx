@@ -6,7 +6,7 @@ import Connexion from "./Connexion";
 import UserContext from "../contexts/UserContext";
 
 function NavBar() {
-  const { userConnected, setUserConnected } = useContext(UserContext);
+  const { userConnected } = useContext(UserContext);
   const navigate = useNavigate();
   const [connexionModal, setConnexionModal] = useState(false);
   const [inscriptionModal, setInscriptionModal] = useState(false);
@@ -66,10 +66,11 @@ function NavBar() {
           </div>
         ) : (
           <nav className="nav-pt-2">
-            <p onClick={openInscriptionModal} role="presentation">
-              INSCRIPTION
-            </p>
-
+            <div className="inscription">
+              <p onClick={openInscriptionModal} role="presentation">
+                INSCRIPTION
+              </p>
+            </div>
             <p onClick={openConnexionModal} role="presentation">
               CONNEXION
             </p>
