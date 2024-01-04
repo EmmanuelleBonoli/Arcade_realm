@@ -20,6 +20,7 @@ router.get("/jeu", jeuxControllers.browse);
 router.get("/score", scoreControllers.browse);
 router.get("/lot", lotControllers.browse);
 router.get("/utilisateur", utilisateurControllers.browse);
+router.get("/lot/disponible", lotControllers.readByLotAvailable);
 
 // Route to get a specific item by ID
 router.get("/evenement/:id", evenementControllers.read);

@@ -67,6 +67,14 @@ class LotManager extends AbstractManager {
 
     return result;
   }
+
+  async readByLotAvailable() {
+    const [result] = await this.database.query(
+      `select * from ${this.table} where disponible = 1`
+    );
+
+    return result;
+  }
 }
 
 module.exports = LotManager;

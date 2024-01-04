@@ -100,6 +100,20 @@ const readByUserId = async (req, res, next) => {
   }
 };
 
+const readByLotAvailable = async (req, res, next) => {
+  try {
+    const result = await tables.lot.readByLotAvailable();
+    if (result.length > 0) {
+      res.status(201).send(result);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -108,4 +122,5 @@ module.exports = {
   add,
   destroy,
   readByUserId,
+  readByLotAvailable,
 };
