@@ -296,7 +296,7 @@ VALUES (
         "Jurassic Parc",
         "/images/jeux/jurassic_shooter.jpg",
         "blabla regles",
-        0,
+        1,
         1,
         "2018-07-12",
         1,
@@ -350,7 +350,7 @@ VALUES (
         "Donkey Kong",
         "/images/jeux/donkey-kong.jpg",
         "blabla regles",
-        0,
+        1,
         1,
         "2018-07-12",
         1,
@@ -413,4 +413,4 @@ VALUES (
 
 INSERT INTO
     score (utilisateur_id, jeu_id, points)
-VALUES (1, 2, 3000), (2, 2, 2000), (3, 2, 2000), (1, 1, 5000), (2, 1, 10000);
+VALUES (1, 2, 3000), (2, 2, 2000), (3, 2, 2000), (1, 1, 5000), (2, 1, 10000), (1, 4, 3000), (2, 4, 5000), (10, 4, 9500), (5, 9, 2000), (3, 9, 899), (8, 9, 400), (4, 15, 450), (1, 15, 3000), (9, 15, 2700), (2, 17, 3240), (6, 17, 5700), (4, 17, 1200);
