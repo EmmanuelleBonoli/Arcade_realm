@@ -132,7 +132,7 @@ function AdminServices() {
         >
           <img
             className="add"
-            src="/images/Utilisateur/plus.png"
+            src="/Images/Utilisateur/plus.png"
             alt="ajout doc"
           />
         </div>
@@ -145,7 +145,7 @@ function AdminServices() {
               />
               <img
                 className="suppr"
-                src="/images/Utilisateur/delete.png"
+                src="/Images/Utilisateur/delete.png"
                 alt="suppr"
                 onClick={() => handleDeleteDataLots(lot.id)}
                 role="presentation"
@@ -164,7 +164,7 @@ function AdminServices() {
               />
               <img
                 className="suppr"
-                src="/images/Utilisateur/delete.png"
+                src="/Images/Utilisateur/delete.png"
                 alt="suppr"
                 onClick={() => handleDeleteDataEvents(event.id)}
                 role="presentation"
@@ -179,7 +179,7 @@ function AdminServices() {
         >
           <img
             className="add"
-            src="/images/Utilisateur/plus.png"
+            src="/Images/Utilisateur/plus.png"
             alt="ajout doc"
           />
         </div>

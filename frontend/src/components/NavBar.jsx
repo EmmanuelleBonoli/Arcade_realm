@@ -6,7 +6,7 @@ import Connexion from "./Connexion";
 import UserContext from "../contexts/UserContext";
 
 function NavBar() {
-  const { userConnected, setUserConnected } = useContext(UserContext);
+  const { userConnected } = useContext(UserContext);
   const navigate = useNavigate();
   const [connexionModal, setConnexionModal] = useState(false);
   const [inscriptionModal, setInscriptionModal] = useState(false);
