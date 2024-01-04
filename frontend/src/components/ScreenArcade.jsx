@@ -58,7 +58,6 @@ function ScreenArcade() {
       ) : (
         ""
       )}
-
       {chooseScreen === "guitarHero" ? <GuitarHero /> : ""}
       {chooseScreen === "guitarHeroGameOver" ? (
         <div className="gameOverGuitarHero">
