@@ -1,31 +1,38 @@
 import { PropTypes } from "prop-types";
-import { useState, useEffect, useContext } from "react";
-import UserContext from "../contexts/UserContext";
+import axios from "axios";
+import { useState } from "react";
 
 export default function Inscription({ onClose }) {
-  const handleInputClick = (e) => {
-    e.stopPropagation();
-  };
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [inputEmail, setInputEmail] = useState("");
 
-  const handleInscription = async (e) => {
+  const handleInputClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    const usersignin = {
+    const userSignin = {
       pseudo: inputPseudo,
       email: inputEmail,
       password: inputPassword,
+      image: `/images/Avatar/Avatar.png`,
+      admin: false,
+      points: 0,
     };
+
     try {
-      const dataUser = await axios.post(
+      const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
-        usersignin
+        userSignin
       );
 
-      onClose();
+      if (res.status === 201) {
+        alert("inscription réussie");
+      }
     } catch (error) {
-      console.error(error.message);
+      console.error(error);
     }
   };
 
@@ -48,7 +55,7 @@ export default function Inscription({ onClose }) {
             className="GhostLogin"
           />
         </div>
-        <form onSubmit={handleInscription} className="login-container">
+        <form onSubmit={handleSignIn} className="login-container">
           <p>Choisissez votre pseudo</p>
           <input
             type="text"
@@ -66,7 +73,7 @@ export default function Inscription({ onClose }) {
           />
           <p>Choisissez votre mot de passe</p>
           <input
-            type="text"
+            type="password"
             className="motdepasse"
             onClick={handleInputClick}
             onChange={(event) => setInputPassword(event.target.value)}

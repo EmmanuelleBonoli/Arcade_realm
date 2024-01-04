@@ -10,7 +10,7 @@ CREATE TABLE
         pseudo VARCHAR(80) NOT NULL,
         email VARCHAR(80) NOT NULL,
         password VARCHAR(250) NOT NULL,
-        image VARCHAR(250) NOT NULL DEFAULT '',
+        image VARCHAR(250) NULL,
         admin BOOLEAN NOT NULL DEFAULT FALSE,
         points INT NOT NULL DEFAULT FALSE
     );
