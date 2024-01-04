@@ -1,8 +1,32 @@
 import { PropTypes } from "prop-types";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 export default function Inscription({ onClose }) {
   const handleInputClick = (e) => {
     e.stopPropagation();
+  };
+  const [inputPseudo, setInputPseudo] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
+  const [inputEmail, setInputEmail] = useState("");
+
+  const handleInscription = async (e) => {
+    e.preventDefault();
+    const usersignin = {
+      pseudo: inputPseudo,
+      email: inputEmail,
+      password: inputPassword,
+    };
+    try {
+      const dataUser = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
+        usersignin
+      );
+
+      onClose();
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -24,17 +48,28 @@ export default function Inscription({ onClose }) {
             className="GhostLogin"
           />
         </div>
-        <div className="login-container">
+        <form onSubmit={handleInscription} className="login-container">
           <p>Choisissez votre pseudo</p>
-          <input type="text" className="pseudo" onClick={handleInputClick} />
+          <input
+            type="text"
+            className="pseudo"
+            onClick={handleInputClick}
+            onChange={(event) => setInputPseudo(event.target.value)}
+          />
 
           <p>Entrez votre e-mail</p>
-          <input type="text" className="pseudo" onClick={handleInputClick} />
+          <input
+            type="text"
+            className="pseudo"
+            onClick={handleInputClick}
+            onChange={(event) => setInputEmail(event.target.value)}
+          />
           <p>Choisissez votre mot de passe</p>
           <input
             type="text"
             className="motdepasse"
             onClick={handleInputClick}
+            onChange={(event) => setInputPassword(event.target.value)}
           />
 
           <div className="container-button">
@@ -42,7 +77,7 @@ export default function Inscription({ onClose }) {
               S'inscrire
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
