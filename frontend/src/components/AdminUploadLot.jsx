@@ -57,7 +57,7 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
             type="file"
             // onChange={(event) => setImageLot(event.target.files[0])}
             accept=".png, .jpg,.jpeg"
-          /> */}
+          />  */}
 
           <button type="submit" className="btn-inscription">
             Valider la création

@@ -68,6 +68,23 @@ class JeuxManager extends AbstractManager {
     );
     return result;
   }
+
+  async readOnline() {
+    const [result] = await this.database.query(
+      `select * from ${this.table} where actif = 1`
+    );
+    return result;
+  }
+
+  async readOnlineScores() {
+    const [result] = await this.database.query(
+      `select ${this.table}.id, jeu.name, utilisateur.pseudo, score.points from ${this.table} 
+      LEFT JOIN score ON ${this.table}.id = score.jeu_id
+      LEFT JOIN utilisateur ON utilisateur.id = score.utilisateur_id
+      where ${this.table}.actif = 1`
+    );
+    return result;
+  }
 }
 
 module.exports = JeuxManager;
