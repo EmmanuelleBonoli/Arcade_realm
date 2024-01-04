@@ -1,9 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-// import Inscription from "../components/Inscription";
+import GameContext from "../contexts/GameContext";
 
 function Home() {
+  const navigate = useNavigate();
+  const { openGames, setOpenGames } = useContext(GameContext);
+
+  function handleGamePlay() {
+    setOpenGames(!openGames);
+    navigate("/gamesonline");
+  }
+
   return (
     <div className="HomePage">
       <div className="Carouselle">
@@ -80,7 +89,11 @@ function Home() {
         </div>
       </div>
       <div className="cards">
-        <div className="cards-1 card-global">
+        <div
+          onClick={handleGamePlay}
+          role="presentation"
+          className="cards-1 card-global"
+        >
           <p className="texte-cards">JEUX DU MOMENT</p>
           <img src="/images/jeux_accueil.png" alt="jeux-accueil" />
         </div>

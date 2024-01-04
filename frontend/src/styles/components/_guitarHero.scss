@@ -1,0 +1,51 @@
+.guitarHero {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+
+  .infosJeu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 5% 5% 5% 0;
+    gap: 3vh;
+    width: 40%;
+    img {
+      width: 1vw;
+      cursor: pointer;
+    }
+  }
+  .spaceArrows {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    margin-top: 2%;
+    width: 50%;
+    height: 98%;
+
+    .emptyDiv {
+      min-width: 3vw;
+      display: inline-block;
+    }
+    .arrowBlue,
+    .arrowYellow,
+    .arrowGreen,
+    .arrowRed {
+      width: 3vw;
+      animation-name: fall;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(37vh);
+    }
+  }
+}
