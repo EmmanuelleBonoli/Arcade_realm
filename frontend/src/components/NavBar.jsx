@@ -7,10 +7,6 @@ import UserContext from "../contexts/UserContext";
 
 function NavBar() {
   const { userConnected } = useContext(UserContext);
-<<<<<<< HEAD
-=======
-
->>>>>>> 5028c4c7e9131ca489bdd50a8177073ba93a2d4d
   const navigate = useNavigate();
   const [connexionModal, setConnexionModal] = useState(false);
   const [inscriptionModal, setInscriptionModal] = useState(false);
