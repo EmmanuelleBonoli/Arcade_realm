@@ -30,10 +30,10 @@ const signin = async (req, res, next) => {
       admin,
       points,
     });
-    if (result.insertID) {
+    if (result.insertId) {
       res.sendStatus(201);
     } else {
-      res.sendSstatus(400);
+      res.sendStatus(400);
     }
   } catch (err) {
     next(err);
