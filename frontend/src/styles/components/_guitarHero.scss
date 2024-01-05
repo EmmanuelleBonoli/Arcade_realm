@@ -1,4 +1,8 @@
 .guitarHero {
+  background: url("/images/Jeux_ligne/GuitarHero/guitar2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 35px;
   width: 100%;
   height: 100%;
 
@@ -6,27 +10,27 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
 
     .infosJeu {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
       padding: 5% 5% 5% 0;
       gap: 3vh;
-      width: 40%;
+      width: 100%;
       img {
         width: 1vw;
         cursor: pointer;
       }
     }
     .spaceArrows {
-      background-color: black;
       display: flex;
       justify-content: center;
       padding-top: 5%;
       margin-top: 2%;
-      width: 50%;
+      width: 100%;
       height: 98%;
 
       .emptyDiv {
@@ -49,7 +53,7 @@
         transform: translateY(0);
       }
       100% {
-        transform: translateY(37vh);
+        transform: translateY(28vh);
       }
     }
   }
@@ -58,11 +62,14 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
-    gap: 8%;
+    // gap: 8%;
     h2 {
       font-size: 6rem;
+    }
+    p {
+      padding-bottom: 20%;
     }
     button {
       padding: 2% 5% 2% 5%;
