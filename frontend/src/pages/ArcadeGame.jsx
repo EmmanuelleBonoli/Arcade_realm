@@ -32,6 +32,7 @@ function ArcadeGame() {
     // setCount,
   } = useContext(GameContext);
 
+  const audio = useRef(null);
   const chooseArrowRef = useRef(chooseArrow);
   const [bestScoresOnline, setBestScoresOnline] = useState([]);
   const [gamesOnline, setGamesOnline] = useState([]);
@@ -73,6 +74,16 @@ function ArcadeGame() {
     setChooseScreen("start");
     navigate("/");
   }
+  useEffect(() => {
+    if (chooseScreen === "guitarHero") {
+      if (audio.current != null) {
+        audio.current.muted = false;
+        audio.current.play();
+      }
+    } else {
+      audio.current.muted = true;
+    }
+  }, [chooseScreen]);
 
   function handlePushBlue() {
     setIsPressedBlue(true);
@@ -171,8 +182,8 @@ function ArcadeGame() {
           )}
           {chooseScreen === "JurassicPark" ? (
             <p>
-              Shoot les dinosaures le plus vites possible et gagne un max de
-              point !
+              Shoot les dinosaures le plus vite possible et gagne un max de
+              points !
             </p>
           ) : (
             ""
@@ -239,6 +250,10 @@ function ArcadeGame() {
             src="/images/Jeux_ligne/Boutonrouge2.png"
             alt="borne arcade en ligne"
           />
+          <audio className="acdcGuitarHero" ref={audio} muted>
+            <track kind="captions" />
+            <source src="/sons/ACDC.mp3" type="audio/mp3" />
+          </audio>
           <img
             className="buttonGreen"
             onClick={handlePushGreen}

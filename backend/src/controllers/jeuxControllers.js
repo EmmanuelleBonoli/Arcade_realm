@@ -145,13 +145,11 @@ const browseOnlineScores = async (req, res, next) => {
         element.utilisateur_pseudo !== null &&
         tempScoresJeux[findIndex].meilleursScores.length < 3
       ) {
-        // {
         tempScoresJeux[findIndex].meilleursScores.push({
           utilisateur: element.utilisateur_pseudo,
           score: element.score_pseudo,
         });
       }
-      // }
     });
 
     res.status(200).send(tempScoresJeux);
