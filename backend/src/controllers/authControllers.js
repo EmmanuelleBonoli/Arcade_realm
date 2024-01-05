@@ -31,7 +31,16 @@ const signin = async (req, res, next) => {
       points,
     });
     if (result.insertId) {
-      res.sendStatus(201);
+      const newUser = {
+        id: result.insertId,
+        pseudo,
+        email,
+        password,
+        image,
+        admin,
+        points,
+      };
+      res.status(201).json(newUser);
     } else {
       res.sendStatus(400);
     }
