@@ -1,5 +1,6 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import GameContext from "../contexts/GameContext";
 import ScreenArcade from "../components/ScreenArcade";
 
@@ -31,6 +32,37 @@ function ArcadeGame() {
   } = useContext(GameContext);
 
   const chooseArrowRef = useRef(chooseArrow);
+  const [setBestScoresOnline] = useState([]);
+  const [gamesOnline, setGamesOnline] = useState([]);
+
+  useEffect(() => {
+    const getGames = async () => {
+      try {
+        const fetchGames = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/jeu/online`
+        );
+        setGamesOnline(fetchGames.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getGames();
+  }, []);
+
+  useEffect(() => {
+    const getScoresGamesOnline = async () => {
+      try {
+        const fetchScoresGames = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/jeu/online/scores`
+        );
+        setBestScoresOnline(fetchScoresGames.data);
+        // console.log(fetchScoresGames.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getScoresGamesOnline();
+  }, []);
 
   useEffect(() => {
     chooseArrowRef.current = chooseArrow;
@@ -62,8 +94,11 @@ function ArcadeGame() {
     if (chooseScreen === "start") {
       setChooseScreen("menu");
     }
-    if (chooseScreen === "menu" && gameSelected[0] === "choose") {
+    if (chooseScreen === "menu" && gameSelected === 0) {
       setChooseScreen("guitarHero");
+    }
+    if (chooseScreen === "menu" && gameSelected === 1) {
+      setChooseScreen("JurassicPark");
     }
     if (chooseScreen === "guitarHero" && chooseArrowRef.current[3]) {
       const newChooseArrow = [false, false, false, false];
@@ -93,21 +128,17 @@ function ArcadeGame() {
       setScorePlayer(scorePlayer + 100);
     }
   }
+
   function handleNavigateJoystick() {
     setIsJoystickSelected(true);
     setTimeout(() => {
       setIsJoystickSelected(false);
     }, 100);
     if (chooseScreen === "menu") {
-      const newGameSelected = [...gameSelected];
-      const indexTrue = gameSelected.indexOf("choose");
-      newGameSelected[indexTrue] = "notChoose";
-      if (indexTrue === newGameSelected.length - 1) {
-        newGameSelected[0] = "choose";
-        setGameSelected(newGameSelected);
+      if (gameSelected < gamesOnline.length - 1) {
+        setGameSelected((prevGameSelected) => prevGameSelected + 1);
       } else {
-        newGameSelected[indexTrue + 1] = "choose";
-        setGameSelected(newGameSelected);
+        setGameSelected(0);
       }
     }
   }
@@ -138,7 +169,8 @@ function ArcadeGame() {
           ) : (
             ""
           )}
-          {chooseScreen === "guitarHero" ? (
+          {chooseScreen === "guitarHero" ||
+          chooseScreen === "guitarHeroGameOver" ? (
             <p>Cliquez sur le bon bouton à l'apparition de la note!</p>
           ) : (
             ""
@@ -151,7 +183,7 @@ function ArcadeGame() {
             alt="borne arcade en ligne"
           />
           <div className="screenArcade">
-            <ScreenArcade />
+            <ScreenArcade gamesOnline={gamesOnline} />
           </div>
 
           <img

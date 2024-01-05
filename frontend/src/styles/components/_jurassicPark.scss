@@ -1,0 +1,78 @@
+.bord-jeux {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .int-jeux {
+      background-image: url(images/Jeux_ligne/JurassicPark/foret.jpg);
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      border: 4px solid #003d48b4;
+      background-color: #56dcc675;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: white;
+      font-family: "Orbitron", sans-serif;
+      padding: 2px;
+      overflow: hidden;
+  button{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    img {
+        filter: drop-shadow(1px 1px 1px black);
+      }
+  }
+      
+      .information-jeux {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        h3 {
+          text-shadow: 1px 1px 1px black;
+          width: 33%;
+          text-align: center;
+        }
+      }
+      .target {
+        width: 100%;
+        cursor: pointer;
+        // height: 20%;
+        // background-color: white;
+        // border-radius: 100%;
+        // animation: target 3s forwards;
+      }
+      .luncher{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+  button{
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 50px;
+        padding: 20px;
+        border: 2px solid white;
+        width: 30%;
+        text-align: center;
+        font-family: "Orbitron", sans-serif;
+        color: white;
+        cursor: pointer;
+    }
+    }}
+  }
+  
+  @keyframes target {
+    0% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  

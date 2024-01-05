@@ -19,16 +19,11 @@ function App() {
   const [isPressedYellow, setIsPressedYellow] = useState(false);
   const [isJoystickSelected, setIsJoystickSelected] = useState(false);
   const [chooseScreen, setChooseScreen] = useState("start");
-  const [gameSelected, setGameSelected] = useState([
-    "choose",
-    "notChoose",
-    "notChoose",
-    "notChoose",
-  ]);
+  const [gameSelected, setGameSelected] = useState(0);
   const [chooseArrow, setChooseArrow] = useState([false, false, false, false]);
   const [scorePlayer, setScorePlayer] = useState(0);
-  const [count, setCount] = useState(5);
-  const [launchGuitarHero, setLaunchGuitarHero] = useState(false);
+  // const [count, setCount] = useState(5);
+  // const [launchGuitarHero, setLaunchGuitarHero] = useState(false);
   const [missedArrow, setMissedArrow] = useState([]);
 
   useEffect(() => {
@@ -52,14 +47,14 @@ function App() {
           () => ({
             missedArrow,
             setMissedArrow,
-            launchGuitarHero,
-            setLaunchGuitarHero,
+            // launchGuitarHero,
+            // setLaunchGuitarHero,
             chooseArrow,
             setChooseArrow,
             scorePlayer,
             setScorePlayer,
-            count,
-            setCount,
+            // count,
+            // setCount,
             gameSelected,
             setGameSelected,
             isJoystickSelected,
@@ -80,14 +75,14 @@ function App() {
           [
             missedArrow,
             setMissedArrow,
-            launchGuitarHero,
-            setLaunchGuitarHero,
+            // launchGuitarHero,
+            // setLaunchGuitarHero,
             chooseArrow,
             setChooseArrow,
             scorePlayer,
             setScorePlayer,
-            count,
-            setCount,
+            // count,
+            // setCount,
             gameSelected,
             setGameSelected,
             isJoystickSelected,

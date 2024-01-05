@@ -4,8 +4,6 @@ import GameContext from "../contexts/GameContext";
 
 function GuitarHero() {
   const {
-    // launchGuitarHero,
-    // setLaunchGuitarHero,
     setChooseScreen,
     chooseArrow,
     setChooseArrow,
@@ -44,7 +42,7 @@ function GuitarHero() {
         newMissedArrow.push("missed");
         setMissedArrow(newMissedArrow);
       }
-    }, 2900);
+    }, 2950);
   }, [chooseArrow]);
 
   function closeGame() {

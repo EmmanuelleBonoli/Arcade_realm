@@ -184,8 +184,12 @@ function AdminServices() {
           />
         </div>
       </div>
-      <div role="presentation" onClick={openUploadGameModal} className="games">
-        <div className="itemServices addBox">
+      <div className="games">
+        <div
+          role="presentation"
+          className="itemServices addBox"
+          onClick={openUploadGameModal}
+        >
           <img
             className="add"
             src="/images/Utilisateur/plus.png"

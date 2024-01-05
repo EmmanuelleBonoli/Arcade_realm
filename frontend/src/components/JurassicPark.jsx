@@ -1,44 +1,43 @@
 import { useState } from "react";
 
-export default function App() {
+export default function JurassicPark() {
   const [left, setLeft] = useState(null);
   const [top, setTop] = useState(null);
   const [size, setSize] = useState(null);
   const [animationKey, setAnimationKey] = useState(0);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
-  const [dino, setDino] = useState(null);
 
   const imageUrls = [
-    "/images/allosaurus.webp",
-    "/images/carnotorus.png",
-    "/images/t_rex.png",
-    "/images/Baryonyx.webp",
-    "/images/Concenvenato.webp",
-    "/images/Giganotosaurus.webp",
-    "/images/Proceratosaurus.webp",
-    "/images/ScorpiosRex.webp",
-    "p/images/spinosaures.png",
-    "/images/Troodon.webp",
-    "/images/Tyrannosaurus.png",
-    "/images/VelociRaptor.webp",
-    "/images/Brachiosauru.webp",
-    "/images/Dilophosaurus.webp",
-    "/images/Dimorphodon.webp",
-    "/images/Edmontosaurus.webp",
-    "/images/gallimimus.webp",
-    "/images/indominus_rex.webp",
-    "/images/Indoraptor.webp",
-    "/images/Metriacanthosaurus.webp",
-    "/images/Pachycephalosaurus.webp",
-    "/images/Parasaurolophus.webp",
-    "/images/Proceratosaurus.webp",
-    "/images/Stegosaurus.webp",
-    "/images/Stygimoloch.webp",
-    "/images/Proceratosaurus.webp",
-    "/images/Triceratops.webp",
+    "/images/Jeux_ligne/JurassicPark/allosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/carnotorus.png",
+    "/images/Jeux_ligne/JurassicPark/t_rex.png",
+    "/images/Jeux_ligne/JurassicPark/Baryonyx.webp",
+    "/images/Jeux_ligne/JurassicPark/Concenvenato.webp",
+    "/images/Jeux_ligne/JurassicPark/Giganotosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/Proceratosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/ScorpiosRex.webp",
+    "/images/Jeux_ligne/JurassicPark/spinosaures.png",
+    "/images/Jeux_ligne/JurassicPark/Troodon.webp",
+    "/images/Jeux_ligne/JurassicPark/Tyrannosaurus.png",
+    "/images/Jeux_ligne/JurassicPark/VelociRaptor.webp",
+    "/images/Jeux_ligne/JurassicPark/Brachiosauru.webp",
+    "/images/Jeux_ligne/JurassicPark/Dilophosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/Dimorphodon.webp",
+    "/images/Jeux_ligne/JurassicPark/Edmontosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/gallimimus.webp",
+    "/images/Jeux_ligne/JurassicPark/indominus_rex.webp",
+    "/images/Jeux_ligne/JurassicPark/Indoraptor.webp",
+    "/images/Jeux_ligne/JurassicPark/Metriacanthosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/Pachycephalosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/Parasaurolophus.webp",
+    "/images/Jeux_ligne/JurassicPark/Proceratosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/Stegosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/Stygimoloch.webp",
+    "/images/Jeux_ligne/JurassicPark/Proceratosaurus.webp",
+    "/images/Jeux_ligne/JurassicPark/Triceratops.webp",
   ];
-
+  const [dino, setDino] = useState(imageUrls[0]);
   const randomSize = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
   };
@@ -118,17 +117,19 @@ export default function App() {
             />
           </button>
         ) : (
-          <button
-            type="button"
-            className="launchGameButton"
-            onClick={() => {
-              resetTimer();
-              launchTimer();
-              setScore(0);
-            }}
-          >
-            GO
-          </button>
+          <div className="luncher">
+            <button
+              type="button"
+              className="launchGameButton"
+              onClick={() => {
+                resetTimer();
+                launchTimer();
+                setScore(0);
+              }}
+            >
+              GO
+            </button>
+          </div>
         )}
       </div>
     </div>

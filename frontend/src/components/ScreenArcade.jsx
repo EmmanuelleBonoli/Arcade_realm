@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { PropTypes } from "prop-types";
 import GameContext from "../contexts/GameContext";
 import GuitarHero from "./GuitarHero";
+import JurassicPark from "./JurassicPark";
 
-function ScreenArcade() {
+function ScreenArcade({ gamesOnline }) {
   const {
     setChooseScreen,
     chooseScreen,
@@ -33,31 +35,24 @@ function ScreenArcade() {
         <div className="menuScreen">
           <h2>Choose your game</h2>
           <div className="games">
-            <img
-              className={gameSelected[0]}
-              src="/images/Jeux_ligne/guitar_hero.jpg"
-              alt="Guitar Hero Game"
-            />
-            <img
-              className={gameSelected[1]}
-              src="/images/Jeux_ligne/donkey_kong.jpg"
-              alt="Donkey Kong Game"
-            />
-            <img
-              className={gameSelected[2]}
-              src="/images/Jeux_ligne/smash_bros.webp"
-              alt="Smash Bros Game"
-            />
-            <img
-              className={gameSelected[3]}
-              src="/images/Jeux_ligne/space_invader.jpg"
-              alt="Space Invader Game"
-            />
+            {gamesOnline.map((game, indexOfGame) => {
+              return (
+                <img
+                  className={
+                    indexOfGame === gameSelected ? "choose" : "notChoose"
+                  }
+                  key={game.id}
+                  src={`${import.meta.env.VITE_BACKEND_URL}${game.image}`}
+                  alt={game.name}
+                />
+              );
+            })}
           </div>
         </div>
       ) : (
         ""
       )}
+      {chooseScreen === "JurassicPark" ? <JurassicPark /> : ""}
       {chooseScreen === "guitarHero" ? <GuitarHero /> : ""}
       {chooseScreen === "guitarHeroGameOver" ? (
         <div className="gameOverGuitarHero">
@@ -73,5 +68,21 @@ function ScreenArcade() {
     </div>
   );
 }
+
+ScreenArcade.propTypes = {
+  gamesOnline: PropTypes.arrayOf(
+    PropTypes.shape({
+      actif: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      nb_borne: PropTypes.number.isRequired,
+      physique: PropTypes.number.isRequired,
+      regles: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default ScreenArcade;

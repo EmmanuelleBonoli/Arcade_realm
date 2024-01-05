@@ -93,6 +93,34 @@ const destroy = async (req, res, next) => {
   }
 };
 
+// The B of BREAD - Browse (Read All) operation
+const browseOnline = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const jeux = await tables.jeu.readOnline();
+
+    // Respond with the items in JSON format
+    res.json(jeux);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+// The B of BREAD - Browse (Read All) operation
+const browseOnlineScores = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const jeux = await tables.jeu.readOnlineScores();
+
+    // Respond with the items in JSON format
+    res.json(jeux);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -100,4 +128,6 @@ module.exports = {
   edit,
   add,
   destroy,
+  browseOnline,
+  browseOnlineScores,
 };
