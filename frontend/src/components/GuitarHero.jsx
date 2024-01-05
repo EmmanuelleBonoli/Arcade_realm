@@ -70,7 +70,9 @@ function GuitarHero() {
               alt="closeGame"
             />
             <div className="score">
-              <p>Score : {scorePlayer}</p>
+              <p>
+                Score : <span style={{ color: "black" }}>{scorePlayer}</span>
+              </p>
             </div>
             <div className="missedArrow">
               <p>
