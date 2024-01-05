@@ -1,13 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import GameContext from "../contexts/GameContext";
 
 export default function JurassicPark() {
+  const { setChooseScreen } = useContext(GameContext);
+
   const [left, setLeft] = useState(null);
   const [top, setTop] = useState(null);
   const [size, setSize] = useState(null);
   const [animationKey, setAnimationKey] = useState(0);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
+  const [cursorX, setCursorX] = useState();
+  const [cursorY, setCursorY] = useState();
+  const [gameStarted, setGameStarted] = useState(false);
 
+  const cursorWidth = 1300;
+  const cursorHeight = 530;
+
+  useEffect(() => {
+    window.addEventListener("mousemove", (e) => {
+      if (gameStarted) {
+        setCursorX(e.pageX - cursorWidth / 2);
+        setCursorY(e.pageY - cursorHeight / 2);
+      }
+    });
+  }, [gameStarted]);
   const imageUrls = [
     "/images/Jeux_ligne/JurassicPark/allosaurus.webp",
     "/images/Jeux_ligne/JurassicPark/carnotorus.png",
@@ -55,6 +72,7 @@ export default function JurassicPark() {
     }, 1000 * i);
   };
   const launchTimer = () => {
+    setGameStarted(true);
     for (let i = 30; i > 0; i -= 1) {
       decreaseTimer(i);
     }
@@ -77,11 +95,27 @@ export default function JurassicPark() {
     setTimer(30);
   };
 
+  function closeGame() {
+    setChooseScreen("menu");
+    setScore(0);
+  }
+
   return (
     <div className="bord-jeux">
       <div className="int-jeux">
+        {gameStarted ? (
+          <div
+            className="cursor"
+            style={{
+              left: `${cursorX}px`,
+              top: `${cursorY}px`,
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
+        ) : null}
         <div className="information-jeux">
-          <h3>Name :</h3>
+          {/* <h3>Name :</h3> */}
           <h3>
             Score :{" "}
             {score > 0 ? (
@@ -91,6 +125,13 @@ export default function JurassicPark() {
           <h3>
             Time : <span style={{ color: "#DD6E42" }}>{timer}</span>
           </h3>
+          <img
+            className="closeGame"
+            src="/images/Jeux_ligne/x.png"
+            onClick={closeGame}
+            role="presentation"
+            alt="closeGame"
+          />
         </div>
         {timer && timer > 0 ? (
           <button

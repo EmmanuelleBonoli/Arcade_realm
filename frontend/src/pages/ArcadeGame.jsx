@@ -169,6 +169,14 @@ function ArcadeGame() {
           ) : (
             ""
           )}
+          {chooseScreen === "JurassicPark" ? (
+            <p>
+              Shoot les dinosaures le plus vites possible et gagne un max de
+              point !
+            </p>
+          ) : (
+            ""
+          )}
           {chooseScreen === "guitarHero" ? (
             <p>Cliquez sur le bon bouton à l'apparition de la note!</p>
           ) : (
@@ -282,6 +290,14 @@ function ArcadeGame() {
               <p>
                 Choisissez votre jeu avec le joystick et sélectionnez avec le
                 bouton rouge.
+              </p>
+            ) : (
+              ""
+            )}
+            {chooseScreen === "JurassicPark" ? (
+              <p>
+                Shoot les dinosaures le plus vites possible et gagne un max de
+                point !
               </p>
             ) : (
               ""
