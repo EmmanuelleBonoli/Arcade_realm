@@ -12,6 +12,7 @@ class UtilisateurManager extends AbstractManager {
       `insert into ${this.table} (pseudo, email, password, image, admin, points) values (?,?,?,?,?,?)`,
       [pseudo, email, password, image, admin, points]
     );
+
     return result;
   }
 
