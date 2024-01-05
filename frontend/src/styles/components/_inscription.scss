@@ -68,6 +68,17 @@
       width: 15vw;
       height: 45px;
     }
+    .mdp-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .mdp {
+        width: 25px;
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+      }
+    }
 
     .container-button {
       display: flex;

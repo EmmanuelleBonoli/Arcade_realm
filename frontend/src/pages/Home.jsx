@@ -6,11 +6,14 @@ import GameContext from "../contexts/GameContext";
 
 function Home() {
   const navigate = useNavigate();
-  const { openGames, setOpenGames } = useContext(GameContext);
+  const { openGames, setOpenGames, userConnected } = useContext(GameContext);
 
   function handleGamePlay() {
     setOpenGames(!openGames);
     navigate("/gamesonline");
+  }
+  function handletest() {
+    console.log(userConnected)
   }
 
   return (
@@ -72,7 +75,7 @@ function Home() {
       </div>
       <div className="presentation">
         <div className="titre-texte">
-          <h1>Présentation de la salle d’Arcade</h1>
+          <h1 role="presentation" onClick={handletest}>Présentation de la salle d’Arcade</h1>
           <p>
             Découvrez nos espaces GAMER. Vous trouverez un bar, un espace
             restauration, et bien sûr une salle dédiée à 100% pour le

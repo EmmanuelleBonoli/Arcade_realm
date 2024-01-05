@@ -1,11 +1,19 @@
 import { PropTypes } from "prop-types";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 export default function Inscription({ onClose }) {
+  const [motDePasseVisible, setMotDePasseVisible] = useState(false);
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [inputEmail, setInputEmail] = useState("");
+  const [inscription, setInscription] = useState("");
+  const { setUserConnected, setAdminOrNot } = useContext(UserContext);
+
+  const toggleMotDePasseVisibility = () => {
+    setMotDePasseVisible(!motDePasseVisible);
+  };
 
   const handleInputClick = (e) => {
     e.stopPropagation();
@@ -27,9 +35,21 @@ export default function Inscription({ onClose }) {
         `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
         userSignin
       );
+      setUserConnected(res.data.userDetails);
+      setUserConnected(res.data);
+
+      if (res.data.admin === 1) {
+        setAdminOrNot(true);
+      }
 
       if (res.status === 201) {
-        alert("inscription réussie");
+        setInscription("Inscription réussie !");
+        setTimeout(() => {
+          // Si vous utilisez react-router-dom, vous pouvez utiliser `navigate("/")` ici.
+
+          // Fermer la page d'inscription en appelant la fonction onClose fournie en tant que prop.
+          onClose();
+        }, 2500); // ajustez la durée en millisecondes selon vos besoins
       }
     } catch (error) {
       console.error(error);
@@ -38,7 +58,7 @@ export default function Inscription({ onClose }) {
 
   return (
     <div
-      className="container-inscription"
+      className="container-inscription "
       onClick={onClose}
       role="presentation"
     >
@@ -54,6 +74,18 @@ export default function Inscription({ onClose }) {
             alt="GhostLogin"
             className="GhostLogin"
           />
+          {inscription && (
+            <p
+              style={{
+                color: "#fbb169",
+                fontSize: "17px",
+                fontFamily: "var(--secondary-font)",
+                fontWeight: "bold",
+              }}
+            >
+              {inscription}
+            </p>
+          )}
         </div>
         <form onSubmit={handleSignIn} className="login-container">
           <p>Choisissez votre pseudo</p>
@@ -71,13 +103,27 @@ export default function Inscription({ onClose }) {
             onClick={handleInputClick}
             onChange={(event) => setInputEmail(event.target.value)}
           />
+
           <p>Choisissez votre mot de passe</p>
-          <input
-            type="password"
-            className="motdepasse"
-            onClick={handleInputClick}
-            onChange={(event) => setInputPassword(event.target.value)}
-          />
+          <div className="mdp-container">
+            <input
+              type={motDePasseVisible ? "text" : "password"}
+              className="motdepasse"
+              onClick={handleInputClick}
+              onChange={(event) => setInputPassword(event.target.value)}
+            />
+            <img
+              src={
+                motDePasseVisible
+                  ? "/images/Login/Mdp_unsee.png"
+                  : "/images/Login/Mdp_see.png"
+              }
+              alt="eye"
+              className="mdp"
+              onClick={toggleMotDePasseVisibility}
+              role="presentation"
+            />
+          </div>
 
           <div className="container-button">
             <button type="submit" className="btn-inscription">
