@@ -66,10 +66,11 @@ function NavBar() {
           </div>
         ) : (
           <nav className="nav-pt-2">
-            <p onClick={openInscriptionModal} role="presentation">
-              INSCRIPTION
-            </p>
-
+            <div className="inscription">
+              <p onClick={openInscriptionModal} role="presentation">
+                INSCRIPTION
+              </p>
+            </div>
             <p onClick={openConnexionModal} role="presentation">
               CONNEXION
             </p>

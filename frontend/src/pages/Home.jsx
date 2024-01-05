@@ -24,7 +24,7 @@ function Home() {
             showIndicators={false}
             infiniteLoop
             autoPlay
-            interval={2000}
+            interval={2500}
           >
             <div className="Carouselle-1">
               <img

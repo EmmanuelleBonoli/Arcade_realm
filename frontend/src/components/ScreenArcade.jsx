@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { PropTypes } from "prop-types";
 import GameContext from "../contexts/GameContext";
 import GuitarHero from "./GuitarHero";
+import JurassicPark from "./JurassicPark";
 
 function ScreenArcade({ gamesOnline }) {
   const {
@@ -51,7 +52,7 @@ function ScreenArcade({ gamesOnline }) {
       ) : (
         ""
       )}
-
+      {chooseScreen === "JurassicPark" ? <JurassicPark /> : ""}
       {chooseScreen === "guitarHero" ? <GuitarHero /> : ""}
       {chooseScreen === "guitarHeroGameOver" ? (
         <div className="gameOverGuitarHero">

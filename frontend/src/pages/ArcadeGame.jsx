@@ -97,6 +97,9 @@ function ArcadeGame() {
     if (chooseScreen === "menu" && gameSelected === 0) {
       setChooseScreen("guitarHero");
     }
+    if (chooseScreen === "menu" && gameSelected === 1) {
+      setChooseScreen("JurassicPark");
+    }
     if (chooseScreen === "guitarHero" && chooseArrowRef.current[3]) {
       const newChooseArrow = [false, false, false, false];
       setChooseArrow(newChooseArrow);
