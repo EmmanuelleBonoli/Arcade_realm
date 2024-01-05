@@ -14,7 +14,7 @@ function Classement() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/lot`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/lot/disponible`)
       .then((response) => {
         const sortedLots = response.data.slice(0, 7);
         setLots(sortedLots);
