@@ -1,6 +1,7 @@
 import { useContext, useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { uid } from "uid";
 import GameContext from "../contexts/GameContext";
 import ScreenArcade from "../components/ScreenArcade";
 
@@ -32,7 +33,7 @@ function ArcadeGame() {
   } = useContext(GameContext);
 
   const chooseArrowRef = useRef(chooseArrow);
-  const [setBestScoresOnline] = useState([]);
+  const [bestScoresOnline, setBestScoresOnline] = useState([]);
   const [gamesOnline, setGamesOnline] = useState([]);
 
   useEffect(() => {
@@ -56,7 +57,6 @@ function ArcadeGame() {
           `${import.meta.env.VITE_BACKEND_URL}/api/jeu/online/scores`
         );
         setBestScoresOnline(fetchScoresGames.data);
-        // console.log(fetchScoresGames.data);
       } catch (err) {
         console.error(err);
       }
@@ -169,8 +169,7 @@ function ArcadeGame() {
           ) : (
             ""
           )}
-          {chooseScreen === "guitarHero" ||
-          chooseScreen === "guitarHeroGameOver" ? (
+          {chooseScreen === "guitarHero" ? (
             <p>Cliquez sur le bon bouton à l'apparition de la note!</p>
           ) : (
             ""
@@ -248,9 +247,26 @@ function ArcadeGame() {
           <div className="spaceScores">
             <h2>Meilleurs scores</h2>
             <img src="/images/Jeux_ligne/CoupeScores.png" alt="coupe" />
-            <p>1 - Rondoudou - 1350 pts</p>
-            <p>2 - Gertrude - 1275 pts</p>
-            <p>3 - Max - 899 pts</p>
+
+            {chooseScreen === "start"
+              ? ""
+              : bestScoresOnline
+                  .filter((gameFilter, indexOfGame) => {
+                    return indexOfGame === gameSelected;
+                  })
+                  .map((game) => {
+                    return (
+                      <div key={game.id}>
+                        {game.meilleursScores.map((score) => {
+                          return (
+                            <p key={uid(5)}>
+                              {score.utilisateur} - {score.score}pts
+                            </p>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
           </div>
         </div>
         <div className="RulesScoresResponsive">

@@ -5,20 +5,7 @@ import GuitarHero from "./GuitarHero";
 import JurassicPark from "./JurassicPark";
 
 function ScreenArcade({ gamesOnline }) {
-  const {
-    setChooseScreen,
-    chooseScreen,
-    gameSelected,
-    scorePlayer,
-    setScorePlayer,
-    setMissedArrow,
-  } = useContext(GameContext);
-
-  function handleNewGameGuitarHero() {
-    setScorePlayer(0);
-    setMissedArrow([]);
-    setChooseScreen("guitarHero");
-  }
+  const { chooseScreen, gameSelected } = useContext(GameContext);
 
   return (
     <div className="insideScreen">
@@ -54,17 +41,6 @@ function ScreenArcade({ gamesOnline }) {
       )}
       {chooseScreen === "JurassicPark" ? <JurassicPark /> : ""}
       {chooseScreen === "guitarHero" ? <GuitarHero /> : ""}
-      {chooseScreen === "guitarHeroGameOver" ? (
-        <div className="gameOverGuitarHero">
-          <h2>Game Over</h2>
-          <p>Your score is {scorePlayer}</p>
-          <button type="button" onClick={handleNewGameGuitarHero}>
-            New Game ?
-          </button>
-        </div>
-      ) : (
-        ""
-      )}
     </div>
   );
 }

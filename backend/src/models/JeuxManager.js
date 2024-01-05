@@ -78,10 +78,12 @@ class JeuxManager extends AbstractManager {
 
   async readOnlineScores() {
     const [result] = await this.database.query(
-      `select ${this.table}.id, jeu.name, utilisateur.pseudo, score.points from ${this.table} 
+      `select ${this.table}.id AS jeu_id, jeu.name AS jeu_name, utilisateur.pseudo AS utilisateur_pseudo, score.points AS score_pseudo from ${this.table} 
       LEFT JOIN score ON ${this.table}.id = score.jeu_id
       LEFT JOIN utilisateur ON utilisateur.id = score.utilisateur_id
-      where ${this.table}.actif = 1`
+      where ${this.table}.actif = 1
+      ORDER BY jeu_id ASC, score_pseudo DESC
+      `
     );
     return result;
   }

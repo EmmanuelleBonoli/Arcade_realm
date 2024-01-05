@@ -107,14 +107,54 @@ const browseOnline = async (req, res, next) => {
   }
 };
 
-// The B of BREAD - Browse (Read All) operation
 const browseOnlineScores = async (req, res, next) => {
   try {
-    // Fetch all items from the database
+    // const jeux = await tables.jeu.readOnlineScores();
+    // res.json(jeux);
     const jeux = await tables.jeu.readOnlineScores();
+    const tempScoresJeux = [];
 
-    // Respond with the items in JSON format
-    res.json(jeux);
+    jeux.forEach((element) => {
+      const findIndex = tempScoresJeux.findIndex(
+        (elt) => elt.id === element.jeu_id
+      );
+
+      if (findIndex === -1) {
+        // = not found
+        if (element.utilisateur_pseudo === null) {
+          const newObject = {
+            id: element.jeu_id,
+            jeuName: element.jeu_name,
+            meilleursScores: [],
+          };
+          tempScoresJeux.push(newObject);
+        } else {
+          const newObject = {
+            id: element.jeu_id,
+            jeuName: element.jeu_name,
+            meilleursScores: [
+              {
+                utilisateur: element.utilisateur_pseudo,
+                score: element.score_pseudo,
+              },
+            ],
+          };
+          tempScoresJeux.push(newObject);
+        }
+      } else if (
+        element.utilisateur_pseudo !== null &&
+        tempScoresJeux[findIndex].meilleursScores.length < 3
+      ) {
+        // {
+        tempScoresJeux[findIndex].meilleursScores.push({
+          utilisateur: element.utilisateur_pseudo,
+          score: element.score_pseudo,
+        });
+      }
+      // }
+    });
+
+    res.status(200).send(tempScoresJeux);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
