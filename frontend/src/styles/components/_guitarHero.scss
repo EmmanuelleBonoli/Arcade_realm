@@ -1,51 +1,77 @@
 .guitarHero {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: row-reverse;
 
-  .infosJeu {
+  .guitarHeroGame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .infosJeu {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 5% 5% 5% 0;
+      gap: 3vh;
+      width: 40%;
+      img {
+        width: 1vw;
+        cursor: pointer;
+      }
+    }
+    .spaceArrows {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      padding-top: 5%;
+      margin-top: 2%;
+      width: 50%;
+      height: 98%;
+
+      .emptyDiv {
+        min-width: 3vw;
+        display: inline-block;
+      }
+      .arrowBlue,
+      .arrowYellow,
+      .arrowGreen,
+      .arrowRed {
+        width: 3vw;
+        animation-name: fall;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+      }
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(37vh);
+      }
+    }
+  }
+  .gameOverGuitarHero {
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding: 5% 5% 5% 0;
-    gap: 3vh;
-    width: 40%;
-    img {
-      width: 1vw;
-      cursor: pointer;
-    }
-  }
-  .spaceArrows {
-    background-color: black;
-    display: flex;
+    height: 100%;
     justify-content: center;
-    padding-top: 5%;
-    margin-top: 2%;
-    width: 50%;
-    height: 98%;
-
-    .emptyDiv {
-      min-width: 3vw;
-      display: inline-block;
+    align-items: center;
+    gap: 8%;
+    h2 {
+      font-size: 6rem;
     }
-    .arrowBlue,
-    .arrowYellow,
-    .arrowGreen,
-    .arrowRed {
-      width: 3vw;
-      animation-name: fall;
-      animation-duration: 3s;
-      animation-iteration-count: infinite;
-    }
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(37vh);
+    button {
+      padding: 2% 5% 2% 5%;
+      border-radius: 5px;
+      border: 1px solid black;
+      background-color: var(--secondary-color);
+      font-weight: bold;
+      font-family: var(--third-font);
+      cursor: pointer;
     }
   }
 }
