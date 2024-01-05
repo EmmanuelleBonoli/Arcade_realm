@@ -171,8 +171,8 @@ function ArcadeGame() {
           )}
           {chooseScreen === "JurassicPark" ? (
             <p>
-              Shoot les dinosaures le plus vites possible et gagne un max de
-              point !
+              Shoot les dinosaures le plus vite possible et gagne un max de
+              points !
             </p>
           ) : (
             ""

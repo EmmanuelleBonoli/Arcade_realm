@@ -36,9 +36,12 @@
   button{
     background-color: rgba(255, 255, 255, 0);
     border: none;
+    
+    
     img {
         filter: drop-shadow(1px 1px 1px black);
         cursor: pointer;
+        animation: target 2s forwards;
       }
   }
       
@@ -67,10 +70,7 @@
       }
       .target {
         width: 100%;
-        // height: 20%;
-        // background-color: white;
-        // border-radius: 100%;
-        // animation: target 3s forwards;
+        
       }
       .luncher{
         width: 100%;
@@ -93,6 +93,8 @@
   @keyframes target {
     0% {
       transform: scale(0.5);
+    }50%{
+      transform: scale(0.9);
     }
     100% {
       transform: scale(1);
