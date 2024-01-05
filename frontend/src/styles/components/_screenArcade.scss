@@ -23,12 +23,15 @@
     gap: 3vh;
 
     .games {
+    
       display: flex;
       gap: 1vw;
       flex-wrap: wrap;
       justify-content: center;
       padding: 0 10% 0 10%;
       img {
+        border-radius: 5px;
+        border: 1px solid white;
         height: 12vh;
       }
 
