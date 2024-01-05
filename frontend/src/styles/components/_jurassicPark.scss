@@ -20,25 +20,25 @@
       padding: 2px;
       overflow: hidden;
       border-radius: 20px;
-      cursor: none;
-      .cursor {
-        background-image: url(images/Jeux_ligne/JurassicPark/icone-viseur.png);
-        top: 0;
-        left: 0;
-        width: 32px;
-        height: 32px;
-        background-size: cover;
-        position: absolute;
-        cursor: none;
+      cursor: pointer;
+      // .cursor {
+      //   background-image: url(images/Jeux_ligne/JurassicPark/icone-viseur.png);
+      //   top: 0;
+      //   left: 0;
+      //   width: 32px;
+      //   height: 32px;
+      //   background-size: cover;
+      //   position: absolute;
+      //   cursor: none;
     
-      }
+      // }
 
   button{
     background-color: rgba(255, 255, 255, 0);
     border: none;
     img {
         filter: drop-shadow(1px 1px 1px black);
-        cursor: none;
+        cursor: pointer;
       }
   }
       
