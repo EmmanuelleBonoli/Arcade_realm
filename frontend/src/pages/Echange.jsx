@@ -87,7 +87,7 @@ function Echange() {
                   <p>
                     <strong>Score : </strong>
                   </p>
-                  <p>24 500 pts</p>
+                  <p>{userConnected.points} pts</p>
                 </div>
               </div>
             </div>
