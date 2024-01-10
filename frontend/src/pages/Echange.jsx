@@ -1,136 +1,286 @@
 import { NavLink } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
+import LotSelection from "../components/LotSelection";
+import Transfer from "../components/Transfer";
 
 function Echange() {
-  const { userConnected } = useContext(UserContext);
-  const [lots, setLots] = useState([]);
-  const [lotSelected, setLotSelected] = useState(
-    "images/Utilisateur/img-n-coche.png"
-  );
+  const { userConnected, setUserConnected } = useContext(UserContext);
+  const [lotsWin, setLotsWin] = useState([]);
+  const [lotsAvailable, setLotsAvailable] = useState([]);
+  const [selectedLotsWin, setSelectedLotsWin] = useState([]);
+  const [selectedLotsAvailable, setSelectedLotsAvailable] = useState([]);
+  const [transfer, setTransfer] = useState(false);
+  const [lotOldPlayer, setLotOldPlayer] = useState([]);
+  const [lotNewPlayer, setLotNewPlayer] = useState([]);
+  const audio = useRef(null);
+  const [playerExchange, setPlayerExchange] = useState({});
 
+  const loadLotsWin = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`
+      );
+      setLotsWin(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const loadLotsAvailable = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/exchange`
+      );
+      setLotsAvailable(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
     if (userConnected) {
-      try {
-        axios
-          .get(
-            `${import.meta.env.VITE_BACKEND_URL}/api/lot/email/${
-              userConnected.id
-            }`
-          )
-          .then((response) => {
-            setLots(response.data);
-            console.info(response.data);
-          })
-          .catch((error) => console.error(error));
-      } catch (error) {
-        console.error(error);
-      }
+      loadLotsWin();
+      loadLotsAvailable();
     }
   }, []);
 
-  function handleSelect() {
-    if (lotSelected === "images/Utilisateur/img-n-coche.png") {
-      setLotSelected("images/Utilisateur/img-coche.png");
-    } else {
-      setLotSelected("images/Utilisateur/img-n-coche.png");
+  useEffect(() => {
+    const selectedLotWinObject = lotsWin.find(
+      (lot) => lot.id === selectedLotsWin[0]
+    );
+    const selectedLotAvailableObject = lotsAvailable.find(
+      (lot) => lot.id === selectedLotsAvailable[0]
+    );
+    setLotNewPlayer(selectedLotAvailableObject);
+    setLotOldPlayer(selectedLotWinObject);
+
+    if (selectedLotAvailableObject !== undefined) {
+      const getPlayerExchange = async () => {
+        try {
+          const fetchPlayer = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+              selectedLotAvailableObject.utilisateur_id
+            }`
+          );
+          setPlayerExchange(fetchPlayer.data[0]);
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      getPlayerExchange();
+    }
+  }, [selectedLotsWin, selectedLotsAvailable]);
+
+  function handleTransfer() {
+    if (lotNewPlayer !== undefined && lotOldPlayer !== undefined) {
+      setTransfer(true);
+
+      const doTheExchange = async () => {
+        const updatedOldLot = {
+          name: lotOldPlayer.name,
+          image: lotOldPlayer.image,
+          description: lotOldPlayer.description,
+          utilisateurId: playerExchange.id,
+          win: lotOldPlayer.win,
+          exchange: 0,
+        };
+
+        const updatedNewLot = {
+          name: lotNewPlayer.name,
+          image: lotNewPlayer.image,
+          description: lotNewPlayer.description,
+          utilisateurId: userConnected.id,
+          win: lotNewPlayer.win,
+          exchange: 0,
+        };
+
+        try {
+          await axios.put(
+            `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lotOldPlayer.id}`,
+            updatedOldLot
+          );
+
+          await axios.put(
+            `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lotNewPlayer.id}`,
+            updatedNewLot
+          );
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      doTheExchange();
+      setTimeout(() => {
+        loadLotsWin();
+        loadLotsAvailable();
+        setTransfer(false);
+      }, 20000);
     }
   }
-  function handleSelect2() {
-    if (lotSelected === "images/Utilisateur/img-n-coche.png") {
-      setLotSelected("images/Utilisateur/img-coche.png");
+
+  useEffect(() => {
+    if (transfer === true) {
+      if (audio.current != null) {
+        audio.current.muted = false;
+        audio.current.play();
+      }
     } else {
-      setLotSelected("images/Utilisateur/img-n-coche.png");
+      audio.current.muted = true;
+    }
+  }, [transfer]);
+
+  function handleBuyMysteryBox() {
+    if (userConnected) {
+      if (userConnected.points >= 50000) {
+        const buyMystery = async () => {
+          const updatedUser = {
+            id: userConnected.id,
+            pseudo: userConnected.pseudo,
+            email: userConnected.email,
+            password: userConnected.password,
+            image: userConnected.image,
+            admin: userConnected.admin,
+            points: userConnected.points - 50000,
+          };
+
+          try {
+            await axios.put(
+              `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+                userConnected.id
+              }`,
+              updatedUser
+            );
+            setUserConnected(updatedUser);
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        buyMystery();
+      } else {
+        alert("tu n'as pas assez de points, n'hésite pas à rejouer!");
+      }
     }
   }
 
   return (
     <div>
       {userConnected ? (
-        <div className="home-echange">
-          <div className="container-echange">
-            <NavLink to="/profilutilisateur">
-              <div className="retour-page">Retour à mon profil</div>
-            </NavLink>
-            <div className="mes-lots">
-              <h1>Wild_Gamer</h1>
-              <div className="lots-user">
-                <div className="lots-scores">
-                  <p>Mes lot à échanger :</p>
-                  <div className="images-recompense">
-                    {lots.map((lot) => (
-                      <div>
-                        <img
-                          key={lot.id}
-                          src={`${import.meta.env.VITE_BACKEND_URL}${
-                            lot.image
-                          }`}
-                          alt={lot.name}
-                        />
-                        <div className="elispe-coché">
-                          <img
-                            src={lotSelected}
-                            onClick={handleSelect}
-                            alt="coche échange"
-                            role="presentation"
-                          />
-                        </div>
+        <div>
+          <audio className="pokemonExchange" ref={audio} muted>
+            <track kind="captions" />
+            <source src="/sons/EchangeLot.mp3" type="audio/mp3" />
+          </audio>
+          {transfer ? (
+            <Transfer
+              playerExchange={playerExchange}
+              lotOldPlayer={lotOldPlayer}
+              lotNewPlayer={lotNewPlayer}
+            />
+          ) : (
+            <div className="home-echange">
+              <div className="container-echange">
+                <NavLink to="/profilutilisateur">
+                  <div className="retour-page">Retour à mon profil</div>
+                </NavLink>
+                <div className="mes-lots">
+                  <h1>Wild_Gamer</h1>
+                  <div className="lots-user">
+                    <div className="lots-scores">
+                      <p>Mes lot à échanger :</p>
+                      <div className="images-recompense">
+                        {lotsWin.map((lot) => (
+                          <div className="lotWinPlayer" key={lot.id}>
+                            <img
+                              className="lotsWin"
+                              src={`${import.meta.env.VITE_BACKEND_URL}${
+                                lot.image
+                              }`}
+                              alt={lot.name}
+                            />
+                            <LotSelection
+                              lotId={lot.id}
+                              selectedLots={selectedLotsWin}
+                              setSelectedLots={setSelectedLotsWin}
+                            />
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="gl-trait-echange">
-                  <div className="trait-echange" />
-                </div>
-                <div className="user-score">
-                  <p>
-                    <strong>Score : </strong>
-                  </p>
-                  <p>24 500 pts</p>
-                </div>
-              </div>
-            </div>
-            <div className="image-echangeur">
-              <img src="images/Utilisateur/echangeur.png" alt="echangeur" />
-            </div>
-            <div className="echange-joueur">
-              <div className="Joueurs-p1">
-                <h1>Joueurs</h1>
-                <p>Les lots disponibles :</p>
-                <div className="lots-disponibles">
-                  <div className="images-echange">
-                    <img src="images/SuperNes3.png" alt="" />
-                    <div className="elispe-coché-echange">
-                      <img
-                        src={lotSelected}
-                        onClick={handleSelect2}
-                        alt="coche échange"
-                        role="presentation"
-                      />
+                    </div>
+                    <div className="gl-trait-echange">
+                      <div className="trait-echange" />
+                    </div>
+                    <div className="user-score">
+                      <p>
+                        <strong>Score : </strong>
+                      </p>
+                      <p>{userConnected.points} pts</p>
                     </div>
                   </div>
                 </div>
+                <div className="image-echangeur">
+                  <img
+                    onClick={handleTransfer}
+                    role="presentation"
+                    src="images/Utilisateur/echangeur.png"
+                    alt="echangeur"
+                  />
+                </div>
+                <div className="echange-joueur">
+                  <div className="Joueurs-p1">
+                    <h1>Joueurs</h1>
+                    <p>Les lots disponibles :</p>
+                    <div className="lots-disponibles">
+                      <div className="images-echange">
+                        {lotsAvailable
+                          .filter(
+                            (excludeLot) =>
+                              excludeLot.utilisateur_id !== userConnected.id
+                          )
+                          .map((lot) => (
+                            <div className="lotWinPlayer" key={lot.id}>
+                              <img
+                                className="lotsWin"
+                                src={`${import.meta.env.VITE_BACKEND_URL}${
+                                  lot.image
+                                }`}
+                                alt={lot.name}
+                              />
+                              <LotSelection
+                                lotId={lot.id}
+                                selectedLots={selectedLotsAvailable}
+                                setSelectedLots={setSelectedLotsAvailable}
+                              />
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="gl-trait-echange-2">
+                    <div className="trait-echange-2" />
+                  </div>
+                  <div className="Joueurs-p2">
+                    <h1>MYSTERY BOX</h1>
+                    <img
+                      src="/images/Utilisateur/mystery_box.png"
+                      alt="mystery_box"
+                      role="presentation"
+                      onClick={handleBuyMysteryBox}
+                    />
+                    <p>50 000 pts</p>
+                  </div>
+                </div>
               </div>
-              <div className="gl-trait-echange-2">
-                <div className="trait-echange-2" />
-              </div>
-              <div className="Joueurs-p2">
-                <h1>MYSTERY BOX</h1>
+              <div className="avatar">
                 <img
-                  src="/images/Utilisateur/mystery_box.png"
-                  alt="mystery_box"
+                  src={`${import.meta.env.VITE_BACKEND_URL}${
+                    userConnected.image
+                  }`}
+                  alt="avatar"
                 />
-                <p>50 000 pts</p>
               </div>
             </div>
-          </div>
-          <div className="avatar">
-            <img
-              src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
-              alt="avatar"
-            />
-          </div>
+          )}
         </div>
       ) : (
         ""

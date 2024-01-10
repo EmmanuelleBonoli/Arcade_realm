@@ -10,11 +10,12 @@ class LotManager extends AbstractManager {
     image,
     description,
     utilisateur_id: utilisateurId,
-    disponible,
+    win,
+    exchange,
   }) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, image, description, utilisateur_id, disponible) values (?, ?, ?, ?, ?)`,
-      [name, image, description, utilisateurId, disponible]
+      `insert into ${this.table} (name, image, description, utilisateur_id, win, exchange) values (?, ?, ?, ?, ?, ?)`,
+      [name, image, description, utilisateurId, win, exchange]
     );
 
     return result;
@@ -35,17 +36,10 @@ class LotManager extends AbstractManager {
     return result;
   }
 
-  async update({
-    id,
-    name,
-    image,
-    description,
-    utilisateur_id: utilisateurId,
-    disponible,
-  }) {
+  async update({ id, name, image, description, utilisateurId, win, exchange }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET name = ?, image = ?, description = ?,  utilisateur_id = ?, disponible= ? WHERE id = ?`,
-      [name, image, description, utilisateurId, disponible, id]
+      `UPDATE ${this.table} SET name = ?, image = ?, description = ?,  utilisateur_id = ?, win= ?, exchange= ? WHERE id = ?`,
+      [name, image, description, utilisateurId, win, exchange, id]
     );
     return result;
   }
@@ -68,9 +62,18 @@ class LotManager extends AbstractManager {
     return result;
   }
 
+  // a revoir
   async readByLotAvailable() {
     const [result] = await this.database.query(
-      `select * from ${this.table} where disponible = 1`
+      `select * from ${this.table} where win = 0`
+    );
+
+    return result;
+  }
+
+  async readByLotExchange() {
+    const [result] = await this.database.query(
+      `select * from ${this.table} where exchange = 1`
     );
 
     return result;

@@ -10,7 +10,6 @@ import Presentation from "./pages/Presentation";
 import PresentationGame from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
-// import ProfileAdmin from "./pages/ProfileAdmin";
 import MeilleursScore from "./components/MeilleursScore";
 import Echange from "./pages/Echange";
 import DonneesPerso from "./components/DonneesPerso";
@@ -115,7 +114,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/echange",
-        element: <Echange />,
+        element: (
+          <ProtectedRoute>
+            <Echange />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

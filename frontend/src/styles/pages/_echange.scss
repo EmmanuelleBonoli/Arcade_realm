@@ -19,7 +19,6 @@
 
     a {
       width: 25%;
-
       text-align: center;
       color: white;
       font-family: var(--secondary-font);
@@ -78,26 +77,30 @@
             font-family: var(--secondary-font);
             color: white;
             font-size: 1.6rem;
+            padding-bottom: 2%;
           }
           .images-recompense {
-            width: 20%;
             display: flex;
-            justify-content: center;
             padding: 5px;
-            position: relative;
 
-            img {
-              width: 80%;
+            .lotWinPlayer {
+              position: relative;
+              display: flex;
             }
 
-            .elispe-coché {
+            .lotsWin {
+              width: 3vw;
+            }
+
+            .elispe-coche {
               position: absolute;
-              top: 0;
-              right: 0;
-              width: 100%;
-              text-align: right;
+              top: -15px;
+              right: -10px;
+              width: 20px;
+              cursor: pointer;
+
               img {
-                width: 20%;
+                width: 100%;
               }
             }
           }
@@ -116,10 +119,11 @@
       }
     }
     .image-echangeur {
-      width: 80%;
+      width: 10%;
       text-align: center;
       img {
-        width: 5%;
+        width: 100%;
+        cursor: pointer;
       }
     }
 
@@ -149,25 +153,25 @@
           display: flex;
           align-items: center;
           height: 75%;
+
           .images-echange {
-            width: 20%;
             display: flex;
-            justify-content: center;
             padding: 5px;
-            position: relative;
 
             img {
-              width: 85%;
+              width: 4vw;
             }
-
-            .elispe-coché-echange {
-              position: absolute;
-              top: 0;
-              right: 0;
-              width: 100%;
-              text-align: right;
-              img {
-                width: 20%;
+            .lotWinPlayer {
+              position: relative;
+              .elispe-coche {
+                position: absolute;
+                top: -15px;
+                right: 0px;
+                width: 20px;
+                cursor: pointer;
+                img {
+                  width: 100%;
+                }
               }
             }
           }
@@ -208,6 +212,7 @@
     }
     img {
       width: 50%;
+      cursor: pointer;
     }
   }
   .avatar {

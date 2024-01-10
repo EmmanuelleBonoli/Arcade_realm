@@ -5,6 +5,7 @@ import { useState } from "react";
 function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
   const [nameLot, setNameLot] = useState("");
   const [descLot, setDescLot] = useState("");
+  const [file, setFile] = useState(undefined);
   // const [setImageLot] = useState("");
 
   const handleInputClick = (e) => {
@@ -14,13 +15,14 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const data = {
-        name: nameLot,
-        description: descLot,
-        image: `/images/Lots/cadeauSuppl.png`,
-        disponible: false,
-      };
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/lot`, data);
+      const formData = new FormData();
+
+      formData.append("name", nameLot);
+      formData.append("description", descLot);
+      formData.append("disponible", false);
+      formData.append("image", file);
+
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/lot`, formData);
       setResetUploadLot(!resetUploadLot);
       onClose();
     } catch (err) {
@@ -53,6 +55,11 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
             onClick={handleInputClick}
           />
 
+          <input
+            onChange={(e) => setFile(e.target.files[0])}
+            type="file"
+            accept="image/*"
+          />
           {/* <input
             type="file"
             // onChange={(event) => setImageLot(event.target.files[0])}

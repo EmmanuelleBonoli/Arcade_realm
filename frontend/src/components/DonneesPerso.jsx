@@ -8,6 +8,8 @@ function DonneesPerso() {
   const [isEditing, setIsEditing] = useState(false);
   const [userUpdate, setUserUpdate] = useState(userConnected);
   const [motDePasseVisible, setMotDePasseVisible] = useState(false);
+  const [deleteUser, setDeleteUser] = useState(userConnected);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const toggleMotDePasseVisibility = () => {
     setMotDePasseVisible(!motDePasseVisible);
@@ -15,6 +17,14 @@ function DonneesPerso() {
 
   const handleEdit = () => {
     setIsEditing(true);
+  };
+
+  const handleDelete = () => {
+    setIsDeleted(true);
+  };
+  const handleCancelDelete = () => {
+    // Effectuer l'action souhaitée, par exemple, revenir à l'état initial
+    setIsDeleted(false);
   };
 
   const handlelogout = () => {
@@ -33,6 +43,18 @@ function DonneesPerso() {
       setIsEditing(false);
 
       console.log("Informations utilisateur mises à jour avec succès");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleDeleteProfil = async () => {
+    try {
+      const deletedUser = await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${deleteUser.id}`,
+        deleteUser
+      );
+      setDeleteUser(deletedUser.data);
     } catch (err) {
       console.error(err);
     }
@@ -79,11 +101,32 @@ function DonneesPerso() {
                   </NavLink>
                 </button>
               </div>
-              <div className="btn-profil">
-                <button className="deleteprofil" type="button">
-                  Supprimer le profil
-                </button>
-              </div>
+              {!isDeleted ? (
+                <div className="btn-profil">
+                  <button
+                    className="delete-user"
+                    type="submit"
+                    onClick={handleDelete}
+                  >
+                    Supprimer le profil
+                  </button>
+                </div>
+              ) : (
+                <div className="alert-deleted">
+                  <p className="text-alert">Êtes-vous sûr ?</p>
+                  <div className="button-YN">
+                    <button
+                      type="submit"
+                      onClick={() => handleDeleteProfil(deleteUser.id)}
+                    >
+                      Oui
+                    </button>
+                    <button type="submit" onClick={() => handleCancelDelete()}>
+                      Non
+                    </button>
+                  </div>
+                </div>
+              )}
             </form>
           ) : (
             <form
