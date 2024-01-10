@@ -57,12 +57,12 @@ const edit = async (req, res, next) => {
     //   res.status(200).json({ result });
     // }
 
-// if (password !== null) {
-//   console.log("Avant la mise à jour :", updatedUtilisateur);
-//   const user = await tables.utilisateur.read(req.params.id);
-//   updatedUtilisateur.password = user[0].password;
-//   console.log("Après la mise à jour :", updatedUtilisateur);
-// }
+    // if (password !== null) {
+    //   console.log("Avant la mise à jour :", updatedUtilisateur);
+    //   const user = await tables.utilisateur.read(req.params.id);
+    //   updatedUtilisateur.password = user[0].password;
+    //   console.log("Après la mise à jour :", updatedUtilisateur);
+    // }
 
     const result = await tables.utilisateur.update(updatedUtilisateur);
     if (result.affectedRows > 0) {
