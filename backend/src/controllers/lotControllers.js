@@ -34,16 +34,37 @@ const read = async (req, res, next) => {
   }
 };
 
+const readImage = async (req, res, next) => {
+  const [imageName] = req.params.imageName;
+
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const lot = await tables.lot.readImage(imageName);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (lot == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(lot);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  const { name, image, description, utilisateurId, disponible } = req.body;
+  const { name, image, description, utilisateurId, win, exchange } = req.body;
   const updatedLot = {
     id: req.params.id,
     name,
     image,
     description,
     utilisateurId,
-    disponible,
+    win,
+    exchange,
   };
   try {
     const existingLot = await tables.lot.read(req.params.id);
@@ -61,7 +82,14 @@ const edit = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the item data from the request body
-  const lot = req.body;
+
+  const lot = {
+    name: req.body.name,
+    imageName: req.file.filename,
+    description: req.body.description,
+    win: req.body.win,
+    exchange: req.body.exchange,
+  };
 
   try {
     // Insert the item into the database
@@ -114,13 +142,28 @@ const readByLotAvailable = async (req, res, next) => {
   }
 };
 
+const readByLotExchange = async (req, res, next) => {
+  try {
+    const result = await tables.lot.readByLotExchange();
+    if (result.length > 0) {
+      res.status(201).send(result);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
+  readImage,
   edit,
   add,
   destroy,
   readByUserId,
   readByLotAvailable,
+  readByLotExchange,
 };

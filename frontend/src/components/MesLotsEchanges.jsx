@@ -12,13 +12,12 @@ function MesLotsEchanges() {
       try {
         axios
           .get(
-            `${import.meta.env.VITE_BACKEND_URL}/api/lot/email/${
+            `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${
               userConnected.id
             }`
           )
           .then((response) => {
             setLots(response.data);
-            console.info(response.data);
           })
           .catch((error) => console.error(error));
       } catch (error) {
@@ -27,8 +26,43 @@ function MesLotsEchanges() {
     }
   }, []);
 
+  function handleStartExchange(lot) {
+    return async () => {
+      let updatedExchangeLot = {};
+
+      try {
+        if (lot.exchange === 1) {
+          updatedExchangeLot = {
+            name: lot.name,
+            image: lot.image,
+            description: lot.description,
+            utilisateurId: userConnected.id,
+            win: lot.win,
+            exchange: 0,
+          };
+        } else if (lot.exchange === 0) {
+          updatedExchangeLot = {
+            name: lot.name,
+            image: lot.image,
+            description: lot.description,
+            utilisateurId: userConnected.id,
+            win: lot.win,
+            exchange: 1,
+          };
+        }
+
+        await axios.put(
+          `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
+          updatedExchangeLot
+        );
+      } catch (err) {
+        console.error(err);
+      }
+    };
+  }
+
   return (
-    <div>
+    <div className="lotsExchangeUser">
       {userConnected ? (
         <div className="container-mle">
           <div className="pseudo-joueur">
@@ -38,6 +72,7 @@ function MesLotsEchanges() {
             />
             <h1>{userConnected.pseudo}</h1>
           </div>
+          <h2>Mettre à l'échange ?</h2>
           <div className="mes-lots">
             {lots.map((lot) => (
               <div key={lot.id} className="t-1">
@@ -51,6 +86,11 @@ function MesLotsEchanges() {
                     alt={lot.name}
                   />
                 </div>
+                <input
+                  checked={lot.exchange === 1}
+                  type="checkbox"
+                  onChange={handleStartExchange(lot)}
+                />
               </div>
             ))}
           </div>
