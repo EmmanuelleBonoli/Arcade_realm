@@ -69,7 +69,7 @@ function DonneesPerso() {
                 <strong>
                   <span>Mot de passe :</span>
                 </strong>{" "}
-                {userUpdate.password}
+                {/* {userUpdate.password} */}
               </p>
               <div className="btn-logout">
                 <button onClick={handlelogout} type="button">
@@ -94,7 +94,7 @@ function DonneesPerso() {
               <p>
                 <strong>
                   <span>Pseudo :</span>
-                </strong>{" "}
+                </strong>
                 <input
                   className="input-edit"
                   type="text"
@@ -108,7 +108,7 @@ function DonneesPerso() {
               <p>
                 <strong>
                   <span>E-mail :</span>
-                </strong>{" "}
+                </strong>
                 <input
                   className="input-edit"
                   type="email"
@@ -122,12 +122,12 @@ function DonneesPerso() {
               <p>
                 <strong>
                   <span>Mot de passe :</span>
-                </strong>{" "}
+                </strong>
                 <div className="mdp-container">
                   <input
                     className="input-edit"
                     type={motDePasseVisible ? "text" : "password"}
-                    value={userUpdate.password}
+                    // value={userUpdate.password}
                     onChange={(event) =>
                       setUserUpdate({
                         ...userUpdate,

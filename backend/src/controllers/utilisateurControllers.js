@@ -37,12 +37,12 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const { pseudo, email, image, admin, points } = req.body;
-  const { password } = req.body;
+  const { pseudo, email, password, image, admin, points } = req.body;
   const updatedUtilisateur = {
     id: req.params.id,
     pseudo,
     email,
+    password,
     image,
     admin,
     points,
@@ -57,10 +57,12 @@ const edit = async (req, res, next) => {
     //   res.status(200).json({ result });
     // }
 
-if (password !== null) {
-      const user = await tables.utilisateur.read(req.params.id);
-      updatedUtilisateur.password = user[0].password;
-    }
+// if (password !== null) {
+//   console.log("Avant la mise à jour :", updatedUtilisateur);
+//   const user = await tables.utilisateur.read(req.params.id);
+//   updatedUtilisateur.password = user[0].password;
+//   console.log("Après la mise à jour :", updatedUtilisateur);
+// }
 
     const result = await tables.utilisateur.update(updatedUtilisateur);
     if (result.affectedRows > 0) {

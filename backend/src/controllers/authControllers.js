@@ -12,6 +12,7 @@ const login = async (req, res, next) => {
       res.status(200).send(user[0]);
     } else {
       res.status(400).send("Incorrect pseudo or password");
+
     }
   } catch (err) {
     next(err);
