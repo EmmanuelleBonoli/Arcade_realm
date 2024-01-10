@@ -37,23 +37,36 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const { pseudo, email, password, image, admin, points } = req.body;
+  const { pseudo, email, image, admin, points } = req.body;
+  const { password } = req.body;
   const updatedUtilisateur = {
     id: req.params.id,
     pseudo,
     email,
-    password,
     image,
     admin,
     points,
   };
+
   try {
-    const existingUtilisateur = await tables.utilisateur.read(req.params.id);
-    if (existingUtilisateur == null) {
-      res.status(404).send("Utilisateur not found");
+    // const existingUtilisateur = await tables.utilisateur.read(req.params.id);
+    // if (existingUtilisateur == null) {
+    //   res.status(404).json(updatedUtilisateur);
+    // } else {
+    //   const result = await tables.utilisateur.update(updatedUtilisateur);
+    //   res.status(200).json({ result });
+    // }
+
+if (password !== null) {
+      const user = await tables.utilisateur.read(req.params.id);
+      updatedUtilisateur.password = user[0].password;
+    }
+
+    const result = await tables.utilisateur.update(updatedUtilisateur);
+    if (result.affectedRows > 0) {
+      res.status(200).json(updatedUtilisateur);
     } else {
-      const result = await tables.utilisateur.update(updatedUtilisateur);
-      res.status(200).json({ result });
+      res.sendStatus(404);
     }
   } catch (err) {
     next(err);

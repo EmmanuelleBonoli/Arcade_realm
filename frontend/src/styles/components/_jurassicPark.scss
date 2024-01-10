@@ -20,7 +20,9 @@
       padding: 2px;
       overflow: hidden;
       border-radius: 20px;
+
       cursor: pointer;
+
       // .cursor {
       //   background-image: url(images/Jeux_ligne/JurassicPark/icone-viseur.png);
       //   top: 0;
@@ -41,7 +43,9 @@
     img {
         filter: drop-shadow(1px 1px 1px black);
         cursor: pointer;
+
         animation: target 2s forwards;
+
       }
   }
       

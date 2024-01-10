@@ -1,51 +1,42 @@
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
 function DonneesPerso() {
-  // const [nameEdit, setNameEdit] = useState("");
-  // const [emailEdit, setEmailEdit] = useState("");
-  // const [passwordEdit, setPasswordEdit] = useState("");
   const { userConnected, setUserConnected } = useContext(UserContext);
-
   const [isEditing, setIsEditing] = useState(false);
-  const [editedText, setEditedText] = useState({
-    pseudo: userConnected.pseudo,
-    email: userConnected.email,
-    password: userConnected.password,
-  });
+  const [userUpdate, setUserUpdate] = useState(userConnected);
+  const [motDePasseVisible, setMotDePasseVisible] = useState(false);
 
-  const handletest = () => {
-    setUserConnected(null);
+  const toggleMotDePasseVisibility = () => {
+    setMotDePasseVisible(!motDePasseVisible);
   };
 
   const handleEdit = () => {
     setIsEditing(true);
   };
 
-  const handleSave = () => {
-    // Implement logic to save changes
-    setIsEditing(false);
-    // Save changes using editedText state
+  const handlelogout = () => {
+    setUserConnected(null);
   };
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const data = {
-  //       name: nameEdit,
-  //       email: emailEdit,
-  //       password: passwordEdit,
-  //     };
-  //     await axios.post(
-  //       `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur`,
-  //       data
-  //     );
-  //     // onClose();
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const userUpdated = await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userUpdate.id}`,
+        userUpdate
+      );
+
+      setUserConnected(userUpdated.data);
+      setIsEditing(false);
+
+      console.log("Informations utilisateur mises à jour avec succès");
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div>
@@ -66,22 +57,22 @@ function DonneesPerso() {
                 <strong>
                   <span>Pseudo :</span>
                 </strong>{" "}
-                {editedText.pseudo}
+                {userUpdate.pseudo}
               </p>
               <p>
                 <strong>
                   <span>Email :</span>
                 </strong>{" "}
-                {editedText.email}
+                {userUpdate.email}
               </p>
               <p>
                 <strong>
                   <span>Mot de passe :</span>
                 </strong>{" "}
-                {editedText.password}
+                {userUpdate.password}
               </p>
               <div className="btn-logout">
-                <button onClick={handletest} type="button">
+                <button onClick={handlelogout} type="button">
                   <NavLink to="/">
                     <img src="/images/Utilisateur/logout.png" alt="logout" />
                     <p>Se déconnecter</p>
@@ -95,7 +86,11 @@ function DonneesPerso() {
               </div>
             </form>
           ) : (
-            <div className="edit-user">
+            <form
+              id="form"
+              className="information-user"
+              onSubmit={handleSubmit}
+            >
               <p>
                 <strong>
                   <span>Pseudo :</span>
@@ -103,8 +98,10 @@ function DonneesPerso() {
                 <input
                   className="input-edit"
                   type="text"
-                  // value={editedText.pseudo}
-                  onChange={(event) => setNameEdit(event.target.value)}
+                  value={userUpdate.pseudo}
+                  onChange={(event) =>
+                    setUserUpdate({ ...userUpdate, pseudo: event.target.value })
+                  }
                 />
               </p>
 
@@ -114,9 +111,11 @@ function DonneesPerso() {
                 </strong>{" "}
                 <input
                   className="input-edit"
-                  type="text"
-                  // value={editedText.email}
-                  onChange={(event) => setEmailEdit(event.target.value)}
+                  type="email"
+                  value={userUpdate.email}
+                  onChange={(event) =>
+                    setUserUpdate({ ...userUpdate, email: event.target.value })
+                  }
                 />
               </p>
 
@@ -124,21 +123,38 @@ function DonneesPerso() {
                 <strong>
                   <span>Mot de passe :</span>
                 </strong>{" "}
-                <input
-                  className="input-edit"
-                  type="text"
-                  // value={editedText.password}
-                  onChange={(event) => setPasswordEdit(event.target.value)}
-                />
+                <div className="mdp-container">
+                  <input
+                    className="input-edit"
+                    type={motDePasseVisible ? "text" : "password"}
+                    value={userUpdate.password}
+                    onChange={(event) =>
+                      setUserUpdate({
+                        ...userUpdate,
+                        password: event.target.value,
+                      })
+                    }
+                  />
+                  <img
+                    src={
+                      motDePasseVisible
+                        ? "/images/Login/Mdp_unsee.png"
+                        : "/images/Login/Mdp_see.png"
+                    }
+                    alt="eye"
+                    className="mdp"
+                    onClick={toggleMotDePasseVisibility}
+                    role="presentation"
+                  />
+                </div>
               </p>
-            </div>
-          )}
-          {isEditing && (
-            <div className="edit-profil">
-              <button className="saveprofil" type="button" onClick={handleSave}>
-                Enregistrer
-              </button>
-            </div>
+
+              <div className="edit-profil">
+                <button className="saveprofil" type="submit">
+                  Enregistrer
+                </button>
+              </div>
+            </form>
           )}
         </div>
       ) : (

@@ -26,6 +26,8 @@ export default function JurassicPark() {
   //   });
   // }, [gameStarted]);
 
+
+
   const imageUrls = [
     "/images/Jeux_ligne/JurassicPark/allosaurus.webp",
     "/images/Jeux_ligne/JurassicPark/carnotorus.png",
