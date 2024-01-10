@@ -35,6 +35,35 @@
       color: white;
     }
 
+    .alert-deleted {
+      width: 100%;
+
+      .text-alert {
+        font-size: 1.8rem;
+        font-family: var(--secondary-font);
+        padding: 0;
+        padding: 10px;
+        text-align: center;
+      }
+      .button-YN {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 3px;
+        button {
+          width: 33%;
+          padding: 8px;
+          background-color: rgba(0, 0, 0, 0.61);
+          border: none;
+          font-family: var(--primary-font);
+          color: var(--secondary-color);
+          cursor: pointer;
+          border-radius: 5px;
+          border: 1px solid #f1f1f17c;
+        }
+      }
+    }
+
     .input-edit {
       background-color: var(--third-color);
       color: white;
@@ -63,7 +92,7 @@
     justify-content: center;
     padding-top: 3%;
 
-    .deleteprofil {
+    .delete-user {
       cursor: pointer;
       color: rgba(255, 255, 255, 0.683);
       font-family: var(--secondary-font);
