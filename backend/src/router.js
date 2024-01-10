@@ -24,7 +24,6 @@ router.get("/lot/disponible", lotControllers.readByLotAvailable);
 router.get("/jeu/online", jeuxControllers.browseOnline);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
 
-
 // Route to get a specific item by ID
 router.get("/evenement/:id", evenementControllers.read);
 router.get("/jeu/:id", jeuxControllers.read);
