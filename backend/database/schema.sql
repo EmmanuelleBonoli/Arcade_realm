@@ -37,7 +37,8 @@ CREATE TABLE
         image VARCHAR(250) NOT NULL,
         description VARCHAR(400),
         utilisateur_id INT DEFAULT NULL,
-        disponible BOOLEAN NOT NULL DEFAULT FALSE,
+        win BOOLEAN NOT NULL DEFAULT FALSE,
+        exchange BOOLEAN NOT NULL DEFAULT FALSE,
         CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 
@@ -157,14 +158,16 @@ INSERT INTO
         image,
         description,
         utilisateur_id,
-        disponible
+        win,
+        exchange
     )
 VALUES (
         "5x Tickets Gratuits",
         "/images/Lots/ticketgratuit.png",
         "5 tickets gratuits pour jouer à n'importe quel jeu de votre choix dans notre salle d'arcade !",
         4,
-        1
+        1,
+        0
     ),
 
 (
@@ -172,43 +175,71 @@ VALUES (
     "/images/Lots/InvadersMug.png",
     "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo",
     4,
-    1
+    1,
+    0
 ), (
     "Peluche Pac-Man",
     "/images/Lots/PeluchePacman.png",
     "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!",
     1,
-    1
+    1,
+    0
 ), (
     "Mini Arcade",
     "/images/Lots/MiniArcade.png",
     "blabla2",
     2,
-    1
+    1,
+    0
 ), (
     "Monopoly Pacman",
     "/images/Lots/MonopolyPacman.png",
     "blabla",
     2,
-    1
+    1,
+    0
 ), (
     "Super Nes",
     "/images/Lots/SuperNes.png",
     "blabla3",
     2,
+    1,
     1
 ), (
     "Tasse Mario",
     "/images/Lots/TasseMario.png",
     "blabla3",
     2,
+    1,
     1
 ), (
     "Statue Zelda",
     "/images/Lots/TriforceZelda.png",
     "blabla3",
     2,
+    1,
+    0
+), (
+    "Mug Lego",
+    "/images/Lots/mugLego.webp",
+    "blabla3",
+    1,
+    1,
     1
+), (
+    "Déco Mario",
+    "/images/Lots/decoMario.jpg",
+    "blabla3",
+    null,
+    0,
+    0
+), (
+    "Lampe Batman",
+    "/images/Lots/LampeBatman.jpg",
+    "blabla3",
+    null,
+    0,
+    0
 );
 
 INSERT INTO

@@ -2,6 +2,27 @@ const express = require("express");
 
 const router = express.Router();
 
+// Middleware for upload images
+const multer = require("multer");
+const { v4 } = require("uuid");
+
+const options = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./public/");
+  },
+  filename: (req, file, cb) => {
+    const extArray = file.mimetype.split("/");
+    const extension = extArray[extArray.length - 1];
+    const name = `${v4()}.${extension}`;
+    req.body.url = name;
+    cb(null, name);
+  },
+  limits: {
+    fieldSize: 1024 * 5,
+  },
+});
+const upload = multer({ storage: options });
+
 /* ************************************************************************* */
 // Define Your API Routes Here
 /* ************************************************************************* */
@@ -21,9 +42,9 @@ router.get("/score", scoreControllers.browse);
 router.get("/lot", lotControllers.browse);
 router.get("/utilisateur", utilisateurControllers.browse);
 router.get("/lot/disponible", lotControllers.readByLotAvailable);
+router.get("/lot/exchange", lotControllers.readByLotExchange);
 router.get("/jeu/online", jeuxControllers.browseOnline);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
-
 
 // Route to get a specific item by ID
 router.get("/evenement/:id", evenementControllers.read);
@@ -31,14 +52,16 @@ router.get("/jeu/:id", jeuxControllers.read);
 router.get("/score/:id", scoreControllers.read);
 router.get("/lot/:id", lotControllers.read);
 router.get("/utilisateur/:id", utilisateurControllers.read);
-router.get("/lot/email/:id", lotControllers.readByUserId);
+router.get("/lot/win/:id", lotControllers.readByUserId);
 router.get("/score/email/:id", scoreControllers.readByUserId);
 
 // Route to add a new item
 router.post("/evenement", evenementControllers.add);
 router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
-router.post("/lot", lotControllers.add);
+
+router.post("/lot", upload.single("image"), lotControllers.add);
+
 router.post("/utilisateur", utilisateurControllers.add);
 router.post("/login", authControllers.login);
 router.post("/signin", authControllers.signin);
