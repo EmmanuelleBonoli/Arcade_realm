@@ -10,10 +10,10 @@
     justify-content: center;
     gap: 20px;
     padding: 4%;
-      img {
-        width: 10%;
-        cursor: pointer;
-      }
+    img {
+      width: 10%;
+      cursor: pointer;
+    }
     h1 {
       font-family: var(--primary-font);
       font-size: 3rem;
@@ -46,6 +46,17 @@
       width: 25vh;
       height: 3.5vh;
     }
+    .mdp-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .mdp {
+        width: 25px;
+        position: absolute;
+        right: 100px;
+        cursor: pointer;
+      }
+    }
   }
   .btn-profil {
     display: flex;
@@ -73,7 +84,7 @@
     padding-top: 5%;
 
     button {
-      background-color:rgba(0, 0, 0, 0.61);
+      background-color: rgba(0, 0, 0, 0.61);
       border-radius: 6px;
       border: none;
       a {
@@ -87,7 +98,6 @@
         cursor: pointer;
         width: 28vh;
         height: 5vh;
-        
 
         p {
           padding: 0;

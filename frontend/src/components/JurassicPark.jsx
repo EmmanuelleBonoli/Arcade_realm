@@ -10,21 +10,21 @@ export default function JurassicPark() {
   const [animationKey, setAnimationKey] = useState(0);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
-  const [cursorX, setCursorX] = useState();
-  const [cursorY, setCursorY] = useState();
-  const [gameStarted, setGameStarted] = useState(false);
+  // const [cursorX, setCursorX] = useState();
+  // const [cursorY, setCursorY] = useState();
+  // const [gameStarted, setGameStarted] = useState(false);
 
-  const cursorWidth = 1300;
-  const cursorHeight = 530;
+  // const cursorWidth = 1300;
+  // const cursorHeight = 530;
 
-  useEffect(() => {
-    window.addEventListener("mousemove", (e) => {
-      if (gameStarted) {
-        setCursorX(e.pageX - cursorWidth / 2);
-        setCursorY(e.pageY - cursorHeight / 2);
-      }
-    });
-  }, [gameStarted]);
+  // useEffect(() => {
+  //   window.addEventListener("mousemove", (e) => {
+  //     if (gameStarted) {
+  //       setCursorX(e.pageX - cursorWidth / 2);
+  //       setCursorY(e.pageY - cursorHeight / 2);
+  //     }
+  //   });
+  // }, [gameStarted]);
   const imageUrls = [
     "/images/Jeux_ligne/JurassicPark/allosaurus.webp",
     "/images/Jeux_ligne/JurassicPark/carnotorus.png",
@@ -72,7 +72,7 @@ export default function JurassicPark() {
     }, 1000 * i);
   };
   const launchTimer = () => {
-    setGameStarted(true);
+    // setGameStarted(true);
     for (let i = 30; i > 0; i -= 1) {
       decreaseTimer(i);
     }
@@ -103,7 +103,7 @@ export default function JurassicPark() {
   return (
     <div className="bord-jeux">
       <div className="int-jeux">
-        {gameStarted ? (
+        {/* {gameStarted ? (
           <div
             className="cursor"
             style={{
@@ -113,7 +113,7 @@ export default function JurassicPark() {
               zIndex: 1,
             }}
           />
-        ) : null}
+        ) : null} */}
         <div className="information-jeux">
           {/* <h3>Name :</h3> */}
           <h3>
