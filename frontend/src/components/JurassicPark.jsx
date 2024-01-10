@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import GameContext from "../contexts/GameContext";
 
 export default function JurassicPark() {
@@ -25,6 +25,9 @@ export default function JurassicPark() {
   //     }
   //   });
   // }, [gameStarted]);
+
+
+
   const imageUrls = [
     "/images/Jeux_ligne/JurassicPark/allosaurus.webp",
     "/images/Jeux_ligne/JurassicPark/carnotorus.png",
@@ -152,7 +155,7 @@ export default function JurassicPark() {
               src={dino}
               alt="Dino Img"
               style={{
-                width: "100%", // Assurez-vous que l'image occupe tout l'espace du bouton
+                width: "100%",
                 height: "100%",
               }}
             />
