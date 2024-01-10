@@ -68,8 +68,8 @@ function DonneesPerso() {
               <p>
                 <strong>
                   <span>Mot de passe :</span>
-                </strong>{" "}
-                {userUpdate.password}
+                </strong>
+                {/* {userUpdate.password} */}
               </p>
               <div className="btn-logout">
                 <button onClick={handlelogout} type="button">
@@ -127,7 +127,7 @@ function DonneesPerso() {
                   <input
                     className="input-edit"
                     type={motDePasseVisible ? "text" : "password"}
-                    value={userUpdate.password}
+                    // value={userUpdate.password}
                     onChange={(event) =>
                       setUserUpdate({
                         ...userUpdate,

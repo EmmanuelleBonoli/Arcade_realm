@@ -33,7 +33,7 @@ export default function Connexion({ onClose }) {
       if (dataUser.data.admin === 1) {
         setAdminOrNot(true);
       }
-      // console.log(userConnected);
+
       onClose();
     } catch (error) {
       console.error(error.message);
