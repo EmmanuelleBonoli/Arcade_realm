@@ -38,7 +38,6 @@ const read = async (req, res, next) => {
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
   const { pseudo, email, password, image, admin, points } = req.body;
-
   const updatedUtilisateur = {
     id: req.params.id,
     pseudo,
@@ -57,6 +56,13 @@ const edit = async (req, res, next) => {
     //   const result = await tables.utilisateur.update(updatedUtilisateur);
     //   res.status(200).json({ result });
     // }
+
+// if (password !== null) {
+//   console.log("Avant la mise à jour :", updatedUtilisateur);
+//   const user = await tables.utilisateur.read(req.params.id);
+//   updatedUtilisateur.password = user[0].password;
+//   console.log("Après la mise à jour :", updatedUtilisateur);
+// }
 
     const result = await tables.utilisateur.update(updatedUtilisateur);
     if (result.affectedRows > 0) {
