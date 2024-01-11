@@ -1,88 +1,85 @@
 .bord-jeux {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .int-jeux {
+    background-image: url(images/Jeux_ligne/JurassicPark/foret.jpg);
+    background-size: cover;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    border: 4px solid #003d48b4;
+    background-color: #56dcc675;
     display: flex;
     justify-content: center;
     align-items: center;
-    .int-jeux {
-      background-image: url(images/Jeux_ligne/JurassicPark/foret.jpg);
-      background-size: cover;
-      width: 100%;
-      height: 100%;
-      border: 4px solid #003d48b4;
-      background-color: #56dcc675;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      color: white;
-      font-family: "Orbitron", sans-serif;
-      padding: 2px;
-      overflow: hidden;
-      border-radius: 20px;
+    position: relative;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    padding: 2px;
+    overflow: hidden;
+    border-radius: 20px;
 
-      cursor: pointer;
+    cursor: pointer;
 
-      // .cursor {
-      //   background-image: url(images/Jeux_ligne/JurassicPark/icone-viseur.png);
-      //   top: 0;
-      //   left: 0;
-      //   width: 32px;
-      //   height: 32px;
-      //   background-size: cover;
-      //   position: absolute;
-      //   cursor: none;
-    
-      // }
+    // .cursor {
+    //   background-image: url(images/Jeux_ligne/JurassicPark/icone-viseur.png);
+    //   top: 0;
+    //   left: 0;
+    //   width: 32px;
+    //   height: 32px;
+    //   background-size: cover;
+    //   position: absolute;
+    //   cursor: none;
 
-  button{
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    
-    
-    img {
+    // }
+
+    button {
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+
+      img {
         filter: drop-shadow(1px 1px 1px black);
         cursor: pointer;
 
         animation: target 2s forwards;
-
       }
-  }
-      
-      .information-jeux {
-        padding: 5px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
+    }
 
-        h3 {
-          text-shadow: 1px 1px 1px black;
-          width: 33%;
-          text-align: center;
-          font-size: 1.5rem;
-        }
+    .information-jeux {
+      padding: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
 
-        img {
-          padding: 2px;
-          width: 1vw;
-          height: 2vh;
-          cursor: pointer;
-        }
+      h3 {
+        text-shadow: 1px 1px 1px black;
+        width: 33%;
+        text-align: center;
+        font-size: 1.5rem;
       }
-      .target {
-        width: 100%;
-        
+
+      img {
+        padding: 2px;
+        width: 1vw;
+        height: 2vh;
+        cursor: pointer;
       }
-      .luncher{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-  button{
-    background-color: rgba(255, 255, 255, 0);
-    font-size: 50px;
+    }
+    .target {
+      width: 100%;
+    }
+    .luncher {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 50px;
         padding: 20px;
         border: 2px solid white;
         width: 30%;
@@ -90,18 +87,19 @@
         font-family: "Orbitron", sans-serif;
         color: white;
         cursor: pointer;
-    }
-    }}
-  }
-  
-  @keyframes target {
-    0% {
-      transform: scale(0.5);
-    }50%{
-      transform: scale(0.9);
-    }
-    100% {
-      transform: scale(1);
+      }
     }
   }
-  
+}
+
+@keyframes target {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
