@@ -29,6 +29,7 @@ function ArcadeGame() {
     scorePlayer,
     setScorePlayer,
     setMissedArrow,
+
   } = useContext(GameContext);
 
   const audio = useRef(null);

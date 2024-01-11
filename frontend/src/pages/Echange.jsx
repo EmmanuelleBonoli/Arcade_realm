@@ -73,6 +73,7 @@ function Echange() {
     }
   }, [selectedLotsWin, selectedLotsAvailable, lotsWin]);
 
+
   function handleTransfer() {
     if (lotNewPlayer !== undefined && lotOldPlayer !== undefined) {
       setTransfer(true);

@@ -1,6 +1,3 @@
--- SQLBook: Code
--- Active: 1701877864949@@127.0.0.1@3306@arcade
-
 DROP DATABASE IF EXISTS Arcade;
 
 CREATE DATABASE Arcade;

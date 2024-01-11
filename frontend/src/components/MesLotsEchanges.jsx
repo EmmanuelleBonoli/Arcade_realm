@@ -60,6 +60,7 @@ function MesLotsEchanges() {
     } catch (err) {
       console.error(err);
     }
+
   }
 
   return (
@@ -87,6 +88,7 @@ function MesLotsEchanges() {
                     alt={lot.name}
                   />
                 </div>
+
                 <div className="inputSelectContainer">
                   {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label className="inputSelect">
@@ -109,6 +111,7 @@ function MesLotsEchanges() {
                   type="checkbox"
                   onChange={() => handleStartExchange(lot)}
                 /> */}
+
               </div>
             ))}
           </div>
