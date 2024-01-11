@@ -36,7 +36,6 @@ export default function Inscription({ onClose }) {
         `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
         userSignin
       );
-      setUserConnected(res.data.userDetails);
       setUserConnected(res.data);
 
       if (res.data.admin === 1) {

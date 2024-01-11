@@ -36,20 +36,19 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  const { utilisateurid, jeuid, points } = req.body;
+  const { utilisateurId, jeuId, points } = req.body;
   const updatedScore = {
     id: req.params.id,
-    utilisateurid,
-    jeuid,
+    utilisateurId,
+    jeuId,
     points,
   };
   try {
-    const existingScore = await tables.score.read(req.params.id);
-    if (existingScore == null) {
-      res.status(404).send("Score not found");
+    const result = await tables.score.update(updatedScore);
+    if (result.affectedRows > 0) {
+      res.status(200).json(updatedScore);
     } else {
-      const result = await tables.score.update(updatedScore);
-      res.status(200).json({ result });
+      res.sendStatus(404);
     }
   } catch (err) {
     next(err);
@@ -61,7 +60,6 @@ const edit = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the item data from the request body
   const score = req.body;
-
   try {
     // Insert the item into the database
     const insertId = await tables.score.create(score);
@@ -90,11 +88,8 @@ const destroy = async (req, res, next) => {
 const readByUserId = async (req, res, next) => {
   try {
     const result = await tables.score.readByUserId(req.params.id);
-    if (result.length > 0) {
-      res.status(201).send(result);
-    } else {
-      res.sendStatus(404);
-    }
+
+    res.status(200).send(result);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

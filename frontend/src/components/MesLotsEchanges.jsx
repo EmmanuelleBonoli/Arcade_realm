@@ -7,58 +7,60 @@ function MesLotsEchanges() {
   const { userConnected } = useContext(UserContext);
   const [lots, setLots] = useState([]);
 
+  const fetchLot = async () => {
+    try {
+      axios
+        .get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`
+        )
+        .then((response) => {
+          setLots(response.data);
+        })
+        .catch((error) => console.error(error));
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
     if (userConnected) {
-      try {
-        axios
-          .get(
-            `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${
-              userConnected.id
-            }`
-          )
-          .then((response) => {
-            setLots(response.data);
-          })
-          .catch((error) => console.error(error));
-      } catch (error) {
-        console.error(error);
-      }
+      fetchLot();
     }
   }, []);
 
-  function handleStartExchange(lot) {
-    return async () => {
-      let updatedExchangeLot = {};
+  async function handleStartExchange(lot) {
+    let updatedExchangeLot = {};
 
-      try {
-        if (lot.exchange === 1) {
-          updatedExchangeLot = {
-            name: lot.name,
-            image: lot.image,
-            description: lot.description,
-            utilisateurId: userConnected.id,
-            win: lot.win,
-            exchange: 0,
-          };
-        } else if (lot.exchange === 0) {
-          updatedExchangeLot = {
-            name: lot.name,
-            image: lot.image,
-            description: lot.description,
-            utilisateurId: userConnected.id,
-            win: lot.win,
-            exchange: 1,
-          };
-        }
-
-        await axios.put(
-          `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
-          updatedExchangeLot
-        );
-      } catch (err) {
-        console.error(err);
+    try {
+      if (lot.exchange === 1) {
+        updatedExchangeLot = {
+          name: lot.name,
+          image: lot.image,
+          description: lot.description,
+          utilisateurId: userConnected.id,
+          win: lot.win,
+          exchange: 0,
+        };
+      } else if (lot.exchange === 0) {
+        updatedExchangeLot = {
+          name: lot.name,
+          image: lot.image,
+          description: lot.description,
+          utilisateurId: userConnected.id,
+          win: lot.win,
+          exchange: 1,
+        };
       }
-    };
+
+      await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
+        updatedExchangeLot
+      );
+
+      fetchLot();
+    } catch (err) {
+      console.error(err);
+    }
+
   }
 
   return (
@@ -86,11 +88,30 @@ function MesLotsEchanges() {
                     alt={lot.name}
                   />
                 </div>
-                <input
+
+                <div className="inputSelectContainer">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                  <label className="inputSelect">
+                    <input
+                      checked={lot.exchange === 1}
+                      onChange={() => handleStartExchange(lot)}
+                      type="checkbox"
+                    />
+                    <svg viewBox="0 0 64 64" height="2em" width="2em">
+                      <path
+                        d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                        pathLength="575.0541381835938"
+                        className="path"
+                      />
+                    </svg>
+                  </label>
+                </div>
+                {/* <input
                   checked={lot.exchange === 1}
                   type="checkbox"
-                  onChange={handleStartExchange(lot)}
-                />
+                  onChange={() => handleStartExchange(lot)}
+                /> */}
+
               </div>
             ))}
           </div>

@@ -1,8 +1,11 @@
-import { useEffect, useContext, useRef } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
+import axios from "axios";
+import { PropTypes } from "prop-types";
 import { uid } from "uid";
 import GameContext from "../contexts/GameContext";
+import userContext from "../contexts/UserContext";
 
-function GuitarHero() {
+function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
   const {
     setChooseScreen,
     chooseArrow,
@@ -12,6 +15,75 @@ function GuitarHero() {
     missedArrow,
     setMissedArrow,
   } = useContext(GameContext);
+
+  const { userConnected } = useContext(userContext);
+
+  const [getScoreUser, setGetScoreUser] = useState({});
+
+  useEffect(() => {
+    if (gameOverGH === true) {
+      if (userConnected) {
+        const getScore = async () => {
+          try {
+            const fetchScore = await axios.get(
+              `${import.meta.env.VITE_BACKEND_URL}/api/score/email/${
+                userConnected.id
+              }`
+            );
+            setGetScoreUser(fetchScore.data);
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        getScore();
+      }
+    }
+  }, [gameOverGH]);
+
+  useEffect(() => {
+    if (scorePlayer > 0) {
+      const tmpScore = getScoreUser.filter(
+        (score) => score.name === "Guitar Hero"
+      );
+      if (tmpScore.length === 0) {
+        const postScore = async () => {
+          try {
+            const NewScore = {
+              utilisateurId: userConnected.id,
+              jeuId: 4,
+              points: scorePlayer,
+            };
+            await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}/api/score`,
+              NewScore
+            );
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        postScore();
+      } else if (scorePlayer > tmpScore[0].points) {
+        const postScore = async () => {
+          try {
+            const UpdatedScore = {
+              utilisateurId: userConnected.id,
+              jeuId: gamePlayed,
+              points: scorePlayer,
+            };
+            await axios.put(
+              `${import.meta.env.VITE_BACKEND_URL}/api/score/${
+                tmpScore[0].ScoreId
+              }`,
+              UpdatedScore
+            );
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        postScore();
+      }
+    }
+  }, [getScoreUser]);
 
   const chooseArrowRef = useRef(chooseArrow);
 
@@ -29,6 +101,7 @@ function GuitarHero() {
 
     if (missedArrow.length === 3) {
       clearInterval(newGame);
+      setGameOverGH(true);
     }
     return () => clearInterval(newGame);
   }, [missedArrow]);
@@ -48,9 +121,11 @@ function GuitarHero() {
     setChooseScreen("menu");
     setMissedArrow([]);
     setScorePlayer(0);
+    setGameOverGH(false);
   }
 
   function handleNewGameGuitarHero() {
+    setGameOverGH(false);
     setScorePlayer(0);
     setMissedArrow([]);
     setChooseScreen("guitarHero");
@@ -160,5 +235,11 @@ function GuitarHero() {
     </div>
   );
 }
+
+GuitarHero.propTypes = {
+  gameOverGH: PropTypes.bool.isRequired,
+  setGameOverGH: PropTypes.func.isRequired,
+  gamePlayed: PropTypes.number.isRequired,
+};
 
 export default GuitarHero;

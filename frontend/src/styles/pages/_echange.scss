@@ -21,7 +21,6 @@
       display: flex;
       align-self: flex-start;
       width: 25%;
-      transform: translate(40%);
       text-align: center;
       color: white;
       font-family: var(--secondary-font);
@@ -92,11 +91,13 @@
             .lotWinPlayer {
               position: relative;
               display: flex;
+
             }
 
             .lotsWin {
               width: 3vw;
             }
+
 
             .elispe-coche {
               position: absolute;
@@ -128,7 +129,7 @@
       width: 10%;
       text-align: center;
       img {
-        width: 80%;
+        width: 100%;
         cursor: pointer;
       }
     }
