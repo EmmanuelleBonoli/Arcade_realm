@@ -1,7 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { PropTypes } from "prop-types";
 import GameContext from "../contexts/GameContext";
+import userContext from "../contexts/UserContext";
 
-export default function JurassicPark() {
+export default function JurassicPark({
+  gamePlayed,
+  gameOverJP,
+  setGameOverJP,
+}) {
+  const { userConnected } = useContext(userContext);
   const { setChooseScreen } = useContext(GameContext);
 
   const [left, setLeft] = useState(null);
@@ -10,6 +18,8 @@ export default function JurassicPark() {
   const [animationKey, setAnimationKey] = useState(0);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
+  const [getScoreUser, setGetScoreUser] = useState({});
+
   // const [cursorX, setCursorX] = useState();
   // const [cursorY, setCursorY] = useState();
   // const [gameStarted, setGameStarted] = useState(false);
@@ -26,7 +36,78 @@ export default function JurassicPark() {
   //   });
   // }, [gameStarted]);
 
+  // const [gameOver, setGameOver] = useState(false);
 
+  useEffect(() => {
+    if (timer === 0) {
+      setGameOverJP(true);
+    }
+  }, [timer]);
+
+  useEffect(() => {
+    if (gameOverJP === true) {
+      if (userConnected) {
+        const getScore = async () => {
+          try {
+            const fetchScore = await axios.get(
+              `${import.meta.env.VITE_BACKEND_URL}/api/score/email/${
+                userConnected.id
+              }`
+            );
+            setGetScoreUser(fetchScore.data);
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        getScore();
+      }
+    }
+  }, [gameOverJP]);
+
+  useEffect(() => {
+    if (score > 0) {
+      const tmpScore = getScoreUser.filter(
+        (scoreSearch) => scoreSearch.name === "Guitar Hero"
+      );
+      if (tmpScore.length === 0) {
+        const postScore = async () => {
+          try {
+            const NewScore = {
+              utilisateurId: userConnected.id,
+              jeuId: 9,
+              points: score,
+            };
+            await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}/api/score`,
+              NewScore
+            );
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        postScore();
+      } else if (score > tmpScore[0].points) {
+        const postScore = async () => {
+          try {
+            const UpdatedScore = {
+              utilisateurId: userConnected.id,
+              jeuId: gamePlayed,
+              points: score,
+            };
+            await axios.put(
+              `${import.meta.env.VITE_BACKEND_URL}/api/score/${
+                tmpScore[0].ScoreId
+              }`,
+              UpdatedScore
+            );
+          } catch (err) {
+            console.error(err);
+          }
+        };
+        postScore();
+      }
+    }
+  }, [getScoreUser]);
 
   const imageUrls = [
     "/images/Jeux_ligne/JurassicPark/allosaurus.webp",
@@ -75,7 +156,7 @@ export default function JurassicPark() {
     }, 1000 * i);
   };
   const launchTimer = () => {
-    // setGameStarted(true);
+    //  setGameStarted(true);
     for (let i = 30; i > 0; i -= 1) {
       decreaseTimer(i);
     }
@@ -89,12 +170,13 @@ export default function JurassicPark() {
     const newSize = randomSize(80, 200);
     setSize(newSize);
     setAnimationKey((prevKey) => prevKey + 1);
-    setScore(score + 10);
+    setScore(score + 100);
     setDino(getRandomElement(imageUrls));
     e.stopPropagation();
   };
 
   const resetTimer = () => {
+    setGameOverJP(false);
     setTimer(30);
   };
 
@@ -179,3 +261,8 @@ export default function JurassicPark() {
     </div>
   );
 }
+JurassicPark.propTypes = {
+  gameOverJP: PropTypes.bool.isRequired,
+  setGameOverJP: PropTypes.func.isRequired,
+  gamePlayed: PropTypes.number.isRequired,
+};

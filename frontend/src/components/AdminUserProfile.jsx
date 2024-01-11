@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import DetailsUserProfile from "./DetailsUserProfile";
 
 export default function AdminUserProfile() {
   const [user, setUser] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState(user);
   const [filterPseudo, setFilterPseudo] = useState("");
+  const [detailsProfile, setDetailsProfile] = useState(0);
+  const [openDetailsProfile, setOpenDetailsProfile] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,37 +49,53 @@ export default function AdminUserProfile() {
     }
   };
 
+  function handleDetailsUser(playerId) {
+    setDetailsProfile(playerId);
+    setOpenDetailsProfile(true);
+  }
+
   return (
     <div>
-      <div className="container-player">
-        <h1>JOUEURS</h1>
-        <div className="wrapper-container">
-          <input
-            className="input-search-player"
-            type="text"
-            placeholder="Entrez le nom d'un joueur"
-            value={filterPseudo}
-            onChange={handleInput}
-          />
-          {/* <img src="/images/Search.png" alt="Search" /> */}
-        </div>{" "}
-        <div className="overflow-player">
-          {filteredUsers.map(
-            (player) =>
-              !player.admin && (
-                <div className="player-list" key={player.id}>
-                  <p>{player.pseudo}</p>
-                  <img
-                    src="/images/Utilisateur/Banned.png"
-                    onClick={() => handleDeletePlayer(player.id)}
-                    alt="Banned"
-                    role="presentation"
-                  />
-                </div>
-              )
-          )}
+      {openDetailsProfile ? (
+        <DetailsUserProfile
+          detailsProfile={detailsProfile}
+          setOpenDetailsProfile={setOpenDetailsProfile}
+        />
+      ) : (
+        <div className="container-player">
+          <h1>JOUEURS</h1>
+          <div className="wrapper-container">
+            <input
+              className="input-search-player"
+              type="text"
+              placeholder="Entrez le nom d'un joueur"
+              value={filterPseudo}
+              onChange={handleInput}
+            />
+          </div>{" "}
+          <div className="overflow-player">
+            {filteredUsers.map(
+              (player) =>
+                !player.admin && (
+                  <div className="player-list" key={player.id}>
+                    <p
+                      onClick={() => handleDetailsUser(player.id)}
+                      role="presentation"
+                    >
+                      {player.pseudo}
+                    </p>
+                    <img
+                      src="/images/Utilisateur/Banned.png"
+                      onClick={() => handleDeletePlayer(player.id)}
+                      alt="Banned"
+                      role="presentation"
+                    />
+                  </div>
+                )
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

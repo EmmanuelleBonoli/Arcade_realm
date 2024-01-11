@@ -7,7 +7,7 @@ class ScoreManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create({ utilisateur_id: utilisateurId, jeu_id: jeuId, points }) {
+  async create({ utilisateurId, jeuId, points }) {
     const [result] = await this.database.query(
       `insert into ${this.table} (utilisateur_id, jeu_id, points) values (?,?,?)`,
       [utilisateurId, jeuId, points]
@@ -32,10 +32,10 @@ class ScoreManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update({ id, utilisateurid, jeuid, points }) {
+  async update({ id, utilisateurId, jeuId, points }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET utilisateurid=?, jeuid=?, points=? WHERE id=?`,
-      [utilisateurid, jeuid, points, id]
+      `UPDATE ${this.table} SET utilisateur_id=?, jeu_id=?, points=? WHERE id=?`,
+      [utilisateurId, jeuId, points, id]
     );
     return result;
   }
@@ -52,7 +52,7 @@ class ScoreManager extends AbstractManager {
 
   async readByUserId(userId) {
     const [result] = await this.database.query(
-      `select ${this.table}.points, jeu.name, utilisateur.id from ${this.table} 
+      `select ${this.table}.points, jeu.name, utilisateur.id, ${this.table}.id AS ScoreId from ${this.table} 
       JOIN utilisateur ON utilisateur.id = ${this.table}.utilisateur_id
       JOIN jeu ON jeu.id = ${this.table}.jeu_id
       WHERE utilisateur_id = ?`,

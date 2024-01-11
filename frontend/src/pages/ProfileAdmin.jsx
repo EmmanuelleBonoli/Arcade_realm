@@ -24,7 +24,10 @@ function ProfileAdmin() {
               </NavLink>
 
               <NavLink to="/profilutilisateur/adminservices" className="">
-                Gestion des services
+                Gestion de la salle
+              </NavLink>
+              <NavLink to="/profilutilisateur/gestiondesconcours" className="">
+                Gestion des concours
               </NavLink>
               <NavLink to="/profilutilisateur/gestionprofils" className="">
                 Gestion des profils
