@@ -28,12 +28,17 @@ function ArcadeGame() {
     setChooseArrow,
     scorePlayer,
     setScorePlayer,
+    setMissedArrow,
+
   } = useContext(GameContext);
 
   const audio = useRef(null);
   const chooseArrowRef = useRef(chooseArrow);
   const [bestScoresOnline, setBestScoresOnline] = useState([]);
   const [gamesOnline, setGamesOnline] = useState([]);
+  const [gamePlayed, setGamePlayed] = useState(0);
+
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     const getGames = async () => {
@@ -70,6 +75,9 @@ function ArcadeGame() {
   function handleClose() {
     setOpenGames(!openGames);
     setChooseScreen("start");
+    setGameOver(false);
+    setScorePlayer(0);
+    setMissedArrow([]);
     navigate("/");
   }
   useEffect(() => {
@@ -105,9 +113,11 @@ function ArcadeGame() {
     }
     if (chooseScreen === "menu" && gameSelected === 0) {
       setChooseScreen("guitarHero");
+      setGamePlayed(4);
     }
     if (chooseScreen === "menu" && gameSelected === 1) {
       setChooseScreen("JurassicPark");
+      setGamePlayed(9);
     }
     if (chooseScreen === "guitarHero" && chooseArrowRef.current[3]) {
       const newChooseArrow = [false, false, false, false];
@@ -199,7 +209,12 @@ function ArcadeGame() {
             alt="borne arcade en ligne"
           />
           <div className="screenArcade">
-            <ScreenArcade gamesOnline={gamesOnline} />
+            <ScreenArcade
+              gamesOnline={gamesOnline}
+              gamePlayed={gamePlayed}
+              setGameOver={setGameOver}
+              gameOver={gameOver}
+            />
           </div>
 
           <img

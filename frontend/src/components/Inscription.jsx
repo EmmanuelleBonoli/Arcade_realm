@@ -11,6 +11,7 @@ export default function Inscription({ onClose }) {
   const [inscription, setInscription] = useState("");
   const { setUserConnected, setAdminOrNot } = useContext(UserContext);
 
+  // mot de passe visible ou non //
   const toggleMotDePasseVisibility = () => {
     setMotDePasseVisible(!motDePasseVisible);
   };
@@ -35,7 +36,6 @@ export default function Inscription({ onClose }) {
         `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
         userSignin
       );
-      setUserConnected(res.data.userDetails);
       setUserConnected(res.data);
 
       if (res.data.admin === 1) {
@@ -45,11 +45,8 @@ export default function Inscription({ onClose }) {
       if (res.status === 201) {
         setInscription("Inscription réussie !");
         setTimeout(() => {
-          // Si vous utilisez react-router-dom, vous pouvez utiliser `navigate("/")` ici.
-
-          // Fermer la page d'inscription en appelant la fonction onClose fournie en tant que prop.
           onClose();
-        }, 2500); // ajustez la durée en millisecondes selon vos besoins
+        }, 2500);
       }
     } catch (error) {
       console.error(error);

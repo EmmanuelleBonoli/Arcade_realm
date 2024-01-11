@@ -18,6 +18,8 @@
     gap: 10px;
 
     a {
+      display: flex;
+      align-self: flex-start;
       width: 25%;
       text-align: center;
       color: white;
@@ -26,10 +28,13 @@
       border-radius: 5px;
       padding: var(--spacing);
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
 
       img {
+        transform: translateY(5%);
+        
+       
         width: 10%;
       }
     }
@@ -86,11 +91,13 @@
             .lotWinPlayer {
               position: relative;
               display: flex;
+
             }
 
             .lotsWin {
               width: 3vw;
             }
+
 
             .elispe-coche {
               position: absolute;
