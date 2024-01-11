@@ -7,6 +7,7 @@ const login = async (req, res, next) => {
     if (!user[0]) {
       res.status(400).send("Incorrect pseudo or password");
     }
+    console.log("Incorrect pseudo or password");
 
     if (user[0].password === req.body.password) {
       res.status(200).send(user[0]);
