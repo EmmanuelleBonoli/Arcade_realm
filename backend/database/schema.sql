@@ -40,7 +40,7 @@ CREATE TABLE
         utilisateur_id INT DEFAULT NULL,
         win BOOLEAN NOT NULL DEFAULT FALSE,
         exchange BOOLEAN NOT NULL DEFAULT FALSE,
-        podium BOOLEAN NOT NULL DEFAULT FALSE,
+        podium INT NOT NULL DEFAULT FALSE,
         CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 
@@ -226,7 +226,7 @@ VALUES
     10,
     1,
     0,
-    1
+    2
 ), (
     "Monopoly Pacman",
     "/images/Lots/MonopolyPacman.png",
@@ -258,7 +258,7 @@ VALUES
     8,
     1,
     0,
-    1
+    3
 ), (
     "Mug Lego",
     "/images/Lots/mugLego.webp",
