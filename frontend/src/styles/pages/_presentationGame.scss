@@ -64,16 +64,21 @@
   gap: 33px;
 }
 
+
+.containerGames2 {
+  display: flex;
+  align-items: center;
 .retourpicture{
   display: flex;
   align-items: center;
+  
   margin-right: 100px;
   background: transparent;
   height: 100px;
   border: none;
   cursor: pointer;
 }
-
+}
 
 
 .secondimage {

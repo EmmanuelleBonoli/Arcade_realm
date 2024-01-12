@@ -489,8 +489,8 @@ VALUES (
     );
 
 
-INSERT INTO
-    favoris (utilisateur_id, jeu_id, favori)
+-- INSERT INTO
+--     favoris (utilisateur_id, jeu_id, favori)
 
 INSERT INTO
     score (utilisateur_id, jeu_id, points)

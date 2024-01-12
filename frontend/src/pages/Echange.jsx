@@ -200,37 +200,6 @@ function Echange() {
                     <img src="/images/Utilisateur/retour.png" alt="retour" />
                     Retour à mon profil
                   </div>
-<<<<<<< HEAD
-                </div>
-                <div className="gl-trait-echange">
-                  <div className="trait-echange" />
-                </div>
-                <div className="user-score">
-                  <p>
-                    <strong>Score : </strong>
-                  </p>
-                  <p>24 500 pts</p>
-                </div>
-              </div>
-            </div>
-            <div className="image-echangeur">
-              <img src="images/Utilisateur/echangeur.png" alt="echangeur" />
-            </div>
-            <div className="echange-joueur">
-              <div className="Joueurs-p1">
-                <h1>Joueurs</h1>
-                <p>Les lots disponibles :</p>
-                <div className="lots-disponibles">
-                  <div className="images-echange">
-                    <img src="images/SuperNes3.png" alt="" />
-                    <div className="elispe-coché-echange">
-                      <img
-                        src={lotSelected}
-                        onClick={handleSelect2}
-                        alt="coche échange"
-                        role="presentation"
-                      />
-=======
                 </NavLink>
                 <div className="mes-lots">
                   <h1>{userConnected.pseudo}</h1>
@@ -264,7 +233,6 @@ function Echange() {
                         <strong>Score : </strong>
                       </p>
                       <p>{pointsUser.points} pts</p>
->>>>>>> b8c2ead70b60190e5fdee71c927a360894d22d6b
                     </div>
                   </div>
                 </div>

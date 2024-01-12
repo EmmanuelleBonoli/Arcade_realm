@@ -36,7 +36,7 @@ function PresentationGame() {
               className="secondimage"
             />
             <div className="descriptionGames">
-              <img src="../images/Utilisateur/heartFavorite.png" alt="" />
+              {/* <img src="../images/Utilisateur/heartFavorite.png" alt="" /> */}
 
               <p>
                 <strong>Nom :</strong> {game[0].name}
