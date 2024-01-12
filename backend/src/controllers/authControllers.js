@@ -6,7 +6,6 @@ const tables = require("../tables");
 const login = async (req, res, next) => {
   try {
     const user = await tables.utilisateur.getByPseudo(req.body.pseudo);
-console.log(user)
     if (!user[0]) {
       res.sendStatus(400).send("Incorrect pseudo or password");
       return;
@@ -47,7 +46,6 @@ const signin = async (req, res, next) => {
         id: result.insertId,
         pseudo,
         email,
-        hashed_password,
         image,
         admin,
         points,

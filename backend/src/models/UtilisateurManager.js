@@ -34,10 +34,10 @@ class UtilisateurManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update({ id, pseudo, email, hashed_password, image, admin, points }) {
+  async update({ id, pseudo, email, image, admin, points }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET pseudo=?, email=?, hashed_password=?, image=?, admin=?, points=? WHERE id=?`,
-      [pseudo, email, hashed_password, image, admin, points, id]
+      `UPDATE ${this.table} SET pseudo=?, email=?, image=?, admin=?, points=? WHERE id=?`,
+      [pseudo, email, image, admin, points, id]
     );
     return result;
   }
@@ -53,7 +53,6 @@ class UtilisateurManager extends AbstractManager {
   }
 
   async getByPseudo(pseudo) {
-    console.log("n'immporte quoi")
     const [result] = await this.database.query(
       `SELECT * FROM ${this.table} WHERE pseudo = ?`,
       [pseudo]
