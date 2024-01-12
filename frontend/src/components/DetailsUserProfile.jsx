@@ -81,15 +81,21 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
         </div>
         <h2>Attribution de tickets gratuits :</h2>
         <div className="tickets">
-          <button type="button" className="button">
-            -
+          <button type="button" className="btn-class-name">
+            <span className="back" />
+            <span className="front">-</span>
           </button>
-          <img
-            src="/images/Utilisateur/ticketgratuit.png"
-            alt="tickets gratuits"
-          />
-          <button type="button" className="button">
-            +
+          <div className="detailsTickets">
+            <img
+              src="/images/Utilisateur/ticketgratuit.png"
+              alt="tickets gratuits"
+            />
+            <p>blabla</p>
+          </div>
+
+          <button type="button" className="btn-class-name">
+            <span className="back" />
+            <span className="front">+</span>
           </button>
         </div>
       </div>
