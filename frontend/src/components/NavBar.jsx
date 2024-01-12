@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Inscription from "./Inscription";
 import Connexion from "./Connexion";
 import UserContext from "../contexts/UserContext";
@@ -30,6 +30,19 @@ function NavBar() {
   const handleProfile = () => {
     navigate("/profilutilisateur");
   };
+
+  useEffect(() => {
+    if (connexionModal || inscriptionModal) {
+      // Ajouter la classe pour masquer le défilement lorsque la modal est ouverte
+      document.body.classList.add("body-no-scroll");
+    } else {
+      // Retirer la classe lorsque la modal est fermée
+      document.body.classList.remove("body-no-scroll");
+    }
+    return () => {
+      document.body.classList.remove("body-no-scroll");
+    };
+  }, [connexionModal, inscriptionModal]);
 
   return (
     <div className="navBar">

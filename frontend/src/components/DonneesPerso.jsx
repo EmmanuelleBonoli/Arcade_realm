@@ -4,7 +4,8 @@ import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
 function DonneesPerso() {
-  const { userConnected, setUserConnected } = useContext(UserContext);
+  const { userConnected, setUserConnected, setAdminOrNot } =
+    useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [userUpdate, setUserUpdate] = useState(userConnected);
   const [motDePasseVisible, setMotDePasseVisible] = useState(false);
@@ -29,6 +30,7 @@ function DonneesPerso() {
 
   const handlelogout = () => {
     setUserConnected(null);
+    setAdminOrNot(false);
   };
 
   const handleSubmit = async (e) => {
@@ -137,6 +139,8 @@ function DonneesPerso() {
                 <strong>
                   <span>Pseudo :</span>
                 </strong>
+              </p>
+              <div className="input-scss">
                 <input
                   className="input-edit"
                   type="text"
@@ -145,12 +149,14 @@ function DonneesPerso() {
                     setUserUpdate({ ...userUpdate, pseudo: event.target.value })
                   }
                 />
-              </p>
+              </div>
 
               <p>
                 <strong>
                   <span>E-mail :</span>
                 </strong>
+              </p>
+              <div className="input-scss">
                 <input
                   className="input-edit"
                   type="email"
@@ -159,9 +165,9 @@ function DonneesPerso() {
                     setUserUpdate({ ...userUpdate, email: event.target.value })
                   }
                 />
-              </p>
+              </div>
 
-              <p>
+              {/* <p>
                 <strong>
                   <span>Mot de passe :</span>
                 </strong>
@@ -189,7 +195,7 @@ function DonneesPerso() {
                     role="presentation"
                   />
                 </div>
-              </p>
+              </p> */}
 
               <div className="edit-profil">
                 <button className="saveprofil" type="submit">

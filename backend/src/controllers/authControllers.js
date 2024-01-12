@@ -56,7 +56,6 @@ const signin = async (req, res, next) => {
         id: result.insertId,
         pseudo,
         email,
-        hashed_password,
         image,
         admin,
         points,

@@ -48,11 +48,11 @@ const edit = async (req, res, next) => {
     podium,
     tickets,
   } = req.body;
+
   const updatedUtilisateur = {
     id: req.params.id,
     pseudo,
     email,
-    hashed_password,
     image,
     admin,
     points,
