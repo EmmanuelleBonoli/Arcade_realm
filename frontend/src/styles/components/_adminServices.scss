@@ -12,7 +12,6 @@
   }
 
   .events,
-  .lots,
   .games {
     display: flex;
     flex-direction: row;
@@ -21,6 +20,7 @@
     gap: 1vw;
     overflow-x: auto;
     overflow-y: hidden;
+    min-height: 0;
 
     .itemServices {
       width: 15vw;
