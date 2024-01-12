@@ -7,7 +7,9 @@ import Home from "./pages/Home";
 import Events from "./pages/Events";
 import Classement from "./pages/Classement";
 import Presentation from "./pages/Presentation";
-import PresentationGame from "./pages/PresentationGame";
+import PresentationGame, {
+  loadPresentationGame,
+} from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import MeilleursScore from "./components/MeilleursScore";
@@ -18,9 +20,15 @@ import AdminUserProfile from "./components/AdminUserProfile";
 import MesLotsEchanges from "./components/MesLotsEchanges";
 import MesJeuxFavoris from "./components/MesJeuxFavoris";
 import ProtectedRoute from "./components/ProtectedRoute";
+
+import PresentationDisplayGames from "./components/PresentationDisplayGames";
+
 import ArcadeGame2 from "./pages/ArcadeGame";
 import AdminCompetition from "./components/AdminCompetition";
+
+
 import AdminLots from "./components/AdminLots";
+
 
 const router = createBrowserRouter([
   {
@@ -49,12 +57,17 @@ const router = createBrowserRouter([
         element: <Presentation />,
       },
       {
-        path: "/presentationarcaderealm/:id",
+        path: "/game/:id",
         element: <PresentationGame />,
+        loader: loadPresentationGame,
       },
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/presentationgame",
+        element: <PresentationDisplayGames />,
       },
       {
         path: "/profilutilisateur",
