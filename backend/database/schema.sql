@@ -1,3 +1,4 @@
+-- SQLBook: Code
 DROP DATABASE IF EXISTS Arcade;
 
 CREATE DATABASE Arcade;
@@ -9,7 +10,7 @@ CREATE TABLE
         id INT primary key auto_increment NOT NULL,
         pseudo VARCHAR(80) NOT NULL,
         email VARCHAR(80) NOT NULL,
-        password VARCHAR(250) NOT NULL,
+        hashed_password VARCHAR(250) NOT NULL,
         image VARCHAR(250) NULL,
         admin BOOLEAN NOT NULL DEFAULT FALSE,
         points INT NOT NULL DEFAULT FALSE
@@ -60,7 +61,7 @@ INSERT INTO
     utilisateur (
         pseudo,
         email,
-        password,
+        hashed_password,
         image,
         admin,
         points

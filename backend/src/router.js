@@ -5,6 +5,7 @@ const router = express.Router();
 // Middleware for upload images
 const multer = require("multer");
 const { v4 } = require("uuid");
+const { hashPassword } = require("./services/auth");
 
 const options = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -62,9 +63,9 @@ router.post("/score", scoreControllers.add);
 
 router.post("/lot", upload.single("image"), lotControllers.add);
 
-router.post("/utilisateur", utilisateurControllers.add);
+// router.post("/utilisateur", utilisateurControllers.add);
 router.post("/login", authControllers.login);
-router.post("/signin", authControllers.signin);
+router.post("/signin", hashPassword, authControllers.signin);
 
 // Route to modify an item
 router.put("/evenement/:id", evenementControllers.edit);
