@@ -97,7 +97,7 @@ function Home() {
           <p className="texte-cards">JEUX DU MOMENT</p>
           <img src="/images/jeux_accueil.png" alt="jeux-accueil" />
         </div>
-        <Link to="/classementetlots">
+        {/* <Link to="/classementetlots">
           <div className="cards-2 card-global">
             <p className="texte-cards">CLASSEMENT ET LOT</p>
             <div className="Image-lot">
@@ -105,7 +105,7 @@ function Home() {
               <img src="/images/SuperNes3.png" alt="supernes" />
             </div>
           </div>
-        </Link>
+        </Link> */}
         <Link to="/evenements">
           <div className="cards-3 card-global">
             <p className="texte-cards">ÉVÈNEMENTS</p>

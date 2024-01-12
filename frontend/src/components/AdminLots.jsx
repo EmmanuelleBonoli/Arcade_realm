@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AdminUploadLot from "./AdminUploadLot";
 
 function AdminLots() {
   const [dataLots, setDataLots] = useState([]);
+  const [uploadLotModal, setUploadLotModal] = useState(false);
+  const [resetUploadLot, setResetUploadLot] = useState(false);
 
   const getLots = async () => {
     try {
@@ -17,7 +20,7 @@ function AdminLots() {
 
   useEffect(() => {
     getLots();
-  }, []);
+  }, [resetUploadLot]);
 
   const handleDeleteLots = async (data) => {
     try {
@@ -27,10 +30,59 @@ function AdminLots() {
       console.error(err);
     }
   };
+
+  const handleDeleteLotsPodium = async (lot) => {
+    try {
+      const updatedLot = {
+        name: lot.name,
+        image: lot.image,
+        description: lot.description,
+        utilisateurId: lot.utilisateur_id,
+        win: lot.win,
+        exchange: lot.exchange,
+        podium: 0,
+      };
+
+      await axios.put(
+        `${import.meta.env.VITE_URL}/api/lot/${lot.id}`,
+        updatedLot
+      );
+      getLots();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const openUploadLotModal = () => {
+    setUploadLotModal(true);
+  };
+
+  const closeUploadLotModal = () => {
+    setUploadLotModal(false);
+  };
+
   return (
     <div className="adminLots">
+      {uploadLotModal && (
+        <AdminUploadLot
+          onClose={closeUploadLotModal}
+          setResetUploadLot={setResetUploadLot}
+          resetUploadLot={resetUploadLot}
+        />
+      )}
       <h2>Les lots à gagner</h2>
       <div className="allLots">
+        <div
+          className="itemServices addBox"
+          onClick={openUploadLotModal}
+          role="presentation"
+        >
+          <img
+            className="add"
+            src="/images/Utilisateur/plus.png"
+            alt="ajout doc"
+          />
+        </div>
         {dataLots
           .filter((lotfilter) => lotfilter.win === 0)
           .map((lot) => {
@@ -56,15 +108,114 @@ function AdminLots() {
       <div className="podium">
         <div className="firstPlace">
           <p>1er Prix :</p>
-          <img src="" alt="" />
+          {dataLots
+            .filter((lotfilter) => lotfilter.podium === 1)
+            .map((lot) => {
+              return (
+                <div className="itemServices" key={lot.id}>
+                  <img
+                    className="lots"
+                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    alt="jeux"
+                  />
+                  <img
+                    className="suppr"
+                    src="/images/Utilisateur/delete.png"
+                    alt="suppr"
+                    onClick={() => handleDeleteLotsPodium(lot)}
+                    role="presentation"
+                  />
+                </div>
+              );
+            })}
+          {dataLots.filter((lotfilter) => lotfilter.podium === 1).length ===
+            0 && (
+            <div
+              className="itemServices addBox"
+              onClick={openUploadLotModal}
+              role="presentation"
+            >
+              <img
+                className="add"
+                src="/images/Utilisateur/plus.png"
+                alt="ajout doc"
+              />
+            </div>
+          )}
         </div>
         <div className="secondPlace">
           <p>2ème Prix :</p>
-          <img src="" alt="" />
+          {dataLots
+            .filter((lotfilter) => lotfilter.podium === 2)
+            .map((lot) => {
+              return (
+                <div className="itemServices" key={lot.id}>
+                  <img
+                    className="lots"
+                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    alt="jeux"
+                  />
+                  <img
+                    className="suppr"
+                    src="/images/Utilisateur/delete.png"
+                    alt="suppr"
+                    onClick={() => handleDeleteLotsPodium(lot)}
+                    role="presentation"
+                  />
+                </div>
+              );
+            })}
+          {dataLots.filter((lotfilter) => lotfilter.podium === 2).length ===
+            0 && (
+            <div
+              className="itemServices addBox"
+              onClick={openUploadLotModal}
+              role="presentation"
+            >
+              <img
+                className="add"
+                src="/images/Utilisateur/plus.png"
+                alt="ajout doc"
+              />
+            </div>
+          )}
         </div>
         <div className="thirdPlace">
           <p>3ème Prix :</p>
-          <img src="" alt="" />
+          {dataLots
+            .filter((lotfilter) => lotfilter.podium === 3)
+            .map((lot) => {
+              return (
+                <div className="itemServices" key={lot.id}>
+                  <img
+                    className="lots"
+                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    alt="jeux"
+                  />
+                  <img
+                    className="suppr"
+                    src="/images/Utilisateur/delete.png"
+                    alt="suppr"
+                    onClick={() => handleDeleteLots(lot)}
+                    role="presentation"
+                  />
+                </div>
+              );
+            })}
+          {dataLots.filter((lotfilter) => lotfilter.podium === 3).length ===
+            0 && (
+            <div
+              className="itemServices addBox"
+              onClick={openUploadLotModal}
+              role="presentation"
+            >
+              <img
+                className="add"
+                src="/images/Utilisateur/plus.png"
+                alt="ajout doc"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
