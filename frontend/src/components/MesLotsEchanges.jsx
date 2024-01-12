@@ -39,6 +39,7 @@ function MesLotsEchanges() {
           utilisateurId: userConnected.id,
           win: lot.win,
           exchange: 0,
+          podium: lot.podium,
         };
       } else if (lot.exchange === 0) {
         updatedExchangeLot = {
@@ -48,6 +49,7 @@ function MesLotsEchanges() {
           utilisateurId: userConnected.id,
           win: lot.win,
           exchange: 1,
+          podium: lot.podium,
         };
       }
 
@@ -60,7 +62,6 @@ function MesLotsEchanges() {
     } catch (err) {
       console.error(err);
     }
-
   }
 
   return (
@@ -73,6 +74,14 @@ function MesLotsEchanges() {
               alt="medaille vector"
             />
             <h1>{userConnected.pseudo}</h1>
+          </div>
+          <div className="ticketsPlayer">
+            <img
+              src="/images/Utilisateur/ticketgratuit.png"
+              alt="tickets gratuits"
+            />
+            <p>parties gratuites :</p>
+            <p>{userConnected.tickets}</p>
           </div>
           <h2>Mettre à l'échange ?</h2>
           <div className="mes-lots">
@@ -111,7 +120,6 @@ function MesLotsEchanges() {
                   type="checkbox"
                   onChange={() => handleStartExchange(lot)}
                 /> */}
-
               </div>
             ))}
           </div>

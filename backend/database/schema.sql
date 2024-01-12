@@ -13,7 +13,9 @@ CREATE TABLE
         hashed_password VARCHAR(250) NOT NULL,
         image VARCHAR(250) NOT NULL DEFAULT '',
         admin BOOLEAN NOT NULL DEFAULT FALSE,
-        points INT NOT NULL DEFAULT FALSE
+        points INT NOT NULL DEFAULT FALSE,
+        podium BOOLEAN NOT NULL DEFAULT FALSE,
+        tickets INT NOT NULL DEFAULT FALSE
     );
 
 CREATE TABLE
@@ -38,6 +40,7 @@ CREATE TABLE
         utilisateur_id INT DEFAULT NULL,
         win BOOLEAN NOT NULL DEFAULT FALSE,
         exchange BOOLEAN NOT NULL DEFAULT FALSE,
+        podium BOOLEAN NOT NULL DEFAULT FALSE,
         CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 
@@ -74,92 +77,118 @@ INSERT INTO
         hashed_password,
         image,
         admin,
-        points
+        points,
+        podium,
+        tickets
     )
 VALUES (
         "Wild_Gamer",
         "wildgamer@gmail.com",
-        "rondoudou",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/CrashBandicoot.png",
         0,
-        50000
+        50000,
+        0,
+        10
     ), (
         "Pixel_Queen",
         "pixelqueen@gmail.com",
-        "kirby",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Rondoudou.png",
         0,
-        30000
+        30000,
+        1,
+        5
     ), (
         "Admin_Realm",
         "adminrealm@gmail.com",
-        "arcaderealm",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Ghost.png",
         1,
+        0,
+        0,
         0
     ), (
         "Arcade_Master",
         "arcademaster@example.com",
-        "master",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/DonkeyKong.png",
         0,
-        80000
+        80000,
+        0,
+        0
     ), (
         "Joystick_Master",
         "joystick@email.com",
-        "gamer456",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar3.png",
         0,
-        3000
+        3000,
+        0,
+        10
     ), (
         "LevelUp_Legend",
         "levelup@email.com",
-        "legendary7",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar4.png",
         0,
-        10000
+        10000,
+        0,
+        0
     ), (
         "Quest_Seeker",
         "quest@email.com",
-        "seeker999",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar5.png",
         0,
-        4000
+        4000,
+        0,
+        0
     ), (
         "GameOn_Guru",
         "gameon@email.com",
-        "guru22",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar6.png",
         0,
-        9000
+        9000,
+        1,
+        5
     ), (
         "Pixel_Pioneer",
         "pioneer@email.com",
-        "pixel123",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar7.png",
         0,
-        6000
+        6000,
+        0,
+        0
     ), (
         "HighScore_Hero",
         "highscore@email.com",
-        "heroic55",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar8.png",
         0,
-        1000
+        1000,
+        1,
+        0
     ), (
         "Arcade_Adventurer",
         "adventurer@email.com",
-        "adventurer99",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar9.png",
         0,
-        2000
+        2000,
+        0,
+        0
     ), (
         "Game_Champion",
         "champion@email.com",
-        "champion10",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar10.png",
         0,
-        5000
+        5000,
+        0,
+        0
     );
 
 INSERT INTO
@@ -169,16 +198,10 @@ INSERT INTO
         description,
         utilisateur_id,
         win,
-        exchange
+        exchange,
+        podium
     )
-VALUES (
-        "5x Tickets Gratuits",
-        "/images/Lots/ticketgratuit.png",
-        "5 tickets gratuits pour jouer à n'importe quel jeu de votre choix dans notre salle d'arcade !",
-        4,
-        1,
-        0
-    ),
+VALUES
 
 (
     "Mug Space Invaders",
@@ -186,6 +209,7 @@ VALUES (
     "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo",
     4,
     1,
+    0,
     0
 ), (
     "Peluche Pac-Man",
@@ -193,26 +217,30 @@ VALUES (
     "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!",
     1,
     1,
+    0,
     0
 ), (
     "Mini Arcade",
     "/images/Lots/MiniArcade.png",
     "blabla2",
-    2,
+    10,
     1,
-    0
+    0,
+    1
 ), (
     "Monopoly Pacman",
     "/images/Lots/MonopolyPacman.png",
     "blabla",
     2,
     1,
+    0,
     0
 ), (
     "Super Nes",
     "/images/Lots/SuperNes.png",
     "blabla3",
     2,
+    1,
     1,
     1
 ), (
@@ -221,26 +249,30 @@ VALUES (
     "blabla3",
     2,
     1,
-    1
+    1,
+    0
 ), (
     "Statue Zelda",
     "/images/Lots/TriforceZelda.png",
     "blabla3",
-    2,
+    8,
     1,
-    0
+    0,
+    1
 ), (
     "Mug Lego",
     "/images/Lots/mugLego.webp",
     "blabla3",
     1,
     1,
-    1
+    1,
+    0
 ), (
     "Déco Mario",
     "/images/Lots/decoMario.jpg",
     "blabla3",
     null,
+    0,
     0,
     0
 ), (
@@ -248,6 +280,7 @@ VALUES (
     "/images/Lots/LampeBatman.jpg",
     "blabla3",
     null,
+    0,
     0,
     0
 );
@@ -461,4 +494,4 @@ INSERT INTO
 
 INSERT INTO
     score (utilisateur_id, jeu_id, points)
-VALUES (1, 2, 3000), (2, 2, 2000), (3, 2, 2000), (1, 1, 5000), (2, 1, 10000), (1, 4, 50), (3, 4, 4000), (2, 4, 5000), (10, 4, 9500), (5, 9, 2000), (3, 9, 899), (8, 9, 400), (4, 15, 450), (1, 15, 3000), (9, 15, 2700), (2, 17, 3240), (6, 17, 5700), (4, 17, 1200);
+VALUES (1, 2, 3000), (2, 2, 2000), (3, 2, 2000), (1, 1, 5000), (2, 1, 10000), (1, 4, 50), (3, 4, 4000), (8, 4, 5500), (10, 4, 9500), (5, 9, 2000), (3, 9, 899), (8, 9, 400), (4, 15, 450), (1, 15, 3000), (9, 15, 2700), (2, 17, 3240), (6, 17, 5700), (4, 17, 1200);

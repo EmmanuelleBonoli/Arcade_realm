@@ -10,30 +10,28 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
   const [userDetails, setUserDetails] = useState({});
   const [lotsWin, setlotsWin] = useState([]);
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const fetchUser = await axios.get(
-          `${
-            import.meta.env.VITE_BACKEND_URL
-          }/api/utilisateur/${detailsProfile}`
-        );
-        setUserDetails(fetchUser.data[0]);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    const getLots = async () => {
-      try {
-        const fetchLots = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${detailsProfile}`
-        );
-        setlotsWin(fetchLots.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+  const getUser = async () => {
+    try {
+      const fetchUser = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${detailsProfile}`
+      );
+      setUserDetails(fetchUser.data[0]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const getLots = async () => {
+    try {
+      const fetchLots = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${detailsProfile}`
+      );
+      setlotsWin(fetchLots.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
+  useEffect(() => {
     getUser();
     getLots();
   }, []);
@@ -47,6 +45,52 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleAddTickets = async () => {
+    try {
+      const NewUser = {
+        pseudo: userDetails.pseudo,
+        email: userDetails.email,
+        password: userDetails.password,
+        image: userDetails.image,
+        admin: userDetails.admin,
+        points: userDetails.points,
+        podium: userDetails.podium,
+        tickets: userDetails.tickets + 5,
+      };
+
+      await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userDetails.id}`,
+        NewUser
+      );
+    } catch (err) {
+      console.error(err);
+    }
+    getUser();
+  };
+
+  const handleDeleteTickets = async () => {
+    try {
+      const NewUser = {
+        pseudo: userDetails.pseudo,
+        email: userDetails.email,
+        password: userDetails.password,
+        image: userDetails.image,
+        admin: userDetails.admin,
+        points: userDetails.points,
+        podium: userDetails.podium,
+        tickets: userDetails.tickets - 5,
+      };
+
+      await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userDetails.id}`,
+        NewUser
+      );
+    } catch (err) {
+      console.error(err);
+    }
+    getUser();
   };
 
   return (
@@ -83,19 +127,31 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
         <div className="tickets">
           <button type="button" className="btn-class-name">
             <span className="back" />
-            <span className="front">-</span>
+            <span
+              role="presentation"
+              onClick={handleDeleteTickets}
+              className="front"
+            >
+              -
+            </span>
           </button>
           <div className="detailsTickets">
             <img
               src="/images/Utilisateur/ticketgratuit.png"
               alt="tickets gratuits"
             />
-            <p>blabla</p>
+            <p>{userDetails.tickets}</p>
           </div>
 
           <button type="button" className="btn-class-name">
             <span className="back" />
-            <span className="front">+</span>
+            <span
+              role="presentation"
+              onClick={handleAddTickets}
+              className="front"
+            >
+              +
+            </span>
           </button>
         </div>
       </div>
