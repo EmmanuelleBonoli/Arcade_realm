@@ -10,6 +10,7 @@ function DonneesPerso() {
   const [motDePasseVisible, setMotDePasseVisible] = useState(false);
   const [deleteUser, setDeleteUser] = useState(userConnected);
   const [isDeleted, setIsDeleted] = useState(false);
+  // const [avatar, setAvatar] = useState(undefined);
 
   const toggleMotDePasseVisibility = () => {
     setMotDePasseVisible(!motDePasseVisible);
@@ -63,6 +64,7 @@ function DonneesPerso() {
         <div className="container-user">
           <div className="header-wrapper">
             <h1>Profil</h1>
+
             <img
               src="/images/Utilisateur/Edit.png"
               alt="edit-img"

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const AbstractManager = require("./AbstractManager");
 
 class UtilisateurManager extends AbstractManager {
@@ -7,19 +8,10 @@ class UtilisateurManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create({
-    pseudo,
-    email,
-    password,
-    image,
-    admin,
-    points,
-    podium,
-    tickets,
-  }) {
+  async create({ pseudo, email, hashed_password, image, admin, points }) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (pseudo, email, password, image, admin, points, podium, tickets) values (?,?,?,?,?,?,?,?)`,
-      [pseudo, email, password, image, admin, points, podium, tickets]
+      `insert into ${this.table} (pseudo, email,  hashed_password, image, admin, points) values (?,?,?,?,?,?)`,
+      [pseudo, email, hashed_password, image, admin, points]
     );
 
     return result;
@@ -42,20 +34,10 @@ class UtilisateurManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update({
-    id,
-    pseudo,
-    email,
-    password,
-    image,
-    admin,
-    points,
-    podium,
-    tickets,
-  }) {
+  async update({ id, pseudo, email, hashed_password, image, admin, points }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET pseudo=?, email=?, password=?, image=?, admin=?, points=?, podium=?, tickets=? WHERE id=?`,
-      [pseudo, email, password, image, admin, points, podium, tickets, id]
+      `UPDATE ${this.table} SET pseudo=?, email=?, hashed_password=?, image=?, admin=?, points=? WHERE id=?`,
+      [pseudo, email, hashed_password, image, admin, points, id]
     );
     return result;
   }

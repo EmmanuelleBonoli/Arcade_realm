@@ -97,7 +97,7 @@ export default function Connexion({ onClose }) {
               role="presentation"
             />
           </div>
-          <button type="submit" className="btn-inscription">
+          <button type="submit" className="btn-connexion">
             Se connecter
           </button>
         </form>

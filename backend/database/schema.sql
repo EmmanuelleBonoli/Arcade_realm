@@ -1,3 +1,4 @@
+-- SQLBook: Code
 DROP DATABASE IF EXISTS Arcade;
 
 CREATE DATABASE Arcade;
@@ -9,7 +10,7 @@ CREATE TABLE
         id INT primary key auto_increment NOT NULL,
         pseudo VARCHAR(80) NOT NULL,
         email VARCHAR(80) NOT NULL,
-        password VARCHAR(250) NOT NULL,
+        hashed_password VARCHAR(250) NOT NULL,
         image VARCHAR(250) NULL,
         admin BOOLEAN NOT NULL DEFAULT FALSE,
         points INT NOT NULL DEFAULT FALSE,
@@ -63,7 +64,7 @@ INSERT INTO
     utilisateur (
         pseudo,
         email,
-        password,
+        hashed_password,
         image,
         admin,
         points,
@@ -73,7 +74,7 @@ INSERT INTO
 VALUES (
         "Wild_Gamer",
         "wildgamer@gmail.com",
-        "rondoudou",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/CrashBandicoot.png",
         0,
         50000,
@@ -82,7 +83,7 @@ VALUES (
     ), (
         "Pixel_Queen",
         "pixelqueen@gmail.com",
-        "kirby",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Rondoudou.png",
         0,
         30000,
@@ -91,7 +92,7 @@ VALUES (
     ), (
         "Admin_Realm",
         "adminrealm@gmail.com",
-        "arcaderealm",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Ghost.png",
         1,
         0,
@@ -100,7 +101,7 @@ VALUES (
     ), (
         "Arcade_Master",
         "arcademaster@example.com",
-        "master",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/DonkeyKong.png",
         0,
         80000,

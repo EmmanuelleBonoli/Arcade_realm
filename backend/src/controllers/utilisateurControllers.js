@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // Import access to database tables
 const tables = require("../tables");
 
@@ -37,13 +38,21 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const { pseudo, email, password, image, admin, points, podium, tickets } =
-    req.body;
+  const {
+    pseudo,
+    email,
+    hashed_password,
+    image,
+    admin,
+    points,
+    podium,
+    tickets,
+  } = req.body;
   const updatedUtilisateur = {
     id: req.params.id,
     pseudo,
     email,
-    password,
+    hashed_password,
     image,
     admin,
     points,
