@@ -6,7 +6,10 @@ import LotSelection from "../components/LotSelection";
 import Transfer from "../components/Transfer";
 
 function Echange() {
-  const { userConnected, setUserConnected } = useContext(UserContext);
+  const {
+    userConnected,
+    // setUserConnected
+  } = useContext(UserContext);
   const [lotsWin, setLotsWin] = useState([]);
   const [lotsAvailable, setLotsAvailable] = useState([]);
   const [selectedLotsWin, setSelectedLotsWin] = useState([]);
@@ -17,7 +20,10 @@ function Echange() {
   const audio = useRef(null);
   const [playerExchange, setPlayerExchange] = useState({});
   const [pointsUser, setPointsUser] = useState(0);
-  const [NotEnoughPoints, setNotEnoughPoints] = useState(false);
+  const [
+    NotEnoughPoints,
+    // , setNotEnoughPoints
+  ] = useState(false);
 
   const loadLotsWin = async () => {
     try {
@@ -72,7 +78,7 @@ function Echange() {
               selectedLotAvailableObject.utilisateur_id
             }`
           );
-          setPlayerExchange(fetchPlayer.data[0].points);
+          setPlayerExchange(fetchPlayer.data[0]);
         } catch (err) {
           console.error(err);
         }
@@ -141,42 +147,41 @@ function Echange() {
     }
   }, [transfer]);
 
-  function handleBuyMysteryBox() {
-    if (userConnected && pointsUser) {
-      if (pointsUser >= 50000) {
-        const buyMystery = async () => {
-          const updatedUser = {
-            id: userConnected.id,
-            pseudo: userConnected.pseudo,
-            email: userConnected.email,
-            password: userConnected.password,
-            image: userConnected.image,
-            admin: userConnected.admin,
-            points: userConnected.points - 50000,
-            podium: userConnected.podium,
-            tickets: userConnected.tickets,
-          };
+  // function handleBuyMysteryBox() {
+  //   if (userConnected && pointsUser) {
+  //     if (pointsUser >= 50000) {
+  //       const buyMystery = async () => {
+  //         const updatedUser = {
+  //           id: userConnected.id,
+  //           pseudo: userConnected.pseudo,
+  //           email: userConnected.email,
+  //           password: userConnected.password,
+  //           image: userConnected.image,
+  //           admin: userConnected.admin,
+  //           points: userConnected.points - 50000,
+  //           podium: userConnected.podium,
+  //           tickets: userConnected.tickets,
+  //         };
 
-          try {
-            await axios.put(
-              `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
-                userConnected.id
-              }`,
-              updatedUser
-            );
-            setUserConnected(updatedUser);
-          } catch (err) {
-            console.error(err);
-          }
-        };
-        buyMystery();
-      } else {
-        setNotEnoughPoints(true);
-        setTimeout(() => setNotEnoughPoints(false), 2500);
-      }
-    }
-  }
-
+  //         try {
+  //           await axios.put(
+  //             `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+  //               userConnected.id
+  //             }`,
+  //             updatedUser
+  //           );
+  //           setUserConnected(updatedUser);
+  //         } catch (err) {
+  //           console.error(err);
+  //         }
+  //       };
+  //       buyMystery();
+  //     } else {
+  //       setNotEnoughPoints(true);
+  //       setTimeout(() => setNotEnoughPoints(false), 2500);
+  //     }
+  //   }
+  // }
   return (
     <div>
       {userConnected ? (
@@ -199,37 +204,6 @@ function Echange() {
                     <img src="/images/Utilisateur/retour.png" alt="retour" />
                     Retour à mon profil
                   </div>
-<<<<<<< HEAD
-                </div>
-                <div className="gl-trait-echange">
-                  <div className="trait-echange" />
-                </div>
-                <div className="user-score">
-                  <p>
-                    <strong>Score : </strong>
-                  </p>
-                  <p>24 500 pts</p>
-                </div>
-              </div>
-            </div>
-            <div className="image-echangeur">
-              <img src="images/Utilisateur/echangeur.png" alt="echangeur" />
-            </div>
-            <div className="echange-joueur">
-              <div className="Joueurs-p1">
-                <h1>Joueurs</h1>
-                <p>Les lots disponibles :</p>
-                <div className="lots-disponibles">
-                  <div className="images-echange">
-                    <img src="images/SuperNes3.png" alt="" />
-                    <div className="elispe-coché-echange">
-                      <img
-                        src={lotSelected}
-                        onClick={handleSelect2}
-                        alt="coche échange"
-                        role="presentation"
-                      />
-=======
                 </NavLink>
                 <div className="mes-lots">
                   <h1>{userConnected.pseudo}</h1>
@@ -263,7 +237,6 @@ function Echange() {
                         <strong>Score : </strong>
                       </p>
                       <p>{pointsUser.points} pts</p>
->>>>>>> b8c2ead70b60190e5fdee71c927a360894d22d6b
                     </div>
                   </div>
                 </div>
@@ -316,7 +289,7 @@ function Echange() {
                   <div className="gl-trait-echange-2">
                     <div className="trait-echange-2" />
                   </div>
-                  <div className="Joueurs-p2">
+                  {/* <div className="Joueurs-p2">
                     <h1>MYSTERY BOX</h1>
                     <img
                       src="/images/Utilisateur/mystery_box.png"
@@ -325,7 +298,7 @@ function Echange() {
                       onClick={handleBuyMysteryBox}
                     />
                     <p>50 000 pts</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="avatar">

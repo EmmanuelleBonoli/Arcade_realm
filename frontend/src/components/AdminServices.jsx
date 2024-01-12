@@ -15,14 +15,6 @@ function AdminServices() {
   const [uploadGameModal, setUploadGameModal] = useState(false);
   const [resetUploadGame, setResetUploadGame] = useState(false);
 
-  // const handleDeleteDataLots = async (data) => {
-  //   try {
-  //     await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/lot/${data}`);
-  //     setDataLots(dataLots.filter((lot) => lot.id !== data));
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
   const handleDeleteDataEvents = async (data) => {
     try {
       await axios.delete(
@@ -54,16 +46,6 @@ function AdminServices() {
       }
     };
 
-    // const getLots = async () => {
-    //   try {
-    //     const fetchLots = await axios.get(
-    //       `${import.meta.env.VITE_BACKEND_URL}/api/lot`
-    //     );
-    //     setDataLots(fetchLots.data);
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-    // };
     const getGames = async () => {
       try {
         const fetchGames = await axios.get(
