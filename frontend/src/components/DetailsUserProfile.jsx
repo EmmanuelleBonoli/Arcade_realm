@@ -52,7 +52,7 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
       const NewUser = {
         pseudo: userDetails.pseudo,
         email: userDetails.email,
-        hashed_password: userDetails.hashed_password,
+        // hashed_password: userDetails.hashed_password,
         image: userDetails.image,
         admin: userDetails.admin,
         points: userDetails.points,
@@ -75,7 +75,6 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
       const NewUser = {
         pseudo: userDetails.pseudo,
         email: userDetails.email,
-        hashed_password: userDetails.hashed_password,
         image: userDetails.image,
         admin: userDetails.admin,
         points: userDetails.points,
