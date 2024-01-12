@@ -11,7 +11,7 @@ function PresentationGame() {
   };
 
   return (
-    <div className="games">
+    <div className="container-games">
       <div className="descGames">
         <h2>Nos Jeux</h2>
         <div className="containerGames">
