@@ -8,10 +8,19 @@ class UtilisateurManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create({ pseudo, email, hashed_password, image, admin, points }) {
+  async create({
+    pseudo,
+    email,
+    hashed_password,
+    image,
+    admin,
+    points,
+    podium,
+    tickets,
+  }) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (pseudo, email,  hashed_password, image, admin, points) values (?,?,?,?,?,?)`,
-      [pseudo, email, hashed_password, image, admin, points]
+      `insert into ${this.table} (pseudo, email,  hashed_password, image, admin, points, podium, tickets) values (?,?,?,?,?,?,?,?)`,
+      [pseudo, email, hashed_password, image, admin, points, podium, tickets]
     );
 
     return result;
@@ -33,6 +42,7 @@ class UtilisateurManager extends AbstractManager {
   }
 
   // The U of CRUD - Update operation
+
 
   async update({ id, pseudo, email, image, admin, points }) {
     const [result] = await this.database.query(

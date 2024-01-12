@@ -12,10 +12,11 @@ class LotManager extends AbstractManager {
     utilisateur_id: utilisateurId,
     win,
     exchange,
+    podium,
   }) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, image, description, utilisateur_id, win, exchange) values (?, ?, ?, ?, ?, ?)`,
-      [name, image, description, utilisateurId, win, exchange]
+      `insert into ${this.table} (name, image, description, utilisateur_id, win, exchange, podium) values (?, ?, ?, ?, ?, ?, ?)`,
+      [name, image, description, utilisateurId, win, exchange, podium]
     );
 
     return result;
@@ -36,10 +37,19 @@ class LotManager extends AbstractManager {
     return result;
   }
 
-  async update({ id, name, image, description, utilisateurId, win, exchange }) {
+  async update({
+    id,
+    name,
+    image,
+    description,
+    utilisateurId,
+    win,
+    exchange,
+    podium,
+  }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET name = ?, image = ?, description = ?,  utilisateur_id = ?, win= ?, exchange= ? WHERE id = ?`,
-      [name, image, description, utilisateurId, win, exchange, id]
+      `UPDATE ${this.table} SET name = ?, image = ?, description = ?,  utilisateur_id = ?, win= ?, exchange= ?, podium=? WHERE id = ?`,
+      [name, image, description, utilisateurId, win, exchange, podium, id]
     );
     return result;
   }

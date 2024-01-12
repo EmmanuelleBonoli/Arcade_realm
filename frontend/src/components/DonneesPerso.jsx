@@ -25,7 +25,6 @@ function DonneesPerso() {
     setIsDeleted(true);
   };
   const handleCancelDelete = () => {
-    // Effectuer l'action souhaitée, par exemple, revenir à l'état initial
     setIsDeleted(false);
   };
 

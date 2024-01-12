@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 const argon2 = require("argon2");
-
 const tables = require("../tables");
 
 const login = async (req, res, next) => {
@@ -31,7 +30,16 @@ const login = async (req, res, next) => {
 
 const signin = async (req, res, next) => {
   try {
-    const { pseudo, email, hashed_password, image, admin, points } = req.body;
+    const {
+      pseudo,
+      email,
+      hashed_password,
+      image,
+      admin,
+      points,
+      podium,
+      tickets,
+    } = req.body;
 
     const result = await tables.utilisateur.create({
       pseudo,
@@ -40,6 +48,8 @@ const signin = async (req, res, next) => {
       image,
       admin,
       points,
+      podium,
+      tickets,
     });
     if (result.insertId) {
       const newUser = {
@@ -49,6 +59,8 @@ const signin = async (req, res, next) => {
         image,
         admin,
         points,
+        podium,
+        tickets,
       };
       res.status(201).json(newUser);
     } else {
