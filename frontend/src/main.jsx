@@ -12,7 +12,6 @@ import PresentationGame, {
 } from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
-// import ProfileAdmin from "./pages/ProfileAdmin";
 import MeilleursScore from "./components/MeilleursScore";
 import Echange from "./pages/Echange";
 import DonneesPerso from "./components/DonneesPerso";
@@ -21,7 +20,12 @@ import AdminUserProfile from "./components/AdminUserProfile";
 import MesLotsEchanges from "./components/MesLotsEchanges";
 import MesJeuxFavoris from "./components/MesJeuxFavoris";
 import ProtectedRoute from "./components/ProtectedRoute";
+<<<<<<< HEAD
 import PresentationDisplayGames from "./components/PresentationDisplayGames";
+=======
+import ArcadeGame2 from "./pages/ArcadeGame";
+import AdminCompetition from "./components/AdminCompetition";
+>>>>>>> b8c2ead70b60190e5fdee71c927a360894d22d6b
 
 const router = createBrowserRouter([
   {
@@ -36,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/evenements",
         element: <Events />,
+      },
+      {
+        path: "/gamesonline",
+        element: <ArcadeGame2 />,
       },
       {
         path: "/classementetlots",
@@ -83,6 +91,14 @@ const router = createBrowserRouter([
             ),
           },
           {
+            path: "/profilutilisateur/gestiondesconcours",
+            element: (
+              <ProtectedRoute>
+                <AdminCompetition />
+              </ProtectedRoute>
+            ),
+          },
+          {
             path: "/profilutilisateur/gestionprofils",
             element: (
               <ProtectedRoute>
@@ -118,7 +134,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/echange",
-        element: <Echange />,
+        element: (
+          <ProtectedRoute>
+            <Echange />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

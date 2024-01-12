@@ -154,6 +154,7 @@ function AdminServices() {
           );
         })}
       </div>
+      <h2>Les évènements</h2>
       <div className="events">
         {dataEvents.map((event) => {
           return (
@@ -184,8 +185,13 @@ function AdminServices() {
           />
         </div>
       </div>
-      <div role="presentation" onClick={openUploadGameModal} className="games">
-        <div className="itemServices addBox">
+      <h2>Les jeux</h2>
+      <div className="games">
+        <div
+          role="presentation"
+          className="itemServices addBox"
+          onClick={openUploadGameModal}
+        >
           <img
             className="add"
             src="/images/Utilisateur/plus.png"

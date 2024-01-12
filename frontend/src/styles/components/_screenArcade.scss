@@ -1,0 +1,81 @@
+.insideScreen {
+  width: 100%;
+  height: 100%;
+  //   border: 5px solid red;
+  //   border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--third-font);
+
+  .gameStart {
+    width: 60%;
+    z-index: 2;
+  }
+
+  .menuScreen {
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3vh;
+
+    .games {
+      display: flex;
+      gap: 1vw;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 10% 0 10%;
+      img {
+        border-radius: 5px;
+        border: 1px solid white;
+        height: 12vh;
+        border-radius: 5px;
+        border: 1px solid white;
+      }
+
+      .choose {
+        transform: scale(1.5);
+        z-index: 1;
+      }
+
+      .notChoose {
+        opacity: 60%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .insideScreen {
+    .menuScreen {
+      .games {
+        img {
+          height: 10vh;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 835px) {
+  .insideScreen {
+    .menuScreen {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .insideScreen {
+    .menuScreen {
+      font-size: 1.5rem;
+      .games {
+        img {
+          height: 8vh;
+        }
+      }
+    }
+  }
+}

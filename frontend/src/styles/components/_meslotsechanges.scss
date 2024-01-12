@@ -1,115 +1,181 @@
-.container-mle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 6px;
-
-  .pseudo-joueur {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    color: var(--fourth-color);
-    font-size: 1.4rem;
-    font-family: var(--primary-font);
-    padding: 5%;
-
-    h1 {
-      padding: 0 0 0 5%;
-    }
-  }
-
-  .mes-lots {
+.lotsExchangeUser {
+  height: 100%;
+  width: 100%;
+  .container-mle {
     display: flex;
     flex-direction: column;
-    padding: var(--spacing);
-    gap: 5px;
-    .t-1 {
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+
+    .pseudo-joueur {
       display: flex;
-      .premier-prix {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        width: 50%;
-        .titre-prix {
-          font-family: var(--secondary-font);
-          font-weight: 700;
-          font-size: 2rem;
-          color: var(--secondary-color);
-        }
-        .nom-item {
-          font-family: var(--secondary-font);
-          color: #fff;
-          font-weight: 400;
-          font-style: italic;
-          font-size: 1.9rem;
-          padding: 1rem;
-        }
-      }
-
-      .img-prix {
-        padding: 10px;
-        width: 50%;
-        text-align: center;
-        img {
-          width: 50%;
-        }
-      }
-    }
-    .t-2 {
-      display: flex;
-      .deuxieme-prix {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        width: 50%;
-        .titre-prix {
-          font-family: var(--secondary-font);
-          font-weight: 700;
-          font-size: 2rem;
-          color: var(--secondary-color);
-        }
-        .nom-item {
-          font-family: var(--secondary-font);
-          color: #fff;
-          font-weight: 400;
-          font-style: italic;
-          font-size: 1.9rem;
-        }
-      }
-
-      .img-prix {
-        padding: 10px;
-        width: 50%;
-        text-align: center;
-
-        img {
-          width: 50%;
-        }
-      }
-    }
-  }
-  a {
-    text-decoration: none;
-
-    .bouton-echangerlot {
-      display: flex;
-      gap: 10px;
       justify-content: center;
       align-items: center;
-      width: 70%;
-      margin: 0 auto;
-      color: #ffff;
-      font-size: 1rem;
-      font-family: "Montserrat";
-      font-size: 1.8rem;
-      padding: 2%;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.56);
+      width: 100%;
+      color: var(--fourth-color);
+      font-size: 1.4rem;
+      font-family: var(--primary-font);
+      padding: 5%;
 
-      img {
-        width: 10%;
+      h1 {
+        padding: 0 0 0 5%;
+      }
+    }
+
+    h2 {
+      color: white;
+      font-family: var(--secondary-font);
+      text-align: end;
+      align-self: flex-end;
+      font-size: 1.8rem;
+      padding-right: 1.5%;
+    }
+
+    .mes-lots {
+      display: flex;
+      flex-direction: column;
+      padding: var(--spacing);
+      gap: 5px;
+      overflow-y: auto;
+      .t-1 {
+        display: flex;
+        .premier-prix {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 15px;
+          width: 50%;
+          .titre-prix {
+            font-family: var(--secondary-font);
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--secondary-color);
+          }
+          .nom-item {
+            font-family: var(--secondary-font);
+            color: #fff;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.9rem;
+            padding: 1rem;
+          }
+        }
+
+        .img-prix {
+          padding: 10px;
+          width: 50%;
+          text-align: center;
+          img {
+            width: 50%;
+          }
+
+        }
+        .inputSelectContainer {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .inputSelect {
+            cursor: pointer;
+          }
+
+          .inputSelect input {
+            display: none;
+          }
+
+          .inputSelect svg {
+            overflow: visible;
+          }
+
+          .path {
+            fill: none;
+            stroke: white;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition:
+              stroke-dasharray 0.5s ease,
+              stroke-dashoffset 0.5s ease;
+            stroke-dasharray: 241 9999999;
+            stroke-dashoffset: 0;
+          }
+
+          .inputSelect input:checked ~ svg .path {
+            stroke-dasharray: 70.5096664428711 9999999;
+            stroke-dashoffset: -262.2723388671875;
+          }
+
+        }
+      }
+      .t-2 {
+        display: flex;
+        .deuxieme-prix {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          width: 50%;
+          .titre-prix {
+            font-family: var(--secondary-font);
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--secondary-color);
+          }
+          .nom-item {
+            font-family: var(--secondary-font);
+            color: #fff;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.9rem;
+          }
+        }
+
+        .img-prix {
+          padding: 10px;
+          width: 50%;
+          text-align: center;
+
+          img {
+            width: 50%;
+          }
+        }
+      }
+      ::-webkit-scrollbar {
+        height: 7px;
+        width: 4vw;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--fourth-color);
+        border-radius: 5px;
+      }
+    }
+    a {
+      text-decoration: none;
+
+      .bouton-echangerlot {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: 0 auto;
+        color: #ffff;
+        font-size: 1rem;
+        font-family: "Montserrat";
+        font-size: 1.8rem;
+        padding: 2%;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.56);
+
+        img {
+          width: 10%;
+        }
       }
     }
   }

@@ -1,3 +1,4 @@
+-- SQLBook: Code
 DROP DATABASE IF EXISTS Arcade;
 
 CREATE DATABASE Arcade;
@@ -9,7 +10,7 @@ CREATE TABLE
         id INT primary key auto_increment NOT NULL,
         pseudo VARCHAR(80) NOT NULL,
         email VARCHAR(80) NOT NULL,
-        password VARCHAR(250) NOT NULL,
+        hashed_password VARCHAR(250) NOT NULL,
         image VARCHAR(250) NOT NULL DEFAULT '',
         admin BOOLEAN NOT NULL DEFAULT FALSE,
         points INT NOT NULL DEFAULT FALSE
@@ -35,7 +36,8 @@ CREATE TABLE
         image VARCHAR(250) NOT NULL,
         description VARCHAR(400),
         utilisateur_id INT DEFAULT NULL,
-        disponible BOOLEAN NOT NULL DEFAULT FALSE,
+        win BOOLEAN NOT NULL DEFAULT FALSE,
+        exchange BOOLEAN NOT NULL DEFAULT FALSE,
         CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 
@@ -47,6 +49,7 @@ CREATE TABLE
 
 CREATE TABLE
     score (
+        id INT PRIMARY KEY auto_increment NOT NULL,
         utilisateur_id INT NOT NULL,
         jeu_id INT NOT NULL,
         points INT NOT NULL,
@@ -68,7 +71,7 @@ INSERT INTO
     utilisateur (
         pseudo,
         email,
-        password,
+        hashed_password,
         image,
         admin,
         points
@@ -165,14 +168,16 @@ INSERT INTO
         image,
         description,
         utilisateur_id,
-        disponible
+        win,
+        exchange
     )
 VALUES (
         "5x Tickets Gratuits",
         "/images/Lots/ticketgratuit.png",
         "5 tickets gratuits pour jouer à n'importe quel jeu de votre choix dans notre salle d'arcade !",
         4,
-        1
+        1,
+        0
     ),
 
 (
@@ -180,43 +185,71 @@ VALUES (
     "/images/Lots/InvadersMug.png",
     "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo",
     4,
-    1
+    1,
+    0
 ), (
     "Peluche Pac-Man",
     "/images/Lots/PeluchePacman.png",
     "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!",
     1,
-    1
+    1,
+    0
 ), (
     "Mini Arcade",
     "/images/Lots/MiniArcade.png",
     "blabla2",
     2,
-    1
+    1,
+    0
 ), (
     "Monopoly Pacman",
     "/images/Lots/MonopolyPacman.png",
     "blabla",
     2,
-    1
+    1,
+    0
 ), (
     "Super Nes",
     "/images/Lots/SuperNes.png",
     "blabla3",
     2,
+    1,
     1
 ), (
     "Tasse Mario",
     "/images/Lots/TasseMario.png",
     "blabla3",
     2,
+    1,
     1
 ), (
     "Statue Zelda",
     "/images/Lots/TriforceZelda.png",
     "blabla3",
     2,
+    1,
+    0
+), (
+    "Mug Lego",
+    "/images/Lots/mugLego.webp",
+    "blabla3",
+    1,
+    1,
     1
+), (
+    "Déco Mario",
+    "/images/Lots/decoMario.jpg",
+    "blabla3",
+    null,
+    0,
+    0
+), (
+    "Lampe Batman",
+    "/images/Lots/LampeBatman.jpg",
+    "blabla3",
+    null,
+    0,
+    0
 );
 
 INSERT INTO
@@ -307,7 +340,7 @@ VALUES (
         "Jurassic Parc",
         "/images/jeux/jurassic_shooter.jpg",
         "blabla regles",
-        0,
+        1,
         1,
         "1999-09-09",
         1,
@@ -361,7 +394,7 @@ VALUES (
         "Donkey Kong",
         "/images/jeux/donkey-kong.jpg",
         "blabla regles",
-        0,
+        1,
         1,
         "1981-07-09",
         1,
@@ -422,11 +455,10 @@ VALUES (
         "/images/Evenements/affiche3.png"
     );
 
-INSERT INTO
-    score (utilisateur_id, jeu_id, points)
-VALUES (1, 2, 3000), (2, 2, 2000), (3, 2, 2000), (1, 1, 5000), (2, 1, 10000);
 
 INSERT INTO
     favoris (utilisateur_id, jeu_id, favori)
 
-VALUES  (1, 3, 1), (2, 3, 1), (3, 2, 1), (5, 13, 1), (4, 11, 1);
+INSERT INTO
+    score (utilisateur_id, jeu_id, points)
+VALUES (1, 2, 3000), (2, 2, 2000), (3, 2, 2000), (1, 1, 5000), (2, 1, 10000), (1, 4, 50), (3, 4, 4000), (2, 4, 5000), (10, 4, 9500), (5, 9, 2000), (3, 9, 899), (8, 9, 400), (4, 15, 450), (1, 15, 3000), (9, 15, 2700), (2, 17, 3240), (6, 17, 5700), (4, 17, 1200);

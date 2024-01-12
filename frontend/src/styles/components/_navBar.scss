@@ -48,8 +48,17 @@
       flex: 1;
 
       .inscription {
+        p {
+          color: white;
+          font-family: var(--primary-font);
+          font-size: 1.8rem;
+          padding: var(--spacing);
+          padding-right: 60px;
+          font-weight: 400;
+          cursor: pointer;
+        }
+      }
       p {
-        display: none;
         color: white;
         font-family: var(--primary-font);
         font-size: 1.8rem;
@@ -58,40 +67,27 @@
         font-weight: 400;
         cursor: pointer;
       }
-    }
-    p {
-        
-      color: white;
-      font-family: var(--primary-font);
-      font-size: 1.8rem;
-      padding: var(--spacing);
-      padding-right: 60px;
-      font-weight: 400;
-      cursor: pointer;
-    }
-      .avatar_user{
+      .avatar_user {
         display: flex;
         align-items: center;
         justify-content: right;
         padding-right: 10%;
 
-        p{
-          padding : 0 50px 0 0;
+        p {
+          padding: 0 50px 0 0;
           line-height: 40px;
         }
-        .bloc-image{
+        .bloc-image {
           border: 2px solid white;
           background-color: var(--primary-color);
           width: 100px;
           height: 100px;
           border-radius: 50%;
-          cursor : pointer;
+          cursor: pointer;
         }
-        img{
+        img {
           padding: 15%;
           width: 100%;
-          
-          
         }
       }
     }
@@ -207,7 +203,6 @@
   }
 }
 
-
 @media screen and (max-width: 768px) {
   .navBar {
     .Int-navBar {
@@ -287,4 +282,3 @@
     }
   }
 }
-

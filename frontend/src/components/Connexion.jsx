@@ -18,22 +18,29 @@ export default function Connexion({ onClose }) {
     e.stopPropagation();
   };
 
+
+
   const handleConnexion = async (e) => {
     e.preventDefault();
     const userlogin = {
       pseudo: inputPseudo,
       password: inputPassword,
     };
+
     try {
       const dataUser = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/login/`,
         userlogin
       );
+
+      if (dataUser.data.pseudo !== inputPseudo) {
+        console.error("Incorrect pseudo case. Please enter the correct case.");
+        return;
+      }
       setUserConnected(dataUser.data);
       if (dataUser.data.admin === 1) {
         setAdminOrNot(true);
       }
-      // console.log(userConnected);
       onClose();
     } catch (error) {
       console.error(error.message);
@@ -92,7 +99,7 @@ export default function Connexion({ onClose }) {
               role="presentation"
             />
           </div>
-          <button type="submit" className="btn-inscription">
+          <button type="submit" className="btn-connexion">
             Se connecter
           </button>
         </form>
