@@ -20,6 +20,7 @@ import MesJeuxFavoris from "./components/MesJeuxFavoris";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ArcadeGame2 from "./pages/ArcadeGame";
 import AdminCompetition from "./components/AdminCompetition";
+import AdminLots from "./components/AdminLots";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,14 @@ const router = createBrowserRouter([
             element: (
               <ProtectedRoute>
                 <AdminServices />
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: "/profilutilisateur/gestiondeslots",
+            element: (
+              <ProtectedRoute>
+                <AdminLots />
               </ProtectedRoute>
             ),
           },

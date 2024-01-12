@@ -1,0 +1,65 @@
+.adminLots {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 3% 0 5%;
+  gap: 5%;
+
+  h2 {
+    font-family: var(--primary-font);
+    font-size: 2rem;
+    color: var(--fourth-color);
+  }
+  .allLots {
+    width: 100%;
+    display: flex;
+    gap: 3%;
+    padding: 1%;
+
+    .itemServices {
+      width: 20%;
+      height: 8vh;
+      border: 2px solid white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      color: var(--fourth-color);
+      font-family: var(--primary-font);
+      font-size: 8rem;
+      position: relative;
+
+      .lots {
+        height: 100%;
+      }
+    }
+    .suppr {
+      position: absolute;
+      top: -15px;
+      right: -7px;
+      height: 15px;
+      cursor: pointer;
+    }
+  }
+
+  .podium {
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    width: 100%;
+
+    .firstPlace,
+    .secondPlace,
+    .thirdPlace {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 2rem;
+        font-size: var(--secondary-font);
+      }
+    }
+  }
+}

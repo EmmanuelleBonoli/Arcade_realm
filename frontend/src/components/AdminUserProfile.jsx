@@ -17,7 +17,7 @@ export default function AdminUserProfile() {
         );
 
         setUser(response.data);
-        setFilteredUsers(response.data); // Affiche tous les utilisateurs initialement
+        setFilteredUsers(response.data);
       } catch (error) {
         console.error(error.message);
       }
@@ -30,7 +30,6 @@ export default function AdminUserProfile() {
     const inputValue = event.target.value;
     setFilterPseudo(inputValue);
 
-    // Filtrer les utilisateurs en fonction du pseudonyme saisi
     const filteredUsersResult = user.filter((users) =>
       users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
     );

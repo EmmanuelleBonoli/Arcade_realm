@@ -29,7 +29,6 @@ function ArcadeGame() {
     scorePlayer,
     setScorePlayer,
     setMissedArrow,
-
   } = useContext(GameContext);
 
   const audio = useRef(null);
@@ -37,7 +36,6 @@ function ArcadeGame() {
   const [bestScoresOnline, setBestScoresOnline] = useState([]);
   const [gamesOnline, setGamesOnline] = useState([]);
   const [gamePlayed, setGamePlayed] = useState(0);
-
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {

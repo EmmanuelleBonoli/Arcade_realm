@@ -7,8 +7,6 @@ const login = async (req, res, next) => {
     if (!user[0]) {
       res.status(400).send("Incorrect pseudo or password");
     }
-    console.log("Incorrect pseudo or password");
-
     if (user[0].password === req.body.password) {
       res.status(200).send(user[0]);
     } else {
@@ -21,7 +19,8 @@ const login = async (req, res, next) => {
 
 const signin = async (req, res, next) => {
   try {
-    const { pseudo, email, password, image, admin, points } = req.body;
+    const { pseudo, email, password, image, admin, points, podium, tickets } =
+      req.body;
 
     const result = await tables.utilisateur.create({
       pseudo,
@@ -30,6 +29,8 @@ const signin = async (req, res, next) => {
       image,
       admin,
       points,
+      podium,
+      tickets,
     });
     if (result.insertId) {
       const newUser = {
@@ -40,6 +41,8 @@ const signin = async (req, res, next) => {
         image,
         admin,
         points,
+        podium,
+        tickets,
       };
       res.status(201).json(newUser);
     } else {

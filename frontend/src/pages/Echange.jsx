@@ -94,6 +94,7 @@ function Echange() {
           utilisateurId: playerExchange.id,
           win: lotOldPlayer.win,
           exchange: 0,
+          podium: lotOldPlayer.podium,
         };
 
         const updatedNewLot = {
@@ -103,6 +104,7 @@ function Echange() {
           utilisateurId: userConnected.id,
           win: lotNewPlayer.win,
           exchange: 0,
+          podium: lotNewPlayer.podium,
         };
 
         try {
@@ -151,6 +153,8 @@ function Echange() {
             image: userConnected.image,
             admin: userConnected.admin,
             points: userConnected.points - 50000,
+            podium: userConnected.podium,
+            tickets: userConnected.tickets,
           };
 
           try {

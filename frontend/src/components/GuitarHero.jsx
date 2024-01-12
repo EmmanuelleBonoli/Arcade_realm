@@ -53,9 +53,27 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
               jeuId: 4,
               points: scorePlayer,
             };
+
+            const NewUser = {
+              pseudo: userConnected.pseudo,
+              email: userConnected.email,
+              password: userConnected.password,
+              image: userConnected.image,
+              admin: userConnected.admin,
+              points: userConnected.points + scorePlayer,
+              podium: userConnected.podium,
+              tickets: userConnected.tickets,
+            };
+
             await axios.post(
               `${import.meta.env.VITE_BACKEND_URL}/api/score`,
               NewScore
+            );
+            await axios.put(
+              `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+                userConnected.id
+              }`,
+              NewUser
             );
           } catch (err) {
             console.error(err);
