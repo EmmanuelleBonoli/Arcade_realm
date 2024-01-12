@@ -24,7 +24,6 @@ function DonneesPerso() {
     setIsDeleted(true);
   };
   const handleCancelDelete = () => {
-    // Effectuer l'action souhaitée, par exemple, revenir à l'état initial
     setIsDeleted(false);
   };
 
@@ -42,8 +41,6 @@ function DonneesPerso() {
 
       setUserConnected(userUpdated.data);
       setIsEditing(false);
-
-      console.log("Informations utilisateur mises à jour avec succès");
     } catch (err) {
       console.error(err);
     }

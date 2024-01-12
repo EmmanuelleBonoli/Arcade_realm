@@ -56,7 +56,8 @@ const readImage = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  const { name, image, description, utilisateurId, win, exchange } = req.body;
+  const { name, image, description, utilisateurId, win, exchange, podium } =
+    req.body;
   const updatedLot = {
     id: req.params.id,
     name,
@@ -65,6 +66,7 @@ const edit = async (req, res, next) => {
     utilisateurId,
     win,
     exchange,
+    podium,
   };
   try {
     const existingLot = await tables.lot.read(req.params.id);
@@ -89,6 +91,7 @@ const add = async (req, res, next) => {
     description: req.body.description,
     win: req.body.win,
     exchange: req.body.exchange,
+    podium: req.body.podium,
   };
 
   try {

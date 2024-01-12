@@ -29,6 +29,8 @@ export default function Inscription({ onClose }) {
       image: `/images/Avatar/Avatar.png`,
       admin: false,
       points: 0,
+      podium: false,
+      tickets: 0,
     };
 
     try {

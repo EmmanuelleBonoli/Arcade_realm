@@ -18,8 +18,6 @@ export default function Connexion({ onClose }) {
     e.stopPropagation();
   };
 
-
-
   const handleConnexion = async (e) => {
     e.preventDefault();
     const userlogin = {
