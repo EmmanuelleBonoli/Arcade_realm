@@ -16,6 +16,8 @@ function Echange() {
   const [lotNewPlayer, setLotNewPlayer] = useState([]);
   const audio = useRef(null);
   const [playerExchange, setPlayerExchange] = useState({});
+  const [pointsUser, setPointsUser] = useState(0);
+  const [NotEnoughPoints, setNotEnoughPoints] = useState(false);
 
   const loadLotsWin = async () => {
     try {
@@ -34,6 +36,13 @@ function Echange() {
         `${import.meta.env.VITE_BACKEND_URL}/api/lot/exchange`
       );
       setLotsAvailable(response.data);
+
+      const userScore = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+          userConnected.id
+        }`
+      );
+      setPointsUser(userScore.data[0]);
     } catch (error) {
       console.error(error);
     }
@@ -63,7 +72,7 @@ function Echange() {
               selectedLotAvailableObject.utilisateur_id
             }`
           );
-          setPlayerExchange(fetchPlayer.data[0]);
+          setPlayerExchange(fetchPlayer.data[0].points);
         } catch (err) {
           console.error(err);
         }
@@ -72,7 +81,6 @@ function Echange() {
       getPlayerExchange();
     }
   }, [selectedLotsWin, selectedLotsAvailable, lotsWin]);
-
 
   function handleTransfer() {
     if (lotNewPlayer !== undefined && lotOldPlayer !== undefined) {
@@ -132,8 +140,8 @@ function Echange() {
   }, [transfer]);
 
   function handleBuyMysteryBox() {
-    if (userConnected) {
-      if (userConnected.points >= 50000) {
+    if (userConnected && pointsUser) {
+      if (pointsUser >= 50000) {
         const buyMystery = async () => {
           const updatedUser = {
             id: userConnected.id,
@@ -159,7 +167,8 @@ function Echange() {
         };
         buyMystery();
       } else {
-        alert("tu n'as pas assez de points, n'hésite pas à rejouer!");
+        setNotEnoughPoints(true);
+        setTimeout(() => setNotEnoughPoints(false), 2500);
       }
     }
   }
@@ -182,10 +191,13 @@ function Echange() {
             <div className="home-echange">
               <div className="container-echange">
                 <NavLink to="/profilutilisateur">
-                  <div className="retour-page">Retour à mon profil</div>
+                  <div className="retour-page">
+                    <img src="/images/Utilisateur/retour.png" alt="retour" />
+                    Retour à mon profil
+                  </div>
                 </NavLink>
                 <div className="mes-lots">
-                  <h1>Wild_Gamer</h1>
+                  <h1>{userConnected.pseudo}</h1>
                   <div className="lots-user">
                     <div className="lots-scores">
                       <p>Mes lot à échanger :</p>
@@ -215,7 +227,7 @@ function Echange() {
                       <p>
                         <strong>Score : </strong>
                       </p>
-                      <p>{userConnected.points} pts</p>
+                      <p>{pointsUser.points} pts</p>
                     </div>
                   </div>
                 </div>
@@ -226,6 +238,14 @@ function Echange() {
                     src="images/Utilisateur/echangeur.png"
                     alt="echangeur"
                   />
+                  {NotEnoughPoints ? (
+                    <p>
+                      Tu n'as pas assez de points, n'hésites pas rejouer à nos
+                      jeux !
+                    </p>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="echange-joueur">
                   <div className="Joueurs-p1">

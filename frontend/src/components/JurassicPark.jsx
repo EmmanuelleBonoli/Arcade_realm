@@ -67,7 +67,7 @@ export default function JurassicPark({
   useEffect(() => {
     if (score > 0) {
       const tmpScore = getScoreUser.filter(
-        (scoreSearch) => scoreSearch.name === "Guitar Hero"
+        (scoreSearch) => scoreSearch.name === "Jurassic Parc"
       );
       if (tmpScore.length === 0) {
         const postScore = async () => {
@@ -77,9 +77,25 @@ export default function JurassicPark({
               jeuId: 9,
               points: score,
             };
+
+            const NewUser = {
+              pseudo: userConnected.pseudo,
+              email: userConnected.email,
+              password: userConnected.password,
+              image: userConnected.image,
+              admin: userConnected.admin,
+              points: userConnected.points + score,
+            };
+
             await axios.post(
               `${import.meta.env.VITE_BACKEND_URL}/api/score`,
               NewScore
+            );
+            await axios.put(
+              `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+                userConnected.id
+              }`,
+              NewUser
             );
           } catch (err) {
             console.error(err);
@@ -94,11 +110,26 @@ export default function JurassicPark({
               jeuId: gamePlayed,
               points: score,
             };
+            const NewUser = {
+              pseudo: userConnected.pseudo,
+              email: userConnected.email,
+              password: userConnected.password,
+              image: userConnected.image,
+              admin: userConnected.admin,
+              points: userConnected.points + score,
+            };
+
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/score/${
                 tmpScore[0].ScoreId
               }`,
               UpdatedScore
+            );
+            await axios.put(
+              `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+                userConnected.id
+              }`,
+              NewUser
             );
           } catch (err) {
             console.error(err);

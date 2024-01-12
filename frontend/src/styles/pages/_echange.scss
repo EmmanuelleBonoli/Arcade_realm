@@ -21,6 +21,7 @@
       display: flex;
       align-self: flex-start;
       width: 25%;
+      transform: translate(40%);
       text-align: center;
       color: white;
       font-family: var(--secondary-font);
@@ -28,13 +29,12 @@
       border-radius: 5px;
       padding: var(--spacing);
       text-decoration: none;
+      font-size: 1.5rem;
       font-size: 1.8rem;
       cursor: pointer;
 
       img {
         transform: translateY(5%);
-        
-       
         width: 10%;
       }
     }
@@ -91,13 +91,11 @@
             .lotWinPlayer {
               position: relative;
               display: flex;
-
             }
 
             .lotsWin {
               width: 3vw;
             }
-
 
             .elispe-coche {
               position: absolute;
@@ -128,9 +126,17 @@
     .image-echangeur {
       width: 10%;
       text-align: center;
+      display: flex;
+      position: relative;
       img {
         width: 100%;
         cursor: pointer;
+      }
+      p {
+        position: absolute;
+        padding-left: 150%;
+        width: 25vw;
+        color: var(--secondary-color);
       }
     }
 
