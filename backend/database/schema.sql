@@ -107,80 +107,79 @@ VALUES (
         80000,
         0,
         0
-
-), (
-    "Joystick_Master",
-    "joystick@email.com",
-    "gamer456",
-    "/images/Avatar/Avatar3.png",
-    0,
-    3000,
-    0,
-    10
-), (
-    "LevelUp_Legend",
-    "levelup@email.com",
-    "legendary7",
-    "/images/Avatar/Avatar4.png",
-    0,
-    10000,
-    0,
-    0
-), (
-    "Quest_Seeker",
-    "quest@email.com",
-    "seeker999",
-    "/images/Avatar/Avatar5.png",
-    0,
-    4000,
-    0,
-    0
-), (
-    "GameOn_Guru",
-    "gameon@email.com",
-    "guru22",
-    "/images/Avatar/Avatar6.png",
-    0,
-    9000,
-    1,
-    5
-), (
-    "Pixel_Pioneer",
-    "pioneer@email.com",
-    "pixel123",
-    "/images/Avatar/Avatar7.png",
-    0,
-    6000,
-    0,
-    0
-), (
-    "HighScore_Hero",
-    "highscore@email.com",
-    "heroic55",
-    "/images/Avatar/Avatar8.png",
-    0,
-    1000,
-    1,
-    0
-), (
-    "Arcade_Adventurer",
-    "adventurer@email.com",
-    "adventurer99",
-    "/images/Avatar/Avatar9.png",
-    0,
-    2000,
-    0,
-    0
-), (
-    "Game_Champion",
-    "champion@email.com",
-    "champion10",
-    "/images/Avatar/Avatar10.png",
-    0,
-    5000,
-    0,
-    0
-);
+    ), (
+        "Joystick_Master",
+        "joystick@email.com",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
+        "/images/Avatar/Avatar3.png",
+        0,
+        3000,
+        0,
+        10
+    ), (
+        "LevelUp_Legend",
+        "levelup@email.com",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
+        "/images/Avatar/Avatar4.png",
+        0,
+        10000,
+        0,
+        0
+    ), (
+        "Quest_Seeker",
+        "quest@email.com",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
+        "/images/Avatar/Avatar5.png",
+        0,
+        4000,
+        0,
+        0
+    ), (
+        "GameOn_Guru",
+        "gameon@email.com",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
+        "/images/Avatar/Avatar6.png",
+        0,
+        9000,
+        1,
+        5
+    ), (
+        "Pixel_Pioneer",
+        "pioneer@email.com",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
+        "/images/Avatar/Avatar7.png",
+        0,
+        6000,
+        0,
+        0
+    ), (
+        "HighScore_Hero",
+        "highscore@email.com",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
+        "/images/Avatar/Avatar8.png",
+        0,
+        1000,
+        1,
+        0
+    ), (
+        "Arcade_Adventurer",
+        "adventurer@email.com",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
+        "/images/Avatar/Avatar9.png",
+        0,
+        2000,
+        0,
+        0
+    ), (
+        "Game_Champion",
+        "champion@email.com",
+        "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
+        "/images/Avatar/Avatar10.png",
+        0,
+        5000,
+        0,
+        0
+    );
 
 INSERT INTO
     lot (
