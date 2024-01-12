@@ -72,7 +72,7 @@ function Echange() {
               selectedLotAvailableObject.utilisateur_id
             }`
           );
-          setPlayerExchange(fetchPlayer.data[0].points);
+          setPlayerExchange(fetchPlayer.data[0]);
         } catch (err) {
           console.error(err);
         }
