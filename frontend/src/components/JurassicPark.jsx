@@ -85,6 +85,8 @@ export default function JurassicPark({
               image: userConnected.image,
               admin: userConnected.admin,
               points: userConnected.points + score,
+              podium: userConnected.podium,
+              tickets: userConnected.tickets,
             };
 
             await axios.post(
@@ -117,6 +119,8 @@ export default function JurassicPark({
               image: userConnected.image,
               admin: userConnected.admin,
               points: userConnected.points + score,
+              podium: userConnected.podium,
+              tickets: userConnected.tikets,
             };
 
             await axios.put(

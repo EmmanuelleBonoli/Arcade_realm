@@ -10,7 +10,7 @@ function DonneesPerso() {
   const [motDePasseVisible, setMotDePasseVisible] = useState(false);
   const [deleteUser, setDeleteUser] = useState(userConnected);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [avatar, setAvatar] = useState(undefined);
+  // const [avatar, setAvatar] = useState(undefined);
 
   const toggleMotDePasseVisibility = () => {
     setMotDePasseVisible(!motDePasseVisible);
@@ -24,7 +24,6 @@ function DonneesPerso() {
     setIsDeleted(true);
   };
   const handleCancelDelete = () => {
-    // Effectuer l'action souhaitée, par exemple, revenir à l'état initial
     setIsDeleted(false);
   };
 
@@ -42,8 +41,6 @@ function DonneesPerso() {
 
       setUserConnected(userUpdated.data);
       setIsEditing(false);
-
-      console.log("Informations utilisateur mises à jour avec succès");
     } catch (err) {
       console.error(err);
     }
