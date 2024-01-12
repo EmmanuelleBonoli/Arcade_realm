@@ -63,7 +63,7 @@ router.post("/score", scoreControllers.add);
 
 router.post("/lot", upload.single("image"), lotControllers.add);
 
-// router.post("/utilisateur", utilisateurControllers.add);
+router.post("/utilisateur", utilisateurControllers.add);
 router.post("/login", authControllers.login);
 router.post("/signin", hashPassword, authControllers.signin);
 
