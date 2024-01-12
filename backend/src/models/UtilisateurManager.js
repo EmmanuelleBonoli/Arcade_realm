@@ -53,6 +53,7 @@ class UtilisateurManager extends AbstractManager {
   }
 
   async getByPseudo(pseudo) {
+    console.log("n'immporte quoi")
     const [result] = await this.database.query(
       `SELECT * FROM ${this.table} WHERE pseudo = ?`,
       [pseudo]
