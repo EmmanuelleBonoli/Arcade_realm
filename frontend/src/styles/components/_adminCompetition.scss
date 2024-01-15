@@ -1,0 +1,63 @@
+.adminCompetition {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10%;
+
+  h2 {
+    font-size: 2rem;
+    font-family: var(--primary-font);
+    color: var(--fourth-color);
+    padding: 4% 4% 0 4%;
+  }
+
+  .podium {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .podiumUsers {
+      display: flex;
+      flex-direction: column;
+      width: 33%;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      .place {
+        font-size: 1.5rem;
+        font-family: var(--primary-font);
+        color: var(--secondary-color);
+      }
+      img {
+        width: 20%;
+      }
+      p {
+        font-family: var(--primary-font);
+        color: white;
+        padding: 4%;
+      }
+    }
+    p {
+      font-family: var(--primary-font);
+      color: var(--secondary-color);
+      font-size: 1.5rem;
+      padding: 4%;
+    }
+  }
+
+  button {
+    width: 45%;
+    padding: 1%;
+    background-color: var(--fourth-color);
+    font-family: var(--primary-font);
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+  }
+}

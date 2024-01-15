@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AdminUploadLot from "./AdminUploadLot";
+import AdminChooseLot from "./AdminChooseLot";
 
 function AdminLots() {
   const [dataLots, setDataLots] = useState([]);
   const [uploadLotModal, setUploadLotModal] = useState(false);
   const [resetUploadLot, setResetUploadLot] = useState(false);
+  const [chooseLotModal, setChooseLotModal] = useState(false);
+  const [savePlacePodiumLot, setSavePlacePodiumLot] = useState(0);
+  const [confirmPodium, setConfirmPodium] = useState(0);
 
   const getLots = async () => {
     try {
@@ -34,6 +38,7 @@ function AdminLots() {
   const handleDeleteLotsPodium = async (lot) => {
     try {
       const updatedLot = {
+        id: lot.id,
         name: lot.name,
         image: lot.image,
         description: lot.description,
@@ -44,7 +49,7 @@ function AdminLots() {
       };
 
       await axios.put(
-        `${import.meta.env.VITE_URL}/api/lot/${lot.id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
         updatedLot
       );
       getLots();
@@ -61,6 +66,15 @@ function AdminLots() {
     setUploadLotModal(false);
   };
 
+  const openChooseLotModal = (placePodium) => {
+    setSavePlacePodiumLot(placePodium);
+    setChooseLotModal(true);
+  };
+
+  const closeChooseLotModal = () => {
+    setChooseLotModal(false);
+  };
+
   return (
     <div className="adminLots">
       {uploadLotModal && (
@@ -68,6 +82,17 @@ function AdminLots() {
           onClose={closeUploadLotModal}
           setResetUploadLot={setResetUploadLot}
           resetUploadLot={resetUploadLot}
+        />
+      )}
+      {chooseLotModal && (
+        <AdminChooseLot
+          confirmPodium={confirmPodium}
+          setConfirmPodium={setConfirmPodium}
+          onClose={closeChooseLotModal}
+          setResetUploadLot={setResetUploadLot}
+          resetUploadLot={resetUploadLot}
+          dataLots={dataLots}
+          savePlacePodiumLot={savePlacePodiumLot}
         />
       )}
       <h2>Les lots à gagner</h2>
@@ -107,7 +132,7 @@ function AdminLots() {
       <h2>Les lots du podium</h2>
       <div className="podium">
         <div className="firstPlace">
-          <p>1er Prix :</p>
+          <p className="placePlayer">1er Prix :</p>
           {dataLots
             .filter((lotfilter) => lotfilter.podium === 1)
             .map((lot) => {
@@ -132,7 +157,7 @@ function AdminLots() {
             0 && (
             <div
               className="itemServices addBox"
-              onClick={openUploadLotModal}
+              onClick={() => openChooseLotModal(1)}
               role="presentation"
             >
               <img
@@ -144,7 +169,7 @@ function AdminLots() {
           )}
         </div>
         <div className="secondPlace">
-          <p>2ème Prix :</p>
+          <p className="placePlayer">2ème Prix :</p>
           {dataLots
             .filter((lotfilter) => lotfilter.podium === 2)
             .map((lot) => {
@@ -169,7 +194,7 @@ function AdminLots() {
             0 && (
             <div
               className="itemServices addBox"
-              onClick={openUploadLotModal}
+              onClick={() => openChooseLotModal(2)}
               role="presentation"
             >
               <img
@@ -181,7 +206,7 @@ function AdminLots() {
           )}
         </div>
         <div className="thirdPlace">
-          <p>3ème Prix :</p>
+          <p className="placePlayer">3ème Prix :</p>
           {dataLots
             .filter((lotfilter) => lotfilter.podium === 3)
             .map((lot) => {
@@ -196,7 +221,7 @@ function AdminLots() {
                     className="suppr"
                     src="/images/Utilisateur/delete.png"
                     alt="suppr"
-                    onClick={() => handleDeleteLots(lot)}
+                    onClick={() => handleDeleteLotsPodium(lot)}
                     role="presentation"
                   />
                 </div>
@@ -206,7 +231,7 @@ function AdminLots() {
             0 && (
             <div
               className="itemServices addBox"
-              onClick={openUploadLotModal}
+              onClick={() => openChooseLotModal(3)}
               role="presentation"
             >
               <img

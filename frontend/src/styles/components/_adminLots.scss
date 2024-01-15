@@ -42,6 +42,16 @@
       height: 15px;
       cursor: pointer;
     }
+    .addBox {
+      cursor: pointer;
+      width: 5vw;
+      height: 8vh;
+
+      .add {
+        height: 45%;
+        width: 45%;
+      }
+    }
   }
 
   .podium {
@@ -49,21 +59,24 @@
     color: white;
     justify-content: space-around;
     width: 100%;
+    height: 40%;
 
     .firstPlace,
     .secondPlace,
     .thirdPlace {
       display: flex;
       flex-direction: column;
-
-      p {
-        font-size: 2rem;
-        font-size: var(--secondary-font);
+      align-items: center;
+      .placePlayer {
+        font-size: 1.5rem;
+        font-family: var(--secondary-font);
+        padding-bottom: 20%;
       }
     }
+
     .itemServices {
       width: 100%;
-      height: 15%;
+      height: 60%;
       border: 2px solid white;
       border-radius: 5px;
       display: flex;
@@ -84,6 +97,16 @@
       right: -7px;
       height: 15px;
       cursor: pointer;
+    }
+    .addBox {
+      cursor: pointer;
+      width: 4vw;
+      height: 60%;
+
+      .add {
+        height: 50%;
+        width: 45%;
+      }
     }
   }
 }

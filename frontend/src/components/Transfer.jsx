@@ -114,7 +114,6 @@ Transfer.propTypes = {
   playerExchange: PropTypes.shape({
     pseudo: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     admin: PropTypes.number.isRequired,

@@ -143,7 +143,7 @@ function Echange() {
 
   function handleBuyMysteryBox() {
     if (userConnected && pointsUser) {
-      if (pointsUser >= 50000) {
+      if (pointsUser.points >= 50000) {
         const buyMystery = async () => {
           const updatedUser = {
             id: userConnected.id,
@@ -163,6 +163,7 @@ function Echange() {
               }`,
               updatedUser
             );
+            loadLotsAvailable();
           } catch (err) {
             console.error(err);
           }
