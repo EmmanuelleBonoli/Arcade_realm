@@ -12,11 +12,10 @@
   }
 
   .events,
-  .lots,
   .games {
     display: flex;
     flex-direction: row;
-    padding: 3%;
+    padding: 4%;
     width: 100%;
     gap: 1vw;
     overflow-x: auto;

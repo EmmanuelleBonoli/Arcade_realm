@@ -1,8 +1,10 @@
-.events {
+.eventsContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
+  height: 100%;
 
   h1 {
     font-size: 5rem;
@@ -10,17 +12,42 @@
     font-family: var(--primary-font);
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 2%;
   }
 
-  .container-affiches {
-    width: 100%;
+  .container-posters {
+    width: 100vw;
+    height: 80%;
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5vh;
+    img {
+      border: 3px solid rgb(255, 255, 255);
+      object-fit: contain;
+      height: 50%;
+    }
   }
 
-  img {
-    border: 3px solid rgb(255, 255, 255);
+  @media screen and (max-width: 1000px) {
+    img {
+      height: 40%;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    h1 {
+      font-size: 2rem;
+    }
+    img {
+      width: 50%;
+    }
   }
 }
