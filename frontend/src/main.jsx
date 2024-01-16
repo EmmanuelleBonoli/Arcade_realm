@@ -20,15 +20,14 @@ import AdminUserProfile from "./components/AdminUserProfile";
 import MesLotsEchanges from "./components/MesLotsEchanges";
 import MesJeuxFavoris from "./components/MesJeuxFavoris";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRouteAdmin from "./components/ProtectedRouteAdmin";
 
 import PresentationDisplayGames from "./components/PresentationDisplayGames";
 
 import ArcadeGame2 from "./pages/ArcadeGame";
 import AdminCompetition from "./components/AdminCompetition";
 
-
 import AdminLots from "./components/AdminLots";
-
 
 const router = createBrowserRouter([
   {
@@ -88,33 +87,33 @@ const router = createBrowserRouter([
           {
             path: "/profilutilisateur/adminservices",
             element: (
-              <ProtectedRoute>
+              <ProtectedRouteAdmin>
                 <AdminServices />
-              </ProtectedRoute>
+              </ProtectedRouteAdmin>
             ),
           },
           {
             path: "/profilutilisateur/gestiondeslots",
             element: (
-              <ProtectedRoute>
+              <ProtectedRouteAdmin>
                 <AdminLots />
-              </ProtectedRoute>
+              </ProtectedRouteAdmin>
             ),
           },
           {
             path: "/profilutilisateur/gestiondesconcours",
             element: (
-              <ProtectedRoute>
+              <ProtectedRouteAdmin>
                 <AdminCompetition />
-              </ProtectedRoute>
+              </ProtectedRouteAdmin>
             ),
           },
           {
             path: "/profilutilisateur/gestionprofils",
             element: (
-              <ProtectedRoute>
+              <ProtectedRouteAdmin>
                 <AdminUserProfile />
-              </ProtectedRoute>
+              </ProtectedRouteAdmin>
             ),
           },
           {

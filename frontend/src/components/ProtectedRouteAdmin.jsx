@@ -5,10 +5,10 @@ import UserContext from "../contexts/UserContext";
 function ProtectedRoute({ children }) {
   const { userConnected } = useContext(UserContext);
   const navigate = useNavigate();
-  
 
   useEffect(() => {
-    if (!userConnected) {
+
+    if (userConnected.admin !== 1) {
       navigate("/");
     }
   }, [userConnected, navigate]);
