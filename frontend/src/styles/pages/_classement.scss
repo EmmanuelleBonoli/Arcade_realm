@@ -1,25 +1,28 @@
 .parent-container {
   display: flex;
   height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+
   .classement-recompense {
     height: 100%;
     border-left: 1px solid white;
     border-right: 1px solid white;
-    width: 70vw;
+    width: 80%;
     .classement {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      height: 50vh;
+      height: 55%;
 
       h1 {
         font-family: "Orbitron";
         padding: 1vh;
         color: white;
         text-align: center;
-        font-size: 35px;
+        font-size: 4rem;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
       .podium-img {
@@ -32,6 +35,7 @@
         width: 100%;
         height: 100%;
         align-items: end;
+        padding-left: 3%;
 
         img {
           width: 90px;
@@ -54,12 +58,12 @@
 
     .recompenses {
       width: 100%;
-      height: 27vh;
+      height: 20%;
       border-top: 2px solid #fff;
       border-bottom: 2px solid #fff;
       background: rgba(0, 0, 0, 0.5);
       color: white;
-      font-size: 15px;
+      font-size: 2rem;
       font-family: "Orbitron";
       .winners {
         display: flex;
@@ -75,6 +79,16 @@
           flex-direction: column;
           justify-content: space-around;
           height: 100%;
+          .winners {
+            display: flex;
+            align-items: center;
+          }
+          .imageLot {
+            height: 9vh;
+          }
+        }
+        .playerNames {
+          font-weight: bold;
         }
       }
 
@@ -97,7 +111,14 @@
           align-items: center;
           color: white;
           font-family: "Orbitron";
-          font-size: 15px;
+          font-size: 2rem;
+
+          .imageLot {
+            height: 9vh;
+          }
+        }
+        .playerNames {
+          font-weight: bold;
         }
       }
     }
@@ -121,31 +142,27 @@
     }
     .container-lotswin {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       justify-content: center;
       padding: 4% 0 0 12%;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-      .lotswin {
+      .tickets {
         display: flex;
+        flex-direction: column;
         color: white;
-        font-size: 15px;
+        font-size: 2rem;
         font-family: "Orbitron";
-        align-items: center;
+
+        gap: 2vh;
+        .ticketsAvailables {
+          display: flex;
+          align-items: center;
+          gap: 2vw;
+        }
+        .imageLot {
+          height: 15vh;
+        }
       }
     }
-  }
-
-  .imageLot {
-    width: 3vw;
-  }
-
-  .tickets {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 1.8rem;
-    font-family: "Orbitron";
-    font-weight: bold;
   }
 }

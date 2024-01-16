@@ -94,6 +94,40 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const getPodium = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const utilisateurs = await tables.utilisateur.getPodium();
+    // Respond with the items in JSON format
+    res.json(utilisateurs);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+const getTopPlayers = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const utilisateurs = await tables.utilisateur.getTopPlayers();
+
+    const tempTopPlayers = [];
+
+    utilisateurs.forEach((element) => {
+      const existingUser = tempTopPlayers.find(
+        (user) => user.id === element.id
+      );
+
+      if (!existingUser && tempTopPlayers.length < 6) {
+        tempTopPlayers.push(element);
+      }
+    });
+    res.json(tempTopPlayers);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -101,4 +135,6 @@ module.exports = {
   edit,
   add,
   destroy,
+  getPodium,
+  getTopPlayers,
 };
