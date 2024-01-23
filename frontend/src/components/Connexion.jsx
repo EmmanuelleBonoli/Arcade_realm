@@ -9,6 +9,7 @@ export default function Connexion({ onClose }) {
     useContext(UserContext);
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const [errorLogin, setErrorLogin] = useState("");
 
   const toggleMotDePasseVisibility = () => {
     setMotDePasseVisible(!motDePasseVisible);
@@ -41,7 +42,7 @@ export default function Connexion({ onClose }) {
       }
       onClose();
     } catch (error) {
-      console.error(error.message);
+      setErrorLogin("Identifiants incorrects, veuillez réessayer.");
     }
   };
 
@@ -67,6 +68,18 @@ export default function Connexion({ onClose }) {
             alt="GhostLogin"
             className="GhostLogin"
           />
+          {errorLogin && (
+            <p
+              style={{
+                color: "red",
+                fontSize: "17px",
+                fontFamily: "var(--secondary-font)",
+                fontWeight: "bold",
+              }}
+            >
+              {errorLogin}
+            </p>
+          )}
         </div>
         <form onSubmit={handleConnexion} className="login-container">
           <p>Entrez votre pseudo</p>
