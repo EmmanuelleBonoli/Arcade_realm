@@ -50,28 +50,36 @@
     }
   }
 
-  .descGames {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    color: #fbb169;
-    font-size: 2rem;
-    width: 80%;
-    max-width: 900px;
-    gap: 33px;
-  }
+.descGames {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  font-family: var(--primary-font);
+  color: #fbb169;
+  font-size: 2rem;
+  width: 80%;
+  max-width: 900px;
+  gap: 33px;
+}
 
-  .retourpicture {
-    display: flex;
-    align-items: center;
-    margin-right: 100px;
-    background: transparent;
-    height: 100px;
-    border: none;
-    cursor: pointer;
-  }
+
+.containerGames2 {
+  display: flex;
+  align-items: center;
+.retourpicture{
+  display: flex;
+  align-items: center;
+  
+  margin-right: 100px;
+  background: transparent;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+}
+}
+
 
   .secondimage {
     height: auto;
