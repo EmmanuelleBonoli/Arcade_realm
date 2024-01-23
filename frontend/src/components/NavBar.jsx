@@ -104,6 +104,9 @@ function NavBar() {
             <NavLink to="/evenements" className="menu-item">
               <span style={{ color: "#fbb169" }}>L</span>es Evènements
             </NavLink>
+            <NavLink to="/jeuxenligne" className="menu-item">
+              <span style={{ color: "#fbb169" }}>J</span>eux en ligne
+            </NavLink>
             <NavLink to="/classementetlots" className="menu-item">
               <span style={{ color: "#fbb169" }}>C</span>lassement et Lots
             </NavLink>

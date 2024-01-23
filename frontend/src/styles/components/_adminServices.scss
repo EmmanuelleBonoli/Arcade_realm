@@ -14,16 +14,13 @@
   .events,
   .games {
     display: flex;
-    flex-direction: row;
     padding: 4%;
     width: 100%;
     gap: 1vw;
     overflow-x: auto;
     overflow-y: hidden;
-    min-height: 0;
 
     .itemServices {
-      width: 15vw;
       height: 8vh;
       border: 2px solid white;
       border-radius: 5px;
@@ -44,7 +41,7 @@
     }
     .addBox {
       cursor: pointer;
-      width: 5vw;
+      width: 8vw;
 
       .add {
         height: 35%;
@@ -63,11 +60,60 @@
 
   ::-webkit-scrollbar {
     height: 7px;
-    width: 4vw;
+    width: 7px;
   }
 
   ::-webkit-scrollbar-thumb {
     background-color: var(--fourth-color);
     border-radius: 5px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    h2 {
+      padding: 3%;
+    }
+    .games {
+      overflow-y: auto;
+      overflow-x: hidden;
+      flex-wrap: wrap;
+      padding: 3%;
+      gap: 2vw;
+      justify-content: space-around;
+    }
+
+    .events {
+      padding: 3%;
+      height: 70%;
+      gap: 2vw;
+      overflow-y: hidden;
+      overflow-x: auto;
+    }
+    .itemServices {
+      height: 20%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .games,
+    .events {
+      padding: 7% 2% 10% 2%;
+      gap: 4vw;
+
+      .addBox {
+        width: 15vw;
+        padding: 7%;
+        .add {
+          height: 60%;
+          width: 5vw;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .games,
+    .events {
+      padding: 7% 2% 20% 2%;
+    }
   }
 }
