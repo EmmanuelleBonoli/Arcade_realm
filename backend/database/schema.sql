@@ -11,11 +11,9 @@ CREATE TABLE
         pseudo VARCHAR(80) NOT NULL,
         email VARCHAR(80) NOT NULL,
         hashed_password VARCHAR(250) NOT NULL,
-        image VARCHAR(250) NOT NULL DEFAULT '',
+        image VARCHAR(250) NULL,
         admin BOOLEAN NOT NULL DEFAULT FALSE,
-        points INT NOT NULL DEFAULT FALSE,
-        podium BOOLEAN NOT NULL DEFAULT FALSE,
-        tickets INT NOT NULL DEFAULT FALSE
+        points INT NOT NULL DEFAULT FALSE
     );
 
 CREATE TABLE
@@ -40,7 +38,6 @@ CREATE TABLE
         utilisateur_id INT DEFAULT NULL,
         win BOOLEAN NOT NULL DEFAULT FALSE,
         exchange BOOLEAN NOT NULL DEFAULT FALSE,
-        podium INT NOT NULL DEFAULT FALSE,
         CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 
@@ -76,9 +73,7 @@ INSERT INTO
         hashed_password,
         image,
         admin,
-        points,
-        podium,
-        tickets
+        points
     )
 VALUES (
         "Wild_Gamer",
@@ -104,8 +99,6 @@ VALUES (
         "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Ghost.png",
         1,
-        0,
-        0,
         0
     ), (
         "Arcade_Master",
@@ -122,9 +115,7 @@ VALUES (
         "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar.png",
         0,
-        3000,
-        0,
-        10
+        3000
     ), (
         "LevelUp_Legend",
         "levelup@email.com",
@@ -158,9 +149,7 @@ VALUES (
         "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar.png",
         0,
-        6000,
-        0,
-        0
+        6000
     ), (
         "HighScore_Hero",
         "highscore@email.com",
@@ -176,18 +165,14 @@ VALUES (
         "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar.png",
         0,
-        2000,
-        0,
-        0
+        2000
     ), (
         "Game_Champion",
         "champion@email.com",
         "$argon2id$v=19$m=19456,t=2,p=1$NCeUqNGKyATb2N9exMVT0Q$JGUoiwb2VY2T08gka2mwdLa8vBV/B3AKgDLGxDIPt3U",
         "/images/Avatar/Avatar.png",
         0,
-        5000,
-        0,
-        0
+        5000
     );
 
 INSERT INTO
@@ -197,10 +182,16 @@ INSERT INTO
         description,
         utilisateur_id,
         win,
-        exchange,
-        podium
+        exchange
     )
-VALUES
+VALUES (
+        "5x Tickets Gratuits",
+        "/images/Lots/ticketgratuit.png",
+        "5 tickets gratuits pour jouer à n'importe quel jeu de votre choix dans notre salle d'arcade !",
+        4,
+        1,
+        0
+    ),
 
 (
     "Mug Space Invaders",
@@ -208,7 +199,6 @@ VALUES
     "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo",
     4,
     1,
-    0,
     0
 ), (
     "Peluche Pac-Man",
@@ -216,23 +206,21 @@ VALUES
     "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!",
     1,
     1,
-    0,
     0
 ), (
     "Mini Arcade",
     "/images/Lots/MiniArcade.png",
     "blabla2",
     2,
+    2,
     1,
-    0,
-    2
+    0
 ), (
     "Monopoly Pacman",
     "/images/Lots/MonopolyPacman.png",
     "blabla",
     2,
     1,
-    0,
     0
 ), (
     "Super Nes",
@@ -248,16 +236,14 @@ VALUES
     "blabla3",
     2,
     1,
-    1,
-    0
+    1
 ), (
     "Statue Zelda",
     "/images/Lots/TriforceZelda.png",
     "blabla3",
     4,
     1,
-    0,
-    3
+    0
 ), (
     "Mug Lego",
     "/images/Lots/mugLego.webp",
@@ -280,14 +266,12 @@ VALUES
     "blabla3",
     null,
     0,
-    0,
     0
 ), (
     "Lampe Batman",
     "/images/Lots/LampeBatman.jpg",
     "blabla3",
     null,
-    0,
     0,
     0
 );
@@ -306,37 +290,37 @@ INSERT INTO
 VALUES (
         "Metal Slug",
         "/images/jeux/mslug.jpg",
-        "Tu avances, tires sur les ennemis, évites les attaques, ramasses des bonus et sauves des otages pour avancer dans des niveaux pleins d'action.",
+        "blabla regles",
         0,
         1,
-        "1996-04-19",
+        "2018-07-12",
         1,
-        "Metal Slug est un jeu de tir à défilement latéral bourré d'action, où les joueurs contrôlent des soldats armés jusqu'aux dents pour affronter des hordes d'ennemis dans des niveaux frénétiques. Avec son style rétro, ses graphismes détaillés et son gameplay rapide, c'est un classique intemporel des jeux d'arcade"
+        "blabla description"
     ), (
         "Super Mario Classic",
         "/images/jeux/mario.png",
         "blabla regles",
         0,
         1,
-        "1985-09-13",
+        "2018-07-12",
         1,
-        "Super Mario Classic est un jeu emblématique de plateforme où les joueurs incarnent Mario, sautant et courant à travers des mondes colorés pour sauver la princesse Peach des griffes de Bowser. Avec ses niveaux ingénieux, ses power-ups emblématiques et son gameplay captivant, c'est un pilier de l'histoire des jeux vidéo."
+        "blabla description"
     ), (
         "Defender",
         "/images/jeux/defender.jpg",
         "blabla regles",
         0,
         1,
-        "1980-02-01",
+        "2018-07-12",
         1,
-        "Defender est un jeu de tir spatial classique où les joueurs pilotent un vaisseau spatial, défendant des humains contre des vagues d'extraterrestres dans un environnement à défilement horizontal. Sorti dans les années 80, il est réputé pour sa difficulté élevée, son action rapide et ses mécaniques novatrices pour l'époque."
+        "blabla description"
     ), (
         "Guitar Hero",
         "/images/jeux/guitare_hero.jpg",
         "Contrairement aux jeux musicaux plus traditionnels, dans Guitar Hero, votre objectif est de jouer des morceaux de musique en appuyant sur les boutons correspondants à la guitare. Suivez le rythme de la musique et appuyez sur les bonnes touches pour marquer des points. Plus vous jouez avec précision, plus votre public applaudit et votre performance s'améliore !",
         1,
         1,
-        "2005-11-01",
+        "2005-08-12",
         4,
         "Guitar Hero est une série emblématique de jeux musicaux. Annoncé lors d'un événement spécial, il a été lancé mondialement à la date de sortie. Plongez dans le monde de la musique, défiez vos amis en mode multijoueur, et devenez une rockstar virtuelle !"
     ), (
@@ -345,16 +329,16 @@ VALUES (
         "blabla regles",
         0,
         1,
-        "1995-12-20",
+        "2018-07-12",
         1,
-        "Time Crisis est une série de jeux de tir sur rail en arcade où les joueurs utilisent un pistolet pour éliminer les ennemis tout en prenant des couvertures pour éviter les tirs adverses. Son concept distinctif de gameplay à couverture dynamique, son action intense et ses phases de temps limité en font un jeu de tir apprécié des amateurs d'arcade."
+        "blabla description"
     ), (
         "Sonic Racing",
         "/images/jeux/sonic.jpg",
         "blabla regles",
         0,
         1,
-        "1997-10-18",
+        "2018-07-12",
         1,
         "Sonic Racing est une série de jeux de course mettant en vedette les personnages emblématiques de l'univers Sonic. Les joueurs participent à des courses effrénées, utilisant des power-ups et des compétences uniques pour atteindre la ligne d'arrivée en tête. Avec ses circuits variés, ses modes de jeu divertissants et son hommage à l'univers Sonic, c'est une expérience de course dynamique pour les fans de la franchise."
 
@@ -500,4 +484,4 @@ VALUES (
 
 INSERT INTO
     score (utilisateur_id, jeu_id, points)
-VALUES (1, 2, 3000), (2, 2, 2000), (3, 2, 2000), (1, 1, 5000), (2, 1, 10000), (1, 4, 50), (3, 4, 4000), (8, 4, 5500), (10, 4, 9500), (5, 9, 2000), (3, 9, 899), (8, 9, 400), (4, 15, 450), (1, 15, 3000), (9, 15, 2700), (2, 17, 3240), (6, 17, 5700), (4, 17, 1200);
+VALUES (1, 2, 3000), (2, 2, 2000), (3, 2, 2000), (1, 1, 5000), (2, 1, 10000), (1, 4, 50), (3, 4, 4000), (2, 4, 5000), (10, 4, 9500), (5, 9, 2000), (3, 9, 899), (8, 9, 400), (4, 15, 450), (1, 15, 3000), (9, 15, 2700), (2, 17, 3240), (6, 17, 5700), (4, 17, 1200);

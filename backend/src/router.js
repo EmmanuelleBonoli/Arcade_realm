@@ -75,6 +75,17 @@ router.get("/lot/exchange", lotControllers.readByLotExchange);
 router.get("/lot/:id", lotControllers.read);
 router.get("/lot/win/:id", lotControllers.readByUserId);
 router.post("/lot", upload.single("image"), lotControllers.add);
+
+
+router.post("/utilisateur", utilisateurControllers.add);
+router.post("/login", authControllers.login);
+router.post("/signin", hashPassword, authControllers.signin);
+
+// Route to modify an item
+router.put("/evenement/:id", evenementControllers.edit);
+router.put("/jeu/:id", jeuxControllers.edit);
+router.put("/score/:id", scoreControllers.edit);
+
 router.put("/lot/:id", lotControllers.edit);
 router.delete("/lot/:id", lotControllers.destroy);
 
