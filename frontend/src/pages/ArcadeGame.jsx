@@ -259,7 +259,7 @@ function ArcadeGame() {
             }}
             className="buttonRed"
             src="/images/Jeux_ligne/Boutonrouge2.png"
-            alt="borne arcade en ligne"
+            alt="bouton rouge"
           />
           <audio className="acdcGuitarHero" ref={audio} muted>
             <track kind="captions" />
