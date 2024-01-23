@@ -112,18 +112,18 @@ function AdminCompetition() {
         <div className="adminCompetition">
           <div className="adminCompetition">
             <h2>En attente de déclaration</h2>
-            <div className="podium">
+            <div className="podiumEmpty">
               <p>1</p>
               <p>2</p>
               <p>3</p>
             </div>
-            <div className="podium">
+            <div className="podiumEmpty">
               <p>4</p>
               <p>5</p>
               <p>6</p>
             </div>
             <button onClick={handleNewConcours} type="button">
-              Annoncer des nouveaux vainqueurs !
+              Annoncer les vainqueurs !
             </button>
           </div>
         </div>
