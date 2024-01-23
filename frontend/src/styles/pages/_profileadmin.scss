@@ -113,7 +113,7 @@
           text-align: center;
           img {
             display: initial;
-            // width: 50%;
+            width: 55%;
           }
           p {
             display: none;
@@ -128,12 +128,32 @@
   }
   @media screen and (max-width: 700px) {
     .profileAdmin {
+      .avatar {
+        top: 5%;
+      }
       .adminLayout {
         width: 90vw;
         .buttonsChoice {
-          flex-wrap: wrap;
           padding: 8% 0 4% 0;
           gap: 1vh;
+          a {
+            img {
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .profileAdmin {
+      .adminLayout {
+        .buttonsChoice {
+          a {
+            img {
+              width: 100%;
+            }
+          }
         }
       }
     }

@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <Events />,
       },
       {
-        path: "/gamesonline",
+        path: "/jeuxenligne",
         element: <ArcadeGame2 />,
       },
       {

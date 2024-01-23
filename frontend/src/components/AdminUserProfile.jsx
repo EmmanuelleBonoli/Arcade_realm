@@ -54,7 +54,7 @@ export default function AdminUserProfile() {
   }
 
   return (
-    <div>
+    <div className="adminUserProfile">
       {openDetailsProfile ? (
         <DetailsUserProfile
           detailsProfile={detailsProfile}
