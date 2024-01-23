@@ -8,14 +8,10 @@ function DonneesPerso() {
     useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [userUpdate, setUserUpdate] = useState(userConnected);
-  // const [motDePasseVisible, setMotDePasseVisible] = useState(false);
+
   const [deleteUser, setDeleteUser] = useState(userConnected);
   const [isDeleted, setIsDeleted] = useState(false);
   // const [avatar, setAvatar] = useState(undefined);
-
-  // const toggleMotDePasseVisibility = () => {
-  //   setMotDePasseVisible(!motDePasseVisible);
-  // };
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -31,6 +27,7 @@ function DonneesPerso() {
   const handlelogout = () => {
     setUserConnected(null);
     setAdminOrNot(false);
+    localStorage.removeItem("token");
   };
 
   const handleSubmit = async (e) => {

@@ -97,7 +97,7 @@ export default function Inscription({ onClose }) {
 
           <p>Entrez votre e-mail</p>
           <input
-            type="text"
+            type="email"
             className="pseudo"
             onClick={handleInputClick}
             onChange={(event) => setInputEmail(event.target.value)}
