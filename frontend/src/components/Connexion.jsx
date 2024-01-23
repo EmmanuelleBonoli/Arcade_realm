@@ -31,17 +31,28 @@ export default function Connexion({ onClose }) {
         userlogin
       );
 
-      if (dataUser.data.pseudo !== inputPseudo) {
-        console.error("Incorrect pseudo case. Please enter the correct case.");
-        return;
-      }
-      setUserConnected(dataUser.data);
+      // if (dataUser.data.pseudo !== inputPseudo) {
+      //   console.error("Incorrect pseudo case. Please enter the correct case.");
+      //   return;
+      // }
+
+      setUserConnected(dataUser.data.user);
+      const userLocal = {
+        ...dataUser.data.user,
+        token: dataUser.data.token,
+      };
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          ...userLocal,
+        })
+      );
       if (dataUser.data.admin === 1) {
         setAdminOrNot(true);
       }
       onClose();
     } catch (error) {
-      console.error(error.message);
+      console.error("Incorrect pseudo case. Please enter the correct case.");
     }
   };
 

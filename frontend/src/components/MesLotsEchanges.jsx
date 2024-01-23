@@ -8,11 +8,18 @@ function MesLotsEchanges() {
   const [lots, setLots] = useState([]);
 
   const fetchLot = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       axios
         .get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         )
+
         .then((response) => {
           setLots(response.data);
         })
