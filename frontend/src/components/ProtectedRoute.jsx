@@ -8,27 +8,37 @@ function ProtectedRoute({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const fetchUser = async () => {
-    const user = JSON.parse(localStorage.getItem("token"));
-    if (!user.token) {
-      return navigate("/");
-    }
-    const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}/api/userbytoken`,
-      {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-    );
-
-    setUserConnected(res.data[0]);
-    return res.data[0];
-  };
-
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = JSON.parse(localStorage.getItem("token"));
+        if (!user.token) {
+          navigate("/");
+          return;
+        }
+
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/userbytoken`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+
+        setUserConnected(res.data[0]);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+        navigate("/");
+      }
+    };
+
     fetchUser();
-  }, [location.pathname]);
+
+    // Return a cleanup function to avoid issues with navigating after unmount
+    return () => {};
+  }, [navigate, setUserConnected, location.pathname]);
+
   return children;
 }
 
