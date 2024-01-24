@@ -144,7 +144,7 @@ const getByToken = async (req, res) => {
       res.status(404).send("User not found. Auth doesn't exist");
     }
   } catch (e) {
-    res.status(500).send("Internal server error : " + e);
+    res.status(500).send(`Internal server error : ${e}`);
   }
 };
 

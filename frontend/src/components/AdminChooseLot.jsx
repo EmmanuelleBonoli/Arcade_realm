@@ -49,6 +49,7 @@ function AdminChooseLot({
         win: 1,
         exchange: lot.exchange,
         podium: savePlacePodiumLot,
+        mystery: lot.mystery,
       };
 
       await axios.put(
@@ -160,6 +161,7 @@ AdminChooseLot.propTypes = {
       podium: PropTypes.number.isRequired,
       utilisateur_id: PropTypes.number,
       win: PropTypes.number.isRequired,
+      mystery: PropTypes.number.isRequired,
     })
   ).isRequired,
 };

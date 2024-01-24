@@ -101,6 +101,7 @@ Transfer.propTypes = {
     image: PropTypes.string.isRequired,
     utilisateur_id: PropTypes.number.isRequired,
     win: PropTypes.number.isRequired,
+    mystery: PropTypes.number.isRequired,
   }).isRequired,
   lotNewPlayer: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -110,6 +111,7 @@ Transfer.propTypes = {
     image: PropTypes.string.isRequired,
     utilisateur_id: PropTypes.number.isRequired,
     win: PropTypes.number.isRequired,
+    mystery: PropTypes.number.isRequired,
   }).isRequired,
   playerExchange: PropTypes.shape({
     pseudo: PropTypes.string.isRequired,
