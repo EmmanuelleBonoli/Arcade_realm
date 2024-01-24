@@ -241,7 +241,7 @@ function Echange() {
                   <h1>{userConnected.pseudo}</h1>
                   <div className="lots-user">
                     <div className="lots-scores">
-                      <p>Mes lot à échanger :</p>
+                      <p>Mes lots à échanger :</p>
                       <div className="images-recompense">
                         {lotsWin.map((lot) => (
                           <div className="lotWinPlayer" key={lot.id}>
@@ -281,7 +281,7 @@ function Echange() {
                   />
                   {NotEnoughPoints ? (
                     <p>
-                      Tu n'as pas assez de points, n'hésites pas rejouer à nos
+                      Tu n'as pas assez de points, n'hésites pas à rejouer à nos
                       jeux !
                     </p>
                   ) : (
