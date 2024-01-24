@@ -56,8 +56,10 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   // Extract the item data from the request body
+  const { utilisateurId, jeuId } = req.params;
+
   try {
-    const result = await tables.favoris.delete(req.params.id);
+    const result = await tables.favoris.delete(utilisateurId, jeuId);
     res.status(201).send(result);
   } catch (err) {
     // Pass any errors to the error-handling middleware

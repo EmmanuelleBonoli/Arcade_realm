@@ -12,21 +12,23 @@ function PresentationGame() {
   const param = useParams();
 
   const favoriteUser = async () => {
-    const user = JSON.parse(localStorage.getItem("token"));
-    try {
-      const favorite = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/favoris/${
-          userConnected.id
-        }`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
-      );
-      setUserFavorites(favorite.data);
-    } catch (error) {
-      console.error(error);
+    if (userConnected) {
+      const user = JSON.parse(localStorage.getItem("token"));
+      try {
+        const favorite = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/favoris/${
+            userConnected.id
+          }`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+        setUserFavorites(favorite.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -52,32 +54,47 @@ function PresentationGame() {
   };
 
   const handleFavoriteClick = async (jeuIdSelected) => {
+    const user = JSON.parse(localStorage.getItem("token"));
     if (isFavorite) {
       try {
-        const deleteFavorite = {
-          utilisateurId: userConnected.id,
-          jeuId: jeuIdSelected,
-        };
+        const utilisateurId = userConnected.id;
         await axios.delete(
-          `${import.meta.env.VITE_BACKEND_URL}/api/favoris/${deleteFavorite}`
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/favoris/${utilisateurId}/${jeuIdSelected}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         );
       } catch (error) {
         console.error(error);
       }
-      favoriteUser();
     } else {
-      //     console.error("Échec de la requête POST");
-      //   }
-      // } catch (error) {
-      //   console.error(error);
-      // }
-      // }else{
-      //   //create
+      const NewFavorite = {
+        jeuId: jeuIdSelected,
+        utilisateurId: userConnected.id,
+      };
+      try {
+        await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/favoris`,
+          NewFavorite,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+      } catch (error) {
+        console.error(error);
+      }
     }
+    favoriteUser();
   };
 
   return (
-    <div className="games">
+    <div className="container-games">
       <div className="descGames">
         <h2>Nos Jeux</h2>
         <div className="containerGames">

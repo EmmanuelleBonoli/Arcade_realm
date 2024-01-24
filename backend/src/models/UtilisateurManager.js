@@ -70,6 +70,17 @@ class UtilisateurManager extends AbstractManager {
     return result;
   }
 
+  async getFavoritesGames(id) {
+    const [result] = await this.database.query(
+      `SELECT utilisateur_id AS utilisateurId, jeu_id AS jeuId, jeu.name FROM favoris
+      JOIN ${this.table} ON ${this.table}.id = favoris.utilisateur_id
+      JOIN jeu ON jeu.id = favoris.jeu_id
+      WHERE utilisateur_id = ?`,
+      [id]
+    );
+    return result;
+  }
+
   async getPodium() {
     const [result] = await this.database.query(
       `SELECT * FROM ${this.table} WHERE podium > 0 ORDER BY ${this.table}.podium ASC`
