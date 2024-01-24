@@ -77,7 +77,7 @@ function PresentationGame() {
   };
 
   return (
-    <div className="container-games">
+    <div className="games">
       <div className="descGames">
         <h2>Nos Jeux</h2>
         <div className="containerGames">
@@ -142,18 +142,15 @@ function PresentationGame() {
     </div>
   );
 }
-
 export const loadPresentationGame = async ({ params }) => {
   try {
     const presentationGame = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}/api/jeu/${params.id}`
     );
-
     return presentationGame.data;
   } catch (e) {
     console.error(e);
     return [];
   }
 };
-
 export default PresentationGame;
