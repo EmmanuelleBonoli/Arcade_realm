@@ -48,11 +48,17 @@ export default function JurassicPark({
     if (gameOverJP === true) {
       if (userConnected) {
         const getScore = async () => {
+          const user = JSON.parse(localStorage.getItem("token"));
           try {
             const fetchScore = await axios.get(
               `${import.meta.env.VITE_BACKEND_URL}/api/score/email/${
                 userConnected.id
-              }`
+              }`,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
             setGetScoreUser(fetchScore.data);
           } catch (err) {
@@ -103,7 +109,11 @@ export default function JurassicPark({
               `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
                 userConnected.id
               }`,
-              NewUser
+              NewUser,{
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
           } catch (err) {
             console.error(err);
