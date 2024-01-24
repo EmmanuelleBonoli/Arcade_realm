@@ -48,11 +48,17 @@ export default function JurassicPark({
     if (gameOverJP === true) {
       if (userConnected) {
         const getScore = async () => {
+          const user = JSON.parse(localStorage.getItem("token"));
           try {
             const fetchScore = await axios.get(
               `${import.meta.env.VITE_BACKEND_URL}/api/score/email/${
                 userConnected.id
-              }`
+              }`,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
             setGetScoreUser(fetchScore.data);
           } catch (err) {
@@ -71,6 +77,7 @@ export default function JurassicPark({
       );
       if (tmpScore.length === 0) {
         const postScore = async () => {
+          const user = JSON.parse(localStorage.getItem("token"));
           try {
             const NewScore = {
               utilisateurId: userConnected.id,
@@ -88,16 +95,26 @@ export default function JurassicPark({
               podium: userConnected.podium,
               tickets: userConnected.tickets,
             };
-
+            const userA = JSON.parse(localStorage.getItem("token"));
             await axios.post(
               `${import.meta.env.VITE_BACKEND_URL}/api/score`,
-              NewScore
+              NewScore,
+              {
+                headers: {
+                  Authorization: `Bearer ${userA.token}`,
+                },
+              }
             );
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
                 userConnected.id
               }`,
-              NewUser
+              NewUser,
+              {
+                headers: {
+                  Authorization: `Bearer ${userA.token}`,
+                },
+              }
             );
           } catch (err) {
             console.error(err);
@@ -127,13 +144,23 @@ export default function JurassicPark({
               `${import.meta.env.VITE_BACKEND_URL}/api/score/${
                 tmpScore[0].ScoreId
               }`,
-              UpdatedScore
+              UpdatedScore,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
                 userConnected.id
               }`,
-              NewUser
+              NewUser,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
           } catch (err) {
             console.error(err);

@@ -11,9 +11,15 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
   const [lotsWin, setlotsWin] = useState([]);
 
   const getUser = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const fetchUser = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${detailsProfile}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${detailsProfile}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setUserDetails(fetchUser.data[0]);
     } catch (err) {
@@ -21,9 +27,15 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
     }
   };
   const getLots = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const fetchLots = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${detailsProfile}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${detailsProfile}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setlotsWin(fetchLots.data);
     } catch (err) {
@@ -37,9 +49,15 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
   }, []);
 
   const handleDeleteLots = async (lotId) => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lotId}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lotId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setlotsWin(lotsWin.filter((lot) => lot.id !== lotId));
     } catch (err) {
@@ -48,6 +66,7 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
   };
 
   const handleAddTickets = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const NewUser = {
         pseudo: userDetails.pseudo,
@@ -61,7 +80,12 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
 
       await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userDetails.id}`,
-        NewUser
+        NewUser,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
     } catch (err) {
       console.error(err);
@@ -70,6 +94,7 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
   };
 
   const handleDeleteTickets = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const NewUser = {
         pseudo: userDetails.pseudo,
@@ -83,7 +108,12 @@ function DetailsUserProfile({ setOpenDetailsProfile, detailsProfile }) {
 
       await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userDetails.id}`,
-        NewUser
+        NewUser,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
     } catch (err) {
       console.error(err);

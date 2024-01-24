@@ -54,9 +54,15 @@ function ArcadeGame() {
 
   useEffect(() => {
     const getScoresGamesOnline = async () => {
+      const user = JSON.parse(localStorage.getItem("token"));
       try {
         const fetchScoresGames = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/jeu/online/scores`
+          `${import.meta.env.VITE_BACKEND_URL}/api/jeu/online/scores`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         );
         setBestScoresOnline(fetchScoresGames.data);
       } catch (err) {

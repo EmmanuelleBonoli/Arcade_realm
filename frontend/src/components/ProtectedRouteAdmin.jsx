@@ -7,7 +7,6 @@ function ProtectedRoute({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-
     if (userConnected.admin !== 1) {
       navigate("/");
     }

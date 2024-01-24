@@ -48,7 +48,7 @@ export default function Connexion({ onClose }) {
           ...userLocal,
         })
       );
-      if (dataUser.data.admin === 1) {
+      if (dataUser.data.user.admin === 1) {
         setAdminOrNot(true);
       }
       onClose();
