@@ -42,11 +42,17 @@ router.post("/signin", hashPassword, authControllers.signin);
 
 // Route to get a list of items
 router.get("/evenement", evenementControllers.browse);
+router.get("/jeu", jeuxControllers.browse);
+router.get("/score", scoreControllers.browse);
+router.get("/lot", lotControllers.browse);
+router.get("/utilisateur", utilisateurControllers.browse);
+router.get("/lot/disponible", lotControllers.readByLotAvailable);
+router.get("/lot/exchange", lotControllers.readByLotExchange);
+router.get("/lot/mystery", lotControllers.readByLotMystery);
 router.get("/evenement/:id", evenementControllers.read);
 router.post("/evenement", evenementControllers.add);
 router.put("/evenement/:id", evenementControllers.edit);
 router.delete("/evenement/:id", evenementControllers.destroy);
-
 router.get("/jeu/online", jeuxControllers.browseOnline);
 //
 router.get("/jeu", jeuxControllers.browse);
@@ -64,9 +70,9 @@ router.get("/score", scoreControllers.browse);
 router.get("/score/:id", scoreControllers.read);
 router.get("/score/email/:id", scoreControllers.readByUserId);
 router.post("/score", scoreControllers.add);
+router.post("/lot/mystery", lotControllers.addMystery);
 router.put("/score/:id", scoreControllers.edit);
 router.delete("/score/:id", scoreControllers.destroy);
-
 //
 router.get("/lot", lotControllers.browse);
 router.get("/lot/disponible", lotControllers.readByLotAvailable);
