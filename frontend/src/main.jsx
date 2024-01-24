@@ -20,12 +20,9 @@ import AdminUserProfile from "./components/AdminUserProfile";
 import MesLotsEchanges from "./components/MesLotsEchanges";
 import MesJeuxFavoris from "./components/MesJeuxFavoris";
 import ProtectedRoute from "./components/ProtectedRoute";
-<<<<<<< HEAD
 import PresentationDisplayGames from "./components/PresentationDisplayGames";
-=======
 import ArcadeGame2 from "./pages/ArcadeGame";
 import AdminCompetition from "./components/AdminCompetition";
->>>>>>> b8c2ead70b60190e5fdee71c927a360894d22d6b
 
 const router = createBrowserRouter([
   {

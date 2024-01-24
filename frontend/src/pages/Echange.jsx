@@ -6,7 +6,7 @@ import LotSelection from "../components/LotSelection";
 import Transfer from "../components/Transfer";
 
 function Echange() {
-  const { userConnected, setUserConnected } = useContext(UserContext);
+  const { userConnected } = useContext(UserContext);
   const [lotsWin, setLotsWin] = useState([]);
   const [lotsAvailable, setLotsAvailable] = useState([]);
   const [selectedLotsWin, setSelectedLotsWin] = useState([]);
@@ -72,7 +72,7 @@ function Echange() {
               selectedLotAvailableObject.utilisateur_id
             }`
           );
-          setPlayerExchange(fetchPlayer.data[0].points);
+          setPlayerExchange(fetchPlayer.data[0]);
         } catch (err) {
           console.error(err);
         }
@@ -94,6 +94,7 @@ function Echange() {
           utilisateurId: playerExchange.id,
           win: lotOldPlayer.win,
           exchange: 0,
+          podium: lotOldPlayer.podium,
         };
 
         const updatedNewLot = {
@@ -103,6 +104,7 @@ function Echange() {
           utilisateurId: userConnected.id,
           win: lotNewPlayer.win,
           exchange: 0,
+          podium: lotNewPlayer.podium,
         };
 
         try {
@@ -141,16 +143,17 @@ function Echange() {
 
   function handleBuyMysteryBox() {
     if (userConnected && pointsUser) {
-      if (pointsUser >= 50000) {
+      if (pointsUser.points >= 50000) {
         const buyMystery = async () => {
           const updatedUser = {
             id: userConnected.id,
             pseudo: userConnected.pseudo,
             email: userConnected.email,
-            password: userConnected.password,
             image: userConnected.image,
             admin: userConnected.admin,
             points: userConnected.points - 50000,
+            podium: userConnected.podium,
+            tickets: userConnected.tickets,
           };
 
           try {
@@ -160,7 +163,7 @@ function Echange() {
               }`,
               updatedUser
             );
-            setUserConnected(updatedUser);
+            loadLotsAvailable();
           } catch (err) {
             console.error(err);
           }
@@ -168,11 +171,10 @@ function Echange() {
         buyMystery();
       } else {
         setNotEnoughPoints(true);
-        setTimeout(() => setNotEnoughPoints(false), 2500);
+        setTimeout(() => setNotEnoughPoints(false), 3000);
       }
     }
   }
-
   return (
     <div>
       {userConnected ? (
@@ -195,37 +197,6 @@ function Echange() {
                     <img src="/images/Utilisateur/retour.png" alt="retour" />
                     Retour à mon profil
                   </div>
-<<<<<<< HEAD
-                </div>
-                <div className="gl-trait-echange">
-                  <div className="trait-echange" />
-                </div>
-                <div className="user-score">
-                  <p>
-                    <strong>Score : </strong>
-                  </p>
-                  <p>24 500 pts</p>
-                </div>
-              </div>
-            </div>
-            <div className="image-echangeur">
-              <img src="images/Utilisateur/echangeur.png" alt="echangeur" />
-            </div>
-            <div className="echange-joueur">
-              <div className="Joueurs-p1">
-                <h1>Joueurs</h1>
-                <p>Les lots disponibles :</p>
-                <div className="lots-disponibles">
-                  <div className="images-echange">
-                    <img src="images/SuperNes3.png" alt="" />
-                    <div className="elispe-coché-echange">
-                      <img
-                        src={lotSelected}
-                        onClick={handleSelect2}
-                        alt="coche échange"
-                        role="presentation"
-                      />
-=======
                 </NavLink>
                 <div className="mes-lots">
                   <h1>{userConnected.pseudo}</h1>
@@ -259,7 +230,6 @@ function Echange() {
                         <strong>Score : </strong>
                       </p>
                       <p>{pointsUser.points} pts</p>
->>>>>>> b8c2ead70b60190e5fdee71c927a360894d22d6b
                     </div>
                   </div>
                 </div>

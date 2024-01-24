@@ -458,6 +458,7 @@ VALUES (
 
 INSERT INTO
     favoris (utilisateur_id, jeu_id, favori)
+    VALUES (1,1,1), (1,2,1);
 
 INSERT INTO
     score (utilisateur_id, jeu_id, points)

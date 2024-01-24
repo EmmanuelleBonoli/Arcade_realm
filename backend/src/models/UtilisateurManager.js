@@ -59,6 +59,16 @@ class UtilisateurManager extends AbstractManager {
     );
     return result;
   }
+
+  async getFavorites(id) {
+    const [result] = await this.database.query(
+      `SELECT * FROM favoris
+      JOIN ${this.table}.id = favoris.utilisateur_id
+      WHERE utilisateur_id = ?`,
+      [id]
+    );
+    return result;
+  }
 }
 
 module.exports = UtilisateurManager;

@@ -35,6 +35,7 @@ const lotControllers = require("./controllers/lotControllers");
 const scoreControllers = require("./controllers/scoreControllers");
 const utilisateurControllers = require("./controllers/utilisateurControllers");
 const authControllers = require("./controllers/authControllers");
+const favorisController = require("./controllers/favorisControllers");
 
 // Route to get a list of items
 router.get("/evenement", evenementControllers.browse);
@@ -46,6 +47,7 @@ router.get("/lot/disponible", lotControllers.readByLotAvailable);
 router.get("/lot/exchange", lotControllers.readByLotExchange);
 router.get("/jeu/online", jeuxControllers.browseOnline);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
+router.get("/utilisateur/favoris/:id", utilisateurControllers.getFavorites);
 
 // Route to get a specific item by ID
 router.get("/evenement/:id", evenementControllers.read);
@@ -60,8 +62,8 @@ router.get("/score/email/:id", scoreControllers.readByUserId);
 router.post("/evenement", evenementControllers.add);
 router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
-
 router.post("/lot", upload.single("image"), lotControllers.add);
+router.post("/favoris", favorisController.createOrUpdateFavorite);
 
 // router.post("/utilisateur", utilisateurControllers.add);
 router.post("/login", authControllers.login);
