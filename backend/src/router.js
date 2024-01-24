@@ -66,7 +66,10 @@ router.put("/jeu/:id", jeuxControllers.edit);
 router.delete("/jeu/:id", jeuxControllers.destroy);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
 router.get("/utilisateur/favoris/:id", utilisateurControllers.getFavorites);
-
+router.get(
+  "/utilisateur/favoris/game/:id",
+  utilisateurControllers.getFavoritesGames
+);
 //
 router.get("/score", scoreControllers.browse);
 router.get("/score/:id", scoreControllers.read);
@@ -91,7 +94,6 @@ router.get("/jeu/:id", jeuxControllers.read);
 router.get("/score/:id", scoreControllers.read);
 router.get("/lot/:id", lotControllers.read);
 router.get("/lot/win/:id", lotControllers.readByUserId);
-router.post("/favoris", favorisControllers.createOrUpdateFavorite);
 router.get("/score/email/:id", scoreControllers.readByUserId);
 
 // Route to add a new item
@@ -120,7 +122,8 @@ router.get("/utilisateur/topPlayers", utilisateurControllers.getTopPlayers);
 router.get("/utilisateur/:id", utilisateurControllers.read);
 router.put("/utilisateur/:id", utilisateurControllers.edit);
 router.delete("/utilisateur/:id", utilisateurControllers.destroy);
-router.delete("/favoris/:id", favorisControllers.destroy);
+router.delete("/favoris/:utilisateurId/:jeuId", favorisControllers.destroy);
+router.post("/favoris", favorisControllers.add);
 
 /* ************************************************************************* */
 router.get("/userbytoken", utilisateurControllers.getByToken);
