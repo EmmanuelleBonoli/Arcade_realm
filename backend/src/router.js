@@ -56,6 +56,7 @@ router.put("/evenement/:id", evenementControllers.edit);
 router.delete("/evenement/:id", evenementControllers.destroy);
 router.get("/jeu/online", jeuxControllers.browseOnline);
 router.get("/utilisateur/podium", utilisateurControllers.getPodium);
+router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
 
 //
 router.get("/jeu", jeuxControllers.browse);
@@ -86,7 +87,6 @@ router.get("/lot/disponible", lotControllers.readByLotAvailable);
 router.get("/lot/exchange", lotControllers.readByLotExchange);
 router.get("/lot/mystery", lotControllers.readByLotMystery);
 router.get("/jeu/online", jeuxControllers.browseOnline);
-router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
 router.get("/utilisateur/podium", utilisateurControllers.getPodium);
 router.get("/utilisateur/topPlayers", utilisateurControllers.getTopPlayers);
 
