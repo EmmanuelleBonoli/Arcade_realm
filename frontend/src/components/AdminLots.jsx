@@ -96,39 +96,82 @@ function AdminLots() {
           savePlacePodiumLot={savePlacePodiumLot}
         />
       )}
-      <h2>Les lots à gagner</h2>
-      <div className="allLots">
-        <div
-          className="itemServices addBox"
-          onClick={openUploadLotModal}
-          role="presentation"
-        >
-          <img
-            className="add"
-            src="/images/Utilisateur/plus.png"
-            alt="ajout doc"
-          />
+      <div className="lotsUploads">
+        <div className="allLots">
+          <h2>Les lots à gagner</h2>
+          <div className="displayLotsAvailables">
+            <div
+              className="itemServices addBox"
+              onClick={openUploadLotModal}
+              role="presentation"
+            >
+              <img
+                className="add"
+                src="/images/Utilisateur/plus.png"
+                alt="ajout doc"
+              />
+            </div>
+            {dataLots
+              .filter((lotfilter) => lotfilter.win === 0)
+              .map((lot) => {
+                return (
+                  <div className="itemServices" key={lot.id}>
+                    <img
+                      className="lots"
+                      src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                      alt="jeux"
+                    />
+                    <img
+                      className="suppr"
+                      src="/images/Utilisateur/delete.png"
+                      alt="suppr"
+                      onClick={() => handleDeleteLots(lot.id)}
+                      role="presentation"
+                    />
+                  </div>
+                );
+              })}
+          </div>
         </div>
-        {dataLots
-          .filter((lotfilter) => lotfilter.win === 0)
-          .map((lot) => {
-            return (
-              <div className="itemServices" key={lot.id}>
+        <div className="allLots">
+          <h2>Mystery Box</h2>
+          <div className="displayLotsAvailables">
+            {dataLots
+              .filter((lotfilter) => lotfilter.mystery === 1)
+              .map((lot) => {
+                return (
+                  <div className="itemServices" key={lot.id}>
+                    <img
+                      className="lots"
+                      src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                      alt="jeux"
+                    />
+                    <img
+                      className="suppr"
+                      src="/images/Utilisateur/delete.png"
+                      alt="suppr"
+                      onClick={() => handleDeleteLots(lot.id)}
+                      role="presentation"
+                    />
+                  </div>
+                );
+              })}
+            {dataLots.filter((lotfilter) => lotfilter.mystery === 1).length ===
+              0 && (
+              <div
+                className="itemServices addBox"
+                onClick={() => openChooseLotModal(1)}
+                role="presentation"
+              >
                 <img
-                  className="lots"
-                  src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
-                  alt="jeux"
-                />
-                <img
-                  className="suppr"
-                  src="/images/Utilisateur/delete.png"
-                  alt="suppr"
-                  onClick={() => handleDeleteLots(lot.id)}
-                  role="presentation"
+                  className="add"
+                  src="/images/Utilisateur/plus.png"
+                  alt="ajout doc"
                 />
               </div>
-            );
-          })}
+            )}
+          </div>
+        </div>
       </div>
       <h2>Les lots du podium</h2>
       <div className="podium">

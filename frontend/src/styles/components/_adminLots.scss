@@ -8,50 +8,61 @@
 
   h2 {
     font-family: var(--primary-font);
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--fourth-color);
     text-align: center;
   }
-  .allLots {
+  .lotsUploads {
     display: flex;
-    align-items: center;
-    gap: 3%;
-    padding: 1%;
-
-    .itemServices {
-      width: 20%;
-      height: 100%;
-      border: 2px solid white;
-      border-radius: 5px;
+    width: 100%;
+    .allLots {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background-color: black;
-      color: var(--fourth-color);
-      font-family: var(--primary-font);
-      font-size: 8rem;
-      position: relative;
+      width: 100%;
+      gap: 3%;
 
-      .lots {
-        width: 90%;
-        object-fit: contain;
-      }
-    }
-    .suppr {
-      position: absolute;
-      top: -15px;
-      right: -7px;
-      height: 15px;
-      cursor: pointer;
-    }
-    .addBox {
-      cursor: pointer;
-      width: 20%;
-      height: 100%;
+      .displayLotsAvailables {
+        display: flex;
+        justify-content: center;
+        width: 50%;
 
-      .add {
-        height: 45%;
-        width: 45%;
+        .itemServices {
+          width: 80%;
+          height: 100%;
+          border: 2px solid white;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: black;
+          color: var(--fourth-color);
+          font-family: var(--primary-font);
+          font-size: 8rem;
+          position: relative;
+
+          .lots {
+            width: 90%;
+            object-fit: contain;
+          }
+        }
+        .suppr {
+          position: absolute;
+          top: -15px;
+          right: -7px;
+          height: 15px;
+          cursor: pointer;
+        }
+        .addBox {
+          cursor: pointer;
+          width: 20%;
+          height: 100%;
+
+          .add {
+            height: 45%;
+            width: 45%;
+          }
+        }
       }
     }
   }
