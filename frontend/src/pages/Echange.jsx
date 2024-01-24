@@ -4,6 +4,7 @@ import axios from "axios";
 import UserContext from "../contexts/UserContext";
 import LotSelection from "../components/LotSelection";
 import Transfer from "../components/Transfer";
+import EchangeMysteryBox from "../components/EchangeMysteryBox";
 
 function Echange() {
   const { userConnected } = useContext(UserContext);
@@ -18,6 +19,8 @@ function Echange() {
   const [playerExchange, setPlayerExchange] = useState({});
   const [pointsUser, setPointsUser] = useState(0);
   const [NotEnoughPoints, setNotEnoughPoints] = useState(false);
+  const [buyMystery, setBuyMystery] = useState(false);
+  const [lotMystery, setLotMystery] = useState([]);
 
   const loadLotsWin = async () => {
     const user = JSON.parse(localStorage.getItem("token"));
@@ -31,6 +34,17 @@ function Echange() {
         }
       );
       setLotsWin(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const loadLotMystery = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/mystery`
+      );
+      setLotMystery(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -68,6 +82,7 @@ function Echange() {
     if (userConnected) {
       loadLotsWin();
       loadLotsAvailable();
+      loadLotMystery();
     }
   }, []);
 
@@ -118,6 +133,7 @@ function Echange() {
           win: lotOldPlayer.win,
           exchange: 0,
           podium: lotOldPlayer.podium,
+          mystery: lotOldPlayer.mystery,
         };
 
         const updatedNewLot = {
@@ -128,6 +144,7 @@ function Echange() {
           win: lotNewPlayer.win,
           exchange: 0,
           podium: lotNewPlayer.podium,
+          mystery: lotNewPlayer.mystery,
         };
         const user = JSON.parse(localStorage.getItem("token"));
         try {
@@ -177,7 +194,8 @@ function Echange() {
   function handleBuyMysteryBox() {
     if (userConnected && pointsUser) {
       if (pointsUser.points >= 50000) {
-        const buyMystery = async () => {
+        setBuyMystery(true);
+        const buyMysteryBox = async () => {
           const updatedUser = {
             id: userConnected.id,
             pseudo: userConnected.pseudo,
@@ -187,6 +205,28 @@ function Echange() {
             points: userConnected.points - 50000,
             podium: userConnected.podium,
             tickets: userConnected.tickets,
+          };
+
+          const updatedMystery = {
+            name: lotMystery[0].name,
+            image: lotMystery[0].image,
+            description: lotMystery[0].description,
+            utilisateurId: userConnected.id,
+            win: 1,
+            exchange: 0,
+            podium: lotMystery[0].podium,
+            mystery: 0,
+          };
+
+          const createNewMystery = {
+            name: lotMystery[0].name,
+            image: lotMystery[0].image,
+            description: lotMystery[0].description,
+            utilisateurId: null,
+            win: 1,
+            exchange: 0,
+            podium: 0,
+            mystery: 1,
           };
 
           const user = JSON.parse(localStorage.getItem("token"));
@@ -202,12 +242,26 @@ function Echange() {
                 },
               }
             );
-            loadLotsAvailable();
+
+            await axios.put(
+              `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lotMystery[0].id}`,
+              updatedMystery
+            );
+
+            await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}/api/lot/mystery`,
+              createNewMystery
+            );
           } catch (err) {
             console.error(err);
           }
         };
-        buyMystery();
+        buyMysteryBox();
+        setTimeout(() => {
+          setBuyMystery(false);
+          loadLotsWin();
+          loadLotsAvailable();
+        }, 8000);
       } else {
         setNotEnoughPoints(true);
         setTimeout(() => setNotEnoughPoints(false), 3000);
@@ -222,13 +276,16 @@ function Echange() {
             <track kind="captions" />
             <source src="/sons/EchangeLot.mp3" type="audio/mp3" />
           </audio>
-          {transfer ? (
+          {transfer && !buyMystery ? (
             <Transfer
               playerExchange={playerExchange}
               lotOldPlayer={lotOldPlayer}
               lotNewPlayer={lotNewPlayer}
             />
           ) : (
+            ""
+          )}
+          {!transfer && !buyMystery ? (
             <div className="home-echange">
               <div className="container-echange">
                 <NavLink to="/profilutilisateur">
@@ -327,7 +384,7 @@ function Echange() {
                       src="/images/Utilisateur/mystery_box.png"
                       alt="mystery_box"
                       role="presentation"
-                      onClick={handleBuyMysteryBox}
+                      onClick={() => handleBuyMysteryBox()}
                     />
                     <p>50 000 pts</p>
                   </div>
@@ -342,6 +399,13 @@ function Echange() {
                 />
               </div>
             </div>
+          ) : (
+            ""
+          )}
+          {!transfer && buyMystery ? (
+            <EchangeMysteryBox lotMystery={lotMystery} />
+          ) : (
+            ""
           )}
         </div>
       ) : (
