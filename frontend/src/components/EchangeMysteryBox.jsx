@@ -7,9 +7,6 @@ function EchangeMysteryBox({ lotMystery }) {
   const [displayLotMystery, setDisplayLotMystery] = useState("lotMystery");
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   setDisplayMario("mario");
-    // }, 1000);
     setTimeout(() => {
       setDisplayMario("mario2");
     }, 2000);

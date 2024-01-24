@@ -309,7 +309,7 @@ VALUES
     "/images/Lots/chateauPoudlard.png",
     "blabla3",
     null,
-    0,
+    1,
     0,
     0,
     1

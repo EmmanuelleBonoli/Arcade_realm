@@ -190,7 +190,7 @@ function Echange() {
             image: lotMystery[0].image,
             description: lotMystery[0].description,
             utilisateurId: null,
-            win: 0,
+            win: 1,
             exchange: 0,
             podium: 0,
             mystery: 1,
