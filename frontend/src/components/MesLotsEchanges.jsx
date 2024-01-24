@@ -9,6 +9,7 @@ function MesLotsEchanges() {
 
   const fetchLot = async () => {
     const user = JSON.parse(localStorage.getItem("token"));
+
     try {
       axios
         .get(
@@ -36,7 +37,7 @@ function MesLotsEchanges() {
 
   async function handleStartExchange(lot) {
     let updatedExchangeLot = {};
-
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       if (lot.exchange === 1) {
         updatedExchangeLot = {
@@ -62,7 +63,12 @@ function MesLotsEchanges() {
 
       await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
-        updatedExchangeLot
+        updatedExchangeLot,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
 
       fetchLot();

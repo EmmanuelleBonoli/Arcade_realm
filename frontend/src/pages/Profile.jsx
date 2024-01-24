@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ProfileAdmin from "./ProfileAdmin";
 import ProfileUser from "./ProfileUser";
 import UserContext from "../contexts/UserContext";
-import ProtectedRouteAdmin from "../components/ProtectedRouteAdmin";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 function Profile() {
   const { userConnected, adminOrNot } = useContext(UserContext);
@@ -13,9 +13,9 @@ function Profile() {
 
   if (userConnected) {
     return adminOrNot ? (
-      <ProtectedRouteAdmin>
+      <ProtectedRoute>
         <ProfileAdmin />
-      </ProtectedRouteAdmin>
+      </ProtectedRoute>
     ) : (
       <ProfileUser />
     );

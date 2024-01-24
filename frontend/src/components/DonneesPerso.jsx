@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
 function DonneesPerso() {
+  const navigate = useNavigate();
   const { userConnected, setUserConnected, setAdminOrNot } =
     useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
@@ -32,10 +33,16 @@ function DonneesPerso() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const userUpdated = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userUpdate.id}`,
-        userUpdate
+        userUpdate,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
 
       setUserConnected(userUpdated.data);
@@ -44,14 +51,19 @@ function DonneesPerso() {
       console.error(err);
     }
   };
-
   const handleDeleteProfil = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const deletedUser = await axios.delete(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${deleteUser.id}`,
-        deleteUser
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setDeleteUser(deletedUser.data);
+      navigate("/contact");
     } catch (err) {
       console.error(err);
     }

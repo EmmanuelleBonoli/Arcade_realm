@@ -15,9 +15,15 @@ function AdminChooseLot({
 
   useEffect(() => {
     const getPodium = async () => {
+      const user = JSON.parse(localStorage.getItem("token"));
       try {
         const fetchUsers = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/podium`
+          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/podium`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         );
         setUsersPodium(fetchUsers.data);
       } catch (error) {
@@ -28,6 +34,7 @@ function AdminChooseLot({
   }, []);
 
   const handleSaveLotPodium = async (lot) => {
+    const userA = JSON.parse(localStorage.getItem("token"));
     const winningUser = usersPodium.find(
       (user) => user.podium === savePlacePodiumLot
     );
@@ -46,7 +53,12 @@ function AdminChooseLot({
 
       await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
-        updatedLot
+        updatedLot,
+        {
+          headers: {
+            Authorization: `Bearer ${userA.token}`,
+          },
+        }
       );
     } catch (err) {
       console.error(err);

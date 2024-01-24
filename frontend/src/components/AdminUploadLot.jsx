@@ -14,6 +14,7 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const formData = new FormData();
 
@@ -22,7 +23,15 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
       formData.append("disponible", false);
       formData.append("image", file);
 
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/lot`, formData);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       setResetUploadLot(!resetUploadLot);
       onClose();
     } catch (err) {
