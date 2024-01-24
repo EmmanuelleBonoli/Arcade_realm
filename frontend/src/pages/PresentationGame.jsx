@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
 function PresentationGame() {
@@ -9,49 +9,75 @@ function PresentationGame() {
   const [isFavorite, setIsFavorite] = useState(false);
   const { userConnected } = useContext(UserContext);
   const [userFavorites, setUserFavorites] = useState([]);
+  const param = useParams();
 
-  useEffect(() => {
-    const favoriteUser = async () => {
-      try {
-        const favorite = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/favoris/${userConnected.id}`
-        );
-        setUserFavorites(favorite.data);
-        console.log(favorite.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    favoriteUser();
-  }, []);
-
-  const handleBackClick = () => {
-    navigate(-1);
-  };
-
-  const handleFavoriteClick = async () => {
+  const favoriteUser = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/favoris`,
+      const favorite = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/favoris/${
+          userConnected.id
+        }`,
         {
-          utilisateurId: userConnected.id,
-          jeuId: game[0].id,
-          favori: !isFavorite,
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
         }
       );
-
-      if (response.status === 200) {
-        setIsFavorite((prevState) => !prevState);
-      } else {
-        console.error("Échec de la requête POST");
-      }
+      setUserFavorites(favorite.data);
     } catch (error) {
       console.error(error);
     }
   };
 
+  useEffect(() => {
+    favoriteUser();
+  }, []);
+
+  useEffect(() => {
+    if (userFavorites.length > 0) {
+      const resultat = userFavorites.find(
+        (jeu) => jeu.jeuId.toString() === param.id
+      );
+      if (resultat) {
+        setIsFavorite(true);
+      } else {
+        setIsFavorite(false);
+      }
+    }
+  }, [userFavorites]);
+
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
+  const handleFavoriteClick = async (jeuIdSelected) => {
+    if (isFavorite) {
+      try {
+        const deleteFavorite = {
+          utilisateurId: userConnected.id,
+          jeuId: jeuIdSelected,
+        };
+        await axios.delete(
+          `${import.meta.env.VITE_BACKEND_URL}/api/favoris/${deleteFavorite}`
+        );
+      } catch (error) {
+        console.error(error);
+      }
+      favoriteUser();
+    } else {
+      //     console.error("Échec de la requête POST");
+      //   }
+      // } catch (error) {
+      //   console.error(error);
+      // }
+      // }else{
+      //   //create
+    }
+  };
+
   return (
-    <div className="games">
+    <div className="container-games">
       <div className="descGames">
         <h2>Nos Jeux</h2>
         <div className="containerGames">
@@ -75,21 +101,27 @@ function PresentationGame() {
               className="secondimage"
             />
             <div className="descriptionGames">
-              <label htmlFor="favoriteButton"> </label>
-              <button
+              {/* <label htmlFor="favoriteButton"> </label> */}
+              {/* <button
                 type="button"
                 id="favoriteButton"
-                onClick={handleFavoriteClick}
-              >
+           
+              > */}
+              {userFavorites && (
                 <img
+                  onClick={() => handleFavoriteClick(param.id)}
+                  role="presentation"
                   src={
                     isFavorite
-                      ? "../images/Utilisateur/heartnotfavorite.png" // Vérifiez le chemin de l'image
-                      : "../images/Utilisateur/heartFavorite.png" // Vérifiez le chemin de l'image
+                      ? "/images/Utilisateur/heartFavorite.png"
+                      : "/images/Utilisateur/heartnotfavorite.png"
                   }
                   alt=""
                 />
-              </button>
+              )}
+
+              {/* </button> */}
+              {/* <img src="../images/Utilisateur/heartFavorite.png" alt="" /> */}
 
               <p>
                 <strong>Nom :</strong> {game[0].name}

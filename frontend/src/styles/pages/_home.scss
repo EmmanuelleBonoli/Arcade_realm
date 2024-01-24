@@ -281,6 +281,15 @@
 @media screen and (max-width: 1024px) {
   .HomePage {
     .Carouselle {
+      .control-arrow.control-next {
+        height: 130%;
+        padding: 0 10px 0 10px;
+        background-color: rgba(255, 255, 255, 0);
+      }
+      .control-arrow.control-prev {
+        height: 130%;
+        background-color: rgba(255, 255, 255, 0);
+      }
       .Int-carouselle {
         width: 80%;
       }
@@ -296,6 +305,16 @@
           font-size: 1.8rem;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 907px) {
+  .HomePage {
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: var(--spacing);
     }
   }
 }
@@ -316,8 +335,12 @@
         width: 80%;
         .npm-Carouselle {
           height: 100%;
+          .carousel-slider {
+            height: 100%;
+          }
           .Carouselle-1 {
-            padding-top: calc((100% - 88%) / 2);
+            padding-top: calc((100% - 85%) / 2);
+            height: 100%;
             .text-evenements {
               h1 {
                 font-size: 1.8rem;
@@ -329,7 +352,8 @@
             }
           }
           .Carouselle-2 {
-            padding-top: calc((100% - 95%) / 2);
+            padding-top: calc((100% - 85%) / 2);
+            height: 100%;
             h1 {
               font-size: 1.8rem;
             }
@@ -338,7 +362,7 @@
             }
           }
           .Carouselle-3 {
-            padding-top: calc((100% - 95%) / 2);
+            padding-top: calc((100% - 85%) / 2);
             .text-contact {
               h1 {
                 font-size: 2rem;
@@ -353,21 +377,47 @@
       }
     }
     .presentation {
+      flex-direction: column;
       .titre-texte {
-        padding-left: 7%;
-        width: 70%;
+        padding: 0 7% 0 7%;
+        width: 100%;
         h1 {
           font-size: 2.5rem;
         }
         p {
-          font-size: 1.4rem;
+          font-size: 1.8rem;
         }
       }
+      .metal-texte {
+        width: 80%;
+        justify-content: start;
+        text-align: center;
+        padding-left: calc(var(--spacing) + 30px);
+        gap: 20px;
+      }
+      .cards {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+      }
     }
-    .cards {
+  }
+}
+
+@media screen and (max-width: 696px) {
+  .HomePage {
+    .presentation {
       flex-direction: column;
-      align-items: center;
-      row-gap: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .HomePage {
+    .presentation {
+      p {
+        font-size: 1.8rem;
+      }
     }
   }
 }
@@ -405,7 +455,7 @@
             }
           }
           .Carouselle-2 {
-            padding: 0;
+            padding-top: calc((100% - 80%) / 2);
             h1 {
               font-size: 1.8rem;
             }
@@ -414,7 +464,7 @@
             }
           }
           .Carouselle-3 {
-            padding: 0;
+            padding-top: calc((100% - 75%) / 2);
             .text-contact {
               width: 100%;
               h1 {
@@ -450,7 +500,6 @@
       }
       .metal-texte {
         width: 100%;
-        justify-content: end;
         text-align: center;
         padding: 0;
         gap: 20px;

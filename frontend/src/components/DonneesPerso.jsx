@@ -1,20 +1,18 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
 function DonneesPerso() {
-  const { userConnected, setUserConnected } = useContext(UserContext);
+  const navigate = useNavigate();
+  const { userConnected, setUserConnected, setAdminOrNot } =
+    useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [userUpdate, setUserUpdate] = useState(userConnected);
-  const [motDePasseVisible, setMotDePasseVisible] = useState(false);
+
   const [deleteUser, setDeleteUser] = useState(userConnected);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [avatar, setAvatar] = useState(undefined);
-
-  const toggleMotDePasseVisibility = () => {
-    setMotDePasseVisible(!motDePasseVisible);
-  };
+  // const [avatar, setAvatar] = useState(undefined);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -24,38 +22,48 @@ function DonneesPerso() {
     setIsDeleted(true);
   };
   const handleCancelDelete = () => {
-    // Effectuer l'action souhaitée, par exemple, revenir à l'état initial
     setIsDeleted(false);
   };
 
   const handlelogout = () => {
     setUserConnected(null);
+    setAdminOrNot(false);
+    localStorage.removeItem("token");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const userUpdated = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userUpdate.id}`,
-        userUpdate
+        userUpdate,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
 
       setUserConnected(userUpdated.data);
       setIsEditing(false);
-
-      console.log("Informations utilisateur mises à jour avec succès");
     } catch (err) {
       console.error(err);
     }
   };
-
   const handleDeleteProfil = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const deletedUser = await axios.delete(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${deleteUser.id}`,
-        deleteUser
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setDeleteUser(deletedUser.data);
+      navigate("/contact");
     } catch (err) {
       console.error(err);
     }
@@ -140,6 +148,8 @@ function DonneesPerso() {
                 <strong>
                   <span>Pseudo :</span>
                 </strong>
+              </p>
+              <div className="input-scss">
                 <input
                   className="input-edit"
                   type="text"
@@ -148,12 +158,14 @@ function DonneesPerso() {
                     setUserUpdate({ ...userUpdate, pseudo: event.target.value })
                   }
                 />
-              </p>
+              </div>
 
               <p>
                 <strong>
                   <span>E-mail :</span>
                 </strong>
+              </p>
+              <div className="input-scss">
                 <input
                   className="input-edit"
                   type="email"
@@ -162,9 +174,9 @@ function DonneesPerso() {
                     setUserUpdate({ ...userUpdate, email: event.target.value })
                   }
                 />
-              </p>
+              </div>
 
-              <p>
+              {/* <p>
                 <strong>
                   <span>Mot de passe :</span>
                 </strong>
@@ -192,7 +204,7 @@ function DonneesPerso() {
                     role="presentation"
                   />
                 </div>
-              </p>
+              </p> */}
 
               <div className="edit-profil">
                 <button className="saveprofil" type="submit">

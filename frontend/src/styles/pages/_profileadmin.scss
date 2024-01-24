@@ -62,6 +62,9 @@
         &.active {
           color: var(--secondary-color);
         }
+        img {
+          display: none;
+        }
       }
     }
     .displayChoice {
@@ -106,9 +109,15 @@
         padding: 8% 4% 4% 4%;
 
         a {
-          font-size: 1.3rem;
-          width: 17vw;
+          width: 10vw;
           text-align: center;
+          img {
+            display: initial;
+            width: 55%;
+          }
+          p {
+            display: none;
+          }
         }
       }
 
@@ -119,16 +128,31 @@
   }
   @media screen and (max-width: 700px) {
     .profileAdmin {
+      .avatar {
+        top: 5%;
+      }
       .adminLayout {
-        flex-direction: column;
         width: 90vw;
-        height: 65vh;
-
         .buttonsChoice {
-          padding: 12% 4% 4% 4%;
-
+          padding: 8% 0 4% 0;
+          gap: 1vh;
           a {
-            width: 25vw;
+            img {
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .profileAdmin {
+      .adminLayout {
+        .buttonsChoice {
+          a {
+            img {
+              width: 100%;
+            }
           }
         }
       }

@@ -7,26 +7,11 @@ class FavorisManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create({ userId, itemId }) {
+  async create({ jeuId, utilisateurId }) {
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (user_id, item_id) VALUES (?, ?)`,
-      [userId, itemId]
+      `INSERT INTO ${this.table} (jeu_id, utilisateur_id) VALUES (?, ?)`,
+      [jeuId, utilisateurId]
     );
-    return result;
-  }
-
-  // The Rs of CRUD - Read operations
-
-  async read(id) {
-    const [result] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE id = ?`,
-      [id]
-    );
-    return result;
-  }
-
-  async readAll() {
-    const [result] = await this.database.query(`SELECT * FROM ${this.table}`);
     return result;
   }
 

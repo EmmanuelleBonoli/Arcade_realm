@@ -109,8 +109,6 @@ const browseOnline = async (req, res, next) => {
 
 const browseOnlineScores = async (req, res, next) => {
   try {
-    // const jeux = await tables.jeu.readOnlineScores();
-    // res.json(jeux);
     const jeux = await tables.jeu.readOnlineScores();
     const tempScoresJeux = [];
 

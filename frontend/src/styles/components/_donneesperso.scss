@@ -25,12 +25,15 @@
     display: flex;
     flex-direction: column;
     height: 20vh;
+    .input-scss {
+      padding: 2% 0 5% 5%;
+    }
 
     span {
       color: var(--fourth-color);
     }
     p {
-      padding: 4% 0% 0% 15%;
+      padding: 0 0 2% 5%;
       font-size: 2rem;
       color: white;
     }
@@ -121,9 +124,7 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-
         gap: 10px;
-
         cursor: pointer;
         width: 28vh;
         height: 5vh;
@@ -159,5 +160,54 @@
     background-color: rgba(0, 0, 0, 0.61);
     font-size: 1.8rem;
     font-style: italic;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .information-user {
+      .input-scss {
+        padding: 1% 0 1% 5%;
+      }
+      .input-edit {
+        width: 50%;
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .information-user {
+      .input-edit {
+        width: 70%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .information-user {
+      .input-edit {
+        width: 95%;
+      }
+      .btn-logout {
+        button {
+          a {
+            width: 50vw;
+            p {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+      .btn-profil {
+        .delete-user {
+          font-size: 1.2rem;
+          width: 15vh;
+        }
+      }
+      p {
+        font-size: 1.5rem;
+      }
+
+      .saveprofil {
+        width: 40vw;
+      }
+    }
   }
 }

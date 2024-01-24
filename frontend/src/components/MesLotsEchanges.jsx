@@ -8,11 +8,19 @@ function MesLotsEchanges() {
   const [lots, setLots] = useState([]);
 
   const fetchLot = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
+
     try {
       axios
         .get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         )
+
         .then((response) => {
           setLots(response.data);
         })
@@ -29,7 +37,7 @@ function MesLotsEchanges() {
 
   async function handleStartExchange(lot) {
     let updatedExchangeLot = {};
-
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       if (lot.exchange === 1) {
         updatedExchangeLot = {
@@ -39,6 +47,7 @@ function MesLotsEchanges() {
           utilisateurId: userConnected.id,
           win: lot.win,
           exchange: 0,
+          podium: lot.podium,
         };
       } else if (lot.exchange === 0) {
         updatedExchangeLot = {
@@ -48,19 +57,24 @@ function MesLotsEchanges() {
           utilisateurId: userConnected.id,
           win: lot.win,
           exchange: 1,
+          podium: lot.podium,
         };
       }
 
       await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
-        updatedExchangeLot
+        updatedExchangeLot,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
 
       fetchLot();
     } catch (err) {
       console.error(err);
     }
-
   }
 
   return (
@@ -73,6 +87,14 @@ function MesLotsEchanges() {
               alt="medaille vector"
             />
             <h1>{userConnected.pseudo}</h1>
+          </div>
+          <div className="ticketsPlayer">
+            <img
+              src="/images/Utilisateur/ticketgratuit.png"
+              alt="tickets gratuits"
+            />
+            <p>parties gratuites :</p>
+            <p>{userConnected.tickets}</p>
           </div>
           <h2>Mettre à l'échange ?</h2>
           <div className="mes-lots">
@@ -111,7 +133,6 @@ function MesLotsEchanges() {
                   type="checkbox"
                   onChange={() => handleStartExchange(lot)}
                 /> */}
-
               </div>
             ))}
           </div>

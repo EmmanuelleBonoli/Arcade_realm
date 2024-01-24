@@ -1,0 +1,145 @@
+.adminCompetition {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10%;
+
+  h2 {
+    font-size: 2rem;
+    font-family: var(--primary-font);
+    color: var(--fourth-color);
+    padding: 4% 4% 0 4%;
+    text-align: center;
+  }
+
+  .podium {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 4%;
+
+    .podiumUsers {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 7vw;
+      justify-content: space-around;
+      align-items: center;
+
+      .place {
+        font-size: 1.5rem;
+        font-family: var(--primary-font);
+        color: var(--secondary-color);
+      }
+      img {
+        width: 25%;
+      }
+      p {
+        font-family: var(--primary-font);
+        color: white;
+        padding: 4%;
+      }
+    }
+    p {
+      font-family: var(--primary-font);
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+      padding: 4%;
+      flex: 1;
+    }
+  }
+
+  .podiumEmpty {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    p {
+      font-family: var(--primary-font);
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+      padding: 4%;
+    }
+  }
+
+  button {
+    width: 60%;
+    padding: 1%;
+    background-color: var(--fourth-color);
+    font-family: var(--primary-font);
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--fourth-color);
+    border-radius: 5px;
+  }
+
+  @media screen and (max-width: 1450px) {
+    .adminCompetition {
+      .podium {
+        .podiumUsers {
+          width: 10vw;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    .adminCompetition {
+      .podium {
+        .podiumUsers {
+          width: 15vw;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .adminCompetition {
+      .podium {
+        .podiumUsers {
+          width: 20vw;
+          p {
+            padding: 2%;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .adminCompetition {
+      .podium {
+        .podiumUsers {
+          width: 25vw;
+          p {
+            padding: 5%;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .adminCompetition {
+      h2 {
+        font-size: 1.5rem;
+      }
+      .podium {
+        gap: 6%;
+        .podiumUsers {
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

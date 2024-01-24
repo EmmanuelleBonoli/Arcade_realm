@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+const jwt = require("jsonwebtoken");
 const argon2 = require("argon2");
 
 const tables = require("../tables");
@@ -6,22 +7,31 @@ const tables = require("../tables");
 const login = async (req, res, next) => {
   try {
     const user = await tables.utilisateur.getByPseudo(req.body.pseudo);
-
-    if (user == null) {
+    if (!user[0]) {
       res.sendStatus(400).send("Incorrect pseudo or password");
       return;
     }
 
     const verified = await argon2.verify(
-      user.hashed_password,
+      user[0].hashed_password,
       req.body.password
     );
 
     if (verified) {
       // Respond with the user in JSON format (but without the hashed password)
-      delete user.hashed_password;
+      delete user[0].hashed_password;
 
-      res.status(200).json(user);
+      const token = await jwt.sign(
+        { sub: user[0].id, admin: user[0].admin },
+        process.env.APP_SECRET,
+        {
+          expiresIn: "1h",
+        }
+      );
+      res.json({
+        token,
+        user: user[0],
+      });
     } else {
       res.sendStatus(422);
     }

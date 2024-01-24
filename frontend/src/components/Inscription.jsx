@@ -29,6 +29,8 @@ export default function Inscription({ onClose }) {
       image: `/images/Avatar/Avatar.png`,
       admin: false,
       points: 0,
+      podium: false,
+      tickets: 0,
     };
 
     try {
@@ -95,7 +97,7 @@ export default function Inscription({ onClose }) {
 
           <p>Entrez votre e-mail</p>
           <input
-            type="text"
+            type="email"
             className="pseudo"
             onClick={handleInputClick}
             onChange={(event) => setInputEmail(event.target.value)}

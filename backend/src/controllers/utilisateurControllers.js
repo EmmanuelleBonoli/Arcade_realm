@@ -56,33 +56,20 @@ const getFavorites = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const { pseudo, email, hashed_password, image, admin, points } = req.body;
+  const { pseudo, email, image, admin, points, podium, tickets } = req.body;
+
   const updatedUtilisateur = {
     id: req.params.id,
     pseudo,
     email,
-    hashed_password,
     image,
     admin,
     points,
+    podium,
+    tickets,
   };
 
   try {
-    // const existingUtilisateur = await tables.utilisateur.read(req.params.id);
-    // if (existingUtilisateur == null) {
-    //   res.status(404).json(updatedUtilisateur);
-    // } else {
-    //   const result = await tables.utilisateur.update(updatedUtilisateur);
-    //   res.status(200).json({ result });
-    // }
-
-    // if (password !== null) {
-    //   console.log("Avant la mise à jour :", updatedUtilisateur);
-    //   const user = await tables.utilisateur.read(req.params.id);
-    //   updatedUtilisateur.password = user[0].password;
-    //   console.log("Après la mise à jour :", updatedUtilisateur);
-    // }
-
     const result = await tables.utilisateur.update(updatedUtilisateur);
     if (result.affectedRows > 0) {
       res.status(200).json(updatedUtilisateur);
@@ -125,6 +112,60 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const getPodium = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const utilisateurs = await tables.utilisateur.getPodium();
+    // Respond with the items in JSON format
+    res.json(utilisateurs);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+const getTopPlayers = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const utilisateurs = await tables.utilisateur.getTopPlayers();
+
+    const tempTopPlayers = [];
+
+    utilisateurs.forEach((element) => {
+      const existingUser = tempTopPlayers.find(
+        (user) => user.id === element.id
+      );
+
+      if (!existingUser && tempTopPlayers.length < 6) {
+        tempTopPlayers.push(element);
+      }
+    });
+    res.json(tempTopPlayers);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const getByToken = async (req, res) => {
+  const userInfo = req.auth;
+
+  try {
+    if (userInfo && userInfo.sub) {
+      const utilisateur = await tables.utilisateur.read(userInfo.sub);
+
+      if (utilisateur == null) {
+        res.sendStatus(404);
+      } else {
+        res.json(utilisateur);
+      }
+    } else {
+      res.status(404).send("User not found. Auth doesn't exist");
+    }
+  } catch (e) {
+    res.status(500).send(`Internal server error : ${e}`);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -133,4 +174,7 @@ module.exports = {
   add,
   destroy,
   getFavorites,
+  getPodium,
+  getTopPlayers,
+  getByToken,
 };

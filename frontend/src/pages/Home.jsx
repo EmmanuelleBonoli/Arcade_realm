@@ -10,7 +10,7 @@ function Home() {
 
   function handleGamePlay() {
     setOpenGames(!openGames);
-    navigate("/gamesonline");
+    navigate("/jeuxenligne");
   }
 
   return (

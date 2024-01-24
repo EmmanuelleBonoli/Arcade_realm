@@ -29,7 +29,6 @@ function ArcadeGame() {
     scorePlayer,
     setScorePlayer,
     setMissedArrow,
-
   } = useContext(GameContext);
 
   const audio = useRef(null);
@@ -37,7 +36,6 @@ function ArcadeGame() {
   const [bestScoresOnline, setBestScoresOnline] = useState([]);
   const [gamesOnline, setGamesOnline] = useState([]);
   const [gamePlayed, setGamePlayed] = useState(0);
-
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
@@ -56,9 +54,15 @@ function ArcadeGame() {
 
   useEffect(() => {
     const getScoresGamesOnline = async () => {
+      const user = JSON.parse(localStorage.getItem("token"));
       try {
         const fetchScoresGames = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/jeu/online/scores`
+          `${import.meta.env.VITE_BACKEND_URL}/api/jeu/online/scores`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         );
         setBestScoresOnline(fetchScoresGames.data);
       } catch (err) {
@@ -261,7 +265,7 @@ function ArcadeGame() {
             }}
             className="buttonRed"
             src="/images/Jeux_ligne/Boutonrouge2.png"
-            alt="borne arcade en ligne"
+            alt="bouton rouge"
           />
           <audio className="acdcGuitarHero" ref={audio} muted>
             <track kind="captions" />
