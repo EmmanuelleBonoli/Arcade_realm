@@ -52,6 +52,7 @@ const signin = async (req, res, next) => {
       admin,
       points,
     });
+
     if (result.insertId) {
       const newUser = {
         id: result.insertId,
@@ -62,7 +63,22 @@ const signin = async (req, res, next) => {
         admin,
         points,
       };
-      res.status(201).json(newUser);
+
+      const token = await jwt.sign(
+        { sub: newUser.id, admin: newUser.admin },
+        process.env.APP_SECRET,
+        {
+          expiresIn: "1h",
+        }
+      );
+
+      res.status(201).json({
+        token,
+        pseudo: newUser.pseudo,
+        email: newUser.email,
+        image: newUser.image,
+        score: newUser.score,
+      });
     } else {
       res.sendStatus(400);
     }

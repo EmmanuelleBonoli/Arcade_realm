@@ -36,7 +36,7 @@ CREATE TABLE score (
 );
 
 CREATE TABLE favoris (
-    utilisateur_id INT NOT NULL, jeu_id INT NOT NULL, favori BOOLEAN NOT NULL DEFAULT FALSE, CONSTRAINT fk_favoris_jeu FOREIGN KEY (jeu_id) REFERENCES jeu (id) ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT fk_favoris_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (id) ON DELETE CASCADE ON UPDATE NO ACTION
+    utilisateur_id INT NOT NULL, jeu_id INT NOT NULL,  CONSTRAINT pk_favoris PRIMARY KEY (utilisateur_id, jeu_id), CONSTRAINT fk_favoris_jeu FOREIGN KEY (jeu_id) REFERENCES jeu (id) ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT fk_favoris_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (id) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 INSERT INTO
@@ -413,6 +413,13 @@ VALUES (
 
 -- INSERT INTO
 --     favoris (utilisateur_id, jeu_id, favori)
+
+INSERT INTO
+    favoris (
+        utilisateur_id, jeu_id
+    )
+VALUES (1, 1),
+    (1, 2);
 
 INSERT INTO
     score (

@@ -35,6 +35,7 @@ const lotControllers = require("./controllers/lotControllers");
 const scoreControllers = require("./controllers/scoreControllers");
 const utilisateurControllers = require("./controllers/utilisateurControllers");
 const authControllers = require("./controllers/authControllers");
+const favorisControllers = require("./controllers/favorisControllers");
 
 // ALL
 router.post("/login", authControllers.login);
@@ -66,6 +67,7 @@ router.post("/jeu", jeuxControllers.add);
 router.put("/jeu/:id", jeuxControllers.edit);
 router.delete("/jeu/:id", jeuxControllers.destroy);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
+router.get("/utilisateur/favoris/:id", utilisateurControllers.getFavorites);
 
 //
 router.get("/score", scoreControllers.browse);
@@ -116,6 +118,7 @@ router.get("/utilisateur/topPlayers", utilisateurControllers.getTopPlayers);
 router.get("/utilisateur/:id", utilisateurControllers.read);
 router.put("/utilisateur/:id", utilisateurControllers.edit);
 router.delete("/utilisateur/:id", utilisateurControllers.destroy);
+router.delete("/favoris/:id", favorisControllers.destroy);
 
 /* ************************************************************************* */
 router.get("/userbytoken", utilisateurControllers.getByToken);

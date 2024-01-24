@@ -39,6 +39,16 @@ export default function Inscription({ onClose }) {
         userSignin
       );
       setUserConnected(res.data);
+      const userLocal = {
+        ...res.data,
+        token: res.data.token,
+      };
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          ...userLocal,
+        })
+      );
 
       if (res.data.admin === 1) {
         setAdminOrNot(true);
@@ -48,7 +58,7 @@ export default function Inscription({ onClose }) {
         setInscription("Inscription réussie !");
         setTimeout(() => {
           onClose();
-        }, 2500);
+        }, 1500);
       }
     } catch (error) {
       console.error(error);
