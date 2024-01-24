@@ -46,6 +46,7 @@ function AdminLots() {
         win: lot.win,
         exchange: lot.exchange,
         podium: 0,
+        mystery: lot.mystery,
       };
 
       await axios.put(

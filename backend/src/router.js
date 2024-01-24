@@ -44,6 +44,7 @@ router.get("/lot", lotControllers.browse);
 router.get("/utilisateur", utilisateurControllers.browse);
 router.get("/lot/disponible", lotControllers.readByLotAvailable);
 router.get("/lot/exchange", lotControllers.readByLotExchange);
+router.get("/lot/mystery", lotControllers.readByLotMystery);
 router.get("/jeu/online", jeuxControllers.browseOnline);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
 router.get("/utilisateur/podium", utilisateurControllers.getPodium);
@@ -62,7 +63,7 @@ router.get("/score/email/:id", scoreControllers.readByUserId);
 router.post("/evenement", evenementControllers.add);
 router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
-
+router.post("/lot/mystery", lotControllers.addMystery);
 router.post("/lot", upload.single("image"), lotControllers.add);
 
 // router.post("/utilisateur", utilisateurControllers.add);

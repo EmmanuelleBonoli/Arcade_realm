@@ -41,6 +41,7 @@ CREATE TABLE
         win BOOLEAN NOT NULL DEFAULT FALSE,
         exchange BOOLEAN NOT NULL DEFAULT FALSE,
         podium INT NOT NULL DEFAULT FALSE,
+        mystery BOOLEAN NOT NULL DEFAULT FALSE,
         CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
     );
 
@@ -198,7 +199,8 @@ INSERT INTO
         utilisateur_id,
         win,
         exchange,
-        podium
+        podium,
+        mystery
     )
 VALUES
 
@@ -209,6 +211,7 @@ VALUES
     4,
     1,
     0,
+    0,
     0
 ), (
     "Peluche Pac-Man",
@@ -216,6 +219,7 @@ VALUES
     "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!",
     1,
     1,
+    0,
     0,
     0
 ), (
@@ -225,13 +229,15 @@ VALUES
     2,
     1,
     0,
-    2
+    2,
+    0
 ), (
     "Monopoly Pacman",
     "/images/Lots/MonopolyPacman.png",
     "blabla",
     2,
     1,
+    0,
     0,
     0
 ), (
@@ -241,7 +247,8 @@ VALUES
     1,
     1,
     0,
-    1
+    1,
+    0
 ), (
     "Tasse Mario",
     "/images/Lots/TasseMario.png",
@@ -249,6 +256,7 @@ VALUES
     2,
     1,
     1,
+    0,
     0
 ), (
     "Statue Zelda",
@@ -257,14 +265,16 @@ VALUES
     4,
     1,
     0,
-    3
+    3,
+    0
 ), (
     "Mug Lego",
-    "/images/Lots/mugLego.webp",
+    "/images/Lots/mugLego.png",
     "blabla3",
     1,
     1,
     1,
+    0,
     0
 ), (
     "Switch",
@@ -273,23 +283,36 @@ VALUES
     null,
     0,
     0,
+    0,
     0
 ), (
     "Déco Mario",
-    "/images/Lots/decoMario.jpg",
+    "/images/Lots/decoMario.png",
     "blabla3",
     null,
+    0,
     0,
     0,
     0
 ), (
     "Lampe Batman",
-    "/images/Lots/LampeBatman.jpg",
+    "/images/Lots/LampeBatman.png",
     "blabla3",
     null,
     0,
     0,
+    0,
     0
+),
+(
+    "Boite Lego Harry Potter",
+    "/images/Lots/chateauPoudlard.png",
+    "blabla3",
+    null,
+    0,
+    0,
+    0,
+    1
 );
 
 INSERT INTO

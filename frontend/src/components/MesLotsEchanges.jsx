@@ -40,6 +40,7 @@ function MesLotsEchanges() {
           win: lot.win,
           exchange: 0,
           podium: lot.podium,
+          mystery: lot.mystery,
         };
       } else if (lot.exchange === 0) {
         updatedExchangeLot = {
@@ -50,6 +51,7 @@ function MesLotsEchanges() {
           win: lot.win,
           exchange: 1,
           podium: lot.podium,
+          mystery: lot.mystery,
         };
       }
 
