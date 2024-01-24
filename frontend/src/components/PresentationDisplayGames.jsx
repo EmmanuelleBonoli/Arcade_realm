@@ -37,7 +37,6 @@ function PresentationDisplayGames() {
             )
             .map((game) => (
               <Link to={`/game/${game.id}`} key={game.id}>
-                {" "}
                 <img
                   src={`${import.meta.env.VITE_BACKEND_URL}${game.image}`}
                   alt={game.name}

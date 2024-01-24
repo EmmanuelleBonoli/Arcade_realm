@@ -56,8 +56,16 @@ const readImage = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  const { name, image, description, utilisateurId, win, exchange, podium } =
-    req.body;
+  const {
+    name,
+    image,
+    description,
+    utilisateurId,
+    win,
+    exchange,
+    podium,
+    mystery,
+  } = req.body;
   const updatedLot = {
     id: req.params.id,
     name,
@@ -67,6 +75,7 @@ const edit = async (req, res, next) => {
     win,
     exchange,
     podium,
+    mystery,
   };
   try {
     const existingLot = await tables.lot.read(req.params.id);
@@ -92,6 +101,32 @@ const add = async (req, res, next) => {
     win: req.body.win,
     exchange: req.body.exchange,
     podium: req.body.podium,
+    mystery: req.body.mystery,
+  };
+
+  try {
+    // Insert the item into the database
+    const insertId = await tables.lot.create(lot);
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ insertId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+// The A of BREAD - Add (Create) operation
+const addMystery = async (req, res, next) => {
+  // Extract the item data from the request body
+
+  const lot = {
+    name: req.body.name,
+    image: req.body.image,
+    description: req.body.description,
+    win: req.body.win,
+    exchange: req.body.exchange,
+    podium: req.body.podium,
+    mystery: req.body.mystery,
   };
 
   try {
@@ -121,9 +156,7 @@ const readByUserId = async (req, res, next) => {
   try {
     const result = await tables.lot.readByUserId(req.params.id);
     if (result.length > 0) {
-      res.status(201).send(result);
-    } else {
-      res.sendStatus(404);
+      res.status(200).send(result);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -158,6 +191,19 @@ const readByLotExchange = async (req, res, next) => {
   }
 };
 
+const readByLotMystery = async (req, res, next) => {
+  try {
+    const result = await tables.lot.readByLotMystery();
+    if (result.length > 0) {
+      res.status(201).send(result);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -169,4 +215,6 @@ module.exports = {
   readByUserId,
   readByLotAvailable,
   readByLotExchange,
+  readByLotMystery,
+  addMystery,
 };

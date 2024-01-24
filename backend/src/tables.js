@@ -8,6 +8,7 @@ const JeuxManager = require("./models/JeuxManager");
 const ScoreManager = require("./models/ScoreManager");
 const EvenementManager = require("./models/EvenementManager");
 const UtilisateurManager = require("./models/UtilisateurManager");
+const FavorisManager = require("./models/FavorisManager");
 
 const managers = [
   LotManager,
@@ -15,6 +16,7 @@ const managers = [
   EvenementManager,
   ScoreManager,
   UtilisateurManager,
+  FavorisManager,
 ];
 
 // Create an empty object to hold data managers for different tables

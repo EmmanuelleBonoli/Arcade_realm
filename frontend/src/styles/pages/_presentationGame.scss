@@ -1,5 +1,3 @@
-
-
 .container-games {
   display: flex;
   flex-direction: column;
@@ -50,36 +48,37 @@
     }
   }
 
-.descGames {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: justify;
-  font-family: var(--primary-font);
-  color: #fbb169;
-  font-size: 2rem;
-  width: 80%;
-  max-width: 900px;
-  gap: 33px;
-}
+  .descGames {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-family: var(--primary-font);
+    color: #fbb169;
+    font-size: 2rem;
+    width: 80%;
+    max-width: 900px;
+    gap: 33px;
+  }
 
+  .containerGames2 {
+    display: flex;
+    align-items: center;
+    .retourpicture {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      height: 100px;
+      border: none;
+      cursor: pointer;
+    }
+  }
 
-.containerGames2 {
-  display: flex;
-  align-items: center;
-.retourpicture{
-  display: flex;
-  align-items: center;
-  
-  margin-right: 100px;
-  background: transparent;
-  height: 100px;
-  border: none;
-  cursor: pointer;
-}
-}
-
+  .containerGames2 {
+    display: flex;
+    align-items: center;
+  }
 
   .secondimage {
     height: auto;
@@ -91,14 +90,61 @@
     display: flex;
   }
 
-  ::-webkit-scrollbar {
-    cursor: pointer;
-    width: 5px;
-    height: 5px;
-  }
+  @media screen and (max-width: 768px) {
+    .containerGames {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--fourth-color);
-    border-radius: 5px;
+    .containerGames3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+    }
+
+    .secondimage {
+      width: 125%;
+      height: auto;
+    }
+
+    .descriptionGames {
+      width: 125%;
+      max-width: none;
+      height: auto;
+      padding: 10px;
+      margin: 0;
+
+      img {
+        height: 50px;
+        width: auto !important;
+        top: 5px;
+        right: 10px;
+        position: absolute;
+      }
+    }
+
+    .retourpicture {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+      ::-webkit-scrollbar {
+        cursor: pointer;
+        width: 5px;
+        height: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--fourth-color);
+        border-radius: 5px;
+      }
+    }
   }
 }

@@ -4,13 +4,12 @@ import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
 function DonneesPerso() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate("");
   const { userConnected, setUserConnected, setAdminOrNot } =
     useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [userUpdate, setUserUpdate] = useState(userConnected);
 
-  const [deleteUser, setDeleteUser] = useState(userConnected);
   const [isDeleted, setIsDeleted] = useState(false);
   // const [avatar, setAvatar] = useState(undefined);
 
@@ -54,16 +53,17 @@ function DonneesPerso() {
   const handleDeleteProfil = async () => {
     const user = JSON.parse(localStorage.getItem("token"));
     try {
-      const deletedUser = await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${deleteUser.id}`,
-
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userConnected.id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
         }
       );
-      setDeleteUser(deletedUser.data);
+      setUserConnected(null);
+      localStorage.removeItem("token");
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -84,7 +84,7 @@ function DonneesPerso() {
             />
           </div>
           {!isEditing ? (
-            <form className="information-user">
+            <div className="information-user">
               <p>
                 <strong>
                   <span>Pseudo :</span>
@@ -115,7 +115,7 @@ function DonneesPerso() {
                 <div className="btn-profil">
                   <button
                     className="delete-user"
-                    type="submit"
+                    type="button"
                     onClick={handleDelete}
                   >
                     Supprimer le profil
@@ -127,7 +127,7 @@ function DonneesPerso() {
                   <div className="button-YN">
                     <button
                       type="submit"
-                      onClick={() => handleDeleteProfil(deleteUser.id)}
+                      onClick={handleDeleteProfil}
                     >
                       Oui
                     </button>
@@ -137,7 +137,7 @@ function DonneesPerso() {
                   </div>
                 </div>
               )}
-            </form>
+            </div>
           ) : (
             <form
               id="form"

@@ -13,9 +13,19 @@ CREATE TABLE jeu (
     id INT primary key auto_increment NOT NULL, name varchar(255) NOT NULL, image VARCHAR(255) NOT NULL, regles TEXT NOT NULL, actif BOOLEAN NOT NULL, physique BOOLEAN NOT NULL, date DATE NOT NULL, nb_borne INT NOT NULL, description TEXT NOT NULL
 );
 
-CREATE TABLE lot (
-    id INT PRIMARY KEY auto_increment NOT NULL, name VARCHAR(80) NOT NULL, image VARCHAR(250) NOT NULL, description VARCHAR(400), utilisateur_id INT DEFAULT NULL, win BOOLEAN NOT NULL DEFAULT FALSE, exchange BOOLEAN NOT NULL DEFAULT FALSE, podium INT NOT NULL DEFAULT FALSE, CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (id) ON DELETE CASCADE ON UPDATE NO ACTION
-);
+CREATE TABLE
+    lot (
+        id INT PRIMARY KEY auto_increment NOT NULL,
+        name VARCHAR(80) NOT NULL,
+        image VARCHAR(250) NOT NULL,
+        description VARCHAR(400),
+        utilisateur_id INT DEFAULT NULL,
+        win BOOLEAN NOT NULL DEFAULT FALSE,
+        exchange BOOLEAN NOT NULL DEFAULT FALSE,
+        podium INT NOT NULL DEFAULT FALSE,
+        mystery BOOLEAN NOT NULL DEFAULT FALSE,
+        CONSTRAINT fk_lot_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id) ON DELETE CASCADE ON UPDATE NO ACTION
+    );
 
 CREATE TABLE evenement (
     id int primary key auto_increment not null, image varchar(250) not null
@@ -26,7 +36,7 @@ CREATE TABLE score (
 );
 
 CREATE TABLE favoris (
-    utilisateur_id INT NOT NULL, jeu_id INT NOT NULL, favori BOOLEAN NOT NULL DEFAULT FALSE, CONSTRAINT fk_favoris_jeu FOREIGN KEY (jeu_id) REFERENCES jeu (id) ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT fk_favoris_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (id) ON DELETE CASCADE ON UPDATE NO ACTION
+    utilisateur_id INT NOT NULL, jeu_id INT NOT NULL,  CONSTRAINT pk_favoris PRIMARY KEY (utilisateur_id, jeu_id), CONSTRAINT fk_favoris_jeu FOREIGN KEY (jeu_id) REFERENCES jeu (id) ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT fk_favoris_utilisateur FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (id) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 INSERT INTO
@@ -72,42 +82,126 @@ VALUES (
 
 INSERT INTO
     lot (
-        name, image, description, utilisateur_id, win, exchange, podium
+        name,
+        image,
+        description,
+        utilisateur_id,
+        win,
+        exchange,
+        podium,
+        mystery
     )
 VALUES
 
 (
-    "Mug Space Invaders", "/images/Lots/InvadersMug.png", "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo", 4, 1, 0, 0
+    "Mug Space Invaders",
+    "/images/Lots/InvadersMug.png",
+    "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo",
+    4,
+    1,
+    0,
+    0,
+    0
+), (
+    "Peluche Pac-Man",
+    "/images/Lots/PeluchePacman.png",
+    "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!",
+    1,
+    1,
+    0,
+    0,
+    0
+), (
+    "Mini Arcade",
+    "/images/Lots/MiniArcade.png",
+    "blabla2",
+    2,
+    1,
+    0,
+    2,
+    0
+), (
+    "Monopoly Pacman",
+    "/images/Lots/MonopolyPacman.png",
+    "blabla",
+    2,
+    1,
+    0,
+    0,
+    0
+), (
+    "Super Nes",
+    "/images/Lots/SuperNes.png",
+    "blabla3",
+    1,
+    1,
+    0,
+    1,
+    0
+), (
+    "Tasse Mario",
+    "/images/Lots/TasseMario.png",
+    "blabla3",
+    2,
+    1,
+    1,
+    0,
+    0
+), (
+    "Statue Zelda",
+    "/images/Lots/TriforceZelda.png",
+    "blabla3",
+    4,
+    1,
+    0,
+    3,
+    0
+), (
+    "Mug Lego",
+    "/images/Lots/mugLego.png",
+    "blabla3",
+    1,
+    1,
+    1,
+    0,
+    0
+), (
+    "Switch",
+    "/images/Lots/Switch.png",
+    "blabla3",
+    null,
+    0,
+    0,
+    0,
+    0
+), (
+    "Déco Mario",
+    "/images/Lots/decoMario.png",
+    "blabla3",
+    null,
+    0,
+    0,
+    0,
+    0
+), (
+    "Lampe Batman",
+    "/images/Lots/LampeBatman.png",
+    "blabla3",
+    null,
+    0,
+    0,
+    0,
+    0
 ),
 (
-    "Peluche Pac-Man", "/images/Lots/PeluchePacman.png", "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!", 1, 1, 0, 0
-),
-(
-    "Mini Arcade", "/images/Lots/MiniArcade.png", "blabla2", 2, 1, 0, 2
-),
-(
-    "Monopoly Pacman", "/images/Lots/MonopolyPacman.png", "blabla", 2, 1, 0, 0
-),
-(
-    "Super Nes", "/images/Lots/SuperNes.png", "blabla3", 1, 1, 0, 1
-),
-(
-    "Tasse Mario", "/images/Lots/TasseMario.png", "blabla3", 2, 1, 1, 0
-),
-(
-    "Statue Zelda", "/images/Lots/TriforceZelda.png", "blabla3", 4, 1, 0, 3
-),
-(
-    "Mug Lego", "/images/Lots/mugLego.webp", "blabla3", 1, 1, 1, 0
-),
-(
-    "Switch", "/images/Lots/Switch.png", "blabla3", null, 0, 0, 0
-),
-(
-    "Déco Mario", "/images/Lots/decoMario.jpg", "blabla3", null, 0, 0, 0
-),
-(
-    "Lampe Batman", "/images/Lots/LampeBatman.jpg", "blabla3", null, 0, 0, 0
+    "Boite Lego Harry Potter",
+    "/images/Lots/chateauPoudlard.png",
+    "blabla3",
+    null,
+    1,
+    0,
+    0,
+    1
 );
 
 INSERT INTO
@@ -319,6 +413,13 @@ VALUES (
 
 -- INSERT INTO
 --     favoris (utilisateur_id, jeu_id, favori)
+
+INSERT INTO
+    favoris (
+        utilisateur_id, jeu_id
+    )
+VALUES (1, 1),
+    (1, 2);
 
 INSERT INTO
     score (

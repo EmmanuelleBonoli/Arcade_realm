@@ -1,30 +1,95 @@
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
 
 function PresentationGame() {
   const game = useLoaderData();
-
   const navigate = useNavigate();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { userConnected } = useContext(UserContext);
+  const [userFavorites, setUserFavorites] = useState([]);
+  const param = useParams();
+
+  const favoriteUser = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
+    try {
+      const favorite = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/favoris/${
+          userConnected.id
+        }`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      setUserFavorites(favorite.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    favoriteUser();
+  }, []);
+
+  useEffect(() => {
+    if (userFavorites.length > 0) {
+      const resultat = userFavorites.find(
+        (jeu) => jeu.jeuId.toString() === param.id
+      );
+      if (resultat) {
+        setIsFavorite(true);
+      } else {
+        setIsFavorite(false);
+      }
+    }
+  }, [userFavorites]);
 
   const handleBackClick = () => {
     navigate(-1);
   };
 
+  const handleFavoriteClick = async (jeuIdSelected) => {
+    if (isFavorite) {
+      try {
+        const deleteFavorite = {
+          utilisateurId: userConnected.id,
+          jeuId: jeuIdSelected,
+        };
+        await axios.delete(
+          `${import.meta.env.VITE_BACKEND_URL}/api/favoris/${deleteFavorite}`
+        );
+      } catch (error) {
+        console.error(error);
+      }
+      favoriteUser();
+    } else {
+      //     console.error("Échec de la requête POST");
+      //   }
+      // } catch (error) {
+      //   console.error(error);
+      // }
+      // }else{
+      //   //create
+    }
+  };
+
   return (
-    <div className="container-games">
+    <div className="games">
       <div className="descGames">
         <h2>Nos Jeux</h2>
         <div className="containerGames">
           <div className="containerGames2">
-            {" "}
             <button
-              type="submit"
+              type="button"
               className="retourpicture"
               onClick={handleBackClick}
             >
               <img
-                src="../images/Utilisateur/retour 1.png"
-                alt="Bonjour"
+                src="../images/Utilisateur/retour 1.png" // Vérifiez le chemin de l'image
+                alt="Retour"
                 className="firstimage"
               />
             </button>
@@ -36,6 +101,26 @@ function PresentationGame() {
               className="secondimage"
             />
             <div className="descriptionGames">
+              {/* <label htmlFor="favoriteButton"> </label> */}
+              {/* <button
+                type="button"
+                id="favoriteButton"
+           
+              > */}
+              {userFavorites && (
+                <img
+                  onClick={() => handleFavoriteClick(param.id)}
+                  role="presentation"
+                  src={
+                    isFavorite
+                      ? "/images/Utilisateur/heartFavorite.png"
+                      : "/images/Utilisateur/heartnotfavorite.png"
+                  }
+                  alt=""
+                />
+              )}
+
+              {/* </button> */}
               {/* <img src="../images/Utilisateur/heartFavorite.png" alt="" /> */}
 
               <p>
@@ -45,7 +130,7 @@ function PresentationGame() {
                 <strong>Date :</strong> {game[0].date.substring(0, 10)}
               </p>
               <p>
-                <strong>Nombre de borne :</strong> {game[0].nb_borne}
+                <strong>Nombre de bornes :</strong> {game[0].nb_borne}
               </p>
               <p>
                 <strong>Description :</strong> {game[0].description}
@@ -57,18 +142,15 @@ function PresentationGame() {
     </div>
   );
 }
-
 export const loadPresentationGame = async ({ params }) => {
   try {
     const presentationGame = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}/api/jeu/${params.id}`
     );
-
     return presentationGame.data;
   } catch (e) {
     console.error(e);
     return [];
   }
 };
-
 export default PresentationGame;
