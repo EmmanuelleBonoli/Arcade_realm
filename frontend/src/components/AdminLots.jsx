@@ -152,7 +152,7 @@ function AdminLots() {
       <h2>Les lots du podium</h2>
       <div className="podium">
         <div className="firstPlace">
-          <p className="placePlayer">1er Prix :</p>
+          <p className="placePlayer">1er</p>
           {dataLots
             .filter((lotfilter) => lotfilter.podium === 1)
             .map((lot) => {
@@ -189,7 +189,7 @@ function AdminLots() {
           )}
         </div>
         <div className="secondPlace">
-          <p className="placePlayer">2ème Prix :</p>
+          <p className="placePlayer">2ème</p>
           {dataLots
             .filter((lotfilter) => lotfilter.podium === 2)
             .map((lot) => {
@@ -226,7 +226,7 @@ function AdminLots() {
           )}
         </div>
         <div className="thirdPlace">
-          <p className="placePlayer">3ème Prix :</p>
+          <p className="placePlayer">3ème</p>
           {dataLots
             .filter((lotfilter) => lotfilter.podium === 3)
             .map((lot) => {

@@ -1,15 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import AdminUploadLot from "./AdminUploadLot";
 import AdminUploadEvent from "./AdminUploadEvent";
 import AdminUploadGame from "./AdminUploadGame";
 
 function AdminServices() {
   const [dataEvents, setDataEvents] = useState([]);
-  // const [dataLots, setDataLots] = useState([]);
   const [dataGames, setDataGames] = useState([]);
-  // const [uploadLotModal, setUploadLotModal] = useState(false);
-  // const [resetUploadLot, setResetUploadLot] = useState(false);
   const [uploadEventModal, setUploadEventModal] = useState(false);
   const [resetUploadEvent, setResetUploadEvent] = useState(false);
   const [uploadGameModal, setUploadGameModal] = useState(false);
@@ -65,21 +61,9 @@ function AdminServices() {
       }
     };
     getEvents();
-    // getLots();
     getGames();
-  }, [
-    // resetUploadLot,
-    resetUploadEvent,
-    resetUploadGame,
-  ]);
+  }, [resetUploadEvent, resetUploadGame]);
 
-  // const openUploadLotModal = () => {
-  //   setUploadLotModal(true);
-  // };
-
-  // const closeUploadLotModal = () => {
-  //   setUploadLotModal(false);
-  // };
   const openUploadEventModal = () => {
     setUploadEventModal(true);
   };
@@ -97,13 +81,6 @@ function AdminServices() {
 
   return (
     <div className="adminServices">
-      {/* {uploadLotModal && (
-        <AdminUploadLot
-          onClose={closeUploadLotModal}
-          setResetUploadLot={setResetUploadLot}
-          resetUploadLot={resetUploadLot}
-        />
-      )} */}
       {uploadEventModal && (
         <AdminUploadEvent
           onClose={closeUploadEventModal}
@@ -118,44 +95,11 @@ function AdminServices() {
           resetUploadGame={resetUploadGame}
         />
       )}
-      {/* <h2>Les lots à gagner</h2>
-      <div className="lots">
-        <div
-          className="itemServices addBox"
-          onClick={openUploadLotModal}
-          role="presentation"
-        >
-          <img
-            className="add"
-            src="/images/Utilisateur/plus.png"
-            alt="ajout doc"
-          />
-        </div>
-        {dataLots
-          .filter((lotfilter) => lotfilter.win === 0)
-          .map((lot) => {
-            return (
-              <div className="itemServices" key={lot.id}>
-                <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
-                  alt="lot à gagner"
-                />
-                <img
-                  className="suppr"
-                  src="/images/Utilisateur/delete.png"
-                  alt="suppr"
-                  onClick={() => handleDeleteDataLots(lot.id)}
-                  role="presentation"
-                />
-              </div>
-            );
-          })} */}
-      {/* </div> */}
       <h2>Les évènements</h2>
       <div className="events">
         {dataEvents.map((event) => {
           return (
-            <div className="itemServices" key={event.id}>
+            <div className="itemServices eventsContainer" key={event.id}>
               <img
                 src={`${import.meta.env.VITE_BACKEND_URL}${event.image}`}
                 alt="evenement à venir"
