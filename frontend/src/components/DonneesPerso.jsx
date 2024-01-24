@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
 function DonneesPerso() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { userConnected, setUserConnected, setAdminOrNot } =
     useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
@@ -56,6 +56,7 @@ function DonneesPerso() {
     try {
       const deletedUser = await axios.delete(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${deleteUser.id}`,
+
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -63,7 +64,6 @@ function DonneesPerso() {
         }
       );
       setDeleteUser(deletedUser.data);
-      navigate("/contact");
     } catch (err) {
       console.error(err);
     }
