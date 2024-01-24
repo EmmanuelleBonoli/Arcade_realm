@@ -5,15 +5,20 @@ import UserContext from "../contexts/UserContext";
 function MeilleursScore() {
   const { userConnected } = useContext(UserContext);
   const [scores, setScores] = useState([]);
-
   useEffect(() => {
     if (userConnected) {
       const getScores = async () => {
+        const user = JSON.parse(localStorage.getItem("token"));
         try {
           const dataScores = await axios.get(
             `${import.meta.env.VITE_BACKEND_URL}/api/score/email/${
               userConnected.id
-            }`
+            }`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
           );
           setScores(dataScores.data);
         } catch (e) {
@@ -40,9 +45,8 @@ function MeilleursScore() {
           <div className="trait" />
         </div>
         <div className="user-point">
-          {scores.map((score) => (
-            <p key={score.name}>{score.points}</p>
-          ))}
+          {scores.length > 0 &&
+            scores.map((score) => <p key={score.name}>{score.points}</p>)}
         </div>
       </div>
       {/* <div className="total-points">

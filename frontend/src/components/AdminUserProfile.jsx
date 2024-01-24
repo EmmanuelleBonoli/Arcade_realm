@@ -11,9 +11,15 @@ export default function AdminUserProfile() {
 
   useEffect(() => {
     const fetchData = async () => {
+      const userA = JSON.parse(localStorage.getItem("token"));
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/`
+          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/`,
+          {
+            headers: {
+              Authorization: `Bearer ${userA.token}`,
+            },
+          }
         );
 
         setUser(response.data);
@@ -38,9 +44,15 @@ export default function AdminUserProfile() {
   };
 
   const handleDeletePlayer = async (data) => {
+    const userA = JSON.parse(localStorage.getItem("token"));
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${data}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${data}`,
+        {
+          headers: {
+            Authorization: `Bearer ${userA.token}`,
+          },
+        }
       );
       setFilteredUsers(filteredUsers.filter((player) => player.id !== data));
     } catch (err) {

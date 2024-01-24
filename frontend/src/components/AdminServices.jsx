@@ -22,8 +22,16 @@ function AdminServices() {
     }
   };
   const handleDeleteDataGames = async (data) => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/jeu/${data}`);
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/jeu/${data}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       setDataGames(dataGames.filter((game) => game.id !== data));
     } catch (err) {
       console.error(err);

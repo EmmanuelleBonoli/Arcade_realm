@@ -7,9 +7,15 @@ function AdminCompetition() {
   const [EmptyPodium, setEmptyPodium] = useState(false);
 
   const getPodium = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const fetchUsers = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/podium`
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/podium`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setUsersPodium(fetchUsers.data);
     } catch (error) {
@@ -18,9 +24,15 @@ function AdminCompetition() {
   };
 
   const getTopPlayers = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const fetchTopPlayers = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/topPlayers`
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/topPlayers`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setTopPlayers(fetchTopPlayers.data);
     } catch (error) {
@@ -45,10 +57,15 @@ function AdminCompetition() {
           podium: 0,
           tickets: user.tickets,
         };
-
+        const userA = JSON.parse(localStorage.getItem("token"));
         return axios.put(
           `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${user.id}`,
-          updatedUser
+          updatedUser,
+          {
+            headers: {
+              Authorization: `Bearer ${userA.token}`,
+            },
+          }
         );
       });
       await Promise.all(updateUserPromises);
@@ -60,6 +77,7 @@ function AdminCompetition() {
   };
 
   const handleNewConcours = async () => {
+    const userA = JSON.parse(localStorage.getItem("token"));
     try {
       const updateUserPromises = topPlayers.map(async (user, index) => {
         const updatedUser = {
@@ -74,7 +92,12 @@ function AdminCompetition() {
 
         return axios.put(
           `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${user.id}`,
-          updatedUser
+          updatedUser,
+          {
+            headers: {
+              Authorization: `Bearer ${userA.token}`,
+            },
+          }
         );
       });
       await Promise.all(updateUserPromises);

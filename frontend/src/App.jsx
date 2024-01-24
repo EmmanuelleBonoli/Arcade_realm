@@ -33,6 +33,14 @@ function App() {
     }
   }, [location]);
 
+  useEffect(() => {
+    const user = localStorage.getItem("token");
+    if (user) {
+      setUserConnected(JSON.parse(user));
+      setAdminOrNot(JSON.parse(user).admin === 1);
+    }
+  }, []);
+
   return (
     <UserContext.Provider
       value={useMemo(

@@ -128,6 +128,26 @@ const getTopPlayers = async (req, res, next) => {
   }
 };
 
+const getByToken = async (req, res) => {
+  const userInfo = req.auth;
+
+  try {
+    if (userInfo && userInfo.sub) {
+      const utilisateur = await tables.utilisateur.read(userInfo.sub);
+
+      if (utilisateur == null) {
+        res.sendStatus(404);
+      } else {
+        res.json(utilisateur);
+      }
+    } else {
+      res.status(404).send("User not found. Auth doesn't exist");
+    }
+  } catch (e) {
+    res.status(500).send(`Internal server error : ${e}`);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -137,4 +157,5 @@ module.exports = {
   destroy,
   getPodium,
   getTopPlayers,
+  getByToken,
 };
