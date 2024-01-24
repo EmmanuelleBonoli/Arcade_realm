@@ -302,25 +302,19 @@
           padding-right: 10px;
           font-size: 1.2rem;
         }
-          .avatar_user{
-            display: initial;
-            .pseudo{
-              display: none;
-            }
-            .bloc-image {
-              
-              width: 50%;
-             
-             
-            }
-  
+        .avatar_user {
+          display: initial;
+          .pseudo {
+            display: none;
           }
-  
+          .bloc-image {
+            width: 50%;
           }
+        }
       }
     }
   }
-
+}
 
 @media screen and (max-width: 375px) {
   .navBar {

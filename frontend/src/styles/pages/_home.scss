@@ -309,15 +309,14 @@
   }
 }
 
-@media screen and (max-width: 907px){
-  .HomePage{
+@media screen and (max-width: 907px) {
+  .HomePage {
     .cards {
-display: flex;
-flex-wrap: wrap;
-row-gap: var(--spacing);
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: var(--spacing);
     }
   }
-
 }
 
 @media screen and (max-width: 768px) {
@@ -336,7 +335,7 @@ row-gap: var(--spacing);
         width: 80%;
         .npm-Carouselle {
           height: 100%;
-          .carousel-slider{
+          .carousel-slider {
             height: 100%;
           }
           .Carouselle-1 {
@@ -393,16 +392,17 @@ row-gap: var(--spacing);
         width: 80%;
         justify-content: start;
         text-align: center;
-        padding-left: calc(var(--spacing) + 30px) ;
+        padding-left: calc(var(--spacing) + 30px);
         gap: 20px;
-    }
-    .cards {
-      flex-direction: column;
-      align-items: center;
-      row-gap: 10px;
+      }
+      .cards {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+      }
     }
   }
-}}
+}
 
 @media screen and (max-width: 696px) {
   .HomePage {
@@ -412,14 +412,12 @@ row-gap: var(--spacing);
   }
 }
 
-
 @media screen and (max-width: 580px) {
   .HomePage {
     .presentation {
-      
-        p {
-          font-size: 1.8rem;
-        }
+      p {
+        font-size: 1.8rem;
+      }
     }
   }
 }
