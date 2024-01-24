@@ -17,10 +17,10 @@ class FavorisManager extends AbstractManager {
 
   // The D of CRUD - Delete operation
 
-  async delete(id) {
+  async delete(utilisateurId, jeuId) {
     const [result] = await this.database.query(
-      `DELETE FROM ${this.table} WHERE id = ?`,
-      [id]
+      `DELETE FROM ${this.table} WHERE utilisateur_id = ? AND jeu_id = ?`,
+      [utilisateurId, jeuId]
     );
     return result;
   }

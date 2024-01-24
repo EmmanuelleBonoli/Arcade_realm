@@ -109,7 +109,8 @@ export default function JurassicPark({
               `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
                 userConnected.id
               }`,
-              NewUser,{
+              NewUser,
+              {
                 headers: {
                   Authorization: `Bearer ${user.token}`,
                 },
