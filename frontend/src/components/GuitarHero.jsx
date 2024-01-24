@@ -24,11 +24,17 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
     if (gameOverGH === true) {
       if (userConnected) {
         const getScore = async () => {
+          const user = JSON.parse(localStorage.getItem("token"));
           try {
             const fetchScore = await axios.get(
               `${import.meta.env.VITE_BACKEND_URL}/api/score/email/${
                 userConnected.id
-              }`
+              }`,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
             setGetScoreUser(fetchScore.data);
           } catch (err) {
@@ -64,16 +70,26 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
               podium: userConnected.podium,
               tickets: userConnected.tickets,
             };
-
+            const user = JSON.parse(localStorage.getItem("token"));
             await axios.post(
               `${import.meta.env.VITE_BACKEND_URL}/api/score`,
-              NewScore
+              NewScore,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
                 userConnected.id
               }`,
-              NewUser
+              NewUser,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
           } catch (err) {
             console.error(err);
@@ -82,6 +98,7 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
         postScore();
       } else if (scorePlayer > tmpScore[0].points) {
         const postScore = async () => {
+          const user = JSON.parse(localStorage.getItem("token"));
           try {
             const UpdatedScore = {
               utilisateurId: userConnected.id,
@@ -92,7 +109,12 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
               `${import.meta.env.VITE_BACKEND_URL}/api/score/${
                 tmpScore[0].ScoreId
               }`,
-              UpdatedScore
+              UpdatedScore,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
           } catch (err) {
             console.error(err);
