@@ -1,5 +1,7 @@
 /* eslint-disable camelcase */
+const jwt = require("jsonwebtoken");
 const argon2 = require("argon2");
+
 const tables = require("../tables");
 
 const login = async (req, res, next) => {
@@ -19,7 +21,17 @@ const login = async (req, res, next) => {
       // Respond with the user in JSON format (but without the hashed password)
       delete user[0].hashed_password;
 
-      res.status(200).json(user[0]);
+      const token = await jwt.sign(
+        { sub: user[0].id, admin: user[0].admin },
+        process.env.APP_SECRET,
+        {
+          expiresIn: "1h",
+        }
+      );
+      res.json({
+        token,
+        user: user[0],
+      });
     } else {
       res.sendStatus(422);
     }
@@ -30,16 +42,7 @@ const login = async (req, res, next) => {
 
 const signin = async (req, res, next) => {
   try {
-    const {
-      pseudo,
-      email,
-      hashed_password,
-      image,
-      admin,
-      points,
-      podium,
-      tickets,
-    } = req.body;
+    const { pseudo, email, hashed_password, image, admin, points } = req.body;
 
     const result = await tables.utilisateur.create({
       pseudo,
@@ -48,19 +51,16 @@ const signin = async (req, res, next) => {
       image,
       admin,
       points,
-      podium,
-      tickets,
     });
     if (result.insertId) {
       const newUser = {
         id: result.insertId,
         pseudo,
         email,
+        hashed_password,
         image,
         admin,
         points,
-        podium,
-        tickets,
       };
       res.status(201).json(newUser);
     } else {
