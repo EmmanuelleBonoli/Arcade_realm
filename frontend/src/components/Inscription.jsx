@@ -43,7 +43,6 @@ export default function Inscription({ onClose }) {
         ...res.data,
         token: res.data.token,
       };
-      console.log(res.data);
       localStorage.setItem(
         "token",
         JSON.stringify({

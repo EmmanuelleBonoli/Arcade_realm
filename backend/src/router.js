@@ -91,7 +91,6 @@ router.get("/jeu/:id", jeuxControllers.read);
 router.get("/score/:id", scoreControllers.read);
 router.get("/lot/:id", lotControllers.read);
 router.get("/lot/win/:id", lotControllers.readByUserId);
-router.post("/favoris", favorisControllers.createOrUpdateFavorite);
 router.get("/score/email/:id", scoreControllers.readByUserId);
 
 // Route to add a new item
