@@ -20,9 +20,15 @@ function Echange() {
   const [NotEnoughPoints, setNotEnoughPoints] = useState(false);
 
   const loadLotsWin = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setLotsWin(response.data);
     } catch (error) {
@@ -31,16 +37,27 @@ function Echange() {
   };
 
   const loadLotsAvailable = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/lot/exchange`
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/exchange`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setLotsAvailable(response.data);
 
       const userScore = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
           userConnected.id
-        }`
+        }`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setPointsUser(userScore.data[0]);
     } catch (error) {
@@ -66,11 +83,17 @@ function Echange() {
 
     if (selectedLotAvailableObject !== undefined) {
       const getPlayerExchange = async () => {
+        const user = JSON.parse(localStorage.getItem("token"));
         try {
           const fetchPlayer = await axios.get(
             `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
               selectedLotAvailableObject.utilisateur_id
-            }`
+            }`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
           );
           setPlayerExchange(fetchPlayer.data[0]);
         } catch (err) {
@@ -106,16 +129,26 @@ function Echange() {
           exchange: 0,
           podium: lotNewPlayer.podium,
         };
-
+        const user = JSON.parse(localStorage.getItem("token"));
         try {
           await axios.put(
             `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lotOldPlayer.id}`,
-            updatedOldLot
+            updatedOldLot,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
           );
 
           await axios.put(
             `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lotNewPlayer.id}`,
-            updatedNewLot
+            updatedNewLot,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
           );
         } catch (err) {
           console.error(err);
@@ -156,12 +189,18 @@ function Echange() {
             tickets: userConnected.tickets,
           };
 
+          const user = JSON.parse(localStorage.getItem("token"));
           try {
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
                 userConnected.id
               }`,
-              updatedUser
+              updatedUser,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
             loadLotsAvailable();
           } catch (err) {

@@ -18,6 +18,7 @@ function AdminUploadGame({ onClose, resetUploadGame, setResetUploadGame }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const data = {
         name: nameGame,
@@ -29,7 +30,11 @@ function AdminUploadGame({ onClose, resetUploadGame, setResetUploadGame }) {
         nbborne: nbBorneGame,
         description: descGame,
       };
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/jeu`, data);
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/jeu`, data, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       setResetUploadGame(!resetUploadGame);
       onClose();
     } catch (err) {

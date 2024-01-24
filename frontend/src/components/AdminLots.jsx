@@ -12,9 +12,15 @@ function AdminLots() {
   const [confirmPodium, setConfirmPodium] = useState(0);
 
   const getLots = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const fetchLots = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/lot`
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setDataLots(fetchLots.data);
     } catch (err) {
@@ -27,8 +33,16 @@ function AdminLots() {
   }, [resetUploadLot]);
 
   const handleDeleteLots = async (data) => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/lot/${data}`);
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/${data}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       setDataLots(dataLots.filter((lot) => lot.id !== data));
     } catch (err) {
       console.error(err);
@@ -36,6 +50,7 @@ function AdminLots() {
   };
 
   const handleDeleteLotsPodium = async (lot) => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const updatedLot = {
         id: lot.id,
@@ -50,7 +65,12 @@ function AdminLots() {
 
       await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
-        updatedLot
+        updatedLot,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       getLots();
     } catch (err) {

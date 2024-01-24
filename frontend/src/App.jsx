@@ -37,6 +37,7 @@ function App() {
     const user = localStorage.getItem("token");
     if (user) {
       setUserConnected(JSON.parse(user));
+      setAdminOrNot(JSON.parse(user).admin === 1);
     }
   }, []);
 
