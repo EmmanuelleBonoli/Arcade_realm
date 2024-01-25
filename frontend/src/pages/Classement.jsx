@@ -41,7 +41,7 @@ function Classement() {
               {usersPodium
                 .filter((userFiltered) => userFiltered.podium === 2)
                 .map((user) => (
-                  <div>
+                  <div key={user.id}>
                     <p>{user.pseudo}</p>
                     <img
                       src={`${import.meta.env.VITE_BACKEND_URL}${user.image}`}
@@ -54,7 +54,7 @@ function Classement() {
               {usersPodium
                 .filter((userFiltered) => userFiltered.podium === 1)
                 .map((user) => (
-                  <div>
+                  <div key={user.id}>
                     <p>{user.pseudo}</p>
                     <img
                       src={`${import.meta.env.VITE_BACKEND_URL}${user.image}`}
@@ -67,7 +67,7 @@ function Classement() {
               {usersPodium
                 .filter((userFiltered) => userFiltered.podium === 3)
                 .map((user) => (
-                  <div>
+                  <div key={user.id}>
                     <p>{user.pseudo}</p>
                     <img
                       src={`${import.meta.env.VITE_BACKEND_URL}${user.image}`}
@@ -97,14 +97,16 @@ function Classement() {
                 {usersPodium
                   .filter((userFiltered) => userFiltered.podium === 1)
                   .map((user) => (
-                    <p className="playerNames">{user.pseudo}</p>
+                    <p key={user.id} className="playerNames">
+                      {user.pseudo}
+                    </p>
                   ))}
                 {" - "}
                 {lots
                   .filter((lotFiltered) => lotFiltered.podium === 1)
                   .map((lot) => {
                     return (
-                      <>
+                      <div className="imageLotContainer" key={lot.id}>
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
@@ -113,7 +115,7 @@ function Classement() {
                           }`}
                           alt={lot.name}
                         />
-                      </>
+                      </div>
                     );
                   })}
               </div>
@@ -126,14 +128,16 @@ function Classement() {
                 {usersPodium
                   .filter((userFiltered) => userFiltered.podium === 2)
                   .map((user) => (
-                    <p className="playerNames">{user.pseudo}</p>
+                    <p key={user.id} className="playerNames">
+                      {user.pseudo}
+                    </p>
                   ))}
                 {" - "}
                 {lots
                   .filter((lotFiltered) => lotFiltered.podium === 2)
                   .map((lot) => {
                     return (
-                      <>
+                      <div className="imageLotContainer" key={lot.id}>
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
@@ -142,7 +146,7 @@ function Classement() {
                           }`}
                           alt={lot.name}
                         />
-                      </>
+                      </div>
                     );
                   })}
               </div>
@@ -155,14 +159,16 @@ function Classement() {
                 {usersPodium
                   .filter((userFiltered) => userFiltered.podium === 3)
                   .map((user) => (
-                    <p className="playerNames">{user.pseudo}</p>
+                    <p key={user.id} className="playerNames">
+                      {user.pseudo}
+                    </p>
                   ))}
                 {" - "}
                 {lots
                   .filter((lotFiltered) => lotFiltered.podium === 3)
                   .map((lot) => {
                     return (
-                      <>
+                      <div className="imageLotContainer" key={lot.id}>
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
@@ -171,7 +177,7 @@ function Classement() {
                           }`}
                           alt={lot.name}
                         />
-                      </>
+                      </div>
                     );
                   })}
               </div>
@@ -181,7 +187,9 @@ function Classement() {
                 {usersPodium
                   .filter((userFiltered) => userFiltered.podium === 4)
                   .map((user) => (
-                    <p className="playerNames">{user.pseudo}</p>
+                    <p key={user.id} className="playerNames">
+                      {user.pseudo}
+                    </p>
                   ))}
                 {" - "}
                 <p>5x Tickets gratuits</p>
@@ -195,7 +203,9 @@ function Classement() {
                 {usersPodium
                   .filter((userFiltered) => userFiltered.podium === 5)
                   .map((user) => (
-                    <p className="playerNames">{user.pseudo}</p>
+                    <p key={user.id} className="playerNames">
+                      {user.pseudo}
+                    </p>
                   ))}
                 {" - "}
                 <p>5x Tickets gratuits</p>
@@ -209,7 +219,9 @@ function Classement() {
                 {usersPodium
                   .filter((userFiltered) => userFiltered.podium === 6)
                   .map((user) => (
-                    <p className="playerNames">{user.pseudo}</p>
+                    <p key={user.id} className="playerNames">
+                      {user.pseudo}
+                    </p>
                   ))}
                 {" - "}
                 <p>5x Tickets gratuits</p>
@@ -231,7 +243,7 @@ function Classement() {
               .filter((lotsFiltered) => lotsFiltered.win === 0)
               .map((lot) => {
                 return (
-                  <div className="ticketsAvailables">
+                  <div key={lot.id} className="ticketsAvailables">
                     <img
                       className="imageLot"
                       src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
