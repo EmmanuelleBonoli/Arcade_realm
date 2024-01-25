@@ -176,17 +176,17 @@ function Echange() {
         loadLotsWin();
         loadLotsAvailable();
         setTransfer(false);
-      }, 20000);
+      }, 10000);
     }
   }
 
   useEffect(() => {
     if (transfer === true) {
-      if (audio.current != null) {
+      if (audio.current !== null) {
         audio.current.muted = false;
         audio.current.play();
       }
-    } else {
+    } else if (audio.current !== null) {
       audio.current.muted = true;
     }
   }, [transfer]);
