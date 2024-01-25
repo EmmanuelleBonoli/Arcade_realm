@@ -20,7 +20,8 @@
       h1 {
         font-family: "Orbitron";
         padding: 1vh;
-        color: white;
+        color: var(--secondary-color);
+        // color: white;
         text-align: center;
         font-size: 4rem;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -82,9 +83,14 @@
           .winners {
             display: flex;
             align-items: center;
-          }
-          .imageLot {
-            height: 9vh;
+            .imageLotContainer {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .imageLot {
+              height: 9vh;
+            }
           }
         }
         .playerNames {
@@ -133,7 +139,8 @@
       font-family: "Orbitron";
       padding: 1vh;
       font-size: 34px;
-      color: white;
+      color: var(--secondary-color);
+      // color: white;
       text-align: center;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
@@ -146,14 +153,18 @@
       justify-content: center;
       padding: 4% 0 0 12%;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      height: 100%;
+      width: 100%;
       .tickets {
         display: flex;
         flex-direction: column;
         color: white;
         font-size: 2rem;
         font-family: "Orbitron";
-
+        font-weight: bold;
         gap: 2vh;
+        height: 100%;
+        width: 100%;
         .ticketsAvailables {
           display: flex;
           align-items: center;
@@ -161,6 +172,165 @@
         }
         .imageLot {
           height: 15vh;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .classement-recompense {
+      width: 100%;
+      border: none;
+    }
+
+    .lots {
+      width: 100%;
+      height: 40vh;
+      .container-lotswin {
+        padding: 0;
+        justify-content: flex-start;
+
+        .tickets {
+          flex-wrap: wrap;
+          height: 100%;
+          align-items: center;
+          img {
+            width: 40%;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 970px) {
+    .classement-recompense {
+      .recompenses {
+        .winners {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .classement-recompense {
+      .classement {
+        h1 {
+          font-size: 3rem;
+        }
+        .top-3 {
+          img {
+            width: 70px;
+            height: 70px;
+          }
+          p {
+            display: none;
+          }
+        }
+        .podium-img {
+          width: 45%;
+        }
+      }
+      .recompenses {
+        .winners {
+          font-size: 1.5rem;
+          .container-winner1-3 {
+            .medaille {
+              width: 8%;
+            }
+          }
+          .container-winners4-6 {
+            .winners4-6 {
+              p {
+                font-size: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .lots {
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        font-size: 3rem;
+      }
+      .container-lotswin {
+        align-items: center;
+        .tickets {
+          font-size: 1.5rem;
+          align-items: center;
+          justify-content: center;
+          .ticketsAvailables {
+            width: 40%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .classement-recompense {
+      .classement {
+        h1 {
+          font-size: 2rem;
+        }
+        .top-3 {
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+      .recompenses {
+        .winners {
+          .container-winner1-3 {
+            flex-wrap: wrap;
+            .winners {
+              .imageLotContainer {
+                img {
+                  height: 5vh;
+                }
+              }
+            }
+          }
+          .container-winners4-6 {
+            .winners4-6 {
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: center;
+              img {
+                height: 5vh;
+              }
+            }
+          }
+        }
+      }
+    }
+    .lots {
+      height: 20vh;
+      padding: 5% 1% 5% 1%;
+      h2 {
+        font-size: 2.5rem;
+      }
+      .container-lotswin {
+        padding-top: 2%;
+        .tickets {
+          .ticketsAvailables {
+            width: 45%;
+            justify-content: center;
+            img {
+              width: 20%;
+              height: 80%;
+            }
+          }
         }
       }
     }

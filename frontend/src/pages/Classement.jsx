@@ -106,7 +106,7 @@ function Classement() {
                   .filter((lotFiltered) => lotFiltered.podium === 1)
                   .map((lot) => {
                     return (
-                      <div key={lot.id}>
+                      <div className="imageLotContainer" key={lot.id}>
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
@@ -137,7 +137,7 @@ function Classement() {
                   .filter((lotFiltered) => lotFiltered.podium === 2)
                   .map((lot) => {
                     return (
-                      <div key={lot.id}>
+                      <div className="imageLotContainer" key={lot.id}>
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
@@ -168,7 +168,7 @@ function Classement() {
                   .filter((lotFiltered) => lotFiltered.podium === 3)
                   .map((lot) => {
                     return (
-                      <div key={lot.id}>
+                      <div className="imageLotContainer" key={lot.id}>
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
