@@ -16,6 +16,10 @@ function Echange() {
   const [lotOldPlayer, setLotOldPlayer] = useState([]);
   const [lotNewPlayer, setLotNewPlayer] = useState([]);
   const audio = useRef(null);
+  const audio2 = useRef(null);
+  const audio3 = useRef(null);
+  const audio4 = useRef(null);
+  const audio5 = useRef(null);
   const [playerExchange, setPlayerExchange] = useState({});
   const [pointsUser, setPointsUser] = useState(0);
   const [NotEnoughPoints, setNotEnoughPoints] = useState(false);
@@ -191,6 +195,46 @@ function Echange() {
     }
   }, [transfer]);
 
+  useEffect(() => {
+    if (buyMystery === true) {
+      if (
+        audio5.current !== null &&
+        audio2.current !== null &&
+        audio3.current !== null &&
+        audio4.current !== null
+      ) {
+        audio5.current.muted = false;
+        audio5.current.play();
+        setTimeout(() => {
+          audio2.current.muted = false;
+          audio2.current.play();
+        }, 1000);
+        setTimeout(() => {
+          audio2.current.muted = false;
+          audio2.current.play();
+        }, 1000);
+        setTimeout(() => {
+          audio3.current.muted = false;
+          audio3.current.play();
+        }, 2000);
+        setTimeout(() => {
+          audio4.current.muted = false;
+          audio4.current.play();
+        }, 2500);
+      }
+    } else if (
+      audio5.current !== null &&
+      audio2.current !== null &&
+      audio3.current !== null &&
+      audio4.current !== null
+    ) {
+      audio5.current.muted = true;
+      audio2.current.muted = true;
+      audio3.current.muted = true;
+      audio4.current.muted = true;
+    }
+  }, [buyMystery]);
+
   function handleBuyMysteryBox() {
     if (userConnected && pointsUser) {
       if (pointsUser.points >= 50000) {
@@ -285,6 +329,22 @@ function Echange() {
           <audio className="pokemonExchange" ref={audio} muted>
             <track kind="captions" />
             <source src="/sons/EchangeLot.mp3" type="audio/mp3" />
+          </audio>
+          <audio className="buyMystery" ref={audio2} muted>
+            <track kind="captions" />
+            <source src="/sons/MarioJump.mp3" type="audio/mp3" />
+          </audio>
+          <audio className="buyMystery" ref={audio3} muted>
+            <track kind="captions" />
+            <source src="/sons/MarioOpen.mp3" type="audio/mp3" />
+          </audio>
+          <audio className="buyMystery" ref={audio4} muted>
+            <track kind="captions" />
+            <source src="/sons/MarioVictory.mp3" type="audio/mp3" />
+          </audio>
+          <audio className="buyMystery" ref={audio5} muted>
+            <track kind="captions" />
+            <source src="/sons/MarioYahoo.mp3" type="audio/mp3" />
           </audio>
           {transfer && !buyMystery ? (
             <Transfer
