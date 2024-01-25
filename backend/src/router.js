@@ -58,7 +58,7 @@ router.get("/jeu/online", jeuxControllers.browseOnline);
 //
 router.get("/jeu", jeuxControllers.browse);
 router.get("/jeu/:id", jeuxControllers.read);
-
+router.get("/utilisateur/podium", utilisateurControllers.getPodium);
 // connected users
 router.use(verifyToken);
 router.post("/jeu", jeuxControllers.add);
@@ -82,7 +82,7 @@ router.get("/lot/exchange", lotControllers.readByLotExchange);
 router.get("/lot/mystery", lotControllers.readByLotMystery);
 router.get("/jeu/online", jeuxControllers.browseOnline);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
-router.get("/utilisateur/podium", utilisateurControllers.getPodium);
+
 router.get("/utilisateur/topPlayers", utilisateurControllers.getTopPlayers);
 
 // Route to get a specific item by ID
@@ -91,7 +91,6 @@ router.get("/jeu/:id", jeuxControllers.read);
 router.get("/score/:id", scoreControllers.read);
 router.get("/lot/:id", lotControllers.read);
 router.get("/lot/win/:id", lotControllers.readByUserId);
-router.post("/favoris", favorisControllers.createOrUpdateFavorite);
 router.get("/score/email/:id", scoreControllers.readByUserId);
 
 // Route to add a new item

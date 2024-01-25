@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
@@ -54,7 +54,9 @@ function DonneesPerso() {
     const user = JSON.parse(localStorage.getItem("token"));
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${userConnected.id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+          userConnected.id
+        }`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -125,10 +127,7 @@ function DonneesPerso() {
                 <div className="alert-deleted">
                   <p className="text-alert">Êtes-vous sûr ?</p>
                   <div className="button-YN">
-                    <button
-                      type="submit"
-                      onClick={handleDeleteProfil}
-                    >
+                    <button type="submit" onClick={handleDeleteProfil}>
                       Oui
                     </button>
                     <button type="submit" onClick={() => handleCancelDelete()}>
