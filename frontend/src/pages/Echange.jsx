@@ -15,16 +15,16 @@ function Echange() {
   const [transfer, setTransfer] = useState(false);
   const [lotOldPlayer, setLotOldPlayer] = useState([]);
   const [lotNewPlayer, setLotNewPlayer] = useState([]);
-  const audio = useRef(null);
-  const audio2 = useRef(null);
-  const audio3 = useRef(null);
-  const audio4 = useRef(null);
-  const audio5 = useRef(null);
   const [playerExchange, setPlayerExchange] = useState({});
   const [pointsUser, setPointsUser] = useState(0);
   const [NotEnoughPoints, setNotEnoughPoints] = useState(false);
   const [buyMystery, setBuyMystery] = useState(false);
   const [lotMystery, setLotMystery] = useState([]);
+  const audio = useRef(null);
+  const audio2 = useRef(null);
+  const audio3 = useRef(null);
+  const audio4 = useRef(null);
+  const audio5 = useRef(null);
 
   const loadLotsWin = async () => {
     const user = JSON.parse(localStorage.getItem("token"));

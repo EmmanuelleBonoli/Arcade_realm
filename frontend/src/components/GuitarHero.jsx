@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useRef } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { PropTypes } from "prop-types";
 import { uid } from "uid";
@@ -14,6 +14,8 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
     setScorePlayer,
     missedArrow,
     setMissedArrow,
+    setIntervalIsActive,
+    intervalIsActive,
   } = useContext(GameContext);
 
   const { userConnected } = useContext(userContext);
@@ -125,43 +127,48 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
     }
   }, [getScoreUser]);
 
-  const chooseArrowRef = useRef(chooseArrow);
-
   useEffect(() => {
-    chooseArrowRef.current = chooseArrow;
-  }, [chooseArrow]);
-
-  useEffect(() => {
-    const newGame = setInterval(() => {
-      const randomArrow = Math.floor(Math.random() * 4);
-      const newChooseArrow = [...chooseArrowRef.current];
-      newChooseArrow[randomArrow] = !newChooseArrow[randomArrow];
-      setChooseArrow(newChooseArrow);
+    const interval = setInterval(() => {
+      if (intervalIsActive) {
+        const randomArrow = Math.floor(Math.random() * 4);
+        setChooseArrow((prevArrows) => {
+          const newArrows = [...prevArrows];
+          newArrows[randomArrow] = true;
+          return newArrows;
+        });
+      }
     }, 3000);
 
-    if (missedArrow.length === 3) {
-      clearInterval(newGame);
-      setGameOverGH(true);
-    }
-    return () => clearInterval(newGame);
-  }, [missedArrow]);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [intervalIsActive]);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (chooseArrowRef.current.includes(true)) {
+    const timeout = setTimeout(() => {
+      if (intervalIsActive && chooseArrow.some((arrow) => arrow)) {
         setChooseArrow([false, false, false, false]);
-        const newMissedArrow = [...missedArrow];
-        newMissedArrow.push("missed");
-        setMissedArrow(newMissedArrow);
+        setMissedArrow((prevMissedArrow) => [...prevMissedArrow, "missed"]);
       }
     }, 2950);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [chooseArrow]);
+
+  useEffect(() => {
+    if (missedArrow.length === 3) {
+      setIntervalIsActive(false);
+      setGameOverGH(true);
+    }
+  }, [missedArrow]);
 
   function closeGame() {
     setChooseScreen("menu");
     setMissedArrow([]);
     setScorePlayer(0);
     setGameOverGH(false);
+    setIntervalIsActive(false);
   }
 
   function handleNewGameGuitarHero() {
@@ -169,6 +176,7 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
     setScorePlayer(0);
     setMissedArrow([]);
     setChooseScreen("guitarHero");
+    setIntervalIsActive(true);
   }
 
   return (
