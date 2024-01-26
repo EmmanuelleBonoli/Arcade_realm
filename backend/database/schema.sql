@@ -28,7 +28,7 @@ CREATE TABLE
     );
 
 CREATE TABLE evenement (
-    id int primary key auto_increment not null, image varchar(250) not null
+    id INT PRIMARY KEY auto_increment NOT NULL, image varchar(250) NOT NULL
 );
 
 CREATE TABLE score (

@@ -108,6 +108,7 @@ const add = async (req, res, next) => {
 
   try {
     // Insert the item into the database
+
     const insertId = await tables.utilisateur.create(utilisateur);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
@@ -166,6 +167,22 @@ const getTopPlayers = async (req, res, next) => {
   }
 };
 
+const getUploadImage = async (req, res, next) => {
+  try {
+    const [result] = await tables.utilisateur.insert(
+      req.body.url,
+      req.auth.sub
+    );
+    if (result.affectedRows) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getByToken = async (req, res) => {
   const userInfo = req.auth;
 
@@ -197,5 +214,6 @@ module.exports = {
   getPodium,
   getTopPlayers,
   getByToken,
+  getUploadImage,
   getFavoritesGames,
 };

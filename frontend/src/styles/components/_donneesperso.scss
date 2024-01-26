@@ -4,6 +4,58 @@
   display: flex;
   flex-direction: column;
 
+  .upload {
+    form{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center ;
+      gap: 10px;
+      padding: 5px;
+   
+      input::file-selector-button {
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.61);
+      color: rgba(255, 255, 255, 0.683);
+        padding: 5px 10px 5px 10px;
+        border: thin solid grey;
+        cursor: pointer;
+      }
+      .label-file {
+        cursor: pointer;
+        color: #00b1ca;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .label-file:hover {
+        color: #25a5c4;
+    }
+    
+    // et on masque le input
+    .input-file {
+        display: none;
+    }
+      button {
+      border: 1px solid rgba(255, 255, 255, 0.486);
+      
+      background-color: rgba(0, 0, 0, 0.61);
+      color: rgba(255, 255, 255, 0.683);
+      cursor: pointer;
+      font-size: 1.5rem;
+      color : var(--secondary-color);
+      width: 1.5vw;
+      height: 2.5vh;
+display: flex;
+justify-content: center;
+align-items: center;
+      img{
+        width: 1vw;
+        height: 1.5vh;
+      }
+    }
+  }
+  }
+
   .header-wrapper {
     display: flex;
     align-items: center;
@@ -14,6 +66,8 @@
       width: 10%;
       cursor: pointer;
     }
+
+
     h1 {
       font-family: var(--primary-font);
       font-size: 3rem;

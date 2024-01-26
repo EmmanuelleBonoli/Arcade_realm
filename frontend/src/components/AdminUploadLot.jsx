@@ -6,11 +6,6 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
   const [nameLot, setNameLot] = useState("");
   const [descLot, setDescLot] = useState("");
   const [file, setFile] = useState(undefined);
-  // const [setImageLot] = useState("");
-
-  const handleInputClick = (e) => {
-    e.stopPropagation();
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,12 +14,15 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
       const formData = new FormData();
 
       formData.append("name", nameLot);
-      formData.append("description", descLot);
-      formData.append("disponible", false);
       formData.append("image", file);
+      formData.append("description", descLot);
+      formData.append("win", 0);
+      formData.append("exchange", 0);
+      formData.append("podium", 0);
+      formData.append("mystery", 0);
 
       await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/lot`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/addlot`,
         formData,
         {
           headers: {
@@ -54,14 +52,12 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
           <input
             type="text"
             onChange={(event) => setNameLot(event.target.value)}
-            onClick={handleInputClick}
           />
 
           <p>Description du lot</p>
           <input
             type="text"
             onChange={(event) => setDescLot(event.target.value)}
-            onClick={handleInputClick}
           />
 
           <input
@@ -69,11 +65,6 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
             type="file"
             accept="image/*"
           />
-          {/* <input
-            type="file"
-            // onChange={(event) => setImageLot(event.target.files[0])}
-            accept=".png, .jpg,.jpeg"
-          />  */}
 
           <button type="submit" className="btn-inscription">
             Valider la création

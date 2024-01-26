@@ -155,7 +155,7 @@ function AdminLots() {
                 <div className="itemServices" key={lot.id}>
                   <img
                     className="lots"
-                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
                     alt="jeux"
                   />
                   <img
@@ -179,7 +179,7 @@ function AdminLots() {
                 <div className="itemServices" key={lot.id}>
                   <img
                     className="lots"
-                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
                     alt="jeux"
                   />
                   <img
@@ -219,7 +219,7 @@ function AdminLots() {
                 <div className="itemServices" key={lot.id}>
                   <img
                     className="lots"
-                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
                     alt="jeux"
                   />
                   <img
@@ -256,7 +256,7 @@ function AdminLots() {
                 <div className="itemServices" key={lot.id}>
                   <img
                     className="lots"
-                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
                     alt="jeux"
                   />
                   <img
@@ -293,7 +293,7 @@ function AdminLots() {
                 <div className="itemServices" key={lot.id}>
                   <img
                     className="lots"
-                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
                     alt="jeux"
                   />
                   <img

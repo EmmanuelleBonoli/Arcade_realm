@@ -108,6 +108,22 @@ class LotManager extends AbstractManager {
 
     return result;
   }
+
+  insert(
+    name,
+    image,
+    description,
+    utilisateurId,
+    win,
+    exchange,
+    podium,
+    mystery
+  ) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (name, image, description, utilisateur_id, win, exchange, podium, mystery) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [name, image, description, utilisateurId, win, exchange, podium, mystery]
+    );
+  }
 }
 
 module.exports = LotManager;

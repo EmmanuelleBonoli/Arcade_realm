@@ -98,6 +98,13 @@ class UtilisateurManager extends AbstractManager {
     );
     return result;
   }
+
+  insert(image, userId) {
+    return this.database.query(
+      `UPDATE ${this.table} SET image = ? WHERE id = ?`,
+      [image, userId]
+    );
+  }
 }
 
 module.exports = UtilisateurManager;
