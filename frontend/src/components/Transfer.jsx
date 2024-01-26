@@ -47,7 +47,7 @@ function Transfer({ lotOldPlayer, lotNewPlayer, playerExchange }) {
               <div className="avatarAndNameContainer">
                 <div className="avatarContainer">
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${
                       userConnected.image
                     }`}
                     alt="avatar Player"
@@ -58,7 +58,7 @@ function Transfer({ lotOldPlayer, lotNewPlayer, playerExchange }) {
               <div className="avatarAndNameContainer">
                 <div className="avatarContainer">
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${
                       playerExchange.image
                     }`}
                     alt="avatar Player"

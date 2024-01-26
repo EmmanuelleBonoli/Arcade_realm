@@ -119,7 +119,7 @@ function AdminCompetition() {
                 <div className="podiumUsers" key={user.id}>
                   <p className="place">{index + 1}</p>
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${user.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${user.image}`}
                     alt={user.pseudo}
                   />
                   <p>{user.pseudo}</p>

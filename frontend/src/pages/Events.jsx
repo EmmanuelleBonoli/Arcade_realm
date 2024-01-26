@@ -21,7 +21,7 @@ function Events() {
         {events.map((event) => (
           <img
             key={event.id}
-            src={`${import.meta.env.VITE_BACKEND_URL}${event.image}`}
+            src={`${import.meta.env.VITE_BACKEND_URL}/${event.image}`}
             alt="affiches"
           />
         ))}

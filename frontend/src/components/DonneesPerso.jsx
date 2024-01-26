@@ -9,28 +9,10 @@ function DonneesPerso() {
     useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [userUpdate, setUserUpdate] = useState(userConnected);
-
   const [isDeleted, setIsDeleted] = useState(false);
-  // const [avatar, setAvatar] = useState(undefined);
+  const [file, setFile] = useState(undefined);
 
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
-  const handleDelete = () => {
-    setIsDeleted(true);
-  };
-  const handleCancelDelete = () => {
-    setIsDeleted(false);
-  };
-
-  const handlelogout = () => {
-    setUserConnected(null);
-    setAdminOrNot(false);
-    localStorage.removeItem("token");
-  };
-
-  const handleSubmit = async (e) => {
+  const handleEditProfile = async (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
     try {
@@ -50,6 +32,61 @@ function DonneesPerso() {
       console.error(err);
     }
   };
+
+  const handleUpload = async (event) => {
+    event.preventDefault();
+    const user = JSON.parse(localStorage.getItem("token"));
+    try {
+      const data = new FormData();
+      data.append("image", file);
+
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/image`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/userbytoken`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+
+      setUserConnected(res.data[0]);
+      setUserUpdate(res.data[0]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+  };
+
+  const handleDelete = () => {
+    setIsDeleted(true);
+  };
+
+  const handleCancelDelete = () => {
+    setIsDeleted(false);
+  };
+
+  const handlelogout = () => {
+    setUserConnected(null);
+    setAdminOrNot(false);
+    localStorage.removeItem("token");
+  };
+
   const handleDeleteProfil = async () => {
     const user = JSON.parse(localStorage.getItem("token"));
     try {
@@ -77,11 +114,10 @@ function DonneesPerso() {
         <div className="container-user">
           <div className="header-wrapper">
             <h1>Profil</h1>
-
             <img
               src="/images/Utilisateur/Edit.png"
               alt="edit-img"
-              onClick={handleEdit}
+              onClick={isEditing ? handleCancelEdit : handleEdit}
               role="presentation"
             />
           </div>
@@ -138,79 +174,78 @@ function DonneesPerso() {
               )}
             </div>
           ) : (
-            <form
-              id="form"
-              className="information-user"
-              onSubmit={handleSubmit}
-            >
-              <p>
-                <strong>
-                  <span>Pseudo :</span>
-                </strong>
-              </p>
-              <div className="input-scss">
-                <input
-                  className="input-edit"
-                  type="text"
-                  value={userUpdate.pseudo}
-                  onChange={(event) =>
-                    setUserUpdate({ ...userUpdate, pseudo: event.target.value })
-                  }
-                />
+            <>
+              <div className="upload">
+                <form onSubmit={handleUpload}>
+                  <input
+                    name="filename"
+                    onChange={(e) => setFile(e.target.files[0])}
+                    type="file"
+                    accept="image/*"
+                    id="file"
+                    className="input-file"
+                  />
+                  <label htmlFor="file" className="label-file">
+                    Choisir une image
+                  </label>
+                  <button type="submit">
+                    <img
+                      src="images/Utilisateur/upload-button.png"
+                      alt="upload"
+                    />
+                  </button>
+                </form>
               </div>
-
-              <p>
-                <strong>
-                  <span>E-mail :</span>
-                </strong>
-              </p>
-              <div className="input-scss">
-                <input
-                  className="input-edit"
-                  type="email"
-                  value={userUpdate.email}
-                  onChange={(event) =>
-                    setUserUpdate({ ...userUpdate, email: event.target.value })
-                  }
-                />
-              </div>
-
-              {/* <p>
-                <strong>
-                  <span>Mot de passe :</span>
-                </strong>
-                <div className="mdp-container">
+              <form
+                id="form"
+                className="information-user"
+                onSubmit={handleEditProfile}
+              >
+                <p>
+                  <strong>
+                    <span>Pseudo :</span>
+                  </strong>
+                </p>
+                <div className="input-scss">
                   <input
                     className="input-edit"
-                    type={motDePasseVisible ? "text" : "password"}
-                    // value={userUpdate.password}
+                    type="text"
+                    value={userUpdate.pseudo}
                     onChange={(event) =>
                       setUserUpdate({
                         ...userUpdate,
-                        password: event.target.value,
+                        pseudo: event.target.value,
                       })
                     }
                   />
-                  <img
-                    src={
-                      motDePasseVisible
-                        ? "/images/Login/Mdp_unsee.png"
-                        : "/images/Login/Mdp_see.png"
+                </div>
+
+                <p>
+                  <strong>
+                    <span>E-mail :</span>
+                  </strong>
+                </p>
+                <div className="input-scss">
+                  <input
+                    className="input-edit"
+                    type="email"
+                    value={userUpdate.email}
+                    onChange={(event) =>
+                      setUserUpdate({
+                        ...userUpdate,
+                        email: event.target.value,
+                      })
                     }
-                    alt="eye"
-                    className="mdp"
-                    onClick={toggleMotDePasseVisibility}
-                    role="presentation"
                   />
                 </div>
-              </p> */}
 
-              <div className="edit-profil">
-                <button className="saveprofil" type="submit">
-                  Enregistrer
-                </button>
-              </div>
-            </form>
+                <div className="edit-profil">
+                  <button className="saveprofil" type="submit">
+                    Enregistrer
+                  </button>
+                </div>
+              </form>
+            </>
           )}
         </div>
       ) : (

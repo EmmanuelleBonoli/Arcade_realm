@@ -30,7 +30,7 @@ function ProfileUser() {
           </div>
           <div className="avatar">
             <img
-              src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.image}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}/${userConnected.image}`}
               alt="avatar"
             />
           </div>
