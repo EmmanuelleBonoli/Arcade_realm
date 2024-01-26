@@ -6,6 +6,7 @@
   background-color: rgba(0, 0, 0, 0.801);
   padding: 2%;
   border-radius: 15px;
+  font-size: 25px;
 
   .descSpaces {
     display: flex;
@@ -29,6 +30,23 @@
       height: 25vh;
       border-radius: 10px;
       border: 1px solid white;
+      margin: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .spaces {
+    .descSpaces {
+      order: 2;
+    }
+
+    .imgSpaces1 {
+      order: 1;
+    }
+
+    .imgSpaces2 {
+      order: 3;
     }
   }
 }

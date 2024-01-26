@@ -3,17 +3,17 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  width: auto;
   min-height: 80vh;
   background-color: rgba(0, 0, 0, 0.801);
   padding: 2%;
   border-radius: 15px;
-  color: white;
 
   .containerGames {
     display: flex;
     justify-content: center;
     position: relative;
+    gap: 50px;
 
     .secondimage {
       height: 50vh;
@@ -59,7 +59,7 @@
     font-size: 2rem;
     width: 80%;
     max-width: 900px;
-    gap: 33px;
+    gap: 50px;
   }
 
   .containerGames2 {
@@ -82,7 +82,6 @@
 
   .secondimage {
     height: auto;
-    width: 40vw;
     object-fit: contain;
   }
 
@@ -133,18 +132,57 @@
 
     .descriptionGames {
       width: 125%;
+      position: relative;
       max-width: none;
       height: auto;
       padding: 10px;
       margin: 0;
+      text-size-adjust: auto;
 
       img {
-        height: 50px;
+        height: 75px;
         width: auto !important;
         top: 5px;
         right: 10px;
         position: absolute;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .containerGames {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .containerGames3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .secondimage {
+    width: 100%;
+  }
+
+  .descriptionGames {
+    position: relative;
+    height: auto;
+    padding: 10px;
+    margin: 0;
+    width: 125%;
+    font-size: 25px;
+
+    img {
+      height: 50px;
+      width: auto !important;
+      top: 5px;
+      right: 10px;
+      position: absolute;
     }
   }
 }
