@@ -61,7 +61,9 @@ align-items: center;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    padding: 2%;
+
+    padding: 5%;
+
     img {
       width: 10%;
       cursor: pointer;
@@ -167,7 +169,7 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
+    padding-top: 10%;
 
     button {
       background-color: rgba(0, 0, 0, 0.61);
@@ -216,6 +218,16 @@ align-items: center;
     font-style: italic;
   }
 
+  @media screen and (max-width: 1500px) {
+    .btn-logout {
+      button {
+        a {
+          width: 25vh;
+          height: 5vh;
+        }
+      }
+    }
+  }
   @media screen and (max-width: 1100px) {
     .information-user {
       .input-scss {
@@ -224,6 +236,9 @@ align-items: center;
       .input-edit {
         width: 50%;
       }
+    }
+    .btn-logout {
+      padding-top: 0%;
     }
   }
   @media screen and (max-width: 800px) {
@@ -235,6 +250,12 @@ align-items: center;
   }
 
   @media screen and (max-width: 500px) {
+    .header-wrapper {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
     .information-user {
       .input-edit {
         width: 95%;
@@ -242,7 +263,7 @@ align-items: center;
       .btn-logout {
         button {
           a {
-            width: 50vw;
+            width: 40vw;
             p {
               font-size: 1.2rem;
             }
@@ -262,6 +283,9 @@ align-items: center;
       .saveprofil {
         width: 40vw;
       }
+    }
+    .btn-logout {
+      padding-top: 10%;
     }
   }
 }
