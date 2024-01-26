@@ -90,6 +90,25 @@
     display: flex;
   }
 
+  .retourpicture {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    ::-webkit-scrollbar {
+      cursor: pointer;
+      width: 5px;
+      height: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--fourth-color);
+      border-radius: 5px;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .containerGames {
       display: flex;
@@ -125,25 +144,6 @@
         top: 5px;
         right: 10px;
         position: absolute;
-      }
-    }
-
-    .retourpicture {
-      display: flex;
-      align-items: center;
-      background: transparent;
-      height: 50px;
-      border: none;
-      cursor: pointer;
-      ::-webkit-scrollbar {
-        cursor: pointer;
-        width: 5px;
-        height: 5px;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background-color: var(--fourth-color);
-        border-radius: 5px;
       }
     }
   }

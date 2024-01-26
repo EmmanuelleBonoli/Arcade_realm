@@ -181,11 +181,7 @@ const readByLotAvailable = async (req, res, next) => {
 const readByLotExchange = async (req, res, next) => {
   try {
     const result = await tables.lot.readByLotExchange();
-    if (result.length > 0) {
-      res.status(201).send(result);
-    } else {
-      res.sendStatus(404);
-    }
+    res.status(201).send(result);
   } catch (err) {
     next(err);
   }

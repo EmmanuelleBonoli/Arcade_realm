@@ -41,7 +41,7 @@ function ProfileAdmin() {
               </NavLink>
               <NavLink to="/profilutilisateur/gestiondeslots" className="">
                 <p>Gestion des lots</p>
-                <img src="" alt="" />
+                <img src="/images/Utilisateur/Admin/lotIcone.png" alt="" />
               </NavLink>
               <NavLink to="/profilutilisateur/gestionprofils" className="">
                 <p>Gestion des profils</p>

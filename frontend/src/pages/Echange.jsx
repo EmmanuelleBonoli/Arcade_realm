@@ -176,17 +176,17 @@ function Echange() {
         loadLotsWin();
         loadLotsAvailable();
         setTransfer(false);
-      }, 20000);
+      }, 10000);
     }
   }
 
   useEffect(() => {
     if (transfer === true) {
-      if (audio.current != null) {
+      if (audio.current !== null) {
         audio.current.muted = false;
         audio.current.play();
       }
-    } else {
+    } else if (audio.current !== null) {
       audio.current.muted = true;
     }
   }, [transfer]);
@@ -245,12 +245,22 @@ function Echange() {
 
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lotMystery[0].id}`,
-              updatedMystery
+              updatedMystery,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
 
             await axios.post(
               `${import.meta.env.VITE_BACKEND_URL}/api/lot/mystery`,
-              createNewMystery
+              createNewMystery,
+              {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              }
             );
           } catch (err) {
             console.error(err);
