@@ -29,6 +29,8 @@ function ArcadeGame() {
     scorePlayer,
     setScorePlayer,
     setMissedArrow,
+    setIntervalIsActive,
+    intervalIsActive,
   } = useContext(GameContext);
 
   const audio = useRef(null);
@@ -112,6 +114,9 @@ function ArcadeGame() {
     if (chooseScreen === "menu" && gameSelected === 0) {
       setChooseScreen("guitarHero");
       setGamePlayed(4);
+      if (intervalIsActive === false) {
+        setIntervalIsActive(true);
+      }
     }
     if (chooseScreen === "menu" && gameSelected === 1) {
       setChooseScreen("JurassicPark");
