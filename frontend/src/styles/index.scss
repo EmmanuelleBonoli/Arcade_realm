@@ -8,6 +8,7 @@
 @import "./pages/profileadmin";
 @import "./pages/arcadeGame";
 
+
 @import "./components/footer";
 @import "./components/navBar";
 @import "./components/presentationSpaces";
@@ -35,6 +36,10 @@
 @import "./components/adminChooseLots";
 @import "./components/adminCompetition";
 @import "./components/echangeMysteryBox";
+
+@import "./components/code.scss";
+
 @import "./components/adminUploadGame";
+
 
 @import "settings";
