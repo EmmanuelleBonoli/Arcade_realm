@@ -4,15 +4,12 @@ import { useState } from "react";
 
 function AdminUploadGame({ onClose, setResetUploadGame, resetUploadGame }) {
   const [nameGame, setNameGame] = useState("");
-  // const [imageGame, setImageGame] = useState("");
   const [rulesGame, setRulesGame] = useState("");
   const [actifGame, setActifGame] = useState(false);
   const [realGame, setRealGame] = useState(false);
   const [dateGame, setDateGame] = useState("");
   const [nbBorneGame, setNbBorneGame] = useState(0);
   const [descGame, setDescGame] = useState("");
-
-  //Upload
   const [file, setFile] = useState(undefined);
 
   const handleSubmit = async (event) => {

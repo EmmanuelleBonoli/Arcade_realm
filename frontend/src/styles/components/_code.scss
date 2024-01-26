@@ -1,26 +1,19 @@
 @media screen and (max-width: 450px) {
-
-    .container-modale-qr {
-
-
-        background-color: #ffffff00;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: 3;
-        padding-top: 50%;
-        display: flex;
-        justify-content: center;
-        backdrop-filter: blur(10px);
-        .img-qr {
-            
-
-            img {
-
-
-            }
-        }
+  .container-modale-qr {
+    background-color: #ffffff00;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+    padding-top: 50%;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    .img-qr {
+      img {
+      }
     }
+  }
 }
