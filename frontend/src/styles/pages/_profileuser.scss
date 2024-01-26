@@ -46,7 +46,7 @@
     }
     .profil-pt2 {
       width: 50%;
-      height: 100%;
+      height: 110%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -54,7 +54,7 @@
         padding-top: 3%;
         border: 2px solid white;
         width: 80%;
-        height: 70%;
+        height: 65%;
         border-radius: 5px;
         background-color: #00212a;
       }
@@ -91,13 +91,11 @@
         padding-top: 8vw;
 
         a {
-          width: 10vw;
-          margin-top: 10px;
+          width: 80px;
           text-align: center;
-
           img {
             display: initial;
-            width: 60%;
+            width: 55%;
           }
           p {
             display: none;
@@ -105,11 +103,10 @@
         }
       }
       .profil-pt2 {
-        width: 80vw;
-        height: 100vh;
+        width: 60vw;
+        height: 45vh;
         .displayChoice {
-          height: 80%;
-          
+          height: 90%;
         }
       }
     }
@@ -117,6 +114,79 @@
       top: 2%;
       height: 160px;
       width: 160px;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .home-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container-profil {
+      .profil-pt1 {
+        a {
+          width: 8vw;
+          margin-top: 50px;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .profil-pt2 {
+        width: 60vw;
+        height: 42vh;
+        .displayChoice {
+          height: 90%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .home-profil {
+    .container-profil {
+      .profil-pt1 {
+        a {
+          width: 10vw;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .profil-pt2 {
+        width: 65vw;
+      }
+    }
+    .avatar {
+      height: 140px;
+      width: 140px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container-profil {
+      width: 90%;
+      height: 70vh;
+      .profil-pt1 {
+        a {
+          width: 15vw;
+        }
+      }
+      .profil-pt2 {
+        width: 95vw;
+        height: 40vh;
+        .displayChoice {
+          height: 90%;
+        }
+      }
     }
   }
 }
