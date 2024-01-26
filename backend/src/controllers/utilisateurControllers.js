@@ -53,6 +53,26 @@ const getFavorites = async (req, res, next) => {
   }
 };
 
+const getFavoritesGames = async (req, res, next) => {
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const utilisateur = await tables.utilisateur.getFavoritesGames(
+      req.params.id
+    );
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (utilisateur == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(utilisateur);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
@@ -177,4 +197,5 @@ module.exports = {
   getPodium,
   getTopPlayers,
   getByToken,
+  getFavoritesGames,
 };

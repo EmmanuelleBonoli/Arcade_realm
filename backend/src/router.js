@@ -55,6 +55,9 @@ router.post("/evenement", evenementControllers.add);
 router.put("/evenement/:id", evenementControllers.edit);
 router.delete("/evenement/:id", evenementControllers.destroy);
 router.get("/jeu/online", jeuxControllers.browseOnline);
+router.get("/utilisateur/podium", utilisateurControllers.getPodium);
+router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
+
 //
 router.get("/jeu", jeuxControllers.browse);
 router.get("/jeu/:id", jeuxControllers.read);
@@ -66,7 +69,10 @@ router.put("/jeu/:id", jeuxControllers.edit);
 router.delete("/jeu/:id", jeuxControllers.destroy);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
 router.get("/utilisateur/favoris/:id", utilisateurControllers.getFavorites);
-
+router.get(
+  "/utilisateur/favoris/game/:id",
+  utilisateurControllers.getFavoritesGames
+);
 //
 router.get("/score", scoreControllers.browse);
 router.get("/score/:id", scoreControllers.read);
@@ -81,8 +87,7 @@ router.get("/lot/disponible", lotControllers.readByLotAvailable);
 router.get("/lot/exchange", lotControllers.readByLotExchange);
 router.get("/lot/mystery", lotControllers.readByLotMystery);
 router.get("/jeu/online", jeuxControllers.browseOnline);
-router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
-
+router.get("/utilisateur/podium", utilisateurControllers.getPodium);
 router.get("/utilisateur/topPlayers", utilisateurControllers.getTopPlayers);
 
 // Route to get a specific item by ID
@@ -99,7 +104,6 @@ router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
 router.post("/lot/mystery", lotControllers.addMystery);
 router.post("/lot", upload.single("image"), lotControllers.add);
-
 router.post("/utilisateur", utilisateurControllers.add);
 router.post("/login", authControllers.login);
 router.post("/signin", hashPassword, authControllers.signin);
@@ -108,18 +112,17 @@ router.post("/signin", hashPassword, authControllers.signin);
 router.put("/evenement/:id", evenementControllers.edit);
 router.put("/jeu/:id", jeuxControllers.edit);
 router.put("/score/:id", scoreControllers.edit);
-
 router.put("/lot/:id", lotControllers.edit);
 router.delete("/lot/:id", lotControllers.destroy);
 
 // user
 router.get("/utilisateur", utilisateurControllers.browse);
-router.get("/utilisateur/podium", utilisateurControllers.getPodium);
 router.get("/utilisateur/topPlayers", utilisateurControllers.getTopPlayers);
 router.get("/utilisateur/:id", utilisateurControllers.read);
 router.put("/utilisateur/:id", utilisateurControllers.edit);
 router.delete("/utilisateur/:id", utilisateurControllers.destroy);
-router.delete("/favoris/:id", favorisControllers.destroy);
+router.delete("/favoris/:utilisateurId/:jeuId", favorisControllers.destroy);
+router.post("/favoris", favorisControllers.add);
 
 /* ************************************************************************* */
 router.get("/userbytoken", utilisateurControllers.getByToken);
