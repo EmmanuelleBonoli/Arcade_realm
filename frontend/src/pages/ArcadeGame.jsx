@@ -54,7 +54,18 @@ function ArcadeGame() {
 
   useEffect(() => {
     const getScoresGamesOnline = async () => {
-      const user = JSON.parse(localStorage.getItem("token"));
+      const userJSON = localStorage.getItem("token");
+      if (!userJSON) {
+        // Handle the case where the user is not logged in or token is not available
+        return;
+      }
+
+      const user = JSON.parse(userJSON);
+      if (!user || !user.token) {
+        // Handle the case where the user object or token is missing
+        return;
+      }
+
       try {
         const fetchScoresGames = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/jeu/online/scores`,

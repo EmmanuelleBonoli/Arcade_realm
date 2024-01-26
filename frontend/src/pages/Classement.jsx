@@ -44,7 +44,7 @@ function Classement() {
                   <div>
                     <p>{user.pseudo}</p>
                     <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}${user.image}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${user.image}`}
                       alt={user.pseudo}
                     />
                   </div>
@@ -57,7 +57,7 @@ function Classement() {
                   <div>
                     <p>{user.pseudo}</p>
                     <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}${user.image}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${user.image}`}
                       alt={user.pseudo}
                     />
                   </div>
@@ -70,7 +70,7 @@ function Classement() {
                   <div>
                     <p>{user.pseudo}</p>
                     <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}${user.image}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${user.image}`}
                       alt={user.pseudo}
                     />
                   </div>

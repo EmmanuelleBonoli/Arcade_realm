@@ -67,7 +67,7 @@ function NavBar() {
               </div>
               <div className="bloc-image">
                 <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${
+                  src={`${import.meta.env.VITE_BACKEND_URL}/${
                     userConnected.image
                   }`}
                   alt="avataruser"
