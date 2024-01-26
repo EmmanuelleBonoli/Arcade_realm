@@ -110,7 +110,7 @@ function Classement() {
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
-                          src={`${import.meta.env.VITE_BACKEND_URL}${
+                          src={`${import.meta.env.VITE_BACKEND_URL}/${
                             lot.image
                           }`}
                           alt={lot.name}
@@ -141,7 +141,7 @@ function Classement() {
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
-                          src={`${import.meta.env.VITE_BACKEND_URL}${
+                          src={`${import.meta.env.VITE_BACKEND_URL}/${
                             lot.image
                           }`}
                           alt={lot.name}
@@ -172,7 +172,7 @@ function Classement() {
                         <p>{lot.name}</p>
                         <img
                           className="imageLot"
-                          src={`${import.meta.env.VITE_BACKEND_URL}${
+                          src={`${import.meta.env.VITE_BACKEND_URL}/${
                             lot.image
                           }`}
                           alt={lot.name}
@@ -246,7 +246,7 @@ function Classement() {
                   <div key={lot.id} className="ticketsAvailables">
                     <img
                       className="imageLot"
-                      src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
                       alt={lot.name}
                     />
                     <p>{lot.name} </p>

@@ -116,6 +116,11 @@ router.post(
   upload.single("image"),
   evenementControllers.getUploadImage
 );
+router.post(
+  "/lot/addlot",
+  upload.single("image"),
+  lotControllers.getUploadImage
+);
 
 router.post(
   "/jeu/addjeu",
