@@ -117,6 +117,12 @@ router.post(
   evenementControllers.getUploadImage
 );
 
+router.post(
+  "/jeu/addjeu",
+  upload.single("image"),
+  jeuxControllers.getUploadImage
+);
+
 router.post("/utilisateur", utilisateurControllers.add);
 router.post("/login", authControllers.login);
 router.post("/signin", hashPassword, authControllers.signin);

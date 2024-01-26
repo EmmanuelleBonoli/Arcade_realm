@@ -2,7 +2,7 @@ import { PropTypes } from "prop-types";
 import axios from "axios";
 import { useState } from "react";
 
-function AdminUploadGame({ onClose, resetUploadGame, setResetUploadGame }) {
+function AdminUploadGame({ onClose }) {
   const [nameGame, setNameGame] = useState("");
   // const [imageGame, setImageGame] = useState("");
   const [rulesGame, setRulesGame] = useState("");
@@ -12,34 +12,41 @@ function AdminUploadGame({ onClose, resetUploadGame, setResetUploadGame }) {
   const [nbBorneGame, setNbBorneGame] = useState(0);
   const [descGame, setDescGame] = useState("");
 
-  const handleInputClick = (e) => {
-    e.stopPropagation();
-  };
+  //Upload
+  const [file, setFile] = useState(undefined);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const user = JSON.parse(localStorage.getItem("token"));
     try {
-      const data = {
-        name: nameGame,
-        image: `/images/Evenements/affiche_accueil.png`,
-        regles: rulesGame,
-        actif: actifGame,
-        physique: realGame,
-        date: dateGame,
-        nbborne: nbBorneGame,
-        description: descGame,
-      };
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/jeu`, data, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
-      setResetUploadGame(!resetUploadGame);
+      const data = new FormData();
+      data.append("name", nameGame);
+      data.append("image", file);
+      data.append("regles", rulesGame);
+      data.append("actif", actifGame);
+      data.append("physique", realGame);
+      data.append("date", dateGame);
+      data.append("nbBorne", nbBorneGame);
+      data.append("description", descGame);
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/jeu/addjeu`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      setFile(res.data[0]);
       onClose();
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleInputClick = (e) => {
+    e.stopPropagation();
   };
 
   return (
@@ -95,7 +102,12 @@ function AdminUploadGame({ onClose, resetUploadGame, setResetUploadGame }) {
             onChange={(event) => setDescGame(event.target.value)}
             onClick={handleInputClick}
           />
-
+          <input
+            name="filename"
+            onChange={(e) => setFile(e.target.files[0])}
+            type="file"
+            accept="image/*"
+          />
           {/* <input
             type="file"
             // onChange={(event) => setImageLot(event.target.files[0])}
@@ -113,8 +125,8 @@ function AdminUploadGame({ onClose, resetUploadGame, setResetUploadGame }) {
 
 AdminUploadGame.propTypes = {
   onClose: PropTypes.func.isRequired,
-  setResetUploadGame: PropTypes.func.isRequired,
-  resetUploadGame: PropTypes.bool.isRequired,
+  // setResetUploadGame: PropTypes.func.isRequired,
+  // resetUploadGame: PropTypes.bool.isRequired,
 };
 
 export default AdminUploadGame;

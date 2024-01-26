@@ -87,6 +87,13 @@ class JeuxManager extends AbstractManager {
     );
     return result;
   }
+
+  insert(name, image, regles, actif, physique, date, nbBorne, description) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (name, image, regles,actif,physique,date,nb_borne,description) VALUES (?,?,?,?,?,?,?,?)`,
+      [name, image, regles, actif, physique, date, nbBorne, description]
+    );
+  }
 }
 
 module.exports = JeuxManager;
