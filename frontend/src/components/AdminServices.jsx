@@ -38,6 +38,17 @@ function AdminServices() {
     }
   };
 
+  const getGames = async () => {
+    try {
+      const fetchGames = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/jeu`
+      );
+      setDataGames(fetchGames.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     const getEvents = async () => {
       try {
@@ -50,16 +61,6 @@ function AdminServices() {
       }
     };
 
-    const getGames = async () => {
-      try {
-        const fetchGames = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/jeu`
-        );
-        setDataGames(fetchGames.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
     getEvents();
     getGames();
   }, [resetUploadEvent, resetUploadGame]);
@@ -143,7 +144,7 @@ function AdminServices() {
           return (
             <div className="itemServices" key={game.id}>
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${game.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${game.image}`}
                 alt="jeux"
               />
               <img

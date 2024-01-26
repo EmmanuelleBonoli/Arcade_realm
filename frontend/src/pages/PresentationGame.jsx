@@ -113,7 +113,7 @@ function PresentationGame() {
           </div>
           <div className="containerGames3">
             <img
-              src={`${import.meta.env.VITE_BACKEND_URL}${game[0].image}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}/${game[0].image}`}
               alt={game[0].name}
               className="secondimage"
             />

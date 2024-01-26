@@ -95,7 +95,7 @@ function MesLotsEchanges() {
               src="/images/Utilisateur/ticketgratuit.png"
               alt="tickets gratuits"
             />
-            <p>parties gratuites :</p>
+            <p>Parties gratuites :</p>
             <p>{userConnected.tickets}</p>
           </div>
           <h2>Mettre à l'échange ?</h2>
