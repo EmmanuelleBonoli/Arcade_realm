@@ -143,7 +143,7 @@ function AdminServices() {
           return (
             <div className="itemServices" key={game.id}>
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${game.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${game.image}`}
                 alt="jeux"
               />
               <img
