@@ -9,7 +9,7 @@ const { hashPassword, verifyToken } = require("./services/auth");
 
 const options = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/");
+    cb(null, "./public");
   },
   filename: (req, file, cb) => {
     const extArray = file.mimetype.split("/");
@@ -19,7 +19,7 @@ const options = multer.diskStorage({
     cb(null, name);
   },
   limits: {
-    fieldSize: 1024 * 5,
+    fieldSize: 1024 * 50,
   },
 });
 const upload = multer({ storage: options });
@@ -87,6 +87,7 @@ router.get("/lot/disponible", lotControllers.readByLotAvailable);
 router.get("/lot/exchange", lotControllers.readByLotExchange);
 router.get("/lot/mystery", lotControllers.readByLotMystery);
 router.get("/jeu/online", jeuxControllers.browseOnline);
+router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
 router.get("/utilisateur/podium", utilisateurControllers.getPodium);
 router.get("/utilisateur/topPlayers", utilisateurControllers.getTopPlayers);
 
@@ -104,6 +105,29 @@ router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
 router.post("/lot/mystery", lotControllers.addMystery);
 router.post("/lot", upload.single("image"), lotControllers.add);
+
+router.post(
+  "/utilisateur/image",
+  upload.single("image"),
+  utilisateurControllers.getUploadImage
+);
+router.post(
+  "/evenement/addevent",
+  upload.single("image"),
+  evenementControllers.getUploadImage
+);
+router.post(
+  "/lot/addlot",
+  upload.single("image"),
+  lotControllers.getUploadImage
+);
+
+router.post(
+  "/jeu/addjeu",
+  upload.single("image"),
+  jeuxControllers.getUploadImage
+);
+
 router.post("/utilisateur", utilisateurControllers.add);
 router.post("/login", authControllers.login);
 router.post("/signin", hashPassword, authControllers.signin);

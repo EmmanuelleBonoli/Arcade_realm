@@ -42,7 +42,7 @@ function AdminServices() {
     const getEvents = async () => {
       try {
         const fetchEvents = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/evenement`
+          `${import.meta.env.VITE_BACKEND_URL}/api/evenement/`
         );
         setDataEvents(fetchEvents.data);
       } catch (err) {
@@ -101,7 +101,7 @@ function AdminServices() {
           return (
             <div className="itemServices eventsContainer" key={event.id}>
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${event.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${event.image}`}
                 alt="evenement à venir"
               />
               <img
@@ -143,7 +143,7 @@ function AdminServices() {
           return (
             <div className="itemServices" key={game.id}>
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${game.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${game.image}`}
                 alt="jeux"
               />
               <img

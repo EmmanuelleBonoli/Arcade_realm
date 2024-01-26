@@ -157,6 +157,28 @@ const browseOnlineScores = async (req, res, next) => {
   }
 };
 
+const getUploadImage = async (req, res, next) => {
+  try {
+    const [result] = await tables.jeu.insert(
+      req.body.name,
+      req.body.url,
+      req.body.regles,
+      req.body.actif,
+      req.body.physique,
+      req.body.date,
+      req.body.nbBorne,
+      req.body.description
+    );
+    if (result.affectedRows) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -166,4 +188,5 @@ module.exports = {
   destroy,
   browseOnline,
   browseOnlineScores,
+  getUploadImage,
 };
