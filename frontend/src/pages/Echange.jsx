@@ -374,7 +374,7 @@ function Echange() {
                           <div className="lotWinPlayer" key={lot.id}>
                             <img
                               className="lotsWin"
-                              src={`${import.meta.env.VITE_BACKEND_URL}${
+                              src={`${import.meta.env.VITE_BACKEND_URL}/${
                                 lot.image
                               }`}
                               alt={lot.name}
@@ -430,7 +430,7 @@ function Echange() {
                             <div className="lotWinPlayer" key={lot.id}>
                               <img
                                 className="lotsWin"
-                                src={`${import.meta.env.VITE_BACKEND_URL}${
+                                src={`${import.meta.env.VITE_BACKEND_URL}/${
                                   lot.image
                                 }`}
                                 alt={lot.name}

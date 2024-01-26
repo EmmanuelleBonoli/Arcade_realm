@@ -107,7 +107,7 @@ function MesLotsEchanges() {
                 </div>
                 <div className="img-prix">
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
                     title={lot.description}
                     alt={lot.name}
                   />
@@ -130,11 +130,6 @@ function MesLotsEchanges() {
                     </svg>
                   </label>
                 </div>
-                {/* <input
-                  checked={lot.exchange === 1}
-                  type="checkbox"
-                  onChange={() => handleStartExchange(lot)}
-                /> */}
               </div>
             ))}
           </div>
