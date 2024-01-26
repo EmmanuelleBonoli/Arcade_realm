@@ -200,6 +200,28 @@ const readByLotMystery = async (req, res, next) => {
   }
 };
 
+const getUploadImage = async (req, res, next) => {
+  try {
+    const [result] = await tables.lot.insert(
+      req.body.name,
+      req.body.url,
+      req.body.description,
+      req.body.utilisateurId,
+      req.body.win,
+      req.body.exchange,
+      req.body.podium,
+      req.body.mystery
+    );
+    if (result.affectedRows) {
+      res.status(201).send(result);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -213,4 +235,5 @@ module.exports = {
   readByLotExchange,
   readByLotMystery,
   addMystery,
+  getUploadImage,
 };

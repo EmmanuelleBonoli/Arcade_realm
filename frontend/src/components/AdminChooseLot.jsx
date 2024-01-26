@@ -128,7 +128,7 @@ function AdminChooseLot({
                     <div className="itemServices" key={lot.id}>
                       <img
                         onClick={() => handleSaveLotPodium(lot)}
-                        src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+                        src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
                         alt={lot.image}
                         role="presentation"
                         className="lots"
