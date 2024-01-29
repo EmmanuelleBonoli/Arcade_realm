@@ -111,7 +111,6 @@
       }
     }
     .avatar {
-      
       top: 2%;
       height: 160px;
       width: 160px;
@@ -168,7 +167,18 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 530px) {
+  .home-profil {
+    .container-profil {
+      .profil-pt1 {
+        a {
+          width: 11.5vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 460px) {
   .home-profil {
     display: flex;
     justify-content: center;
@@ -178,7 +188,7 @@
       height: 70vh;
       .profil-pt1 {
         a {
-          width: 15vw;
+          width: 13vw;
         }
       }
       .profil-pt2 {
@@ -186,6 +196,30 @@
         height: 50vh;
         .displayChoice {
           height: 90%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .home-profil {
+    .container-profil {
+      .profil-pt1 {
+        a {
+          width: 14vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .home-profil {
+    .container-profil {
+      width: 95%;
+      .profil-pt1 {
+        padding-top: 20%;
+        a {
+          width: 16vw;
         }
       }
     }
