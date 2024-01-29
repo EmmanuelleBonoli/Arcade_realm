@@ -32,7 +32,7 @@ function AdminUploadEvent({ onClose, resetUploadEvent, setResetUploadEvent }) {
   };
 
   return (
-    <div className="adminUploadLot" onClick={onClose} role="presentation">
+    <div className="adminUploadEvent" onClick={onClose} role="presentation">
       <div
         className="upload-form"
         onClick={(e) => e.stopPropagation()}
@@ -52,7 +52,7 @@ function AdminUploadEvent({ onClose, resetUploadEvent, setResetUploadEvent }) {
               accept="image/*"
             />
 
-            <button type="submit" className="btn-inscription">
+            <button type="submit" className="btn-validate-event">
               Valider la création
             </button>
           </form>
