@@ -10,6 +10,15 @@ export default function Inscription({ onClose }) {
   const [inputEmail, setInputEmail] = useState("");
   const [inscription, setInscription] = useState("");
   const { setUserConnected, setAdminOrNot } = useContext(UserContext);
+  const [formValid, setFormValid] = useState(true);
+
+  const validateForm = () => {
+    if (!inputPseudo || !inputEmail || !inputPassword) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  };
 
   // mot de passe visible ou non //
   const toggleMotDePasseVisibility = () => {
@@ -18,10 +27,12 @@ export default function Inscription({ onClose }) {
 
   const handleInputClick = (e) => {
     e.stopPropagation();
+    validateForm();
   };
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+
     const userSignin = {
       pseudo: inputPseudo,
       email: inputEmail,
@@ -49,6 +60,11 @@ export default function Inscription({ onClose }) {
           ...userLocal,
         })
       );
+
+      if (!formValid) {
+        alert("Veuillez remplir tous les champs du formulaire.");
+        return;
+      }
 
       if (res.data.admin === 1) {
         setAdminOrNot(true);
