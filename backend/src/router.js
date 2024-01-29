@@ -147,7 +147,6 @@ router.put("/utilisateur/:id", utilisateurControllers.edit);
 router.delete("/utilisateur/:id", utilisateurControllers.destroy);
 router.delete("/favoris/:utilisateurId/:jeuId", favorisControllers.destroy);
 router.post("/favoris", favorisControllers.add);
-
 /* ************************************************************************* */
 router.get("/userbytoken", utilisateurControllers.getByToken);
 
