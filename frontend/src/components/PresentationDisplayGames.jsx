@@ -25,11 +25,14 @@ function PresentationDisplayGames() {
     <div className="presentationDisplayGames">
       <h2>Nos jeux</h2>
       <div className="games">
-        <input
-          type="text"
-          placeholder="Rechercher un jeu"
-          onChange={handleSearchGame}
-        />
+        <div className="container-input">
+          <input
+            type="text"
+            placeholder="Rechercher un jeu"
+            onChange={handleSearchGame}
+          />
+        </div>
+
         <div className="displayGames">
           {games
             .filter((game) =>
