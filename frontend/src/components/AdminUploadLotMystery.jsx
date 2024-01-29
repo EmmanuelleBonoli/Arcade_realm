@@ -17,7 +17,6 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
     const user = JSON.parse(localStorage.getItem("token"));
     try {
       const formData = new FormData();
-
       formData.append("name", nameLot);
       formData.append("image", file);
       formData.append("description", descLot);
