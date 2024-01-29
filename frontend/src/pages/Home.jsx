@@ -23,7 +23,7 @@ function Home() {
             showStatus={false}
             showIndicators={false}
             infiniteLoop
-            // autoPlay
+            autoPlay
             interval={2500}
           >
             <div className="Carouselle-1">
