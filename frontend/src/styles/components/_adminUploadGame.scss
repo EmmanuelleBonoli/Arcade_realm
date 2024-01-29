@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   backdrop-filter: blur(10px);
+  align-items: center;
 
   .upload-form {
     border-radius: 15px;
@@ -19,8 +20,6 @@
     background-color: rgba(0, 33, 42, 0.61);
     display: flex;
     flex-direction: column;
-
-    
 
     .header-container {
       text-align: center;
@@ -49,14 +48,66 @@
         flex-direction: column;
         align-items: center;
         gap: 5px;
+        .actif-real {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          p {
+            padding: 5px;
+          }
+          .actif {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            cursor: pointer;
+          }
+          .inputSelect input {
+            display: none;
+          }
+          .inputSelect svg {
+            overflow: visible;
+          }
 
+          .path {
+            fill: none;
+            stroke: white;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition:
+              stroke-dasharray 0.5s ease,
+              stroke-dashoffset 0.5s ease;
+            stroke-dasharray: 241 9999999;
+            stroke-dashoffset: 0;
+          }
+
+          .inputSelect input:checked ~ svg .path {
+            stroke-dasharray: 70.5096664428711 9999999;
+            stroke-dashoffset: -262.2723388671875;
+          }
+
+          .real {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            input {
+              width: 100%;
+            }
+          }
+        }
         p {
           font-weight: bold;
           text-align: center;
           width: 100%;
           font-family: var(--secondary-font);
           font-weight: 100;
-          font-size: 18px;
+          font-size: 1.8rem;
           color: #ffffff;
         }
 
@@ -114,6 +165,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
+
           img {
             width: 0.8vw;
             height: 1.5vh;
@@ -127,13 +179,148 @@
           cursor: pointer;
           font-size: 1.5rem;
           color: var(--secondary-color);
-          width: 30%;
+          width: 40%;
           height: 2.5vh;
           display: flex;
           justify-content: center;
           align-items: center;
+          padding: 15px;
         }
       }
     }
   }
 }
+
+@media screen and (max-width: 1095px) {
+  .adminUploadGame {
+    .upload-form {
+      width: 60vw;
+      .upload-container {
+        .uploadp1 {
+          input {
+            width: 40%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .adminUploadGame {
+    .upload-form {
+      width: 80vw;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .adminUploadGame {
+    .upload-form {
+      width: 90vw;
+      .upload-container {
+        .uploadp1 {
+          input {
+            width: 50%;
+          }
+          .actif-real {
+            .actif {
+              width: 30%;
+            }
+            .real {
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .adminUploadGame {
+    .upload-form {
+      .header-container {
+        h1 {
+          font-size: 2.5rem;
+
+        }
+      }
+      .upload-container {
+        .uploadp1 {
+          .actif-real {
+            .actif {
+              width: 40%;
+            }
+            .real {
+              width: 40%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .adminUploadGame {
+    .upload-form {
+      
+justify-content: center;
+      .header-container {
+        h1 {
+          font-size: 2rem;
+
+        }
+      }
+      .upload-container {
+
+
+.uploadp2{
+  .btn-inscription{
+    width: 70%;
+  }
+}
+      
+
+    }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .adminUploadGame {
+    .upload-form {
+      .upload-container {
+        .uploadp1{
+          input {
+            width: 70%;
+          }
+          p {
+            font-size: 1.4rem;
+          }
+        }
+
+.uploadp2{
+  .btn-inscription{
+    width: 70%;
+  }
+}
+      
+
+    }
+  }
+}}
+
+@media screen and (max-width: 320px) {
+  .adminUploadGame {
+    .upload-form {
+      height: 75%;
+      .header-container {
+        h1 {
+          font-size: 1.8rem;
+
+        }
+      }
+  }
+}}
