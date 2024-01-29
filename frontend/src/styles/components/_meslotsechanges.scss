@@ -206,13 +206,72 @@
     }
   }
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .lotsExchangeUser {
     .container-mle {
       a {
         .bouton-echangerlot {
+          width: 50%;
+
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .lotsExchangeUser {
+    .container-mle {
+      .pseudo-joueur {
+        img {
+          width: 5vw;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .ticketsPlayer {
+        img {
+          height: 70%;
+        }
+        p {
+          font-size: 1.6rem;
+        }
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .mes-lots {
+        .t-1 {
+          .premier-prix {
+            .nom-item {
+              font-size: 1.3rem;
+            }
+          }
+          .img-prix {
+            img {
+              width: 40%;
+            }
+          }
+        }
+      }
+      a {
+        .bouton-echangerlot {
           width: 60%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 530px) {
+  .lotsExchangeUser {
+    .container-mle {
+      a {
+        .bouton-echangerlot {
+          width: 70%;
 
           font-size: 1.5rem;
         }
@@ -223,12 +282,45 @@
 
 @media screen and (max-width: 425px) {
   .lotsExchangeUser {
-    .mes-lots {
+    .container-mle {
+      .pseudo-joueur {
+        img {
+          width: 8vw;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .ticketsPlayer {
+        img {
+          height: 50%;
+        }
+        p {
+          font-size: 1.6rem;
+        }
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .mes-lots {
+        .t-1 {
+          .premier-prix {
+            .nom-item {
+              font-size: 1.3rem;
+            }
+          }
+          .img-prix {
+            img {
+              width: 45%;
+            }
+          }
+        }
+      }
       a {
         .bouton-echangerlot {
-          width: 35%;
-
-          font-size: 1.2rem;
+          width: 80%;
+          font-size: 1.5rem;
         }
       }
     }
