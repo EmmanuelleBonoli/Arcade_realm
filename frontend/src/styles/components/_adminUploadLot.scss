@@ -14,8 +14,8 @@
   .upload-form {
     border-radius: 15px;
     border: 2px solid white;
-    width: 60vw;
-    height: 50%;
+    width: 40vw;
+    height: 80%;
     background-color: rgba(0, 33, 42, 0.61);
     display: flex;
     flex-direction: column;
@@ -128,6 +128,248 @@
       border-radius: 5px;
       width: 15vw;
       height: 45px;
+    }
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .adminUploadLot {
+    .upload-form {
+      width: 60vw;
+      height: 70%;
+      gap: 10%;
+      .btn-inscription {
+        width: 45%;
+      }
+    }
+
+    .header-container {
+      padding-top: 8%;
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 18px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 30vw;
+        height: 45px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .adminUploadLot {
+    .upload-form {
+      width: 60vw;
+      height: 65%;
+      gap: 10%;
+      .btn-inscription {
+        width: 50%;
+      }
+    }
+
+    .header-container {
+      padding-top: 10%;
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 18px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 35vw;
+        height: 45px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 680px) {
+  .adminUploadLot {
+    .upload-form {
+      padding: 5%;
+      width: 65vw;
+      height: 70%;
+      gap: 15%;
+      .btn-inscription {
+        width: 60%;
+      }
+    }
+
+    .header-container {
+      padding-top: 10%;
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 15px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 35vw;
+        height: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .adminUploadLot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .upload-form {
+      padding: 0%;
+      width: 65vw;
+      height: 60%;
+      gap: 15%;
+      .btn-inscription {
+        width: 60%;
+        font-size: 1.3rem;
+      }
+    }
+
+    .header-container {
+      padding-top: 15%;
+
+      h1 {
+        font-size: 18px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 15px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 40vw;
+        height: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .adminUploadLot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .upload-form {
+      padding: 0%;
+      width: 80vw;
+      height: 60%;
+      gap: 15%;
+      .btn-inscription {
+        width: 60%;
+        font-size: 1.3rem;
+      }
+    }
+
+    .header-container {
+      padding-top: 15%;
+
+      h1 {
+        font-size: 18px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 15px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 50vw;
+        height: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .adminUploadLot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .upload-form {
+      padding: 0%;
+      width: 85vw;
+      height: 60%;
+
+      .btn-inscription {
+        width: 60%;
+        font-size: 1.3rem;
+      }
+    }
+
+    .header-container {
+      padding-top: 15%;
+
+      h1 {
+        font-size: 17px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 13px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 60vw;
+        height: 45px;
+      }
     }
   }
 }
