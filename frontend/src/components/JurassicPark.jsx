@@ -294,7 +294,7 @@ export default function JurassicPark({
                 setScore(0);
               }}
             >
-              GO
+              <p>GO</p>
             </button>
           </div>
         )}
