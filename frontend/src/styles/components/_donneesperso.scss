@@ -5,18 +5,18 @@
   flex-direction: column;
 
   .upload {
-    form{
+    form {
       width: 100%;
       display: flex;
       justify-content: center;
-      align-items: center ;
+      align-items: center;
       gap: 10px;
       padding: 5px;
-   
+
       input::file-selector-button {
         font-weight: bold;
         background-color: rgba(0, 0, 0, 0.61);
-      color: rgba(255, 255, 255, 0.683);
+        color: rgba(255, 255, 255, 0.683);
         padding: 5px 10px 5px 10px;
         border: thin solid grey;
         cursor: pointer;
@@ -26,34 +26,34 @@
         color: #00b1ca;
         font-weight: bold;
         font-size: 1.5rem;
-    }
-    .label-file:hover {
-        color: #25a5c4;
-    }
-    
-    // et on masque le input
-    .input-file {
+      }
+      .label-file:hover {
+        color: #ffffff;
+      }
+
+      // et on masque le input
+      .input-file {
         display: none;
-    }
+      }
       button {
-      border: 1px solid rgba(255, 255, 255, 0.486);
-      
-      background-color: rgba(0, 0, 0, 0.61);
-      color: rgba(255, 255, 255, 0.683);
-      cursor: pointer;
-      font-size: 1.5rem;
-      color : var(--secondary-color);
-      width: 1.5vw;
-      height: 2.5vh;
-display: flex;
-justify-content: center;
-align-items: center;
-      img{
-        width: 1vw;
-        height: 1.5vh;
+        border: 1px solid rgba(255, 255, 255, 0.486);
+
+        background-color: rgba(0, 0, 0, 0.61);
+        color: rgba(255, 255, 255, 0.683);
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        width: 1.5vw;
+        height: 2.5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 1vw;
+          height: 1.5vh;
+        }
       }
     }
-  }
   }
 
   .header-wrapper {
@@ -69,7 +69,6 @@ align-items: center;
       cursor: pointer;
     }
 
-
     h1 {
       font-family: var(--primary-font);
       font-size: 3rem;
@@ -82,7 +81,7 @@ align-items: center;
     flex-direction: column;
     height: 20vh;
     .input-scss {
-      padding: 2% 0 5% 5%;
+      padding: 2% 0 3% 5%;
     }
 
     span {
@@ -98,7 +97,7 @@ align-items: center;
       width: 100%;
 
       .text-alert {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-family: var(--secondary-font);
         padding: 0;
         padding: 10px;
@@ -108,10 +107,10 @@ align-items: center;
         width: 100%;
         display: flex;
         justify-content: space-around;
-        padding: 3px;
+        padding: 2px;
         button {
-          width: 33%;
-          padding: 8px;
+          width: 30%;
+          padding: 5px;
           background-color: rgba(0, 0, 0, 0.61);
           border: none;
           font-family: var(--primary-font);
@@ -169,7 +168,7 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 10%;
+    padding-top: 5%;
 
     button {
       background-color: rgba(0, 0, 0, 0.61);
@@ -202,7 +201,6 @@ align-items: center;
   .edit-profil {
     display: flex;
     justify-content: center;
-    padding-top: 3%;
   }
 
   .saveprofil {
@@ -211,7 +209,7 @@ align-items: center;
     font-family: var(--secondary-font);
     border: none;
     border-radius: 6px;
-    width: 28vh;
+    width: 25vh;
     height: 5vh;
     background-color: rgba(0, 0, 0, 0.61);
     font-size: 1.8rem;
