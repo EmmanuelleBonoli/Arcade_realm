@@ -32,10 +32,10 @@ function Contact() {
 
     setFormModal(true);
 
-    // setTimeout(() => {
-    //   setFormModal(false);
-    //   navigate("/");
-    // }, 3500);
+    setTimeout(() => {
+      setFormModal(false);
+      navigate("/");
+    }, 3500);
   };
 
   return (
