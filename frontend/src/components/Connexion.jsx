@@ -104,7 +104,7 @@ export default function Connexion({ onClose }) {
           <p>Entrez votre mot de passe</p>
           <div className="mdp-container">
             <input
-              type={motDePasseVisible ? "text" : "password"}
+              type={motDePasseVisible ? "text" : "current-password"}
               className="motdepasse"
               onClick={handleInputClick}
               onChange={(event) => setInputPassword(event.target.value)}

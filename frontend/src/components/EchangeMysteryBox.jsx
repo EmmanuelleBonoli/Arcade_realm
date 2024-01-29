@@ -30,7 +30,7 @@ function EchangeMysteryBox({ lotMystery }) {
         <div className="lotMysteryContainer" key={lot.id}>
           <img
             className={displayLotMystery}
-            src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
+            src={`${import.meta.env.VITE_BACKEND_URL}/${lot.image}`}
             alt={lot.name}
           />
           <h2 className={displayLotMystery}>{lot.name}</h2>

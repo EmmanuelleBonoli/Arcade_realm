@@ -161,7 +161,7 @@ const getUploadImage = async (req, res, next) => {
   try {
     const [result] = await tables.jeu.insert(
       req.body.name,
-      req.body.url,
+      `images/jeux/${req.body.url}`,
       req.body.regles,
       req.body.actif,
       req.body.physique,

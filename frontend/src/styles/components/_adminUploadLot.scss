@@ -62,13 +62,12 @@
           color: #25a5c4;
         }
 
-        // et on masque le input
         .input-file {
           display: none;
         }
+
         button {
           border: 1px solid rgba(255, 255, 255, 0.486);
-
           background-color: rgba(0, 0, 0, 0.61);
           color: rgba(255, 255, 255, 0.683);
           cursor: pointer;
@@ -129,6 +128,9 @@
       width: 15vw;
       height: 45px;
     }
+  }
+
+  @media screen and (max-width: 1000px) {
   }
 }
 

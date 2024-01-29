@@ -28,7 +28,7 @@ function Transfer({ lotOldPlayer, lotNewPlayer, playerExchange }) {
               </div>
               <div className="lotContainer position1">
                 <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${
+                  src={`${import.meta.env.VITE_BACKEND_URL}/${
                     lotOldPlayer.image
                   }`}
                   alt="lot échangé"
@@ -36,7 +36,7 @@ function Transfer({ lotOldPlayer, lotNewPlayer, playerExchange }) {
               </div>
               <div className="lotContainer position2">
                 <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${
+                  src={`${import.meta.env.VITE_BACKEND_URL}/${
                     lotNewPlayer.image
                   }`}
                   alt="lot à recevoir"
