@@ -30,7 +30,10 @@ function ProfileAdmin() {
 
               <NavLink to="/profilutilisateur/adminservices" className="">
                 <p>Gestion de la salle</p>
-                <img src="" alt="" />
+                <img
+                  src="/images/Utilisateur/Admin/Logo-Blanc.png"
+                  alt="Gestion de la salle"
+                />
               </NavLink>
               <NavLink to="/profilutilisateur/gestiondesconcours" className="">
                 <p>Gestion des concours</p>
