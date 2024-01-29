@@ -97,11 +97,10 @@
 }
 
 // RESPONSIVE
-
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1550px) {
   .container-connexion {
     .connexion-form {
-      width: 30vw;
+      width: 25vw;
       height: 35vw;
     }
 
@@ -115,11 +114,28 @@
     }
   }
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1400px) {
+  .container-connexion {
+    .connexion-form {
+      width: 30vw;
+      height: 40vw;
+    }
+
+    .pseudo,
+    .motdepasse {
+      width: 20vw;
+    }
+
+    .btn-connexion {
+      width: 15vw;
+    }
+  }
+}
+@media screen and (max-width: 1115px) {
   .container-connexion {
     .connexion-form {
       width: 35vw;
-      height: 40vw;
+      height: 45vw;
     }
 
     .pseudo,
@@ -128,16 +144,16 @@
     }
 
     .btn-connexion {
-      width: 15vw;
+      width: 20vw;
     }
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 970px) {
   .container-connexion {
     .connexion-form {
-      width: 40vw;
-      height: 50vw;
+      width: 45vw;
+      height: 60vw;
     }
     .pseudo,
     .motdepasse {
@@ -151,9 +167,10 @@
 }
 @media screen and (max-width: 750px) {
   .container-connexion {
+    padding-top: 20%;
     .connexion-form {
-      width: 45vw;
-      height: 60vw;
+      width: 50vw;
+      height: 65vw;
     }
     .pseudo,
     .motdepasse {
@@ -165,7 +182,7 @@
     }
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 660px) {
   .container-connexion {
     padding-top: 30%;
     .connexion-form {
@@ -182,9 +199,9 @@
     }
   }
 }
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 530px) {
   .container-connexion {
-    padding-top: 50%;
+    padding-top: 20%;
     .connexion-form {
       width: 80vw;
       height: 110vw;
@@ -199,3 +216,46 @@
     }
   }
 }
+@media screen and (max-width: 450px) {
+  .container-connexion {
+    padding-top: 40%;
+    .connexion-form {
+      width: 85vw;
+      height: 115vw;
+    }
+    .pseudo,
+    .motdepasse {
+      width: 65vw;
+    }
+
+    .btn-connexion {
+      width: 40vw;
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  .container-connexion {
+    padding-top: 40%;
+    .connexion-form {
+      width: 90vw;
+      height: 130vw;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+    .pseudo,
+    .motdepasse {
+      width: 70vw;
+    }
+
+    .btn-connexion {
+      width: 50vw;
+    }
+  }
+}
+
