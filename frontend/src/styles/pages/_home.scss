@@ -266,6 +266,19 @@
   }
 }
 
+@media screen and (max-width: 1235px) {
+  .HomePage {
+    .Carouselle {
+      .Int-carouselle {
+        width: 70%;
+      }
+    }
+
+  }
+}
+
+
+
 @media screen and (max-width: 1024px) {
   .HomePage {
     .Carouselle {

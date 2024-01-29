@@ -119,6 +119,9 @@
             display: none;
           }
         }
+        a:nth-child(2) img {
+          width: 80%;
+        }
       }
 
       .displayChoice {
@@ -136,11 +139,16 @@
         .buttonsChoice {
           padding: 8% 0 4% 0;
           gap: 1vh;
+
           a {
             img {
               width: 80%;
             }
           }
+          a:nth-child(2) img {
+            width: 100%;
+          }
+          
         }
       }
     }
