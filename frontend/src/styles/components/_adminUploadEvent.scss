@@ -1,136 +1,326 @@
+
 .adminUploadEvent {
-    background-color: #ffffff00;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 85vh;
-    z-index: 3;
-    padding-top: 8%;
+  background-color: #ffffff00;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85vh;
+  z-index: 3;
+  padding-top: 8%;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+
+  .upload-form {
+    border-radius: 15px;
+    border: 2px solid white;
+    width: 40vw;
+    height: 40%;
+    background-color: rgba(0, 33, 42, 0.61);
     display: flex;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-  
-    .upload-form {
-      border-radius: 15px;
-      border: 2px solid white;
-      width: 40vw;
-      height: 40%;
-      background-color: rgba(0, 33, 42, 0.61);
-      display: flex;
-      flex-direction: column;
-      gap: 10%;
-      .btn-inscription {
-        margin: 0 auto;
-        cursor: pointer;
-        font-family: var(--primary-font);
-        color: #fbb169;
-        font-size: 18px;
-        font-weight: bold;
-        background-color: rgba(0, 61, 72, 1);
-        border: 1px solid white;
-        width: 60%;
-        height: 45px;
-        border-radius: 5px;
-      }
-      .upload {
-        form {
-          width: 100%;
+    flex-direction: column;
+    gap: 10%;
+
+    .upload {
+      form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px;
+        font-family: var(--secondary-font);
+
+        input::file-selector-button {
+          font-weight: bold;
+          background-color: rgba(0, 0, 0, 0.61);
+          color: rgba(255, 255, 255, 0.683);
+          padding: 5px 10px 5px 10px;
+          border: thin solid grey;
+          cursor: pointer;
+        }
+        .label-file {
+          cursor: pointer;
+          color: #00b1ca;
+          font-weight: bold;
+          font-size: 3rem;
+        }
+        .label-file:hover {
+          color: #25a5c4;
+        }
+
+        .input-file {
+          display: none;
+        }
+
+        .btn-validate-event {
+          border: 1px solid rgba(255, 255, 255, 0.486);
+          background-color: rgba(0, 0, 0, 0.61);
+          cursor: pointer;
+          font-size: 1.5rem;
+          color: var(--secondary-color);
+          font-family: var(--primary-font);
+          font-weight: bold;
+          width: 33.5%;
+          padding: 20px;
+          height: 2.5vh;
           display: flex;
           justify-content: center;
           align-items: center;
-          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  .header-container {
+    text-align: center;
+    width: 100%;
+    padding-top: 8%;
+
+    h1 {
+      font-size: 30px;
+      color: #fbb169;
+      font-family: var(--primary-font);
+    }
+  }
+
+  .upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    width: 100%;
+    height: 60%;
+
+    p {
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+      font-family: var(--secondary-font);
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    input {
+      font-family: var(--primary-font);
+      padding: 5px;
+      font-size: 15px;
+      color: white;
+      background-color: rgba(0, 61, 72, 0.9);
+      border: 1px solid #5caab8;
+      border-radius: 5px;
+      width: 15vw;
+      height: 45px;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .adminUploadEvent {
+    width: 100%;
+    height: 85vh;
+
+    padding-top: 8%;
+
+    .upload-form {
+      width: 60vw;
+      height: 45%;
+
+      gap: 20%;
+
+      .upload {
+        form {
           gap: 10px;
           padding: 5px;
-          font-family: var(--secondary-font);
-  
-          input::file-selector-button {
-            font-weight: bold;
-            background-color: rgba(0, 0, 0, 0.61);
-            color: rgba(255, 255, 255, 0.683);
-            padding: 5px 10px 5px 10px;
-            border: thin solid grey;
-            cursor: pointer;
-          }
-          .label-file {
-            cursor: pointer;
-            color: #00b1ca;
-            font-weight: bold;
-            font-size: 3rem;
-          }
-          .label-file:hover {
-            color: #25a5c4;
-          }
-  
-          .input-file {
-            display: none;
-          }
-  
-          button {
-            border: 1px solid rgba(255, 255, 255, 0.486);
-            background-color: rgba(0, 0, 0, 0.61);
-            color: rgba(255, 255, 255, 0.683);
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            width: 30%;
-            height: 2.5vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              width: 0.8vw;
-              height: 1.5vh;
-            }
+
+          .btn-validate-event {
+            font-size: 1.8rem;
+
+            width: 45%;
+            padding: 25px;
           }
         }
       }
     }
-  
+
     .header-container {
-      text-align: center;
       width: 100%;
       padding-top: 8%;
-  
+
       h1 {
-        font-size: 30px;
-        color: #fbb169;
-        font-family: var(--primary-font);
+        font-size: 25px;
       }
     }
-  
+
     .upload-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5%;
-      width: 100%;
-      height: 60%;
-  
       p {
-        font-weight: bold;
-        text-align: center;
-        width: 100%;
-        font-family: var(--secondary-font);
         font-size: 18px;
-        color: #ffffff;
       }
-  
+
       input {
-        font-family: var(--primary-font);
-        padding: 5px;
         font-size: 15px;
-        color: white;
-        background-color: rgba(0, 61, 72, 0.9);
-        border: 1px solid #5caab8;
-        border-radius: 5px;
+
         width: 15vw;
         height: 45px;
       }
     }
-  
-    @media screen and (max-width: 1000px) {
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .adminUploadEvent {
+    .upload-form {
+      .upload {
+        form {
+          .btn-validate-event {
+            width: 50%;
+          }
+        }
+      }
     }
   }
-  
+}
+
+@media screen and (max-width: 800px) {
+  .adminUploadEvent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .upload-form {
+      width: 85vw;
+      height: 45%;
+      gap: 25%;
+      .upload {
+        form {
+          .btn-validate-event {
+            width: 55%;
+          }
+        }
+      }
+    }
+
+    .header-container {
+      h1 {
+        font-size: 23px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .adminUploadEvent {
+    .upload-form {
+      width: 90vw;
+      height: 45%;
+      gap: 25%;
+
+      .upload {
+        form {
+          .btn-validate-event {
+            font-size: 1.5rem;
+
+            width: 45%;
+            padding: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 505px) {
+  .adminUploadEvent {
+    .upload-form {
+      width: 90vw;
+      height: 40%;
+
+      .upload {
+        form {
+          .btn-validate-event {
+            font-size: 1.3rem;
+
+            width: 60%;
+            padding: 20px;
+          }
+        }
+      }
+      .header-container {
+        h1 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .adminUploadEvent {
+    .upload-form {
+      height: 35%;
+      padding: 30px;
+
+      .upload {
+        form {
+          .btn-validate-event {
+            font-size: 1.2rem;
+
+            width: 88%;
+          }
+        }
+      }
+      .header-container {
+        h1 {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 365px) {
+  .adminUploadEvent {
+    .upload-form {
+      height: 40%;
+      padding: 30px;
+
+      .upload {
+        form {
+          .btn-validate-event {
+            font-size: 1.2rem;
+
+            width: 90%;
+          }
+        }
+      }
+      .header-container {
+        h1 {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 330px) {
+  .adminUploadEvent {
+    .upload-form {
+      height: 40%;
+      padding: 30px;
+
+      .upload {
+        form {
+          .btn-validate-event {
+            font-size: 1.2rem;
+
+            width: 100%;
+          }
+        }
+      }
+      .header-container {
+        h1 {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+

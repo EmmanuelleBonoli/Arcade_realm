@@ -204,7 +204,7 @@ const getUploadImage = async (req, res, next) => {
   try {
     const [result] = await tables.lot.insert(
       req.body.name,
-      req.body.url,
+      `images/lots/${req.body.url}`,
       req.body.description,
       req.body.utilisateurId,
       req.body.win,

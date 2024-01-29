@@ -170,7 +170,7 @@ const getTopPlayers = async (req, res, next) => {
 const getUploadImage = async (req, res, next) => {
   try {
     const [result] = await tables.utilisateur.insert(
-      req.body.url,
+      `images/Avatar/${req.body.url}`,
       req.auth.sub
     );
     if (result.affectedRows) {

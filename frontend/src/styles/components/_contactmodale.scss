@@ -38,3 +38,86 @@
     }
   }
 }
+
+@media screen and (max-width: 1050px) {
+  .container-modale {
+    padding-top: 30%;
+
+    .submit-modale {
+      width: 40vw;
+      height: 30vw;
+    }
+  }
+}
+@media screen and (max-width: 950px) {
+  .container-modale {
+    padding-top: 35%;
+
+    .submit-modale {
+      width: 50vw;
+      height: 35vw;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container-modale {
+    padding-top: 43%;
+
+    .submit-modale {
+      width: 60vw;
+      height: 50vw;
+      img {
+        width: 30%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container-modale {
+    padding-top: 45%;
+
+    .submit-modale {
+      width: 70vw;
+      height: 50vw;
+      img {
+        width: 30%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-modale {
+    padding-top: 55%;
+
+    .submit-modale {
+      width: 80vw;
+      height: 60vw;
+      img {
+        width: 28%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-modale {
+    padding-top: 60%;
+
+    .submit-modale {
+      width: 80vw;
+      height: 70vw;
+    }
+  }
+}
+@media screen and (max-width: 350px) {
+  .container-modale {
+    padding-top: 70%;
+
+    .submit-modale {
+      width: 85vw;
+      height: 80vw;
+    }
+  }
+}
