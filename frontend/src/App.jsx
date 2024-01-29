@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { React, useState, useEffect, useMemo } from "react";
-import axios from "axios";
+// import axios from "axios";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import UserContext from "./contexts/UserContext";
@@ -42,7 +42,6 @@ function App() {
       setAdminOrNot(JSON.parse(user).admin === 1);
     }
   }, []);
-
 
   return (
     <UserContext.Provider
