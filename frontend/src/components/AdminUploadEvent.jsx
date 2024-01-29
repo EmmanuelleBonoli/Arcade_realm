@@ -52,7 +52,7 @@ function AdminUploadEvent({ onClose, resetUploadEvent, setResetUploadEvent }) {
               accept="image/*"
             />
 
-            <button type="submit" className="btn-inscription">
+            <button type="submit" className="btn-validate-event">
               Valider la création
             </button>
           </form>
