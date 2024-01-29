@@ -89,7 +89,9 @@ const destroy = async (req, res, next) => {
 };
 const getUploadImage = async (req, res, next) => {
   try {
-    const [result] = await tables.evenement.insert(req.body.url);
+    const [result] = await tables.evenement.insert(
+      `images/Evenements/${req.body.url}`
+    );
     if (result.affectedRows) {
       res.sendStatus(204);
     } else {

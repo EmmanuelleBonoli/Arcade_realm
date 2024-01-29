@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { React, useState, useEffect, useMemo } from "react";
-import axios from "axios";
+// import axios from "axios";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import UserContext from "./contexts/UserContext";
@@ -43,25 +43,25 @@ function App() {
     }
   }, []);
 
-  const fetchUser = async () => {
-    const user = JSON.parse(localStorage.getItem("token"));
+  // const fetchUser = async () => {
+  //   const user = JSON.parse(localStorage.getItem("token"));
 
-    const res = await axios.get(
-      `${import.meta.env.VITE_BACKEND_URL}/api/userbytoken`,
-      {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-    );
+  //   const res = await axios.get(
+  //     `${import.meta.env.VITE_BACKEND_URL}/api/userbytoken`,
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${user.token}`,
+  //       },
+  //     }
+  //   );
 
-    setUserConnected(res.data[0]);
-    return res.data[0];
-  };
+  //   setUserConnected(res.data[0]);
+  //   return res.data[0];
+  // };
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
+  // useEffect(() => {
+  //   fetchUser();
+  // }, []);
 
   return (
     <UserContext.Provider
