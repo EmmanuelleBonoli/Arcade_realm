@@ -43,26 +43,6 @@ function App() {
     }
   }, []);
 
-  // const fetchUser = async () => {
-  //   const user = JSON.parse(localStorage.getItem("token"));
-
-  //   const res = await axios.get(
-  //     `${import.meta.env.VITE_BACKEND_URL}/api/userbytoken`,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${user.token}`,
-  //       },
-  //     }
-  //   );
-
-  //   setUserConnected(res.data[0]);
-  //   return res.data[0];
-  // };
-
-  // useEffect(() => {
-  //   fetchUser();
-  // }, []);
-
   return (
     <UserContext.Provider
       value={useMemo(

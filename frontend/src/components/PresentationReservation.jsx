@@ -23,11 +23,13 @@ function PresentationReservation() {
           </span>
         </p>
       </div>
-      <img
-        className="bannerReservation"
-        src="/images/Presentation_reservation/reservation_1.jpg"
-        alt="meeting"
-      />
+      <div className="container-banner">
+        <img
+          className="bannerReservation"
+          src="/images/Presentation_reservation/reservation_1.jpg"
+          alt="meeting"
+        />
+      </div>
     </div>
   );
 }
