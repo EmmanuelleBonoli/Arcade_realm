@@ -6,7 +6,6 @@
 
   .upload {
     form {
-    form {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -14,7 +13,6 @@
       align-items: center;
       gap: 10px;
       padding: 5px;
-
 
       input::file-selector-button {
         font-weight: bold;
@@ -39,23 +37,22 @@
       .input-file {
         display: none;
       }
-      }
-      button {
-        border: 1px solid rgba(255, 255, 255, 0.486);
-        background-color: rgba(0, 0, 0, 0.61);
-        color: rgba(255, 255, 255, 0.683);
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: var(--secondary-color);
-        width: 1.5vw;
-        height: 2.5vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-          width: 1vw;
-          height: 1.5vh;
-        }
+    }
+    button {
+      border: 1px solid rgba(255, 255, 255, 0.486);
+      background-color: rgba(0, 0, 0, 0.61);
+      color: rgba(255, 255, 255, 0.683);
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--secondary-color);
+      width: 1.5vw;
+      height: 2.5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 1vw;
+        height: 1.5vh;
       }
     }
   }
