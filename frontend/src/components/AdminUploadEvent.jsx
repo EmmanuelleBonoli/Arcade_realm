@@ -32,7 +32,7 @@ function AdminUploadEvent({ onClose, resetUploadEvent, setResetUploadEvent }) {
   };
 
   return (
-    <div className="adminUploadLot" onClick={onClose} role="presentation">
+    <div className="adminUploadEvent" onClick={onClose} role="presentation">
       <div
         className="upload-form"
         onClick={(e) => e.stopPropagation()}
