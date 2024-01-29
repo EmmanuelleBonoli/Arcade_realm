@@ -6,26 +6,14 @@ class JeuxManager extends AbstractManager {
   }
 
   // The C of CRUD - Create operation
-
-  async create({
-    name,
-    image,
-    regles,
-    actif,
-    physique,
-    date,
-    nbborne,
-    description,
-  }) {
-    const [result] = await this.database.query(
-      `insert into ${this.table} (name, image, regles, actif, physique, date, nb_borne, description) values (?,?,?,?,?,?,?,?)`,
-      [name, image, regles, actif, physique, date, nbborne, description]
+  insert(name, image, regles, actif, physique, date, nbBorne, description) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (name, image, regles,actif,physique,date,nb_borne,description) VALUES (?,?,?,?,?,?,?,?)`,
+      [name, image, regles, actif, physique, date, nbBorne, description]
     );
-    return result;
   }
 
   // The Rs of CRUD - Read operations
-
   async read(id) {
     const [result] = await this.database.query(
       `select * from ${this.table} where id = ?`,
@@ -86,13 +74,6 @@ class JeuxManager extends AbstractManager {
       `
     );
     return result;
-  }
-
-  insert(name, image, regles, actif, physique, date, nbBorne, description) {
-    return this.database.query(
-      `INSERT INTO ${this.table} (name, image, regles,actif,physique,date,nb_borne,description) VALUES (?,?,?,?,?,?,?,?)`,
-      [name, image, regles, actif, physique, date, nbBorne, description]
-    );
   }
 }
 

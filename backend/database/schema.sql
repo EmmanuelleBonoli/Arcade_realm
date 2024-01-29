@@ -10,7 +10,7 @@ CREATE TABLE utilisateur (
 );
 
 CREATE TABLE jeu (
-    id INT primary key auto_increment NOT NULL, name varchar(255) NOT NULL, image VARCHAR(255) NOT NULL, regles TEXT NOT NULL, actif BOOLEAN NOT NULL, physique BOOLEAN NOT NULL, date DATE NOT NULL, nb_borne INT NOT NULL, description TEXT NOT NULL
+    id INT primary key auto_increment NOT NULL, name varchar(255) NOT NULL, image VARCHAR(255) NOT NULL, regles TEXT NOT NULL, actif BOOLEAN NOT NULL, physique BOOLEAN NOT NULL, date DATETIME NOT NULL, nb_borne INT NOT NULL, description TEXT NOT NULL
 );
 
 CREATE TABLE
