@@ -179,6 +179,18 @@
   }
 }
 
+
+@media screen and (max-width: 956px) {
+  .home-profil {
+    .avatar {
+      top: 3%;
+      height: 135px;
+      width: 135px;
+    }
+  }
+}
+
+
 @media screen and (max-width: 650px) {
   .home-profil {
     .container-profil {
@@ -234,19 +246,13 @@
         }
       }
     }
-  }
-}
-@media screen and (max-width: 400px) {
-  .home-profil {
-    .container-profil {
-      .profil-pt1 {
-        a {
-          width: 14vw;
-        }
-      }
+    .avatar {
+      height: 130px;
+      width: 130px;
     }
   }
 }
+
 @media screen and (max-width: 400px) {
   .home-profil {
     .container-profil {

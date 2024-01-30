@@ -80,6 +80,16 @@
   }
 }
 
+@media screen and (max-width: 1629px) {
+  .profileAdmin {
+    .avatar {
+      top : 12%;
+      height: 145px;
+      width: 145px;
+    }
+  }
+}
+
 @media screen and (max-width: 1600px) {
   .profileAdmin {
     .avatar {
@@ -89,13 +99,32 @@
   }
 }
 
+@media screen and (max-width: 1329px) {
+  .profileAdmin {
+    .avatar {
+      height: 145px;
+      width: 145px;
+    }
+  }
+}
+
+@media screen and (max-width: 1329px) {
+  .profileAdmin {
+    .avatar {
+      height: 135px;
+      width: 135px;
+    }
+  }
+}
+
 @media screen and (max-width: 1100px) {
   .profileAdmin {
     flex-wrap: wrap;
 
     .avatar {
-      height: 100px;
-      width: 100px;
+      top: 7%;
+      height: 120px;
+      width: 120px;
     }
 
     .adminLayout {
@@ -129,7 +158,8 @@
       }
     }
   }
-  @media screen and (max-width: 700px) {
+
+  @media screen and (max-width: 869px) {
     .profileAdmin {
       .avatar {
         top: 5%;
@@ -153,8 +183,36 @@
       }
     }
   }
+
+  @media screen and (max-width: 700px) {
+    .profileAdmin {
+      .avatar {
+        top: 4%;
+      }
+      .adminLayout {
+        width: 90vw;
+        .buttonsChoice {
+          padding: 8% 0 4% 0;
+          gap: 1vh;
+
+          a {
+            img {
+              width: 80%;
+            }
+          }
+          a:nth-child(2) img {
+            width: 100%;
+          }
+          
+        }
+      }
+    }
+  }
   @media screen and (max-width: 500px) {
     .profileAdmin {
+      .avatar {
+        top: 2%;
+      }
       .adminLayout {
         .buttonsChoice {
           a {
@@ -166,4 +224,16 @@
       }
     }
   }
+
+  @media screen and (max-width: 320px) {
+    .profileAdmin {
+      .avatar {
+        top: 2%;
+        height: 115px;
+        width: 115px;
+      }
+    }
+  }
+
 }
+
