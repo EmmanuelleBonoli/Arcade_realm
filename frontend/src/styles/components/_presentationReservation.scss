@@ -18,16 +18,16 @@
     flex-direction: column;
     justify-content: space-around;
   }
-.container-banner {
-  margin: 0 auto;
-  .bannerReservation {
-    width: 90vw;
-    align-self: center;
-    border: 1px solid white;
-    border-radius: 5px;
-  }}
+  .container-banner {
+    margin: 0 auto;
+    .bannerReservation {
+      width: 90vw;
+      align-self: center;
+      border: 1px solid white;
+      border-radius: 5px;
+    }
+  }
 }
-
 
 @media screen and (max-width: 1525px) {
   .presentationEvents {
@@ -35,7 +35,6 @@
       font-size: 2.2rem;
     }
   }
-  
 }
 
 @media screen and (max-width: 1229px) {
@@ -44,9 +43,7 @@
       font-size: 1.9rem;
     }
   }
-  
 }
-
 
 @media screen and (max-width: 1110px) {
   .presentationReservation {
@@ -54,9 +51,7 @@
       font-size: 1.8rem;
     }
   }
-  
 }
-
 
 @media screen and (max-width: 1051px) {
   .presentationReservation {
@@ -64,7 +59,6 @@
       font-size: 1.7rem;
     }
   }
-  
 }
 
 @media screen and (max-width: 768px) {
@@ -73,16 +67,13 @@
       width: 98%;
     }
   }
-  
 }
 
 @media screen and (max-width: 700px) {
   .presentationReservation {
     min-height: 75vh;
   }
-  
 }
-
 
 @media screen and (max-width: 425px) {
   .presentationReservation {
@@ -90,27 +81,23 @@
     .descReservation {
       font-size: 1.5rem;
       text-align: left;
-line-height: 20px;
-
+      line-height: 20px;
     }
   }
-  
 }
-
 
 @media screen and (max-width: 375px) {
   .presentationReservation {
     min-height: 60vh;
     .descReservation {
-p{
-  padding-top: 3%;
-}
-
+      p {
+        padding-top: 3%;
+      }
     }
     .container-banner {
       .bannerReservation {
         width: 100%;
-      }}
+      }
+    }
   }
-  
 }

@@ -243,7 +243,6 @@
       .header-container {
         h1 {
           font-size: 2.5rem;
-
         }
       }
       .upload-container {
@@ -265,25 +264,19 @@
 @media screen and (max-width: 425px) {
   .adminUploadGame {
     .upload-form {
-      
-justify-content: center;
+      justify-content: center;
       .header-container {
         h1 {
           font-size: 2rem;
-
         }
       }
       .upload-container {
-
-
-.uploadp2{
-  .btn-inscription{
-    width: 70%;
-  }
-}
-      
-
-    }
+        .uploadp2 {
+          .btn-inscription {
+            width: 70%;
+          }
+        }
+      }
     }
   }
 }
@@ -292,7 +285,7 @@ justify-content: center;
   .adminUploadGame {
     .upload-form {
       .upload-container {
-        .uploadp1{
+        .uploadp1 {
           input {
             width: 70%;
           }
@@ -301,16 +294,15 @@ justify-content: center;
           }
         }
 
-.uploadp2{
-  .btn-inscription{
-    width: 70%;
-  }
-}
-      
-
+        .uploadp2 {
+          .btn-inscription {
+            width: 70%;
+          }
+        }
+      }
     }
   }
-}}
+}
 
 @media screen and (max-width: 320px) {
   .adminUploadGame {
@@ -319,8 +311,8 @@ justify-content: center;
       .header-container {
         h1 {
           font-size: 1.8rem;
-
         }
       }
+    }
   }
-}}
+}

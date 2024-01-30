@@ -90,17 +90,16 @@
   }
 }
 
-
 @media screen and (max-width: 1098px) {
   .presentationCrew {
     .imgCrew {
       gap: 10px;
       .box {
         height: 27vh;
-
+      }
     }
   }
-}}
+}
 
 @media screen and (max-width: 1051px) {
   .presentationCrew {
@@ -118,7 +117,7 @@
     }
     .imgCrew {
       .box {
-height: 24vh;
+        height: 24vh;
       }
     }
   }
@@ -128,7 +127,7 @@ height: 24vh;
   .presentationCrew {
     .imgCrew {
       .box {
-height: 20vh;
+        height: 20vh;
       }
     }
   }
@@ -136,64 +135,62 @@ height: 20vh;
 
 @media screen and (max-width: 768px) {
   .presentationCrew {
-flex-direction: column;
-.descCrew{
-  width: 100%;
-}
+    flex-direction: column;
+    .descCrew {
+      width: 100%;
+    }
 
-.imgCrew{
-  padding-top: 5%;
-  width: 100%;
-  .box {
-    height: 20vh;
-          }
+    .imgCrew {
+      padding-top: 5%;
+      width: 100%;
+      .box {
+        height: 20vh;
+      }
+    }
   }
-}}
-
+}
 
 @media screen and (max-width: 604px) {
   .presentationCrew {
-.imgCrew{
-  padding-top: 5%;
-  width: 100%;
-  .box {
-    height: 18vh;
-          }
+    .imgCrew {
+      padding-top: 5%;
+      width: 100%;
+      .box {
+        height: 18vh;
+      }
+    }
   }
-}}
+}
 
 @media screen and (max-width: 545px) {
   .presentationCrew {
-.imgCrew{
-
-  .box {
-    height: 30vh;
-          }
+    .imgCrew {
+      .box {
+        height: 30vh;
+      }
+    }
   }
-}}
-
-
-
+}
 
 @media screen and (max-width: 425px) {
   .presentationCrew {
     .descCrew {
       font-size: 1.5rem;
       text-align: left;
-gap: 50px;
+      gap: 50px;
     }
-.imgCrew{
-
-  .box {
-    height: 40vh;
-          }
+    .imgCrew {
+      .box {
+        height: 40vh;
+      }
+    }
   }
-}}
+}
 
 @media screen and (max-width: 379px) {
   .presentationCrew {
     .descCrew {
       text-align: left;
-
     }
-}}
+  }
+}

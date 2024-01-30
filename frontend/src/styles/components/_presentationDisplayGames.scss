@@ -18,11 +18,10 @@
     align-items: center;
     gap: 4vh;
     padding: 2%;
-    .container-input{
+    .container-input {
       text-align: center;
       width: 100%;
       input {
-
         width: 40%;
         border-radius: 10px;
         border: none;
@@ -33,7 +32,6 @@
         border: 5px solid var(--primary-color);
       }
     }
-
 
     .displayGames {
       display: flex;
@@ -52,47 +50,47 @@
 
 @media screen and (max-width: 1024px) {
   .presentationDisplayGames {
-h2{
-  font-size: 2.55rem;
-}
+    h2 {
+      font-size: 2.55rem;
+    }
     .games {
-
-      .container-input{
+      .container-input {
         text-align: center;
         width: 100%;
- }
-  
-}}}
-
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .presentationDisplayGames {
-
     .games {
-
-      .container-input{
+      .container-input {
         padding-top: 5%;
         text-align: center;
         width: 100%;
-      input {
-width: 50%;
-      }}
-  
-}}}
+        input {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 425px) {
   .presentationDisplayGames {
-    h2{
+    h2 {
       font-size: 2.25rem;
     }
     .games {
-
-      .container-input{
+      .container-input {
         padding-top: 5%;
         text-align: center;
         width: 100%;
-      input {
-width: 90%;
-      }}
-  
-}}}
+        input {
+          width: 90%;
+        }
+      }
+    }
+  }
+}
