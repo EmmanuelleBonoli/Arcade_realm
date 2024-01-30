@@ -273,11 +273,8 @@
         width: 70%;
       }
     }
-
   }
 }
-
-
 
 @media screen and (max-width: 1024px) {
   .HomePage {
@@ -547,7 +544,6 @@
           .Carouselle-3 {
             flex-direction: column;
             .bloc-mario {
-              
               .mario {
                 width: 100%;
               }
@@ -559,7 +555,6 @@
                 font-size: 1.5rem;
               }
               p {
-                
                 font-size: 1.5rem;
                 line-height: 18px;
               }
@@ -576,11 +571,9 @@
     .Carouselle {
       .Int-carouselle {
         .npm-Carouselle {
-        
           .Carouselle-3 {
             flex-direction: column;
             .bloc-mario {
-              
               .mario {
                 width: 100%;
               }
@@ -590,7 +583,6 @@
               width: 100%;
 
               p {
-                
                 font-size: 1.2rem;
                 line-height: 18px;
               }

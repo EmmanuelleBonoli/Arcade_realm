@@ -170,7 +170,7 @@ function AdminLots() {
             })}
         </div>
         <div className="allLots">
-          <h2>Mystery Box</h2>
+          <h2>Mystery Box&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 
           {dataLots
             .filter((lotfilter) => lotfilter.mystery === 1)

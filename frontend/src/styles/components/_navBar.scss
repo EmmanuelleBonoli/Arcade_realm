@@ -175,14 +175,14 @@
           .bloc-image {
             width: 8vw;
           }
-          .pseudo{
+          .pseudo {
             p {
               padding-right: 0px;
               padding-left: var(--spacing);
               font-size: 1.8rem;
             }
           }
-          
+
           img {
             padding: 15%;
             width: 100%;
@@ -252,14 +252,13 @@
       .nav-pt-2 {
         gap: 10px;
         justify-content: start;
-        .pseudo{
+        .pseudo {
           p {
             padding-right: 0px;
             padding-left: var(--spacing);
             font-size: 1.8rem;
           }
         }
-
       }
     }
   }

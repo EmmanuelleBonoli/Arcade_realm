@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-  
+
     padding: 2%;
 
     img {
@@ -38,367 +38,311 @@
 
 @media screen and (max-width: 1628px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       padding: 0 0 0 1%;
     }
-.imgSpaces{
-padding: 0;
-}
+    .imgSpaces {
+      padding: 0;
+    }
   }
-  
 }
-
 
 @media screen and (max-width: 1563px) {
   .spaces {
     min-height: 75vh;
-    .descSpaces{
+    .descSpaces {
       padding: 0 0 0 0;
     }
-.imgSpaces{
-padding: 0;
-justify-content: start;
-gap: 20px;
-img {
-  margin: 0;
-}
-}
+    .imgSpaces {
+      padding: 0;
+      justify-content: start;
+      gap: 20px;
+      img {
+        margin: 0;
+      }
+    }
   }
-  
 }
-
 
 @media screen and (max-width: 1541px) {
   .spaces {
-.imgSpaces{
-gap: 15px;
-}
+    .imgSpaces {
+      gap: 15px;
+    }
   }
-  
 }
 
 @media screen and (max-width: 1525px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       font-size: 2.2rem;
     }
-.imgSpaces{
-  justify-content: space-around;
-img{
-  height: 24vh;
-}
-}
+    .imgSpaces {
+      justify-content: space-around;
+      img {
+        height: 24vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 1466px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       font-size: 2rem;
     }
-.imgSpaces{
-img{
-  height: 23vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 23vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 1410px) {
   .spaces {
     min-height: 60vh;
-    .descSpaces{
+    .descSpaces {
       font-size: 2rem;
     }
-.imgSpaces{
-
-img{
-  height: 22vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 22vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 1347px) {
   .spaces {
-
-    .descSpaces{
+    .descSpaces {
       font-size: 2rem;
     }
-.imgSpaces{
-
-img{
-  height: 21vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 21vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 1288px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       font-size: 2rem;
     }
-.imgSpaces{
-
-img{
-  height: 20vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 20vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 1229px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       font-size: 1.9rem;
     }
-.imgSpaces{
-
-img{
-  height: 19vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 19vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 1169px) {
   .spaces {
-
-.imgSpaces{
-
-img{
-  height: 18vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 18vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 1110px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       font-size: 1.8rem;
     }
-.imgSpaces{
-
-img{
-  height: 17vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 17vh;
+      }
+    }
   }
-  
 }
-
 
 @media screen and (max-width: 1051px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       font-size: 1.7rem;
       width: 98%;
     }
-.imgSpaces{
-padding-top: 2%;
-flex-wrap: wrap;
-gap: 5px;
-img{
-  height: 16vh;
-}
-}
+    .imgSpaces {
+      padding-top: 2%;
+      flex-wrap: wrap;
+      gap: 5px;
+      img {
+        height: 16vh;
+      }
+    }
   }
-  
 }
-
 
 @media screen and (max-width: 959px) {
   .spaces {
-.imgSpaces{
-gap: 0px;
-img{
-  height: 16vh;
-}
-}
+    .imgSpaces {
+      gap: 0px;
+      img {
+        height: 16vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 940px) {
   .spaces {
-.imgSpaces{
-
-img{
-  height: 15vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 15vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 884px) {
   .spaces {
-.imgSpaces{
-
-img{
-  height: 14vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 14vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 824px) {
   .spaces {
-.imgSpaces{
-
-img{
-  height: 13vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 13vh;
+      }
+    }
   }
-  
 }
-
-
-
 
 @media screen and (max-width: 768px) {
   .spaces {
-
-.imgSpaces{
-  gap: 10px;
-img{
-  height: 23vh;
-}
-}
+    .imgSpaces {
+      gap: 10px;
+      img {
+        height: 23vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 703px) {
   .spaces {
-
-.imgSpaces{
-img{
-  height: 22vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 22vh;
+      }
+    }
   }
-  
 }
-
 
 @media screen and (max-width: 673px) {
   .spaces {
-
-.imgSpaces{
-img{
-  height: 21vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 21vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 643px) {
   .spaces {
-
-.imgSpaces{
-img{
-  height: 20vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 20vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 629px) {
   .spaces {
-
-.imgSpaces{
-img{
-  height: 19vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 19vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 583px) {
   .spaces {
-
-.imgSpaces{
-img{
-  height: 17vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 17vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 523px) {
   .spaces {
-
-.imgSpaces{
-img{
-  height: 15vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 15vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 463px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       font-size: 1.5rem;
     }
-.imgSpaces{
-img{
-  height: 14vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 14vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 433px) {
   .spaces {
-
-.imgSpaces{
-img{
-  height: 13vh;
-}
-}
+    .imgSpaces {
+      img {
+        height: 13vh;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 425px) {
   .spaces {
-
-.imgSpaces{
-  padding-top: 5%;
-img{
-  height: 100%;
-  width: 100%;
-}
-}
+    .imgSpaces {
+      padding-top: 5%;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 375px) {
   .spaces {
-    .descSpaces{
+    .descSpaces {
       font-size: 1.4rem;
     }
-
   }
-  
 }
