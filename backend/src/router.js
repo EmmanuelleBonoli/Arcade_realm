@@ -1,28 +1,13 @@
 const express = require("express");
 
 const router = express.Router();
+// const { v4 } = require("uuid");
 
-// Middleware for upload images
-const multer = require("multer");
-const { v4 } = require("uuid");
 const { hashPassword, verifyToken } = require("./services/auth");
-
-const options = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./public");
-  },
-  filename: (req, file, cb) => {
-    const extArray = file.mimetype.split("/");
-    const extension = extArray[extArray.length - 1];
-    const name = `${v4()}.${extension}`;
-    req.body.url = name;
-    cb(null, name);
-  },
-  limits: {
-    fieldSize: 1024 * 50,
-  },
-});
-const upload = multer({ storage: options });
+const uploadAvatar = require("./middlewares/uploadAvatar");
+const uploadEvent = require("./middlewares/uploadEvent");
+const uploadGame = require("./middlewares/uploadGame");
+const uploadLot = require("./middlewares/uploadLot");
 
 /* ************************************************************************* */
 // Define Your API Routes Here
@@ -104,27 +89,27 @@ router.post("/evenement", evenementControllers.add);
 router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
 router.post("/lot/mystery", lotControllers.addMystery);
-router.post("/lot", upload.single("image"), lotControllers.add);
+router.post("/lot", uploadLot.single("image"), lotControllers.add);
 
 router.post(
   "/utilisateur/image",
-  upload.single("image"),
+  uploadAvatar.single("image"),
   utilisateurControllers.getUploadImage
 );
 router.post(
   "/evenement/addevent",
-  upload.single("image"),
+  uploadEvent.single("image"),
   evenementControllers.getUploadImage
 );
 router.post(
   "/lot/addlot",
-  upload.single("image"),
+  uploadLot.single("image"),
   lotControllers.getUploadImage
 );
 
 router.post(
   "/jeu/addjeu",
-  upload.single("image"),
+  uploadGame.single("image"),
   jeuxControllers.getUploadImage
 );
 

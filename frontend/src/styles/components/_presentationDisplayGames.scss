@@ -6,7 +6,7 @@
   min-height: 80vh;
   background-color: rgba(0, 0, 0, 0.815);
   padding: 2.5%;
-  border-radius: 15px;
+  border-radius: 10px;
 
   h2 {
     padding-left: 4%;
@@ -18,16 +18,19 @@
     align-items: center;
     gap: 4vh;
     padding: 2%;
-
-    input {
-      width: 20vw;
-      border-radius: 10px;
-      border: none;
-      height: 30px;
-      padding: 15px;
-      font-family: var(--primary-font);
-      font-weight: bold;
-      border: 5px solid var(--primary-color);
+    .container-input {
+      text-align: center;
+      width: 100%;
+      input {
+        width: 40%;
+        border-radius: 10px;
+        border: none;
+        height: 30px;
+        padding: 15px;
+        font-family: var(--primary-font);
+        font-weight: bold;
+        border: 5px solid var(--primary-color);
+      }
     }
 
     .displayGames {
@@ -40,6 +43,53 @@
         height: 20vh;
         // object-fit: contain;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .presentationDisplayGames {
+    h2 {
+      font-size: 2.55rem;
+    }
+    .games {
+      .container-input {
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .presentationDisplayGames {
+    .games {
+      .container-input {
+        padding-top: 5%;
+        text-align: center;
+        width: 100%;
+        input {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .presentationDisplayGames {
+    h2 {
+      font-size: 2.25rem;
+    }
+    .games {
+      .container-input {
+        padding-top: 5%;
+        text-align: center;
+        width: 100%;
+        input {
+          width: 90%;
+        }
       }
     }
   }

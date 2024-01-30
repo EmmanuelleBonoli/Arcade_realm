@@ -32,7 +32,6 @@
       font-family: var(--secondary-font);
       font-size: 8rem;
       position: relative;
-      
     }
 
     img {
@@ -48,14 +47,13 @@
         height: 35%;
         width: 4vw;
       }
-      
     }
 
     .suppr {
       position: absolute;
-      top: -15px;
+      top: -20px;
       right: -7px;
-      height: 15px;
+      height: 10px;
       cursor: pointer;
     }
   }
