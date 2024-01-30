@@ -36,19 +36,18 @@
       }
     }
   }
-.container-banner {
-margin: 0 auto;
-  .bannerEvents {
+  .container-banner {
     margin: 0 auto;
-    width: 90vw;
-    height: 40vh;
-    object-fit: cover;
-    border: 1px solid white;
-    border-radius: 5px;
+    .bannerEvents {
+      margin: 0 auto;
+      width: 90vw;
+      height: 40vh;
+      object-fit: cover;
+      border: 1px solid white;
+      border-radius: 5px;
+    }
   }
 }
-}
-
 
 @media screen and (max-width: 1525px) {
   .presentationEvents {
@@ -56,7 +55,6 @@ margin: 0 auto;
       font-size: 2.2rem;
     }
   }
-  
 }
 
 @media screen and (max-width: 1229px) {
@@ -69,12 +67,10 @@ margin: 0 auto;
         margin: 0;
         width: 90vw;
         height: 30vh;
-  
-      }}
+      }
+    }
   }
-  
 }
-
 
 @media screen and (max-width: 1110px) {
   .presentationEvents {
@@ -82,9 +78,7 @@ margin: 0 auto;
       font-size: 1.8rem;
     }
   }
-  
 }
-
 
 @media screen and (max-width: 1051px) {
   .presentationEvents {
@@ -92,53 +86,43 @@ margin: 0 auto;
       font-size: 1.7rem;
     }
   }
-  
 }
 
 @media screen and (max-width: 1042px) {
   .presentationEvents {
     min-height: 70vh;
     .descEvents {
-  
       .imgEvents {
-
         gap: 35px;
         width: 45vw;
-  
+
         img {
           height: 30vh;
           border-radius: 5px;
         }
       }
     }
-
   }
-  
 }
 
 @media screen and (max-width: 1020px) {
   .presentationEvents {
     .descEvents {
-  
       .imgEvents {
-
         gap: 20px;
-  
       }
     }
   }
-  
 }
 
 @media screen and (max-width: 940px) {
   .presentationEvents {
     min-height: 70vh;
     .descEvents {
-  
       .imgEvents {
         gap: 35px;
         width: 45vw;
-  
+
         img {
           height: 27vh;
           border-radius: 5px;
@@ -146,29 +130,22 @@ margin: 0 auto;
       }
     }
   }
-  
 }
 
 @media screen and (max-width: 900px) {
   .presentationEvents {
-
     .descEvents {
-  
       .imgEvents {
         gap: 15px;
-
       }
     }
   }
-  
 }
-
 
 @media screen and (max-width: 844px) {
   .presentationEvents {
     min-height: 60vh;
     .descEvents {
-  
       .imgEvents {
         gap: 20px;
         img {
@@ -176,36 +153,32 @@ margin: 0 auto;
           border-radius: 5px;
         }
       }
-      
     }
     .container-banner {
       .bannerEvents {
         margin: 0;
         width: 90vw;
         height: 25vh;
-  
-      }}
-    
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 750px) {
   .presentationEvents {
-
     .descEvents {
-  flex-direction: column;
-  .textEvents{
-    width: 100%;
-    p{
-      padding-top: 2%;
-    }
-  }
+      flex-direction: column;
+      .textEvents {
+        width: 100%;
+        p {
+          padding-top: 2%;
+        }
+      }
       .imgEvents {
         padding-top: 3%;
         gap: 30px;
         margin: 0 auto;
-width: 80vw;
+        width: 80vw;
         img {
           height: 30vh;
           border-radius: 5px;
@@ -213,28 +186,23 @@ width: 80vw;
       }
     }
   }
-  
 }
-
 
 @media screen and (max-width: 700px) {
   .presentationEvents {
-
     .container-banner {
       .bannerEvents {
         margin: 0;
         width: 90vw;
         height: 20vh;
-  
-      }}
+      }
+    }
   }
-  
 }
 
 @media screen and (max-width: 469px) {
   .presentationEvents {
     .descEvents {
-  
       .imgEvents {
         flex-direction: row;
         gap: 20px;
@@ -243,10 +211,8 @@ width: 80vw;
           border-radius: 5px;
         }
       }
-      
     }
   }
-  
 }
 
 @media screen and (max-width: 425px) {
@@ -264,7 +230,6 @@ width: 80vw;
           border-radius: 5px;
         }
       }
-      
     }
     .container-banner {
       display: flex;
@@ -273,9 +238,7 @@ width: 80vw;
         margin: 0;
         width: 100%;
         height: 20vh;
-  
-      }}
-  
+      }
+    }
   }
-  
 }

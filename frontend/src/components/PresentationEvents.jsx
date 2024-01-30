@@ -32,11 +32,11 @@ function PresentationEvents() {
         </div>
       </div>
       <div className="container-banner">
-      <img
-        className="bannerEvents"
-        src="/images/Presentation_evenement/p_evenement_3.jpg"
-        alt="foule humaine"
-      />
+        <img
+          className="bannerEvents"
+          src="/images/Presentation_evenement/p_evenement_3.jpg"
+          alt="foule humaine"
+        />
       </div>
     </div>
   );
