@@ -1,89 +1,128 @@
-.container-player {
-  display: flex;
-  flex-direction: column;
-  h1 {
-    text-align: center;
-    font-family: var(--primary-font);
-    color: var(--fourth-color);
-    padding: 3%;
-    font-size: 3rem;
-  }
-  .overflow-player {
-    overflow-y: scroll;
-    width: 99%;
-    height: 26vh;
+.adminUserProfile {
+  .container-player {
+    display: flex;
+    flex-direction: column;
+    h1 {
+      text-align: center;
+      font-family: var(--primary-font);
+      color: var(--fourth-color);
+      padding: 3%;
+      font-size: 3rem;
+    }
+    .overflow-player {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      width: 99%;
+      height: 26vh;
 
-    .player-list {
-      width: 85%;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      padding: 6% 0% 0% 16%;
+      .player-list {
+        width: 85%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 6% 0% 0% 16%;
 
-      p {
-        font-family: var(--primary-font);
-        font-size: 2rem;
-        color: white;
+        p {
+          font-family: var(--primary-font);
+          font-size: 2rem;
+          color: white;
+          cursor: pointer;
+        }
+
+        img {
+          cursor: pointer;
+          transform: translateY(-10%);
+          width: 9%;
+        }
       }
+    }
+    .wrapper-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       img {
+        width: 6%;
+        position: absolute;
+        top: 50%;
+        right: 18%;
+        transform: translateY(-50%);
         cursor: pointer;
-        transform: translateY(-10%);
-        width: 9%;
       }
-    }
-  }
-  .wrapper-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    img {
-      width: 6%;
-      position: absolute;
-      top: 50%;
-      right: 18%;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-
-    .input-search-player {
-      position: relative;
-      border-radius: 20px;
-      height: 4vh;
-      width: 18vw;
-      border: 2px solid var(--fourth-color);
-      background-color: var(--primary-color);
-      color: white;
-      font-size: 1.8rem;
-      padding: 4%;
-      font-family: var(--secondary-font);
-
-      &::placeholder {
-        font-style: italic;
-        color: rgba(255, 255, 255, 0.546);
-        padding: 5%;
-        font-size: 1.6rem;
-      }
-    }
-  }
-  ::-webkit-scrollbar {
-    cursor: pointer;
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--fourth-color);
-    border-radius: 5px;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .container-player {
-    .wrapper-container {
       .input-search-player {
-        width: 30vw;
+        position: relative;
+        border-radius: 20px;
+        height: 4vh;
+        width: 18vw;
+        border: 2px solid var(--fourth-color);
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 1.8rem;
+        padding: 4%;
+        font-family: var(--secondary-font);
+
+        &::placeholder {
+          font-style: italic;
+          color: rgba(255, 255, 255, 0.546);
+          padding: 5%;
+          font-size: 1.6rem;
+        }
+      }
+    }
+    ::-webkit-scrollbar {
+      cursor: pointer;
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--fourth-color);
+      border-radius: 5px;
+    }
+  }
+  @media screen and (max-width: 1300px) {
+    .container-player {
+      .overflow-player {
+        .player-list {
+          p {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .container-player {
+      .wrapper-container {
+        .input-search-player {
+          width: 50vw;
+        }
+      }
+      .overflow-player {
+        .player-list {
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .container-player {
+      .wrapper-container {
+        .input-search-player {
+          width: 60vw;
+        }
+      }
+      .overflow-player {
+        .player-list {
+          padding: 6% 0% 0% 6%;
+          p {
+            font-size: 1.5rem;
+          }
+        }
       }
     }
   }

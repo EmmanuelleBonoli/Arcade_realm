@@ -1,20 +1,29 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import DetailsUserProfile from "./DetailsUserProfile";
 
 export default function AdminUserProfile() {
   const [user, setUser] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState(user);
   const [filterPseudo, setFilterPseudo] = useState("");
+  const [detailsProfile, setDetailsProfile] = useState(0);
+  const [openDetailsProfile, setOpenDetailsProfile] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      const userA = JSON.parse(localStorage.getItem("token"));
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/`
+          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/`,
+          {
+            headers: {
+              Authorization: `Bearer ${userA.token}`,
+            },
+          }
         );
 
         setUser(response.data);
-        setFilteredUsers(response.data); // Affiche tous les utilisateurs initialement
+        setFilteredUsers(response.data);
       } catch (error) {
         console.error(error.message);
       }
@@ -27,57 +36,77 @@ export default function AdminUserProfile() {
     const inputValue = event.target.value;
     setFilterPseudo(inputValue);
 
-    // Filtrer les utilisateurs en fonction du pseudonyme saisi
-    const filteredUsersResult = user.filter(
-      (users) =>
-        users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
+    const filteredUsersResult = user.filter((users) =>
+      users.pseudo.toLowerCase().includes(inputValue.toLowerCase())
     );
 
     setFilteredUsers(filteredUsersResult);
   };
 
   const handleDeletePlayer = async (data) => {
+    const userA = JSON.parse(localStorage.getItem("token"));
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${data}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${data}`,
+        {
+          headers: {
+            Authorization: `Bearer ${userA.token}`,
+          },
+        }
       );
-      setUser(user.filter((player) => player.id !== data));
+      setFilteredUsers(filteredUsers.filter((player) => player.id !== data));
     } catch (err) {
       console.error(err);
     }
   };
 
+  function handleDetailsUser(playerId) {
+    setDetailsProfile(playerId);
+    setOpenDetailsProfile(true);
+  }
+
   return (
-    <div>
-      <div className="container-player">
-        <h1>JOUEURS</h1>
-        <div className="wrapper-container">
-          <input
-            className="input-search-player"
-            type="text"
-            placeholder="Entrez le nom d'un joueur"
-            value={filterPseudo}
-            onChange={handleInput}
-          />
-          {/* <img src="/images/Search.png" alt="Search" /> */}
-        </div>{" "}
-        <div className="overflow-player">
-          {filteredUsers.map(
-            (player) =>
-              !player.admin && (
-                <div className="player-list" key={player.id}>
-                  <p>{player.pseudo}</p>
-                  <img
-                    src="/images/Utilisateur/Banned.png"
-                    onClick={() => handleDeletePlayer(player.id)}
-                    alt="Banned"
-                    role="presentation"
-                  />
-                </div>
-              )
-          )}
+    <div className="adminUserProfile">
+      {openDetailsProfile ? (
+        <DetailsUserProfile
+          detailsProfile={detailsProfile}
+          setOpenDetailsProfile={setOpenDetailsProfile}
+        />
+      ) : (
+        <div className="container-player">
+          <h1>JOUEURS</h1>
+          <div className="wrapper-container">
+            <input
+              className="input-search-player"
+              type="text"
+              placeholder="Entrez le nom d'un joueur"
+              value={filterPseudo}
+              onChange={handleInput}
+            />
+          </div>{" "}
+          <div className="overflow-player">
+            {filteredUsers.map(
+              (player) =>
+                !player.admin && (
+                  <div className="player-list" key={player.id}>
+                    <p
+                      onClick={() => handleDetailsUser(player.id)}
+                      role="presentation"
+                    >
+                      {player.pseudo}
+                    </p>
+                    <img
+                      src="/images/Utilisateur/Banned.png"
+                      onClick={() => handleDeletePlayer(player.id)}
+                      alt="Banned"
+                      role="presentation"
+                    />
+                  </div>
+                )
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

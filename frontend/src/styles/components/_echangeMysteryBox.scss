@@ -1,0 +1,105 @@
+.echangeMysteryBox {
+  width: 30vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 2%;
+  color: white;
+  background-color: #00212a;
+  border: 1px solid white;
+  border-radius: 15px;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  .lotMysteryContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
+
+    h2 {
+      font-family: var(--primary-font);
+      text-align: center;
+    }
+    .lotMystery {
+      width: 40%;
+      display: none;
+    }
+    .lotMystery2 {
+      width: 40%;
+      animation-name: newLot;
+      animation-duration: 4s;
+      z-index: 2;
+    }
+  }
+
+  .boxMystery {
+    width: 40%;
+    position: absolute;
+    top: 15%;
+    z-index: 1;
+  }
+  .boxMystery2 {
+    width: 40%;
+    position: absolute;
+    top: 15%;
+    animation-name: openBox;
+    animation-duration: 4s;
+    z-index: 1;
+  }
+  .boxMystery3 {
+    display: none;
+  }
+  .mario {
+    width: 35%;
+    position: absolute;
+    top: 45%;
+    animation-name: upMario;
+    animation-duration: 2s;
+  }
+  .mario2 {
+    width: 35%;
+    position: absolute;
+    top: 45%;
+  }
+
+  .mario3 {
+    display: none;
+  }
+
+  @keyframes upMario {
+    0% {
+      transform: translate(0, 300%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes openBox {
+    0% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: scale(2, 0.5);
+    }
+    40% {
+      transform: scale(3);
+    }
+    100% {
+      transform: translate(0, 150%);
+    }
+  }
+  @keyframes newLot {
+    0% {
+      transform: scale(0.5, 0.5) translate(0, 50%);
+    }
+    100% {
+      transform: scale(1.5, 1.5) translate(0, 0);
+    }
+  }
+}

@@ -1,115 +1,327 @@
-.container-mle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 6px;
-
-  .pseudo-joueur {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    color: var(--fourth-color);
-    font-size: 1.4rem;
-    font-family: var(--primary-font);
-    padding: 5%;
-
-    h1 {
-      padding: 0 0 0 5%;
-    }
-  }
-
-  .mes-lots {
+.lotsExchangeUser {
+  height: 100%;
+  width: 100%;
+  .container-mle {
     display: flex;
     flex-direction: column;
-    padding: var(--spacing);
-    gap: 5px;
-    .t-1 {
-      display: flex;
-      .premier-prix {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        width: 50%;
-        .titre-prix {
-          font-family: var(--secondary-font);
-          font-weight: 700;
-          font-size: 2rem;
-          color: var(--secondary-color);
-        }
-        .nom-item {
-          font-family: var(--secondary-font);
-          color: #fff;
-          font-weight: 400;
-          font-style: italic;
-          font-size: 1.9rem;
-          padding: 1rem;
-        }
-      }
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 
-      .img-prix {
-        padding: 10px;
-        width: 50%;
-        text-align: center;
-        img {
-          width: 50%;
-        }
+    .pseudo-joueur {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      color: var(--fourth-color);
+      font-size: 1.4rem;
+      font-family: var(--primary-font);
+      padding: 5%;
+
+      h1 {
+        padding: 0 0 0 5%;
       }
     }
-    .t-2 {
+
+    .ticketsPlayer {
       display: flex;
-      .deuxieme-prix {
+      justify-content: space-around;
+      align-items: center;
+      height: 20%;
+      width: 100%;
+      img {
+        height: 80%;
+      }
+      p {
+        color: white;
+        font-family: var(--secondary-font);
+        font-size: 1.8rem;
+      }
+    }
+    h2 {
+      color: white;
+      font-family: var(--secondary-font);
+      text-align: end;
+      align-self: flex-end;
+      font-size: 1.8rem;
+      padding-right: 10%;
+    }
+
+    .mes-lots {
+      display: flex;
+      flex-direction: column;
+      padding: var(--spacing);
+      gap: 10px;
+      overflow-y: auto;
+      .t-1 {
         display: flex;
-        flex-direction: column;
-        gap: 15px;
-        width: 50%;
-        .titre-prix {
-          font-family: var(--secondary-font);
-          font-weight: 700;
-          font-size: 2rem;
-          color: var(--secondary-color);
+        .premier-prix {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 15px;
+          width: 50%;
+          .titre-prix {
+            font-family: var(--secondary-font);
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--secondary-color);
+          }
+          .nom-item {
+            font-family: var(--secondary-font);
+            color: #fff;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.9rem;
+            padding: 1rem;
+          }
         }
-        .nom-item {
-          font-family: var(--secondary-font);
-          color: #fff;
-          font-weight: 400;
-          font-style: italic;
-          font-size: 1.9rem;
+
+        .img-prix {
+          padding: 10px;
+          width: 50%;
+          text-align: center;
+          img {
+            width: 50%;
+          }
+        }
+        .inputSelectContainer {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .inputSelect {
+            cursor: pointer;
+          }
+
+          .inputSelect input {
+            display: none;
+          }
+
+          .inputSelect svg {
+            overflow: visible;
+          }
+
+          .path {
+            fill: none;
+            stroke: white;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition:
+              stroke-dasharray 0.5s ease,
+              stroke-dashoffset 0.5s ease;
+            stroke-dasharray: 241 9999999;
+            stroke-dashoffset: 0;
+          }
+
+          .inputSelect input:checked ~ svg .path {
+            stroke-dasharray: 70.5096664428711 9999999;
+            stroke-dashoffset: -262.2723388671875;
+          }
         }
       }
+      .t-2 {
+        display: flex;
+        .deuxieme-prix {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          width: 50%;
+          .titre-prix {
+            font-family: var(--secondary-font);
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--secondary-color);
+          }
+          .nom-item {
+            font-family: var(--secondary-font);
+            color: #fff;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.9rem;
+          }
+        }
 
-      .img-prix {
-        padding: 10px;
-        width: 50%;
-        text-align: center;
+        .img-prix {
+          padding: 10px;
+          width: 50%;
+          text-align: center;
+
+          img {
+            width: 50%;
+          }
+        }
+      }
+      ::-webkit-scrollbar {
+        height: 7px;
+        width: 4vw;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--fourth-color);
+        border-radius: 5px;
+      }
+    }
+    a {
+      text-decoration: none;
+
+      .bouton-echangerlot {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 55%;
+        margin: 0 auto;
+        color: #ffff;
+        margin-bottom: 10px;
+        font-family: "Montserrat";
+        font-size: 1.8rem;
+        padding: 3%;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.56);
 
         img {
-          width: 50%;
+          width: 10%;
         }
       }
     }
   }
-  a {
-    text-decoration: none;
+}
 
-    .bouton-echangerlot {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      width: 70%;
-      margin: 0 auto;
-      color: #ffff;
-      font-size: 1rem;
-      font-family: "Montserrat";
-      font-size: 1.8rem;
-      padding: 2%;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.56);
+@media screen and (max-width: 1100px) {
+  .lotsExchangeUser {
+    .container-mle {
+      a {
+        .bouton-echangerlot {
+          width: 40%;
 
-      img {
-        width: 10%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .lotsExchangeUser {
+    .container-mle {
+      a {
+        .bouton-echangerlot {
+          width: 50%;
+
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .lotsExchangeUser {
+    .container-mle {
+      .pseudo-joueur {
+        img {
+          width: 5vw;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .ticketsPlayer {
+        img {
+          height: 70%;
+        }
+        p {
+          font-size: 1.6rem;
+        }
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .mes-lots {
+        .t-1 {
+          .premier-prix {
+            .nom-item {
+              font-size: 1.3rem;
+            }
+          }
+          .img-prix {
+            img {
+              width: 40%;
+            }
+          }
+        }
+      }
+      a {
+        .bouton-echangerlot {
+          width: 60%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 530px) {
+  .lotsExchangeUser {
+    .container-mle {
+      a {
+        .bouton-echangerlot {
+          width: 70%;
+
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .lotsExchangeUser {
+    .container-mle {
+      .pseudo-joueur {
+        img {
+          width: 8vw;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .ticketsPlayer {
+        img {
+          height: 50%;
+        }
+        p {
+          font-size: 1.6rem;
+        }
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .mes-lots {
+        .t-1 {
+          .premier-prix {
+            .nom-item {
+              font-size: 1.3rem;
+            }
+          }
+          .img-prix {
+            img {
+              width: 45%;
+            }
+          }
+        }
+      }
+      a {
+        .bouton-echangerlot {
+          width: 80%;
+          font-size: 1.5rem;
+        }
       }
     }
   }

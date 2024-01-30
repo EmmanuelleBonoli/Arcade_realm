@@ -68,4 +68,84 @@
     color: white;
     font-weight: bold;
   }
+  .btn-qr-code {
+    display: none;
+    .btn-score {
+    }
+  }
+}
+
+@media screen and (max-width: 1395px) {
+  .container-MeilleursScore {
+    .user-name {
+      font-size: 1.2rem;
+    }
+    .liste-jeux-points {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container-MeilleursScore {
+    .user-name {
+      font-size: 1em;
+    }
+    .liste-jeux-points {
+      font-size: 1.5rem;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .container-MeilleursScore {
+    .user-name {
+      font-size: 1em;
+      img {
+        width: 8vw;
+      }
+    }
+    .liste-jeux-points {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container-MeilleursScore {
+    .user-name {
+      font-size: 1.2rem;
+    }
+    .liste-jeux-points {
+      font-size: 1.5rem;
+    }
+
+    .btn-qr-code {
+      display: initial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 5%;
+      .btn-score {
+        border: 2px solid rgba(255, 255, 255, 0.486);
+        font-family: var(--secondary-font);
+        font-weight: 500;
+        border-radius: 50px;
+        padding: 2vw;
+        background-color: var(--fourth-color);
+      }
+    }
+  }
+}
+@media screen and (max-width: 350px) {
+  .container-MeilleursScore {
+    .user-name {
+      font-size: 1em;
+      img {
+        width: 9vw;
+      }
+    }
+    .liste-jeux-points {
+      font-size: 1.3rem;
+    }
+  }
 }

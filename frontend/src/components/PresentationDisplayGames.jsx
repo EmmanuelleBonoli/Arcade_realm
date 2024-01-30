@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function PresentationDisplayGames() {
   const [games, setGames] = useState([]);
@@ -19,30 +20,33 @@ function PresentationDisplayGames() {
     const search = event.target.value;
     setSearchGame(search);
   };
+
   return (
     <div className="presentationDisplayGames">
       <h2>Nos jeux</h2>
       <div className="games">
-        <input
-          type="text"
-          placeholder="Rechercher un jeu"
-          onChange={handleSearchGame}
-        />
+        <div className="container-input">
+          <input
+            type="text"
+            placeholder="Rechercher un jeu"
+            onChange={handleSearchGame}
+          />
+        </div>
+
         <div className="displayGames">
           {games
-            .filter((search) =>
-              search.name.toLowerCase().includes(searchGame.toLowerCase())
+            .filter((game) =>
+              game.name.toLowerCase().includes(searchGame.toLowerCase())
             )
-            .map((game) => {
-              return (
+            .map((game) => (
+              <Link to={`/game/${game.id}`} key={game.id}>
                 <img
-                  key={game.id}
-                  src={`${import.meta.env.VITE_BACKEND_URL}${game.image}`}
+                  src={`${import.meta.env.VITE_BACKEND_URL}/${game.image}`}
                   alt={game.name}
                   className="displayGameImage"
                 />
-              );
-            })}
+              </Link>
+            ))}
         </div>
       </div>
     </div>

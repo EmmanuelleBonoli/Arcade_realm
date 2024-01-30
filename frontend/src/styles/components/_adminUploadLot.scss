@@ -15,8 +15,76 @@
     border-radius: 15px;
     border: 2px solid white;
     width: 40vw;
-    height: 28vw;
+    height: 80%;
     background-color: rgba(0, 33, 42, 0.61);
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    .btn-inscription {
+      margin: 0 auto;
+      cursor: pointer;
+      font-family: var(--primary-font);
+      color: #fbb169;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: rgba(0, 61, 72, 1);
+      border: 1px solid white;
+      width: 50%;
+      height: 45px;
+      border-radius: 5px;
+    }
+    .upload {
+      form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px;
+        font-family: var(--secondary-font);
+
+        input::file-selector-button {
+          font-weight: bold;
+          background-color: rgba(0, 0, 0, 0.61);
+          color: rgba(255, 255, 255, 0.683);
+          padding: 5px 10px 5px 10px;
+          border: thin solid grey;
+          cursor: pointer;
+        }
+        .label-file {
+          cursor: pointer;
+          color: #00b1ca;
+          font-weight: bold;
+          font-size: 3rem;
+        }
+        .label-file:hover {
+          color: #25a5c4;
+        }
+
+        .input-file {
+          display: none;
+        }
+
+        button {
+          border: 1px solid rgba(255, 255, 255, 0.486);
+          background-color: rgba(0, 0, 0, 0.61);
+          color: rgba(255, 255, 255, 0.683);
+          cursor: pointer;
+          font-size: 1.5rem;
+          color: var(--secondary-color);
+          width: 30%;
+          height: 2.5vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 0.8vw;
+            height: 1.5vh;
+          }
+        }
+      }
+    }
   }
 
   .header-container {
@@ -35,8 +103,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 8%;
+    justify-content: center;
+    gap: 5%;
     width: 100%;
     height: 60%;
 
@@ -60,18 +128,250 @@
       width: 15vw;
       height: 45px;
     }
+  }
 
-    .btn-inscription {
-      cursor: pointer;
-      font-family: var(--primary-font);
-      color: #fbb169;
-      font-size: 18px;
-      font-weight: bold;
-      background-color: rgba(0, 61, 72, 1);
-      border: 1px solid white;
-      width: 8vw;
-      height: 45px;
-      border-radius: 5px;
+  @media screen and (max-width: 1000px) {
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .adminUploadLot {
+    .upload-form {
+      width: 60vw;
+      height: 70%;
+      gap: 10%;
+      .btn-inscription {
+        width: 45%;
+      }
+    }
+
+    .header-container {
+      padding-top: 8%;
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 18px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 30vw;
+        height: 45px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .adminUploadLot {
+    .upload-form {
+      width: 60vw;
+      height: 65%;
+      gap: 10%;
+      .btn-inscription {
+        width: 50%;
+      }
+    }
+
+    .header-container {
+      padding-top: 10%;
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 18px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 35vw;
+        height: 45px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 680px) {
+  .adminUploadLot {
+    .upload-form {
+      padding: 5%;
+      width: 65vw;
+      height: 70%;
+      gap: 15%;
+      .btn-inscription {
+        width: 60%;
+      }
+    }
+
+    .header-container {
+      padding-top: 10%;
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 15px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 35vw;
+        height: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .adminUploadLot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .upload-form {
+      padding: 0%;
+      width: 65vw;
+      height: 60%;
+      gap: 15%;
+      .btn-inscription {
+        width: 60%;
+        font-size: 1.3rem;
+      }
+    }
+
+    .header-container {
+      padding-top: 15%;
+
+      h1 {
+        font-size: 18px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 15px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 40vw;
+        height: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .adminUploadLot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .upload-form {
+      padding: 0%;
+      width: 80vw;
+      height: 60%;
+      gap: 15%;
+      .btn-inscription {
+        width: 60%;
+        font-size: 1.3rem;
+      }
+    }
+
+    .header-container {
+      padding-top: 15%;
+
+      h1 {
+        font-size: 18px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 15px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 50vw;
+        height: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .adminUploadLot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .upload-form {
+      padding: 0%;
+      width: 85vw;
+      height: 60%;
+
+      .btn-inscription {
+        width: 60%;
+        font-size: 1.3rem;
+      }
+    }
+
+    .header-container {
+      padding-top: 15%;
+
+      h1 {
+        font-size: 17px;
+      }
+    }
+
+    .upload-container {
+      gap: 5%;
+      width: 100%;
+      height: 60%;
+
+      p {
+        font-size: 13px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 15px;
+        width: 60vw;
+        height: 45px;
+      }
     }
   }
 }

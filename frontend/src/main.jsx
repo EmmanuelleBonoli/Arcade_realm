@@ -7,10 +7,11 @@ import Home from "./pages/Home";
 import Events from "./pages/Events";
 import Classement from "./pages/Classement";
 import Presentation from "./pages/Presentation";
-import PresentationGame from "./pages/PresentationGame";
+import PresentationGame, {
+  loadPresentationGame,
+} from "./pages/PresentationGame";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
-// import ProfileAdmin from "./pages/ProfileAdmin";
 import MeilleursScore from "./components/MeilleursScore";
 import Echange from "./pages/Echange";
 import DonneesPerso from "./components/DonneesPerso";
@@ -19,6 +20,14 @@ import AdminUserProfile from "./components/AdminUserProfile";
 import MesLotsEchanges from "./components/MesLotsEchanges";
 import MesJeuxFavoris from "./components/MesJeuxFavoris";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRouteAdmin from "./components/ProtectedRouteAdmin";
+
+import PresentationDisplayGames from "./components/PresentationDisplayGames";
+
+import ArcadeGame2 from "./pages/ArcadeGame";
+import AdminCompetition from "./components/AdminCompetition";
+
+import AdminLots from "./components/AdminLots";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +44,10 @@ const router = createBrowserRouter([
         element: <Events />,
       },
       {
+        path: "/jeuxenligne",
+        element: <ArcadeGame2 />,
+      },
+      {
         path: "/classementetlots",
         element: <Classement />,
       },
@@ -43,12 +56,17 @@ const router = createBrowserRouter([
         element: <Presentation />,
       },
       {
-        path: "/presentationarcaderealm/:id",
+        path: "/game/:id",
         element: <PresentationGame />,
+        loader: loadPresentationGame,
       },
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/presentationgame",
+        element: <PresentationDisplayGames />,
       },
       {
         path: "/profilutilisateur",
@@ -69,17 +87,33 @@ const router = createBrowserRouter([
           {
             path: "/profilutilisateur/adminservices",
             element: (
-              <ProtectedRoute>
+              <ProtectedRouteAdmin>
                 <AdminServices />
-              </ProtectedRoute>
+              </ProtectedRouteAdmin>
+            ),
+          },
+          {
+            path: "/profilutilisateur/gestiondeslots",
+            element: (
+              <ProtectedRouteAdmin>
+                <AdminLots />
+              </ProtectedRouteAdmin>
+            ),
+          },
+          {
+            path: "/profilutilisateur/gestiondesconcours",
+            element: (
+              <ProtectedRouteAdmin>
+                <AdminCompetition />
+              </ProtectedRouteAdmin>
             ),
           },
           {
             path: "/profilutilisateur/gestionprofils",
             element: (
-              <ProtectedRoute>
+              <ProtectedRouteAdmin>
                 <AdminUserProfile />
-              </ProtectedRoute>
+              </ProtectedRouteAdmin>
             ),
           },
           {
@@ -110,7 +144,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/echange",
-        element: <Echange />,
+        element: (
+          <ProtectedRoute>
+            <Echange />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

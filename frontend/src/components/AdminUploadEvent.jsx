@@ -1,25 +1,29 @@
 import { PropTypes } from "prop-types";
+import { useState } from "react";
 import axios from "axios";
-// import { useState } from "react";
 
 function AdminUploadEvent({ onClose, resetUploadEvent, setResetUploadEvent }) {
-  //   const [nameEvent, setNameEvent] = useState("");
+  // resetUploadEvent, setResetUploadEvent
+  // const [nameEvent, setNameEvent] = useState("");
   // const [setImageLot] = useState("");
-
-  const handleInputClick = (e) => {
-    e.stopPropagation();
-  };
+  const [file, setFile] = useState(undefined);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
-      const data = {
-        image: `/images/Evenements/affiche_accueil.png`,
-      };
-      await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/evenement`,
-        data
+      const data = new FormData();
+      data.append("image", file);
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/evenement/addevent`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
+      setFile(res.data[0]);
       setResetUploadEvent(!resetUploadEvent);
       onClose();
     } catch (err) {
@@ -28,7 +32,7 @@ function AdminUploadEvent({ onClose, resetUploadEvent, setResetUploadEvent }) {
   };
 
   return (
-    <div className="adminUploadLot" onClick={onClose} role="presentation">
+    <div className="adminUploadEvent" onClick={onClose} role="presentation">
       <div
         className="upload-form"
         onClick={(e) => e.stopPropagation()}
@@ -37,24 +41,24 @@ function AdminUploadEvent({ onClose, resetUploadEvent, setResetUploadEvent }) {
         <div className="header-container">
           <h1>Création d'un nouvel évènement</h1>
         </div>
-        <form onSubmit={handleSubmit} className="upload-container">
-          <p>Nom de l'évènement</p>
-          <input
-            type="text"
-            // onChange={(event) => setNameEvent(event.target.value)}
-            onClick={handleInputClick}
-          />
+        {/* <form onSubmit={handleSubmit} className="upload-container">
+          <p>Nom de l'évènement</p> */}
+        <div className="upload">
+          <form onSubmit={handleSubmit}>
+            <input
+              name="filename"
+              onChange={(e) => setFile(e.target.files[0])}
+              type="file"
+              accept="image/*"
+            />
 
-          {/* <input
-            type="file"
-            // onChange={(event) => setImageLot(event.target.files[0])}
-            accept=".png, .jpg,.jpeg"
-          /> */}
+            <button type="submit" className="btn-validate-event">
+              Valider la création
+            </button>
+          </form>
+        </div>
 
-          <button type="submit" className="btn-inscription">
-            Valider la création
-          </button>
-        </form>
+        {/* </form> */}
       </div>
     </div>
   );

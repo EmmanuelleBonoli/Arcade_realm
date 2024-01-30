@@ -1,4 +1,5 @@
 // Import required dependencies
+
 const { app, request, tables } = require("../setup");
 
 // Test suite for the GET /api/items route
@@ -60,8 +61,6 @@ describe("GET /api/items/:id", () => {
 });
 
 // Test suite for the POST /api/items route
-// Doesn't pass: maybe something to change in app config :/
-// Hint: enabling log could help ;)
 describe("POST /api/items", () => {
   it("should add a new item successfully", async () => {
     // Define a sample item for testing

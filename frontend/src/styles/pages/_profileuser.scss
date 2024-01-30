@@ -39,11 +39,14 @@
         &.active {
           color: var(--secondary-color);
         }
+        img {
+          display: none;
+        }
       }
     }
     .profil-pt2 {
       width: 50%;
-      height: 100%;
+      height: 110%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -51,7 +54,7 @@
         padding-top: 3%;
         border: 2px solid white;
         width: 80%;
-        height: 70%;
+        height: 65%;
         border-radius: 5px;
         background-color: #00212a;
       }
@@ -69,5 +72,197 @@
     width: 200px;
     border-radius: 50%;
     background-color: #00212a;
+  }
+}
+
+@media screen and (max-width: 1629px) {
+  .home-profil {
+
+    .avatar {
+      top: 8%;
+      height: 150px;
+      width: 150px;
+    }
+  }
+}
+
+@media screen and (max-width: 1389px) {
+  .home-profil {
+
+    .avatar {
+      top: 7%;
+      height: 140px;
+      width: 140px;
+    }
+  }
+}
+
+@media screen and (max-width: 1219px) {
+  .home-profil {
+
+    .avatar {
+      top: 5%;
+      height: 130px;
+      width: 130px;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 1100px) {
+  .home-profil {
+    .container-profil {
+      flex-direction: column;
+      align-items: center;
+      width: 75vw;
+      height: 65vh;
+      .profil-pt1 {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+        gap: 30px;
+        padding-top: 8vw;
+
+        a {
+          width: 80px;
+          text-align: center;
+          img {
+            display: initial;
+            width: 55%;
+          }
+          p {
+            display: none;
+          }
+        }
+      }
+      .profil-pt2 {
+        width: 60vw;
+        height: 45vh;
+        .displayChoice {
+          height: 90%;
+        }
+      }
+    }
+    .avatar {
+      top: 2%;
+      height: 160px;
+      width: 160px;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .home-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container-profil {
+      .profil-pt1 {
+        a {
+          width: 8vw;
+          margin-top: 50px;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .profil-pt2 {
+        width: 60vw;
+        height: 42vh;
+        .displayChoice {
+          height: 90%;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 956px) {
+  .home-profil {
+    .avatar {
+      top: 3%;
+      height: 135px;
+      width: 135px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .home-profil {
+    .container-profil {
+      .profil-pt1 {
+        a {
+          width: 10vw;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .profil-pt2 {
+        width: 65vw;
+      }
+    }
+    .avatar {
+      height: 140px;
+      width: 140px;
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .home-profil {
+    .container-profil {
+      .profil-pt1 {
+        a {
+          width: 11.5vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 460px) {
+  .home-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container-profil {
+      width: 90%;
+      height: 70vh;
+      .profil-pt1 {
+        a {
+          width: 13vw;
+        }
+      }
+      .profil-pt2 {
+        width: 95vw;
+        height: 50vh;
+        .displayChoice {
+          height: 90%;
+        }
+      }
+    }
+    .avatar {
+      height: 130px;
+      width: 130px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .home-profil {
+    .container-profil {
+      width: 95%;
+      .profil-pt1 {
+        padding-top: 20%;
+        a {
+          width: 16vw;
+        }
+      }
+    }
   }
 }

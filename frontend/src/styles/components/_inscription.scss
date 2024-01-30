@@ -14,8 +14,8 @@
   .inscription-form {
     border-radius: 15px;
     border: 2px solid white;
-    width: 22vw;
-    height: 28vw;
+    width: 22%;
+    height: 55%;
     background-color: rgba(0, 33, 42, 0.61);
   }
 
@@ -68,7 +68,17 @@
       width: 15vw;
       height: 45px;
     }
-
+    .mdp-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .mdp {
+        width: 25px;
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+      }
+    }
     .container-button {
       display: flex;
       justify-content: center;
@@ -86,6 +96,133 @@
         width: 8vw;
         height: 45px;
         border-radius: 5px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1400px) {
+  .container-inscription {
+    .inscription-form {
+      width: 30vw;
+      height: 45vw;
+    }
+    .login-container {
+      .pseudo,
+      .motdepasse {
+        width: 20vw;
+      }
+      .container-button {
+        .btn-inscription {
+          width: 15vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1100px) {
+  .container-inscription {
+    .inscription-form {
+      width: 45vw;
+      height: 60vw;
+    }
+    .login-container {
+      .pseudo,
+      .motdepasse {
+        width: 25vw;
+      }
+      .container-button {
+        .btn-inscription {
+          width: 15vw;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container-inscription {
+    .inscription-form {
+      width: 50vw;
+      height: 70vw;
+    }
+    .login-container {
+      .pseudo,
+      .motdepasse {
+        width: 30vw;
+      }
+      .container-button {
+        .btn-inscription {
+          width: 25vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .container-inscription {
+    .inscription-form {
+      width: 60vw;
+      height: 80vw;
+    }
+    .login-container {
+      p {
+        font-size: 1.5rem;
+      }
+      .pseudo,
+      .motdepasse {
+        width: 40vw;
+      }
+      .container-button {
+        .btn-inscription {
+          width: 25vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .container-inscription {
+    padding-top: 30vw;
+
+    .inscription-form {
+      width: 70vw;
+      height: 95vw;
+    }
+    .login-container {
+      .pseudo,
+      .motdepasse {
+        width: 45vw;
+      }
+      .container-button {
+        .btn-inscription {
+          width: 30vw;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 475px) {
+  .container-inscription {
+    padding-top: 35vw;
+
+    .inscription-form {
+      width: 80vw;
+      height: 130vw;
+    }
+    .header-container {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+    .login-container {
+      .pseudo,
+      .motdepasse {
+        width: 60vw;
+      }
+      .container-button {
+        .btn-inscription {
+          width: 35vw;
+        }
       }
     }
   }

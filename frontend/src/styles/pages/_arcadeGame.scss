@@ -1,0 +1,338 @@
+.container-gameOnline {
+  background-color: #ffffff00;
+  padding-top: 3%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+
+  .gameOnline {
+    border-radius: 15px;
+    border: 2px solid white;
+    width: 90%;
+    height: 85vh;
+    background-color: rgba(0, 33, 42, 0.61);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    overflow: hidden;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 1%;
+
+    .closeButton {
+      width: 2vw;
+      position: absolute;
+      z-index: 2;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .spaceRules {
+      height: 30vh;
+      width: 18vw;
+      display: flex;
+      border: solid 1px white;
+      border-radius: 5px;
+      background-color: black;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2%;
+
+      h2 {
+        color: var(--fourth-color);
+        font-family: var(--primary-font);
+      }
+      p {
+        padding-top: 10%;
+        font-family: var(--secondary-font);
+      }
+    }
+    .spaceBorne {
+      position: relative;
+      width: 50%;
+      height: 100%;
+
+      .borne {
+        min-width: 50vw;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: -50px;
+      }
+
+      .screenArcade {
+        position: absolute;
+        left: 13%;
+        width: 72%;
+        height: 55%;
+        top: 8%;
+      }
+
+      .joystick,
+      .buttonBlue,
+      .buttonYellow,
+      .buttonGreen,
+      .buttonRed {
+        position: absolute;
+        cursor: pointer;
+        width: 3.5vw;
+      }
+
+      .joystick {
+        left: 30px;
+        bottom: 165px;
+      }
+      .buttonBlue {
+        bottom: 155px;
+        right: 120px;
+        z-index: 1;
+      }
+      .buttonYellow {
+        bottom: 155px;
+        right: 40px;
+        z-index: 1;
+      }
+      .buttonGreen {
+        bottom: 175px;
+        right: 80px;
+      }
+      .buttonRed {
+        bottom: 135px;
+        right: 75px;
+        z-index: 2;
+      }
+    }
+    .areaScores {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .spaceScores {
+        height: 30vh;
+        width: 18vw;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding: 5%;
+
+        img {
+          width: 3vw;
+          padding-bottom: 10%;
+        }
+        h2 {
+          color: var(--fourth-color);
+          font-family: var(--primary-font);
+        }
+        p {
+          font-family: var(--secondary-font);
+        }
+      }
+    }
+
+    .RulesScoresResponsive {
+      display: flex;
+      background-color: black;
+      border-radius: 5px;
+      padding: 2%;
+      gap: 8vw;
+      text-align: center;
+      border: 1px solid white;
+
+      .spaceRules2 {
+        width: 30vw;
+      }
+      img {
+        width: 4vw;
+      }
+      h2 {
+        color: var(--fourth-color);
+        font-family: var(--primary-font);
+        font-size: 1.5rem;
+      }
+      p {
+        font-family: var(--secondary-font);
+        color: white;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container-gameOnline {
+    .gameOnline {
+      min-height: 95vh;
+      width: 100vw;
+      border-radius: initial;
+      border: none;
+
+      .spaceRules,
+      .areaScores {
+        display: none;
+      }
+
+      .spaceBorne {
+        width: 100vw;
+        height: 70%;
+        display: flex;
+        justify-content: center;
+
+        .borne {
+          width: 80%;
+          left: initial;
+        }
+        .screenArcade {
+          left: 23%;
+          width: 53vw;
+        }
+
+        .joystick {
+          left: 17%;
+          bottom: 20%;
+        }
+        .buttonBlue {
+          bottom: 19.5%;
+          right: 23%;
+        }
+        .buttonYellow {
+          bottom: 19.5%;
+          right: 18%;
+        }
+        .buttonGreen {
+          bottom: 22%;
+          right: 21%;
+        }
+        .buttonRed {
+          bottom: 17%;
+          right: 20%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .container-gameOnline {
+    .gameOnline {
+      .closeButton {
+        width: 3vw;
+      }
+      .spaceBorne {
+        .borne {
+          width: 90%;
+        }
+        .screenArcade {
+          left: 17%;
+          width: 65vw;
+        }
+        .joystick,
+        .buttonBlue,
+        .buttonYellow,
+        .buttonGreen,
+        .buttonRed {
+          width: 5vw;
+        }
+        .joystick {
+          left: 13%;
+        }
+        .buttonYellow {
+          right: 17%;
+        }
+        .buttonGreen {
+          right: 20.5%;
+        }
+        .buttonRed {
+          right: 19.5%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .container-gameOnline {
+    .gameOnline {
+      .closeButton {
+        width: 5vw;
+        z-index: 1;
+      }
+      .RulesScoresResponsive {
+        img {
+          width: 10vw;
+        }
+      }
+      .spaceBorne {
+        .borne {
+          width: 100%;
+        }
+        .joystick,
+        .buttonBlue,
+        .buttonYellow,
+        .buttonGreen,
+        .buttonRed {
+          width: 7vw;
+        }
+        .joystick {
+          left: 8%;
+        }
+
+        .buttonBlue {
+          right: 25%;
+        }
+        .buttonYellow {
+          right: 16.5%;
+        }
+        .buttonGreen {
+          right: 21.5%;
+        }
+        .buttonRed {
+          right: 20%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-gameOnline {
+    .gameOnline {
+      .closeButton {
+        width: 7vw;
+      }
+      .spaceBorne {
+        .joystick,
+        .buttonBlue,
+        .buttonYellow,
+        .buttonGreen,
+        .buttonRed {
+          width: 10vw;
+        }
+        .joystick {
+          left: 7%;
+        }
+
+        .buttonYellow {
+          right: 14%;
+        }
+        .buttonGreen {
+          right: 20%;
+        }
+        .buttonRed {
+          right: 19%;
+        }
+      }
+    }
+  }
+}

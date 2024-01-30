@@ -1,0 +1,213 @@
+.adminLots {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 3% 3% 0 5%;
+  gap: 7%;
+
+  h2 {
+    font-family: var(--primary-font);
+    font-size: 1.5rem;
+    color: var(--fourth-color);
+    text-align: center;
+  }
+  .allLots {
+    display: flex;
+    align-items: center;
+    gap: 3%;
+    padding: 2%;
+    height: 60%;
+
+    .itemServices {
+      width: 20%;
+      height: 100%;
+      border: 2px solid white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      color: var(--fourth-color);
+      font-family: var(--primary-font);
+      font-size: 8rem;
+      position: relative;
+
+      .lots {
+        width: 90%;
+        object-fit: contain;
+      }
+    }
+    .suppr {
+      position: absolute;
+      top: -15px;
+      right: -7px;
+      height: 15px;
+      cursor: pointer;
+    }
+    .addBox {
+      cursor: pointer;
+      width: 20%;
+      height: 100%;
+
+      .add {
+        height: 45%;
+        width: 45%;
+      }
+    }
+  }
+
+  .podium {
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    width: 100%;
+    height: 40%;
+
+    .firstPlace,
+    .secondPlace,
+    .thirdPlace {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .placePlayer {
+        font-size: 1.5rem;
+        font-family: var(--secondary-font);
+        padding-bottom: 15%;
+      }
+
+      .itemServices {
+        width: 65%;
+        height: 60%;
+        border: 2px solid white;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        color: var(--fourth-color);
+        font-family: var(--primary-font);
+        position: relative;
+        .lots {
+          width: 90%;
+          object-fit: contain;
+        }
+      }
+      .suppr {
+        position: absolute;
+        top: -15px;
+        right: -7px;
+        height: 15px;
+        cursor: pointer;
+      }
+      .addBox {
+        cursor: pointer;
+        width: 65%;
+        height: 60%;
+
+        .add {
+          height: 45%;
+          width: 45%;
+        }
+      }
+    }
+  }
+  ::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--fourth-color);
+    border-radius: 5px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    padding: 2% 3% 0 5%;
+    gap: 3%;
+    .allLots {
+      overflow-y: hidden;
+      overflow-x: auto;
+      height: 52%;
+
+      .itemServices {
+        height: 8vh;
+        width: 10vw;
+        .lots {
+          height: 90%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .podium {
+      .firstPlace,
+      .secondPlace,
+      .thirdPlace {
+        .itemServices {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .allLots {
+      height: 55%;
+      .itemServices {
+        height: 7vh;
+        min-width: 10vw;
+        .lots {
+          height: 90%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .podium {
+      .firstPlace,
+      .secondPlace,
+      .thirdPlace {
+        .itemServices {
+          width: 12vw;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 410px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .allLots {
+      height: 55%;
+      .itemServices {
+        height: 8vh;
+        min-width: 16vw;
+        .lots {
+          height: 90%;
+          object-fit: contain;
+        }
+      }
+    }
+    .podium {
+      height: 30%;
+      .firstPlace,
+      .secondPlace,
+      .thirdPlace {
+        .placePlayer {
+          font-size: 1.2rem;
+          padding-bottom: 25%;
+        }
+
+        .itemServices {
+          width: 20vw;
+          height: 10vh;
+        }
+      }
+    }
+  }
+}

@@ -5,22 +5,31 @@ import { useState } from "react";
 function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
   const [nameLot, setNameLot] = useState("");
   const [descLot, setDescLot] = useState("");
-  // const [setImageLot] = useState("");
-
-  const handleInputClick = (e) => {
-    e.stopPropagation();
-  };
+  const [file, setFile] = useState(undefined);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
-      const data = {
-        name: nameLot,
-        description: descLot,
-        image: `/images/Lots/cadeauSuppl.png`,
-        disponible: false,
-      };
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/lot`, data);
+      const formData = new FormData();
+
+      formData.append("name", nameLot);
+      formData.append("image", file);
+      formData.append("description", descLot);
+      formData.append("win", 0);
+      formData.append("exchange", 0);
+      formData.append("podium", 0);
+      formData.append("mystery", 0);
+
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/lot/addlot`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       setResetUploadLot(!resetUploadLot);
       onClose();
     } catch (err) {
@@ -43,21 +52,19 @@ function AdminUploadLot({ onClose, resetUploadLot, setResetUploadLot }) {
           <input
             type="text"
             onChange={(event) => setNameLot(event.target.value)}
-            onClick={handleInputClick}
           />
 
           <p>Description du lot</p>
           <input
             type="text"
             onChange={(event) => setDescLot(event.target.value)}
-            onClick={handleInputClick}
           />
 
-          {/* <input
+          <input
+            onChange={(e) => setFile(e.target.files[0])}
             type="file"
-            // onChange={(event) => setImageLot(event.target.files[0])}
-            accept=".png, .jpg,.jpeg"
-          /> */}
+            accept="image/*"
+          />
 
           <button type="submit" className="btn-inscription">
             Valider la création

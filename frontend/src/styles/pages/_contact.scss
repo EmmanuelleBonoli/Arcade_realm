@@ -97,7 +97,7 @@
           &:disabled {
             background-color: #ac6a5b;
             color: rgba(255, 253, 253, 0.445);
-           cursor: initial;
+            cursor: initial;
           }
         }
       }
@@ -265,11 +265,9 @@
           }
         }
         .button-contact {
-          a {
-            .btn-contact {
-              width: 15vh;
-              font-size: 1.6rem;
-            }
+          .btn-contact {
+            width: 15vh;
+            font-size: 1.2rem;
           }
         }
         .container-adresse {
@@ -304,3 +302,4 @@
     }
   }
 }
+

@@ -9,12 +9,15 @@ class LotManager extends AbstractManager {
     name,
     image,
     description,
-    utilisateur_id: utilisateurId,
-    disponible,
+    utilisateurId,
+    win,
+    exchange,
+    podium,
+    mystery,
   }) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, image, description, utilisateur_id, disponible) values (?, ?, ?, ?, ?)`,
-      [name, image, description, utilisateurId, disponible]
+      `insert into ${this.table} (name, image, description, utilisateur_id, win, exchange, podium, mystery) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [name, image, description, utilisateurId, win, exchange, podium, mystery]
     );
 
     return result;
@@ -40,12 +43,25 @@ class LotManager extends AbstractManager {
     name,
     image,
     description,
-    utilisateur_id: utilisateurId,
-    disponible,
+    utilisateurId,
+    win,
+    exchange,
+    podium,
+    mystery,
   }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET name = ?, image = ?, description = ?,  utilisateur_id = ?, disponible= ? WHERE id = ?`,
-      [name, image, description, utilisateurId, disponible, id]
+      `UPDATE ${this.table} SET name = ?, image = ?, description = ?,  utilisateur_id = ?, win= ?, exchange= ?, podium=?, mystery=? WHERE id = ?`,
+      [
+        name,
+        image,
+        description,
+        utilisateurId,
+        win,
+        exchange,
+        podium,
+        mystery,
+        id,
+      ]
     );
     return result;
   }
@@ -66,6 +82,47 @@ class LotManager extends AbstractManager {
     );
 
     return result;
+  }
+
+  // a revoir
+  async readByLotAvailable() {
+    const [result] = await this.database.query(
+      `select * from ${this.table} where win = 0`
+    );
+
+    return result;
+  }
+
+  async readByLotExchange() {
+    const [result] = await this.database.query(
+      `select * from ${this.table} where exchange = 1`
+    );
+
+    return result;
+  }
+
+  async readByLotMystery() {
+    const [result] = await this.database.query(
+      `select * from ${this.table} where mystery = 1`
+    );
+
+    return result;
+  }
+
+  insert(
+    name,
+    image,
+    description,
+    utilisateurId,
+    win,
+    exchange,
+    podium,
+    mystery
+  ) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (name, image, description, utilisateur_id, win, exchange, podium, mystery) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [name, image, description, utilisateurId, win, exchange, podium, mystery]
+    );
   }
 }
 

@@ -46,10 +46,7 @@
       gap: 5%;
       justify-content: end;
       flex: 1;
-
-      .inscription {
       p {
-        display: none;
         color: white;
         font-family: var(--primary-font);
         font-size: 1.8rem;
@@ -58,40 +55,28 @@
         font-weight: 400;
         cursor: pointer;
       }
-    }
-    p {
-        
-      color: white;
-      font-family: var(--primary-font);
-      font-size: 1.8rem;
-      padding: var(--spacing);
-      padding-right: 60px;
-      font-weight: 400;
-      cursor: pointer;
-    }
-      .avatar_user{
+
+      .avatar_user {
         display: flex;
         align-items: center;
         justify-content: right;
         padding-right: 10%;
 
-        p{
-          padding : 0 50px 0 0;
+        p {
+          padding: 0 50px 0 0;
           line-height: 40px;
         }
-        .bloc-image{
+        .bloc-image {
           border: 2px solid white;
           background-color: var(--primary-color);
-          width: 100px;
-          height: 100px;
+          width: 5vw;
+
           border-radius: 50%;
-          cursor : pointer;
+          cursor: pointer;
         }
-        img{
+        img {
           padding: 15%;
           width: 100%;
-          
-          
         }
       }
     }
@@ -114,7 +99,25 @@
         padding-right: 10px;
         p {
           padding-right: 10px;
-          font-size: 1.4rem;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1127px) {
+  .navBar {
+    .Int-navBar {
+      .logo {
+        padding: 1%;
+        img {
+          width: 40%;
+        }
+      }
+      .nav-pt-2 {
+        p {
+          padding-right: 10px;
+          font-size: 1.8rem;
         }
       }
     }
@@ -133,7 +136,12 @@
       .nav-pt-2 {
         p {
           padding-right: 10px;
-          font-size: 1.4rem;
+          font-size: 1.8rem;
+        }
+        .avatar_user {
+          .bloc-image {
+            width: 6vw;
+          }
         }
       }
     }
@@ -155,9 +163,30 @@
         }
       }
       .nav-pt-2 {
+        justify-content: start;
         p {
-          font-size: 1.6rem;
+          font-size: 1.8rem;
           padding: var(--spacing);
+          text-align: left;
+        }
+        .avatar_user {
+          padding-left: 5%;
+          flex-direction: row-reverse;
+          .bloc-image {
+            width: 8vw;
+          }
+          .pseudo{
+            p {
+              padding-right: 0px;
+              padding-left: var(--spacing);
+              font-size: 1.8rem;
+            }
+          }
+          
+          img {
+            padding: 15%;
+            width: 100%;
+          }
         }
       }
     }
@@ -207,24 +236,50 @@
   }
 }
 
-
 @media screen and (max-width: 768px) {
   .navBar {
     .Int-navBar {
       flex-direction: row-reverse;
 
       .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         img {
-          width: 40%;
+          width: 50%;
         }
       }
       .nav-pt-2 {
         gap: 10px;
         justify-content: start;
-        p {
-          padding-right: 0px;
-          padding-left: var(--spacing);
-          font-size: 1.4rem;
+        .pseudo{
+          p {
+            padding-right: 0px;
+            padding-left: var(--spacing);
+            font-size: 1.8rem;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .navBar {
+    .Int-navBar {
+      .logo {
+        img {
+          width: 70%;
+        }
+      }
+      .nav-pt-2 {
+        .avatar_user {
+          .pseudo {
+            p {
+              font-size: 1.2rem;
+            }
+          }
         }
       }
     }
@@ -244,7 +299,7 @@
       }
       .logo {
         img {
-          width: 100%;
+          width: 90%;
         }
       }
       .nav-pt-2 {
@@ -253,6 +308,15 @@
         p {
           padding-right: 10px;
           font-size: 1.2rem;
+        }
+        .avatar_user {
+          display: initial;
+          .pseudo {
+            display: none;
+          }
+          .bloc-image {
+            width: 50%;
+          }
         }
       }
     }
@@ -287,4 +351,3 @@
     }
   }
 }
-

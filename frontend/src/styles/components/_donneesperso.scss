@@ -4,16 +4,72 @@
   display: flex;
   flex-direction: column;
 
+  .upload {
+    form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-items: center;
+      gap: 10px;
+      padding: 5px;
+
+      input::file-selector-button {
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.61);
+        color: rgba(255, 255, 255, 0.683);
+        color: rgba(255, 255, 255, 0.683);
+        padding: 5px 10px 5px 10px;
+        border: thin solid grey;
+        cursor: pointer;
+      }
+      .label-file {
+        cursor: pointer;
+        color: #00b1ca;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .label-file:hover {
+        color: #ffffff;
+      }
+
+      // et on masque le input
+      .input-file {
+        display: none;
+      }
+    }
+    button {
+      border: 1px solid rgba(255, 255, 255, 0.486);
+      background-color: rgba(0, 0, 0, 0.61);
+      color: rgba(255, 255, 255, 0.683);
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--secondary-color);
+      width: 1.5vw;
+      height: 2.5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 1vw;
+        height: 1.5vh;
+      }
+    }
+  }
+
   .header-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    padding: 4%;
-      img {
-        width: 10%;
-        cursor: pointer;
-      }
+
+    padding: 5%;
+
+    img {
+      width: 10%;
+      cursor: pointer;
+    }
+
     h1 {
       font-family: var(--primary-font);
       font-size: 3rem;
@@ -25,14 +81,46 @@
     display: flex;
     flex-direction: column;
     height: 20vh;
+    .input-scss {
+      padding: 2% 0 3% 5%;
+    }
 
     span {
       color: var(--fourth-color);
     }
     p {
-      padding: 4% 0% 0% 15%;
+      padding: 0 0 2% 5%;
       font-size: 2rem;
       color: white;
+    }
+
+    .alert-deleted {
+      width: 100%;
+
+      .text-alert {
+        font-size: 1.6rem;
+        font-family: var(--secondary-font);
+        padding: 0;
+        padding: 10px;
+        text-align: center;
+      }
+      .button-YN {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 2px;
+        button {
+          width: 30%;
+          padding: 5px;
+          background-color: rgba(0, 0, 0, 0.61);
+          border: none;
+          font-family: var(--primary-font);
+          color: var(--secondary-color);
+          cursor: pointer;
+          border-radius: 5px;
+          border: 1px solid #f1f1f17c;
+        }
+      }
     }
 
     .input-edit {
@@ -46,13 +134,24 @@
       width: 25vh;
       height: 3.5vh;
     }
+    .mdp-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .mdp {
+        width: 25px;
+        position: absolute;
+        right: 100px;
+        cursor: pointer;
+      }
+    }
   }
   .btn-profil {
     display: flex;
     justify-content: center;
     padding-top: 3%;
 
-    .deleteprofil {
+    .delete-user {
       cursor: pointer;
       color: rgba(255, 255, 255, 0.683);
       font-family: var(--secondary-font);
@@ -73,7 +172,7 @@
     padding-top: 5%;
 
     button {
-      background-color:rgba(0, 0, 0, 0.61);
+      background-color: rgba(0, 0, 0, 0.61);
       border-radius: 6px;
       border: none;
       a {
@@ -81,13 +180,10 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-
         gap: 10px;
-
         cursor: pointer;
         width: 28vh;
         height: 5vh;
-        
 
         p {
           padding: 0;
@@ -106,7 +202,6 @@
   .edit-profil {
     display: flex;
     justify-content: center;
-    padding-top: 3%;
   }
 
   .saveprofil {
@@ -115,10 +210,81 @@
     font-family: var(--secondary-font);
     border: none;
     border-radius: 6px;
-    width: 28vh;
+    width: 25vh;
     height: 5vh;
     background-color: rgba(0, 0, 0, 0.61);
     font-size: 1.8rem;
     font-style: italic;
+  }
+
+  @media screen and (max-width: 1500px) {
+    .btn-logout {
+      button {
+        a {
+          width: 25vh;
+          height: 5vh;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    .information-user {
+      .input-scss {
+        padding: 1% 0 1% 5%;
+      }
+      .input-edit {
+        width: 50%;
+      }
+    }
+    .btn-logout {
+      padding-top: 0%;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .information-user {
+      .input-edit {
+        width: 70%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .header-wrapper {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .information-user {
+      .input-edit {
+        width: 95%;
+      }
+      .btn-logout {
+        button {
+          a {
+            width: 40vw;
+            p {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+      .btn-profil {
+        .delete-user {
+          font-size: 1.2rem;
+          width: 15vh;
+        }
+      }
+      p {
+        font-size: 1.5rem;
+      }
+
+      .saveprofil {
+        width: 40vw;
+      }
+    }
+    .btn-logout {
+      padding-top: 10%;
+    }
   }
 }

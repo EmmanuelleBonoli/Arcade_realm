@@ -9,6 +9,7 @@ export default function Connexion({ onClose }) {
     useContext(UserContext);
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const [errorLogin, setErrorLogin] = useState("");
 
   const toggleMotDePasseVisibility = () => {
     setMotDePasseVisible(!motDePasseVisible);
@@ -24,19 +25,35 @@ export default function Connexion({ onClose }) {
       pseudo: inputPseudo,
       password: inputPassword,
     };
+
     try {
       const dataUser = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/login/`,
         userlogin
       );
-      setUserConnected(dataUser.data);
-      if (dataUser.data.admin === 1) {
+
+      // if (dataUser.data.pseudo !== inputPseudo) {
+      //   console.error("Incorrect pseudo case. Please enter the correct case.");
+      //   return;
+      // }
+
+      setUserConnected(dataUser.data.user);
+      const userLocal = {
+        ...dataUser.data.user,
+        token: dataUser.data.token,
+      };
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          ...userLocal,
+        })
+      );
+      if (dataUser.data.user.admin === 1) {
         setAdminOrNot(true);
       }
-      // console.log(userConnected);
       onClose();
     } catch (error) {
-      console.error(error.message);
+      setErrorLogin("Identifiants incorrects, veuillez réessayer.");
     }
   };
 
@@ -62,6 +79,18 @@ export default function Connexion({ onClose }) {
             alt="GhostLogin"
             className="GhostLogin"
           />
+          {errorLogin && (
+            <p
+              style={{
+                color: "red",
+                fontSize: "17px",
+                fontFamily: "var(--secondary-font)",
+                fontWeight: "bold",
+              }}
+            >
+              {errorLogin}
+            </p>
+          )}
         </div>
         <form onSubmit={handleConnexion} className="login-container">
           <p>Entrez votre pseudo</p>
@@ -92,7 +121,7 @@ export default function Connexion({ onClose }) {
               role="presentation"
             />
           </div>
-          <button type="submit" className="btn-inscription">
+          <button type="submit" className="btn-connexion">
             Se connecter
           </button>
         </form>

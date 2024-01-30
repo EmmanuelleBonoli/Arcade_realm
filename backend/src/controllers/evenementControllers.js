@@ -57,13 +57,20 @@ const edit = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the item data from the request body
-  const evenement = req.body;
 
   try {
-    // Insert the item into the database
-    const insertId = await tables.evenement.create(evenement);
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    const [result] = await tables.evenement.create(req.body.url);
+    if (result.insertId) {
+      const newEvent = {
+        id: result.insertId,
+        image: req.body.url,
+      };
+
+      // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+      res.status(201).json(newEvent);
+    } else {
+      res.sendStatus(403);
+    }
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -80,6 +87,20 @@ const destroy = async (req, res, next) => {
     next(err);
   }
 };
+const getUploadImage = async (req, res, next) => {
+  try {
+    const [result] = await tables.evenement.insert(
+      `images/Evenements/${req.body.url}`
+    );
+    if (result.affectedRows) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
@@ -88,4 +109,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  getUploadImage,
 };

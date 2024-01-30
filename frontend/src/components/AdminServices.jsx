@@ -1,28 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import AdminUploadLot from "./AdminUploadLot";
 import AdminUploadEvent from "./AdminUploadEvent";
 import AdminUploadGame from "./AdminUploadGame";
 
 function AdminServices() {
   const [dataEvents, setDataEvents] = useState([]);
-  const [dataLots, setDataLots] = useState([]);
   const [dataGames, setDataGames] = useState([]);
-  const [uploadLotModal, setUploadLotModal] = useState(false);
-  const [resetUploadLot, setResetUploadLot] = useState(false);
   const [uploadEventModal, setUploadEventModal] = useState(false);
   const [resetUploadEvent, setResetUploadEvent] = useState(false);
   const [uploadGameModal, setUploadGameModal] = useState(false);
   const [resetUploadGame, setResetUploadGame] = useState(false);
 
-  const handleDeleteDataLots = async (data) => {
-    try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/lot/${data}`);
-      setDataLots(dataLots.filter((lot) => lot.id !== data));
-    } catch (err) {
-      console.error(err);
-    }
-  };
   const handleDeleteDataEvents = async (data) => {
     try {
       await axios.delete(
@@ -34,9 +22,28 @@ function AdminServices() {
     }
   };
   const handleDeleteDataGames = async (data) => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/jeu/${data}`);
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/jeu/${data}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       setDataGames(dataGames.filter((game) => game.id !== data));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const getGames = async () => {
+    try {
+      const fetchGames = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/jeu`
+      );
+      setDataGames(fetchGames.data);
     } catch (err) {
       console.error(err);
     }
@@ -46,7 +53,7 @@ function AdminServices() {
     const getEvents = async () => {
       try {
         const fetchEvents = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/evenement`
+          `${import.meta.env.VITE_BACKEND_URL}/api/evenement/`
         );
         setDataEvents(fetchEvents.data);
       } catch (err) {
@@ -54,38 +61,10 @@ function AdminServices() {
       }
     };
 
-    const getLots = async () => {
-      try {
-        const fetchLots = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/lot`
-        );
-        setDataLots(fetchLots.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    const getGames = async () => {
-      try {
-        const fetchGames = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/jeu`
-        );
-        setDataGames(fetchGames.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
     getEvents();
-    getLots();
     getGames();
-  }, [resetUploadLot, resetUploadEvent, resetUploadGame]);
+  }, [resetUploadEvent, resetUploadGame]);
 
-  const openUploadLotModal = () => {
-    setUploadLotModal(true);
-  };
-
-  const closeUploadLotModal = () => {
-    setUploadLotModal(false);
-  };
   const openUploadEventModal = () => {
     setUploadEventModal(true);
   };
@@ -103,13 +82,6 @@ function AdminServices() {
 
   return (
     <div className="adminServices">
-      {uploadLotModal && (
-        <AdminUploadLot
-          onClose={closeUploadLotModal}
-          setResetUploadLot={setResetUploadLot}
-          resetUploadLot={resetUploadLot}
-        />
-      )}
       {uploadEventModal && (
         <AdminUploadEvent
           onClose={closeUploadEventModal}
@@ -124,42 +96,13 @@ function AdminServices() {
           resetUploadGame={resetUploadGame}
         />
       )}
-      <div className="lots">
-        <div
-          className="itemServices addBox"
-          onClick={openUploadLotModal}
-          role="presentation"
-        >
-          <img
-            className="add"
-            src="/images/Utilisateur/plus.png"
-            alt="ajout doc"
-          />
-        </div>
-        {dataLots.map((lot) => {
-          return (
-            <div className="itemServices" key={lot.id}>
-              <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${lot.image}`}
-                alt="lot à gagner"
-              />
-              <img
-                className="suppr"
-                src="/images/Utilisateur/delete.png"
-                alt="suppr"
-                onClick={() => handleDeleteDataLots(lot.id)}
-                role="presentation"
-              />
-            </div>
-          );
-        })}
-      </div>
+      <h2>Les évènements</h2>
       <div className="events">
         {dataEvents.map((event) => {
           return (
-            <div className="itemServices" key={event.id}>
+            <div className="itemServices eventsContainer" key={event.id}>
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${event.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${event.image}`}
                 alt="evenement à venir"
               />
               <img
@@ -184,8 +127,13 @@ function AdminServices() {
           />
         </div>
       </div>
-      <div role="presentation" onClick={openUploadGameModal} className="games">
-        <div className="itemServices addBox">
+      <h2>Les jeux</h2>
+      <div className="games">
+        <div
+          role="presentation"
+          className="itemServices addBox"
+          onClick={openUploadGameModal}
+        >
           <img
             className="add"
             src="/images/Utilisateur/plus.png"
@@ -196,7 +144,7 @@ function AdminServices() {
           return (
             <div className="itemServices" key={game.id}>
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${game.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${game.image}`}
                 alt="jeux"
               />
               <img

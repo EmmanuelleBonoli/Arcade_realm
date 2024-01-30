@@ -1,12 +1,12 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Inscription from "./Inscription";
 import Connexion from "./Connexion";
 import UserContext from "../contexts/UserContext";
 
 function NavBar() {
-  const { userConnected, setUserConnected } = useContext(UserContext);
+  const { userConnected } = useContext(UserContext);
   const navigate = useNavigate();
   const [connexionModal, setConnexionModal] = useState(false);
   const [inscriptionModal, setInscriptionModal] = useState(false);
@@ -27,18 +27,28 @@ function NavBar() {
     setConnexionModal(false);
   };
 
-
   const handleProfile = () => {
     navigate("/profilutilisateur");
   };
+
+  useEffect(() => {
+    if (connexionModal || inscriptionModal) {
+      // Ajouter la classe pour masquer le défilement lorsque la modal est ouverte
+      document.body.classList.add("body-no-scroll");
+    } else {
+      // Retirer la classe lorsque la modal est fermée
+      document.body.classList.remove("body-no-scroll");
+    }
+    return () => {
+      document.body.classList.remove("body-no-scroll");
+    };
+  }, [connexionModal, inscriptionModal]);
 
   return (
     <div className="navBar">
       <div className="Int-navBar">
         <nav className="nav-pt-1">
-          <NavLink to="/">
-            HOME
-          </NavLink>
+          <NavLink to="/">HOME</NavLink>
           <NavLink to="/Contact">CONTACT</NavLink>
         </nav>
 
@@ -57,7 +67,7 @@ function NavBar() {
               </div>
               <div className="bloc-image">
                 <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${
+                  src={`${import.meta.env.VITE_BACKEND_URL}/${
                     userConnected.image
                   }`}
                   alt="avataruser"
@@ -93,6 +103,9 @@ function NavBar() {
             </NavLink>
             <NavLink to="/evenements" className="menu-item">
               <span style={{ color: "#fbb169" }}>L</span>es Evènements
+            </NavLink>
+            <NavLink to="/jeuxenligne" className="menu-item">
+              <span style={{ color: "#fbb169" }}>J</span>eux en ligne
             </NavLink>
             <NavLink to="/classementetlots" className="menu-item">
               <span style={{ color: "#fbb169" }}>C</span>lassement et Lots

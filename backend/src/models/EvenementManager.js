@@ -9,7 +9,7 @@ class EvenementManager extends AbstractManager {
 
   async create({ image }) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (image) values (?)`,
+      `INSERT INTO ${this.table} (image) VALUES (?)`,
       [image]
     );
     return result;
@@ -48,6 +48,12 @@ class EvenementManager extends AbstractManager {
       [id]
     );
     return result;
+  }
+
+  insert(image) {
+    return this.database.query(`INSERT INTO ${this.table} (image) VALUES (?)`, [
+      image,
+    ]);
   }
 }
 

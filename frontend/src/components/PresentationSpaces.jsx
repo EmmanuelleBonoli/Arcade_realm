@@ -36,6 +36,7 @@ function PresentationSpaces() {
           src="/images/Presentation_espaces/espace_1.jpg"
           alt="bornes d'arcade"
         />
+
         <img
           src="/images/Presentation_espaces/Espace3Bar.jpeg"
           alt="bar Arcade Realm"
