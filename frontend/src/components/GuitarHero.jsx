@@ -183,7 +183,6 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
     <div className="guitarHero">
       {missedArrow.length !== 3 ? (
         <div className="guitarHeroGame">
-          {" "}
           <div className="infosJeu">
             <img
               className="closeGame"
