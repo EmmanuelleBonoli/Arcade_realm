@@ -5,8 +5,8 @@ import { useState } from "react";
 function AdminUploadGame({ onClose, setResetUploadGame, resetUploadGame }) {
   const [nameGame, setNameGame] = useState("");
   const [rulesGame, setRulesGame] = useState("");
-  const [actifGame, setActifGame] = useState(false);
-  const [realGame, setRealGame] = useState(false);
+  const [actifGame, setActifGame] = useState(0);
+  const [realGame, setRealGame] = useState(0);
   const [dateGame, setDateGame] = useState("");
   const [nbBorneGame, setNbBorneGame] = useState(0);
   const [descGame, setDescGame] = useState("");
@@ -72,18 +72,50 @@ function AdminUploadGame({ onClose, setResetUploadGame, resetUploadGame }) {
               onChange={(event) => setRulesGame(event.target.value)}
               onClick={handleInputClick}
             />
-            <p>Actif</p>
-            <input
-              type="text"
-              onChange={(event) => setActifGame(event.target.value)}
-              onClick={handleInputClick}
-            />
-            <p>Jeu physique</p>
-            <input
-              type="text"
-              onChange={(event) => setRealGame(event.target.value)}
-              onClick={handleInputClick}
-            />
+            <div className="actif-real">
+              <div className="actif">
+                <p>Actif</p>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label className="inputSelect">
+                  <input
+                    type="checkbox"
+                    checked={actifGame === 1}
+                    onChange={(event) =>
+                      setActifGame(event.target.checked ? 1 : 0)
+                    }
+                    onClick={handleInputClick}
+                  />
+                  <svg viewBox="0 0 64 64" height="2em" width="2em">
+                    <path
+                      d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                      pathLength="575.0541381835938"
+                      className="path"
+                    />
+                  </svg>
+                </label>
+              </div>
+              <div className="real">
+                <p>Jeu physique</p>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label className="inputSelect">
+                  <input
+                    type="checkbox"
+                    checked={realGame === 1}
+                    onChange={(event) =>
+                      setRealGame(event.target.checked ? 1 : 0)
+                    }
+                    onClick={handleInputClick}
+                  />
+                  <svg viewBox="0 0 64 64" height="2em" width="2em">
+                    <path
+                      d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                      pathLength="575.0541381835938"
+                      className="path"
+                    />
+                  </svg>
+                </label>
+              </div>
+            </div>
             <p>Date de création du jeu</p>
             <input
               type="date"

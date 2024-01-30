@@ -246,3 +246,350 @@
     background-color: #00212a;
   }
 }
+
+@media screen and (max-width: 1285px) {
+  .home-echange {
+    .container-echange {
+      padding-top: 5%;
+      width: 65vw;
+      height: 70vh;
+      gap: 10px;
+
+      a {
+        width: 30%;
+        transform: translate(15%);
+        padding: 8px;
+        font-size: 1.3rem;
+      }
+      .mes-lots {
+        width: 90%;
+        height: 15vh;
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .lots-user {
+          .lots-scores {
+            p {
+              font-size: 1.5rem;
+              padding-bottom: 5%;
+            }
+            .images-recompense {
+              padding: 2px;
+            }
+          }
+          .user-score {
+            p {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+      .image-echangeur {
+        width: 12%;
+      }
+
+      .echange-joueur {
+        width: 90%;
+        .Joueurs-p1 {
+          width: 100%;
+          h1 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 1.6rem;
+          }
+          .lots-disponibles {
+            height: 75%;
+
+            .images-echange {
+              padding: 5px;
+            }
+          }
+        }
+        .gl-trait-echange-2 {
+          width: 4%;
+          height: 100%;
+
+          .trait-echange-2 {
+            width: 1px;
+            height: 80%;
+          }
+        }
+      }
+      .Joueurs-p2 {
+        width: 50%;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 1.6rem;
+      }
+      img {
+        width: 50%;
+      }
+    }
+    .avatar {
+      height: 180px;
+      width: 180px;
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .home-echange {
+    .container-echange {
+      .mes-lots {
+        height: 18vh;
+        .lots-user {
+          .lots-scores {
+            .images-recompense {
+              .lotsWin {
+                width: 5vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .home-echange {
+    .container-echange {
+      width: 80vw;
+      height: 70vh;
+
+      .mes-lots {
+        .lots-user {
+          .lots-scores {
+            .images-recompense {
+              .lotsWin {
+                width: 5.5vw;
+              }
+            }
+          }
+        }
+      }
+
+      .echange-joueur {
+        width: 90%;
+        .Joueurs-p1 {
+          .lots-disponibles {
+            height: 75%;
+          }
+        }
+      }
+      .Joueurs-p2 {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .home-echange {
+    .container-echange {
+      a {
+        width: 40%;
+        font-size: 1.3rem;
+      }
+      .mes-lots {
+        .lots-user {
+          .lots-scores {
+            .images-recompense {
+              .lotsWin {
+                width: 7vw;
+              }
+            }
+          }
+          .user-score {
+            width: 50%;
+          }
+        }
+      }
+      .image-echangeur {
+        width: 12%;
+      }
+
+      .echange-joueur {
+        .Joueurs-p1 {
+          .lots-disponibles {
+            height: 75%;
+          }
+        }
+      }
+      .Joueurs-p2 {
+        width: 60%;
+      }
+    }
+    .avatar {
+      height: 140px;
+      width: 140px;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .home-echange {
+    .container-echange {
+      a {
+        transform: translate(5%);
+        width: 40%;
+        font-size: 1.2rem;
+      }
+      .mes-lots {
+        height: 25vw;
+        h1 {
+          font-size: 1.8rem;
+        }
+        .lots-user {
+          .lots-scores {
+            p {
+              font-size: 1.2rem;
+            }
+            .images-recompense {
+              .lotsWin {
+                width: 8vw;
+              }
+            }
+          }
+          .user-score {
+            width: 50%;
+
+            p {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+      .image-echangeur {
+        width: 15%;
+      }
+
+      .echange-joueur {
+        .Joueurs-p1 {
+          p {
+            font-size: 1.2rem;
+          }
+          h1 {
+            font-size: 1.8rem;
+          }
+          .lots-disponibles {
+            height: 75%;
+          }
+        }
+      }
+      .Joueurs-p2 {
+        width: 80%;
+
+        h1 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .home-echange {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container-echange {
+      height: 65vh;
+      a {
+        transform: translate(5%);
+        width: 50%;
+        font-size: 1.2rem;
+      }
+      .mes-lots {
+        height: 30vw;
+        h1 {
+          font-size: 1.6rem;
+        }
+        .lots-user {
+          .lots-scores {
+            p {
+              font-size: 1.2rem;
+            }
+            .images-recompense {
+              .lotsWin {
+                width: 9vw;
+              }
+            }
+          }
+          .user-score {
+            width: 60%;
+
+            p {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+      .image-echangeur {
+        width: 15%;
+      }
+
+      .echange-joueur {
+        height: 18vh;
+        .Joueurs-p1 {
+          p {
+            font-size: 1.2rem;
+          }
+          h1 {
+            font-size: 1.6rem;
+          }
+          .lots-disponibles {
+            height: 75%;
+
+            .images-echange {
+              img {
+                width: 10vw;
+              }
+            }
+          }
+        }
+      }
+      .Joueurs-p2 {
+        width: 90%;
+
+        h1 {
+          font-size: 1.3rem;
+        }
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 380px) {
+  .home-echange {
+    .container-echange {
+      width: 95vw;
+
+      .mes-lots {
+        height: 35vw;
+
+        .lots-user {
+          .lots-scores {
+            .images-recompense {
+              .lotsWin {
+                width: 12vw;
+              }
+            }
+          }
+        }
+      }
+      .image-echangeur {
+        width: 20%;
+      }
+    }
+  }
+}

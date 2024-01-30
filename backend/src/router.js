@@ -49,7 +49,6 @@ router.get("/jeu/:id", jeuxControllers.read);
 router.get("/utilisateur/podium", utilisateurControllers.getPodium);
 // connected users
 router.use(verifyToken);
-router.post("/jeu", jeuxControllers.add);
 router.put("/jeu/:id", jeuxControllers.edit);
 router.delete("/jeu/:id", jeuxControllers.destroy);
 router.get("/jeu/online/scores", jeuxControllers.browseOnlineScores);
@@ -86,7 +85,6 @@ router.get("/score/email/:id", scoreControllers.readByUserId);
 
 // Route to add a new item
 router.post("/evenement", evenementControllers.add);
-router.post("/jeu", jeuxControllers.add);
 router.post("/score", scoreControllers.add);
 router.post("/lot/mystery", lotControllers.addMystery);
 router.post("/lot", uploadLot.single("image"), lotControllers.add);
