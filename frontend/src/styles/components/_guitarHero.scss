@@ -53,7 +53,7 @@
         transform: translateY(0);
       }
       100% {
-        transform: translateY(28vh);
+        transform: translateY(450%);
       }
     }
   }
@@ -62,9 +62,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    // justify-content: center;
     align-items: center;
-    // gap: 8%;
     h2 {
       font-size: 6rem;
     }
@@ -79,6 +77,159 @@
       font-weight: bold;
       font-family: var(--third-font);
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .guitarHero {
+    .guitarHeroGame {
+      .infosJeu {
+        padding: 2% 5% 2% 0;
+      }
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(400%);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1050px) {
+  .guitarHero {
+    .guitarHeroGame {
+      .spaceArrows {
+        .emptyDiv {
+          min-width: 5vw;
+        }
+        .arrowBlue,
+        .arrowYellow,
+        .arrowGreen,
+        .arrowRed {
+          width: 5vw;
+        }
+      }
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(375%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .guitarHero {
+    .guitarHeroGame {
+      .spaceArrows {
+        .emptyDiv {
+          min-width: 6vw;
+        }
+        .arrowBlue,
+        .arrowYellow,
+        .arrowGreen,
+        .arrowRed {
+          width: 6vw;
+        }
+      }
+      .infosJeu {
+        img {
+          width: 2vw;
+        }
+      }
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(500%);
+        }
+      }
+    }
+    .gameOverGuitarHero {
+      h2 {
+        font-size: 3rem;
+        padding-top: 10%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .guitarHero {
+    .guitarHeroGame {
+      .spaceArrows {
+        .emptyDiv {
+          min-width: 8vw;
+        }
+        .arrowBlue,
+        .arrowYellow,
+        .arrowGreen,
+        .arrowRed {
+          width: 8vw;
+        }
+      }
+      .infosJeu {
+        font-size: 1.5rem;
+        img {
+          width: 3vw;
+        }
+      }
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(550%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .guitarHero {
+    .guitarHeroGame {
+      .spaceArrows {
+        .emptyDiv {
+          min-width: 10vw;
+        }
+        .arrowBlue,
+        .arrowYellow,
+        .arrowGreen,
+        .arrowRed {
+          width: 10vw;
+        }
+      }
+      .infosJeu {
+        font-size: 1.5rem;
+        img {
+          width: 5vw;
+        }
+      }
+      @keyframes fall {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(550%);
+        }
+      }
+    }
+    .gameOverGuitarHero {
+      h2 {
+        font-size: 2rem;
+        padding-top: 20%;
+      }
+      p {
+        font-size: 1.5rem;
+      }
     }
   }
 }

@@ -28,6 +28,7 @@
     .closeButton {
       width: 2vw;
       position: absolute;
+      z-index: 2;
       top: 20px;
       right: 20px;
       cursor: pointer;
