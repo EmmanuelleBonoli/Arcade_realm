@@ -29,79 +29,94 @@
       flex-direction: column;
       position: relative;
 
-      .tubePart1 {
-        border: 1px solid white;
+      .tubePart2 {
+        font-family: var(--primary-font);
         width: 87%;
-        height: 50%;
-        border-bottom: none;
+        height: 30%;
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
+        flex-direction: column;
+        gap: 2vh;
+        h1 {
+          font-size: 3rem;
+        }
 
-        .tubePart2 {
-          font-family: var(--primary-font);
-          border: 1px solid white;
-          width: 87%;
-          height: 60%;
-          border-bottom: none;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-
-          .symbolExchange {
-            animation-name: rotation;
-            animation-duration: 3s;
-            animation-iteration-count: infinite;
-            width: 8%;
-          }
-        }
-        .lotContainer {
-          position: absolute;
-          height: 45%;
-          width: 12%;
-          border: 1px solid white;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: var(--primary-color);
-          img {
-            width: 80%;
-          }
-        }
-        .position1 {
-          bottom: 0;
-          left: -3%;
-          animation-name: exchangeLeft;
-          animation-duration: 10s;
-        }
-        .position2 {
-          bottom: 0;
-          right: -3%;
-          animation-name: exchangeRight;
-          animation-duration: 10s;
+        .symbolExchange {
+          animation-name: rotation;
+          animation-duration: 3s;
+          animation-iteration-count: infinite;
+          width: 8%;
         }
       }
-      .avatarPlayers {
-        height: 30%;
-        width: 92%;
+      .allanimation {
         display: flex;
-        justify-content: space-between;
+        width: 100%;
+        height: 50%;
+        justify-content: space-around;
+        align-items: center;
+        .tubeContainer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 5vh;
+          height: 50%;
+          width: 100%;
+          .tubePart1 {
+            border: 1px solid white;
+            width: 70%;
+            height: 40%;
+            border-left: none;
+            border-right: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
 
+            .lotContainer {
+              position: absolute;
+              height: 100px;
+              width: 100px;
+              border: 1px solid white;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: var(--primary-color);
+              img {
+                width: 80%;
+              }
+            }
+            .position1 {
+              bottom: -50%;
+              left: -3%;
+              animation-name: exchangeLeft;
+              animation-duration: 10s;
+              animation-iteration-count: infinite;
+            }
+            .position2 {
+              bottom: -60%;
+              right: -3%;
+              animation-name: exchangeRight;
+              animation-duration: 10s;
+              animation-iteration-count: infinite;
+            }
+          }
+        }
         .avatarAndNameContainer {
           display: flex;
           flex-direction: column;
-          height: 100%;
+          height: 55%;
           justify-content: center;
           align-items: center;
           gap: 1vh;
+          padding: 2%;
 
           .avatarContainer {
-            height: 80%;
+            height: 150px;
+            width: 150px;
             border: 1px solid white;
-            width: 8vw;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -122,10 +137,9 @@
 
       .wordsContainer {
         position: absolute;
-        width: 10vw;
-        bottom: 25%;
-        left: 17%;
-
+        width: 20%;
+        bottom: 47%;
+        left: 10%;
         img {
           width: 100%;
         }
@@ -142,9 +156,9 @@
 
       .wordsContainer2 {
         position: absolute;
-        width: 10vw;
-        bottom: 25%;
-        right: 17%;
+        width: 20%;
+        bottom: 47%;
+        right: 10%;
 
         img {
           width: 100%;
@@ -175,28 +189,347 @@
     0% {
       transform: translate(0, 0);
     }
-    15% {
-      transform: translate(0, -150%);
-    }
-    85% {
-      transform: translate(770%, -150%);
-    }
     100% {
-      transform: translate(770%, 0);
+      transform: translate(28vw, 0);
     }
   }
   @keyframes exchangeRight {
     0% {
       transform: translate(0, 0);
     }
-    15% {
-      transform: translate(0, -150%);
-    }
-    85% {
-      transform: translate(-770%, -150%);
-    }
     100% {
-      transform: translate(-770%, 0);
+      transform: translate(-28vw, 0);
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    @keyframes exchangeLeft {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(24vw, 0);
+      }
+    }
+    @keyframes exchangeRight {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(-24vw, 0);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    @keyframes exchangeLeft {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(24vw, 0);
+      }
+    }
+    @keyframes exchangeRight {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(-24vw, 0);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .transferPlayers {
+      .transferPlayersContainer {
+        justify-content: space-around;
+        .allanimation {
+          flex-direction: column;
+          height: 70%;
+          .tubeContainer {
+            flex-direction: row;
+            gap: 10vw;
+            height: 60%;
+            width: 20vw;
+            justify-content: space-around;
+            .tubePart1 {
+              height: 100%;
+              flex-direction: column;
+              justify-content: space-around;
+              border-left: 1px solid white;
+              border-right: 1px solid white;
+              border-top: none;
+              border-bottom: none;
+
+              .lotContainer {
+                width: 80px;
+                height: 80px;
+              }
+
+              .position1 {
+                bottom: 50%;
+                left: -25%;
+              }
+              .position2 {
+                bottom: -20%;
+                right: -25%;
+              }
+            }
+          }
+          .avatarAndNameContainer {
+            height: 30%;
+            .avatarContainer {
+              height: 70px;
+              width: 70px;
+            }
+            p {
+              color: var(--fourth-color);
+              font-size: 2rem;
+              font-family: var(--primary-font);
+            }
+          }
+        }
+        .wordsContainer {
+          width: 25%;
+          bottom: 55%;
+          left: 60%;
+
+          p {
+            bottom: 35%;
+            left: 3%;
+            font-size: 2rem;
+          }
+        }
+
+        .wordsContainer2 {
+          width: 25%;
+          bottom: 10%;
+          right: 70%;
+          p {
+            bottom: 35%;
+            left: 3%;
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    @keyframes exchangeLeft {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, 12vh);
+      }
+    }
+    @keyframes exchangeRight {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, -12vh);
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .transferPlayers {
+      .transferPlayersContainer {
+        .allanimation {
+          .tubeContainer {
+            .tubePart1 {
+              .position1 {
+                bottom: 50%;
+                left: -50%;
+              }
+              .position2 {
+                bottom: -20%;
+                right: -50%;
+              }
+            }
+          }
+          .avatarAndNameContainer {
+            p {
+              font-size: 1.5rem;
+            }
+          }
+        }
+        .wordsContainer {
+          p {
+            font-size: 1.5rem;
+          }
+        }
+
+        .wordsContainer2 {
+          p {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .transferPlayers {
+      .transferPlayersContainer {
+        .allanimation {
+          .tubeContainer {
+            .tubePart1 {
+              .lotContainer {
+                height: 60px;
+                width: 60px;
+              }
+              .position1 {
+                bottom: 70%;
+                left: -50%;
+              }
+              .position2 {
+                bottom: -10%;
+                right: -50%;
+              }
+            }
+          }
+          .avatarAndNameContainer {
+            p {
+              font-size: 1.5rem;
+            }
+          }
+        }
+        .wordsContainer {
+          p {
+            font-size: 1.2rem;
+          }
+        }
+
+        .wordsContainer2 {
+          p {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .transferPlayers {
+      .transferPlayersContainer {
+        .tubePart2 {
+          h1 {
+            font-size: 2rem;
+          }
+        }
+        .allanimation {
+          .avatarAndNameContainer {
+            p {
+              font-size: 1.5rem;
+            }
+          }
+        }
+        .wordsContainer {
+          p {
+            font-size: 1.2rem;
+          }
+        }
+
+        .wordsContainer2 {
+          p {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    height: 85vh;
+    width: 100%;
+    .transferPlayers {
+      .transferPlayersContainer {
+        .allanimation {
+          height: 90%;
+          .tubeContainer {
+            .tubePart1 {
+              .position1 {
+                bottom: 70%;
+                left: -70%;
+              }
+              .position2 {
+                bottom: -10%;
+                right: -70%;
+              }
+            }
+          }
+        }
+        .wordsContainer {
+          width: 30%;
+          bottom: 70%;
+          left: 60%;
+        }
+
+        .wordsContainer2 {
+          width: 30%;
+          bottom: 10%;
+          right: 65%;
+        }
+      }
+    }
+    @keyframes exchangeLeft {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, 18vh);
+      }
+    }
+    @keyframes exchangeRight {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, -18vh);
+      }
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .transferPlayers {
+      height: 100%;
+
+      .transferPlayersContainer {
+        border: none;
+        width: 100%;
+        height: 100%;
+        .allanimation {
+          height: 90%;
+          .tubeContainer {
+            .tubePart1 {
+              .position1 {
+                bottom: 80%;
+                left: -90%;
+              }
+              .position2 {
+                bottom: 0%;
+                right: -90%;
+              }
+            }
+          }
+        }
+      }
+    }
+    @keyframes exchangeLeft {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, 25vh);
+      }
+    }
+    @keyframes exchangeRight {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, -25vh);
+      }
     }
   }
 }

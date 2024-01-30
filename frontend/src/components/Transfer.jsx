@@ -9,7 +9,7 @@ function Transfer({ lotOldPlayer, lotNewPlayer, playerExchange }) {
   useEffect(() => {
     setTimeout(() => {
       setChangeTextExchange(true);
-    }, 10000);
+    }, 5000);
   }, []);
 
   return (
@@ -17,33 +17,15 @@ function Transfer({ lotOldPlayer, lotNewPlayer, playerExchange }) {
       {userConnected && playerExchange ? (
         <div className="transferPlayers">
           <div className="transferPlayersContainer">
-            <div className="tubePart1">
-              <div className="tubePart2">
-                <h1>Echange en cours ...</h1>
-                <img
-                  className="symbolExchange"
-                  src="images/Utilisateur/echangeur.png"
-                  alt="echangeur"
-                />
-              </div>
-              <div className="lotContainer position1">
-                <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}/${
-                    lotOldPlayer.image
-                  }`}
-                  alt="lot échangé"
-                />
-              </div>
-              <div className="lotContainer position2">
-                <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}/${
-                    lotNewPlayer.image
-                  }`}
-                  alt="lot à recevoir"
-                />
-              </div>
+            <div className="tubePart2">
+              <h1>Echange en cours ...</h1>
+              <img
+                className="symbolExchange"
+                src="images/Utilisateur/echangeur.png"
+                alt="echangeur"
+              />
             </div>
-            <div className="avatarPlayers">
+            <div className="allanimation">
               <div className="avatarAndNameContainer">
                 <div className="avatarContainer">
                   <img
@@ -54,6 +36,28 @@ function Transfer({ lotOldPlayer, lotNewPlayer, playerExchange }) {
                   />
                 </div>
                 <p>{userConnected.pseudo}</p>
+              </div>
+              <div className="tubeContainer">
+                <div className="tubePart1">
+                  <div className="lotContainer position1">
+                    <img
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${
+                        lotOldPlayer.image
+                      }`}
+                      alt="lot échangé"
+                    />
+                  </div>
+                </div>
+                <div className="tubePart1">
+                  <div className="lotContainer position2">
+                    <img
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${
+                        lotNewPlayer.image
+                      }`}
+                      alt="lot à recevoir"
+                    />
+                  </div>
+                </div>
               </div>
               <div className="avatarAndNameContainer">
                 <div className="avatarContainer">
