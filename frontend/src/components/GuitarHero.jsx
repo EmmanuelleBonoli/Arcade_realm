@@ -16,6 +16,8 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
     setMissedArrow,
     setIntervalIsActive,
     intervalIsActive,
+    setWinPlayer,
+    winPlayer,
   } = useContext(GameContext);
 
   const { userConnected } = useContext(userContext);
@@ -23,7 +25,7 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
   const [getScoreUser, setGetScoreUser] = useState({});
 
   useEffect(() => {
-    if (gameOverGH === true) {
+    if (gameOverGH === true || winPlayer === true) {
       if (userConnected) {
         const getScore = async () => {
           const user = JSON.parse(localStorage.getItem("token"));
@@ -46,79 +48,33 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
         getScore();
       }
     }
-  }, [gameOverGH]);
+  }, [gameOverGH, winPlayer]);
 
   useEffect(() => {
-    if (scorePlayer > 0) {
-      const tmpScore = getScoreUser.filter(
-        (score) => score.name === "Guitar Hero"
-      );
-      const user = JSON.parse(localStorage.getItem("token"));
-      const updatedUser = async () => {
-        try {
-          const NewUser = {
-            pseudo: userConnected.pseudo,
-            email: userConnected.email,
-            password: userConnected.password,
-            image: userConnected.image,
-            admin: userConnected.admin,
-            points: userConnected.points + scorePlayer,
-            podium: userConnected.podium,
-            tickets: userConnected.tickets,
-          };
-          await axios.put(
-            `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
-              userConnected.id
-            }`,
-            NewUser,
-            {
-              headers: {
-                Authorization: `Bearer ${user.token}`,
-              },
-            }
-          );
-        } catch (err) {
-          console.error(err);
-        }
-      };
-      updatedUser();
-      if (tmpScore.length === 0) {
-        const postScore = async () => {
-          try {
-            const NewScore = {
-              utilisateurId: userConnected.id,
-              jeuId: 4,
-              points: scorePlayer,
-            };
+    const user = JSON.parse(localStorage.getItem("token"));
+    if (user) {
+      if (scorePlayer > 0) {
+        const tmpScore = getScoreUser.filter(
+          (score) => score.name === "Guitar Hero"
+        );
 
-            await axios.post(
-              `${import.meta.env.VITE_BACKEND_URL}/api/score`,
-              NewScore,
-              {
-                headers: {
-                  Authorization: `Bearer ${user.token}`,
-                },
-              }
-            );
-          } catch (err) {
-            console.error(err);
-          }
-        };
-        postScore();
-      } else if (scorePlayer > tmpScore[0].points) {
-        const postScore = async () => {
+        const updatedUser = async () => {
           try {
-            const UpdatedScore = {
-              utilisateurId: userConnected.id,
-              jeuId: gamePlayed,
-              points: scorePlayer,
+            const NewUser = {
+              pseudo: userConnected.pseudo,
+              email: userConnected.email,
+              password: userConnected.password,
+              image: userConnected.image,
+              admin: userConnected.admin,
+              points: userConnected.points + scorePlayer,
+              podium: userConnected.podium,
+              tickets: userConnected.tickets,
             };
-
             await axios.put(
-              `${import.meta.env.VITE_BACKEND_URL}/api/score/${
-                tmpScore[0].ScoreId
+              `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+                userConnected.id
               }`,
-              UpdatedScore,
+              NewUser,
               {
                 headers: {
                   Authorization: `Bearer ${user.token}`,
@@ -129,25 +85,78 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
             console.error(err);
           }
         };
-        postScore();
+        updatedUser();
+        if (tmpScore.length === 0) {
+          const postScore = async () => {
+            try {
+              const NewScore = {
+                utilisateurId: userConnected.id,
+                jeuId: 4,
+                points: scorePlayer,
+              };
+
+              await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}/api/score`,
+                NewScore,
+                {
+                  headers: {
+                    Authorization: `Bearer ${user.token}`,
+                  },
+                }
+              );
+            } catch (err) {
+              console.error(err);
+            }
+          };
+          postScore();
+        } else if (scorePlayer > tmpScore[0].points) {
+          const postScore = async () => {
+            try {
+              const UpdatedScore = {
+                utilisateurId: userConnected.id,
+                jeuId: gamePlayed,
+                points: scorePlayer,
+              };
+
+              await axios.put(
+                `${import.meta.env.VITE_BACKEND_URL}/api/score/${
+                  tmpScore[0].ScoreId
+                }`,
+                UpdatedScore,
+                {
+                  headers: {
+                    Authorization: `Bearer ${user.token}`,
+                  },
+                }
+              );
+            } catch (err) {
+              console.error(err);
+            }
+          };
+          postScore();
+        }
       }
     }
   }, [getScoreUser]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (intervalIsActive) {
+    let intervalId;
+
+    if (intervalIsActive) {
+      intervalId = setInterval(() => {
         const randomArrow = Math.floor(Math.random() * 4);
         setChooseArrow((prevArrows) => {
           const newArrows = [...prevArrows];
           newArrows[randomArrow] = true;
           return newArrows;
         });
-      }
-    }, 3000);
+      }, 3000);
+    } else {
+      clearInterval(intervalId);
+    }
 
     return () => {
-      clearInterval(interval);
+      clearInterval(intervalId);
     };
   }, [intervalIsActive]);
 
@@ -164,6 +173,13 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
   }, [chooseArrow]);
 
   useEffect(() => {
+    setTimeout(() => {
+      setIntervalIsActive(false);
+      setWinPlayer(true);
+    }, 207000);
+  }, []);
+
+  useEffect(() => {
     if (missedArrow.length === 3) {
       setIntervalIsActive(false);
       setGameOverGH(true);
@@ -175,11 +191,13 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
     setMissedArrow([]);
     setScorePlayer(0);
     setGameOverGH(false);
+    setWinPlayer(false);
     setIntervalIsActive(false);
   }
 
   function handleNewGameGuitarHero() {
     setGameOverGH(false);
+    setWinPlayer(false);
     setScorePlayer(0);
     setMissedArrow([]);
     setChooseScreen("guitarHero");
@@ -188,7 +206,7 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
 
   return (
     <div className="guitarHero">
-      {missedArrow.length !== 3 ? (
+      {missedArrow.length !== 3 && winPlayer === false && (
         <div className="guitarHeroGame">
           <div className="infosJeu">
             <img
@@ -277,9 +295,20 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
             )}
           </div>
         </div>
-      ) : (
+      )}
+      {missedArrow.length === 3 && winPlayer === false && (
         <div className="gameOverGuitarHero">
           <h2>Game Over</h2>
+          <p>Your score is {scorePlayer}</p>
+          <button type="button" onClick={handleNewGameGuitarHero}>
+            New Game ?
+          </button>
+        </div>
+      )}
+
+      {missedArrow.length !== 3 && winPlayer === true && (
+        <div className="gameOverGuitarHero">
+          <h2>You Win !</h2>
           <p>Your score is {scorePlayer}</p>
           <button type="button" onClick={handleNewGameGuitarHero}>
             New Game ?

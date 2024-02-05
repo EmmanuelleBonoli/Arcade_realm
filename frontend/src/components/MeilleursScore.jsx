@@ -30,7 +30,7 @@ function MeilleursScore() {
   }, [codeModal]);
 
   useEffect(() => {
-    if (userConnected) {
+    if (userConnected && userConnected.id) {
       const getScores = async () => {
         const user = JSON.parse(localStorage.getItem("token"));
         try {
@@ -51,7 +51,7 @@ function MeilleursScore() {
       };
       getScores();
     }
-  }, []);
+  }, [userConnected]);
 
   return (
     <div className="container-MeilleursScore">
