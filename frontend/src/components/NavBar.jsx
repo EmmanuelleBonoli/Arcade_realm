@@ -44,6 +44,10 @@ function NavBar() {
     };
   }, [connexionModal, inscriptionModal]);
 
+  // useEffect(() => {
+
+  // },[userConnected]);
+
   return (
     <div className="navBar">
       <div className="Int-navBar">
