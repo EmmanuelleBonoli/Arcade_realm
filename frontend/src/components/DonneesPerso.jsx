@@ -101,6 +101,7 @@ function DonneesPerso() {
         }
       );
       setUserConnected(null);
+      setAdminOrNot(false);
       localStorage.removeItem("token");
       navigate("/");
     } catch (err) {

@@ -31,6 +31,7 @@ function ArcadeGame() {
     setMissedArrow,
     setIntervalIsActive,
     intervalIsActive,
+    setWinPlayer,
   } = useContext(GameContext);
 
   const audio = useRef(null);
@@ -76,6 +77,7 @@ function ArcadeGame() {
     setOpenGames(!openGames);
     setChooseScreen("start");
     setGameOver(false);
+    setWinPlayer(false);
     setScorePlayer(0);
     setMissedArrow([]);
     navigate("/");

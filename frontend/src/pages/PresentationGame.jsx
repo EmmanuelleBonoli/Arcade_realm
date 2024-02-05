@@ -12,22 +12,24 @@ function PresentationGame() {
   const param = useParams();
 
   const favoriteUser = async () => {
-    if (userConnected) {
-      const user = JSON.parse(localStorage.getItem("token"));
-      try {
-        const favorite = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/favoris/${
-            userConnected.id
-          }`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          }
-        );
-        setUserFavorites(favorite.data);
-      } catch (error) {
-        console.error(error);
+    const user = JSON.parse(localStorage.getItem("token"));
+    if (user) {
+      if (userConnected) {
+        try {
+          const favorite = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/favoris/${
+              userConnected.id
+            }`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
+          );
+          setUserFavorites(favorite.data);
+        } catch (error) {
+          console.error(error);
+        }
       }
     }
   };
@@ -55,42 +57,44 @@ function PresentationGame() {
 
   const handleFavoriteClick = async (jeuIdSelected) => {
     const user = JSON.parse(localStorage.getItem("token"));
-    if (isFavorite) {
-      try {
-        const utilisateurId = userConnected.id;
-        await axios.delete(
-          `${
-            import.meta.env.VITE_BACKEND_URL
-          }/api/favoris/${utilisateurId}/${jeuIdSelected}`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          }
-        );
-      } catch (error) {
-        console.error(error);
+    if (user) {
+      if (isFavorite) {
+        try {
+          const utilisateurId = userConnected.id;
+          await axios.delete(
+            `${
+              import.meta.env.VITE_BACKEND_URL
+            }/api/favoris/${utilisateurId}/${jeuIdSelected}`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
+          );
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        const NewFavorite = {
+          jeuId: jeuIdSelected,
+          utilisateurId: userConnected.id,
+        };
+        try {
+          await axios.post(
+            `${import.meta.env.VITE_BACKEND_URL}/api/favoris`,
+            NewFavorite,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
+          );
+        } catch (error) {
+          console.error(error);
+        }
       }
-    } else {
-      const NewFavorite = {
-        jeuId: jeuIdSelected,
-        utilisateurId: userConnected.id,
-      };
-      try {
-        await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/api/favoris`,
-          NewFavorite,
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          }
-        );
-      } catch (error) {
-        console.error(error);
-      }
+      favoriteUser();
     }
-    favoriteUser();
   };
 
   return (
