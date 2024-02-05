@@ -21,7 +21,6 @@ function ProtectedRoute({ children }) {
         },
       }
     );
-
     setUserConnected(res.data[0]);
     return res.data[0];
   };

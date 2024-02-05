@@ -25,6 +25,7 @@ function App() {
   const [scorePlayer, setScorePlayer] = useState(0);
   const [missedArrow, setMissedArrow] = useState([]);
   const [intervalIsActive, setIntervalIsActive] = useState(true);
+  const [winPlayer, setWinPlayer] = useState(false);
 
   useEffect(() => {
     const currentUrl = location.pathname;
@@ -53,6 +54,8 @@ function App() {
       <GameContext.Provider
         value={useMemo(
           () => ({
+            winPlayer,
+            setWinPlayer,
             setIntervalIsActive,
             intervalIsActive,
             missedArrow,
@@ -79,6 +82,8 @@ function App() {
             setChooseScreen,
           }),
           [
+            winPlayer,
+            setWinPlayer,
             missedArrow,
             setMissedArrow,
             chooseArrow,
