@@ -6,10 +6,10 @@ import GameContext from "../contexts/GameContext";
 
 function Home() {
   const navigate = useNavigate();
-  const { openGames, setOpenGames } = useContext(GameContext);
+  const { setOpenGames } = useContext(GameContext);
 
   function handleGamePlay() {
-    setOpenGames(!openGames);
+    setOpenGames(true);
     navigate("/jeuxenligne");
   }
 
