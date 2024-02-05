@@ -139,8 +139,12 @@
     padding: 5px;
   }
 
-  .itemServices {
-    width: 100%;
-    max-width: none;
+  .confirmPodium3 {
+    .lotsContainer {
+      .itemServices {
+        width: 100%;
+        max-width: none;
+      }
+    }
   }
 }
