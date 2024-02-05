@@ -53,6 +53,35 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
       const tmpScore = getScoreUser.filter(
         (score) => score.name === "Guitar Hero"
       );
+      const user = JSON.parse(localStorage.getItem("token"));
+      const updatedUser = async () => {
+        try {
+          const NewUser = {
+            pseudo: userConnected.pseudo,
+            email: userConnected.email,
+            password: userConnected.password,
+            image: userConnected.image,
+            admin: userConnected.admin,
+            points: userConnected.points + scorePlayer,
+            podium: userConnected.podium,
+            tickets: userConnected.tickets,
+          };
+          await axios.put(
+            `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+              userConnected.id
+            }`,
+            NewUser,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
+          );
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      updatedUser();
       if (tmpScore.length === 0) {
         const postScore = async () => {
           try {
@@ -62,31 +91,9 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
               points: scorePlayer,
             };
 
-            const NewUser = {
-              pseudo: userConnected.pseudo,
-              email: userConnected.email,
-              password: userConnected.password,
-              image: userConnected.image,
-              admin: userConnected.admin,
-              points: userConnected.points + scorePlayer,
-              podium: userConnected.podium,
-              tickets: userConnected.tickets,
-            };
-            const user = JSON.parse(localStorage.getItem("token"));
             await axios.post(
               `${import.meta.env.VITE_BACKEND_URL}/api/score`,
               NewScore,
-              {
-                headers: {
-                  Authorization: `Bearer ${user.token}`,
-                },
-              }
-            );
-            await axios.put(
-              `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
-                userConnected.id
-              }`,
-              NewUser,
               {
                 headers: {
                   Authorization: `Bearer ${user.token}`,
@@ -100,13 +107,13 @@ function GuitarHero({ gamePlayed, gameOverGH, setGameOverGH }) {
         postScore();
       } else if (scorePlayer > tmpScore[0].points) {
         const postScore = async () => {
-          const user = JSON.parse(localStorage.getItem("token"));
           try {
             const UpdatedScore = {
               utilisateurId: userConnected.id,
               jeuId: gamePlayed,
               points: scorePlayer,
             };
+
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/score/${
                 tmpScore[0].ScoreId

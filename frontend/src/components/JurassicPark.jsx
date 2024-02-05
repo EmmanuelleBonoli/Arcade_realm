@@ -75,9 +75,38 @@ export default function JurassicPark({
       const tmpScore = getScoreUser.filter(
         (scoreSearch) => scoreSearch.name === "Jurassic Parc"
       );
+      const user = JSON.parse(localStorage.getItem("token"));
+
+      const updatedUser = async () => {
+        try {
+          const NewUser = {
+            pseudo: userConnected.pseudo,
+            email: userConnected.email,
+            password: userConnected.password,
+            image: userConnected.image,
+            admin: userConnected.admin,
+            points: userConnected.points + score,
+            podium: userConnected.podium,
+            tickets: userConnected.tickets,
+          };
+          await axios.put(
+            `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+              userConnected.id
+            }`,
+            NewUser,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
+          );
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      updatedUser();
       if (tmpScore.length === 0) {
         const postScore = async () => {
-          const user = JSON.parse(localStorage.getItem("token"));
           try {
             const NewScore = {
               utilisateurId: userConnected.id,
@@ -85,31 +114,9 @@ export default function JurassicPark({
               points: score,
             };
 
-            const NewUser = {
-              pseudo: userConnected.pseudo,
-              email: userConnected.email,
-              password: userConnected.password,
-              image: userConnected.image,
-              admin: userConnected.admin,
-              points: userConnected.points + score,
-              podium: userConnected.podium,
-              tickets: userConnected.tickets,
-            };
-
             await axios.post(
               `${import.meta.env.VITE_BACKEND_URL}/api/score`,
               NewScore,
-              {
-                headers: {
-                  Authorization: `Bearer ${user.token}`,
-                },
-              }
-            );
-            await axios.put(
-              `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
-                userConnected.id
-              }`,
-              NewUser,
               {
                 headers: {
                   Authorization: `Bearer ${user.token}`,
@@ -123,13 +130,13 @@ export default function JurassicPark({
         postScore();
       } else if (score > tmpScore[0].points) {
         const postScore = async () => {
-          const user = JSON.parse(localStorage.getItem("token"));
           try {
             const UpdatedScore = {
               utilisateurId: userConnected.id,
               jeuId: gamePlayed,
               points: score,
             };
+
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/score/${
                 tmpScore[0].ScoreId
