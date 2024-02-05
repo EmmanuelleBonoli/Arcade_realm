@@ -65,8 +65,6 @@ export default function Inscription({ onClose }) {
           userSignin
         );
 
-        fetchUser();
-
         const userLocal = {
           token: res.data.token,
         };
@@ -76,7 +74,7 @@ export default function Inscription({ onClose }) {
             ...userLocal,
           })
         );
-
+        fetchUser();
         if (res.data.admin === 1) {
           setAdminOrNot(true);
         }
