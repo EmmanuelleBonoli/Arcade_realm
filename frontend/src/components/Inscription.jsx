@@ -32,52 +32,51 @@ export default function Inscription({ onClose }) {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-
-    const userSignin = {
-      pseudo: inputPseudo,
-      email: inputEmail,
-      password: inputPassword,
-      image: `/images/Avatar/Avatar.png`,
-      admin: false,
-      points: 0,
-      podium: false,
-      tickets: 0,
-    };
-
-    try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
-        userSignin
-      );
-      setUserConnected(res.data);
-      const userLocal = {
-        ...res.data,
-        token: res.data.token,
+    validateForm();
+    if (formValid) {
+      const userSignin = {
+        pseudo: inputPseudo,
+        email: inputEmail,
+        password: inputPassword,
+        image: `/images/Avatar/Avatar.png`,
+        admin: false,
+        points: 0,
+        podium: false,
+        tickets: 0,
       };
-      localStorage.setItem(
-        "token",
-        JSON.stringify({
-          ...userLocal,
-        })
-      );
 
-      if (!formValid) {
-        alert("Veuillez remplir tous les champs du formulaire.");
-        return;
-      }
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
+          userSignin
+        );
+        setUserConnected(res.data);
+        const userLocal = {
+          ...res.data,
+          token: res.data.token,
+        };
+        localStorage.setItem(
+          "token",
+          JSON.stringify({
+            ...userLocal,
+          })
+        );
 
-      if (res.data.admin === 1) {
-        setAdminOrNot(true);
-      }
+        if (res.data.admin === 1) {
+          setAdminOrNot(true);
+        }
 
-      if (res.status === 201) {
-        setInscription("Inscription réussie !");
-        setTimeout(() => {
-          onClose();
-        }, 1500);
+        if (res.status === 201) {
+          setInscription("Inscription réussie !");
+          setTimeout(() => {
+            onClose();
+          }, 1500);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
+    } else {
+      setInscription("Veuillez remplir tous les champs.");
     }
   };
 

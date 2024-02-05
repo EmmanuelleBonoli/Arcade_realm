@@ -99,15 +99,13 @@ function PresentationGame() {
         <h2>Nos Jeux</h2>
         <div className="containerGames">
           <div className="containerGames2">
-            <button
-              type="button"
-              className="retourpicture"
-              onClick={handleBackClick}
-            >
+            <button type="button" className="retourpicture">
               <img
-                src="../images/Utilisateur/retour 1.png" // Vérifiez le chemin de l'image
+                src="/images/Utilisateur/retour 1.png"
                 alt="Retour"
                 className="firstimage"
+                onClick={handleBackClick}
+                role="presentation"
               />
             </button>
           </div>
@@ -118,12 +116,6 @@ function PresentationGame() {
               className="secondimage"
             />
             <div className="descriptionGames">
-              {/* <label htmlFor="favoriteButton"> </label> */}
-              {/* <button
-                type="button"
-                id="favoriteButton"
-           
-              > */}
               {userFavorites && (
                 <img
                   onClick={() => handleFavoriteClick(param.id)}
@@ -136,9 +128,6 @@ function PresentationGame() {
                   alt=""
                 />
               )}
-
-              {/* </button> */}
-              {/* <img src="../images/Utilisateur/heartFavorite.png" alt="" /> */}
 
               <p>
                 <strong>Nom :</strong> {game[0].name}
