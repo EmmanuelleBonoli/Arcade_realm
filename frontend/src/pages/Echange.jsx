@@ -237,7 +237,7 @@ function Echange() {
 
   function handleBuyMysteryBox() {
     if (userConnected && pointsUser) {
-      if (pointsUser.points >= 1) {
+      if (pointsUser.points >= 50000) {
         setBuyMystery(true);
         const buyMysteryBox = async () => {
           const updatedUser = {
@@ -246,7 +246,7 @@ function Echange() {
             email: userConnected.email,
             image: userConnected.image,
             admin: userConnected.admin,
-            points: userConnected.points - 1,
+            points: userConnected.points - 50000,
             podium: userConnected.podium,
             tickets: userConnected.tickets,
           };
@@ -311,11 +311,11 @@ function Echange() {
           }
         };
         buyMysteryBox();
-        // setTimeout(() => {
-        //   setBuyMystery(false);
-        //   loadLotsWin();
-        //   loadLotsAvailable();
-        // }, 8000);
+        setTimeout(() => {
+          setBuyMystery(false);
+          loadLotsWin();
+          loadLotsAvailable();
+        }, 8000);
       } else {
         setNotEnoughPoints(true);
         setTimeout(() => setNotEnoughPoints(false), 3000);
