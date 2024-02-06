@@ -19,24 +19,15 @@ export default function JurassicPark({
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
   const [getScoreUser, setGetScoreUser] = useState({});
+  const [audio] = useState(new Audio("/sons/JurassicPark.mp3"));
 
-  // const [cursorX, setCursorX] = useState();
-  // const [cursorY, setCursorY] = useState();
-  // const [gameStarted, setGameStarted] = useState(false);
+ 
+  const startMusic = () => {
+    audio.play().catch((error) => {
+      console.error("Erreur lors de la lecture de la musique:", error);
+    });
+  };
 
-  // const cursorWidth = 1300;
-  // const cursorHeight = 530;
-
-  // useEffect(() => {
-  //   window.addEventListener("mousemove", (e) => {
-  //     if (gameStarted) {
-  //       setCursorX(e.pageX - cursorWidth / 2);
-  //       setCursorY(e.pageY - cursorHeight / 2);
-  //     }
-  //   });
-  // }, [gameStarted]);
-
-  // const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     if (timer === 0) {
@@ -206,7 +197,7 @@ export default function JurassicPark({
     }, 1000 * i);
   };
   const launchTimer = () => {
-    //  setGameStarted(true);
+    startMusic();
     for (let i = 30; i > 0; i -= 1) {
       decreaseTimer(i);
     }
@@ -233,6 +224,7 @@ export default function JurassicPark({
   function closeGame() {
     setChooseScreen("menu");
     setScore(0);
+    audio.pause();
   }
 
   return (
