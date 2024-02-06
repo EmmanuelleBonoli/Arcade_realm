@@ -111,6 +111,9 @@
   }
   @media screen and (max-width: 550px) {
     .container-player {
+      h1{
+        font-size: 1.8rem;
+      }
       .wrapper-container {
         .input-search-player {
           width: 60vw;
