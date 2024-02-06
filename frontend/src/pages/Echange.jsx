@@ -88,7 +88,7 @@ function Echange() {
       loadLotsAvailable();
       loadLotMystery();
     }
-  }, []);
+  }, [userConnected]);
 
   useEffect(() => {
     const selectedLotWinObject = lotsWin.find(

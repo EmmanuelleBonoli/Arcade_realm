@@ -6,10 +6,10 @@ import GameContext from "../contexts/GameContext";
 
 function Home() {
   const navigate = useNavigate();
-  const { openGames, setOpenGames } = useContext(GameContext);
+  const { setOpenGames } = useContext(GameContext);
 
   function handleGamePlay() {
-    setOpenGames(!openGames);
+    setOpenGames(true);
     navigate("/jeuxenligne");
   }
 
@@ -82,7 +82,10 @@ function Home() {
         <div className="metal-texte">
           <img src="/images/metal-slug.png" alt="metal-slug" />
           <p>
-            <Link to="/presentationarcaderealm">
+            <Link
+              to="/presentationarcaderealm"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <span>Découvrir-ici</span>
             </Link>
           </p>

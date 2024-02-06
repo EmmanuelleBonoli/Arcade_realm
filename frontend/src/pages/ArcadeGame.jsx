@@ -18,7 +18,6 @@ function ArcadeGame() {
     isPressedGreen,
     isPressedBlue,
     isPressedRed,
-    openGames,
     setOpenGames,
     chooseScreen,
     setChooseScreen,
@@ -42,6 +41,7 @@ function ArcadeGame() {
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
+    setOpenGames(true);
     const getGames = async () => {
       try {
         const fetchGames = await axios.get(
@@ -74,7 +74,7 @@ function ArcadeGame() {
   }, [chooseArrow]);
 
   function handleClose() {
-    setOpenGames(!openGames);
+    setOpenGames(false);
     setChooseScreen("start");
     setGameOver(false);
     setWinPlayer(false);
