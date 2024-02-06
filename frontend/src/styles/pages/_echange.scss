@@ -247,7 +247,20 @@
     background-color: #00212a;
   }
 }
+@media screen and (max-width: 1400px) {
+  .home-echange {
+    .container-echange {
+      .image-echangeur {
+        width: 12%;
 
+        p {
+          font-size: 1.8rem;
+          width: 25vw;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 1285px) {
   .home-echange {
     .container-echange {
@@ -289,6 +302,11 @@
       }
       .image-echangeur {
         width: 12%;
+
+        p {
+          font-size: 1.5rem;
+          width: 30vw;
+        }
       }
 
       .echange-joueur {
@@ -358,6 +376,21 @@
   }
 }
 
+@media screen and (max-width: 860px) {
+  .home-echange {
+    .container-echange {
+      .image-echangeur {
+        width: 12%;
+
+        p {
+          font-size: 1.5rem;
+          width: 35vw;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 830px) {
   .home-echange {
     .container-echange {
@@ -391,6 +424,21 @@
   }
 }
 
+@media screen and (max-width: 760px) {
+  .home-echange {
+    .container-echange {
+      .image-echangeur {
+        width: 12%;
+
+        p {
+          font-size: 1.5rem;
+          width: 40vw;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 680px) {
   .home-echange {
     .container-echange {
@@ -414,6 +462,15 @@
       }
       .image-echangeur {
         width: 12%;
+
+        p {
+          position: absolute;
+          padding-left: 150%;
+          top: 250px;
+          right: -160%;
+          width: 50vw;
+          font-size: 1.8rem;
+        }
       }
 
       .echange-joueur {
@@ -433,6 +490,7 @@
     }
   }
 }
+
 @media screen and (max-width: 550px) {
   .home-echange {
     .avatar {
@@ -472,6 +530,15 @@
       }
       .image-echangeur {
         width: 15%;
+
+        p {
+          position: absolute;
+          padding-left: 150%;
+          top: 330px;
+          right: -160%;
+          width: 60vw;
+          font-size: 1.8rem;
+        }
       }
 
       .echange-joueur {
@@ -539,6 +606,15 @@
       }
       .image-echangeur {
         width: 15%;
+
+        p {
+          position: absolute;
+          padding-left: 150%;
+          top: 215px;
+          right: -180%;
+          width: 70vw;
+          font-size: 1.4rem;
+        }
       }
 
       .echange-joueur {
@@ -594,6 +670,15 @@
       }
       .image-echangeur {
         width: 20%;
+
+        p {
+          position: absolute;
+          padding-left: 150%;
+          top: 10px;
+          right: -210%;
+          width: 70vw;
+          font-size: 1rem;
+        }
       }
     }
   }

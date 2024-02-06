@@ -311,11 +311,11 @@ function Echange() {
           }
         };
         buyMysteryBox();
-        // setTimeout(() => {
-        //   setBuyMystery(false);
-        //   loadLotsWin();
-        //   loadLotsAvailable();
-        // }, 8000);
+        setTimeout(() => {
+          setBuyMystery(false);
+          loadLotsWin();
+          loadLotsAvailable();
+        }, 8000);
       } else {
         setNotEnoughPoints(true);
         setTimeout(() => setNotEnoughPoints(false), 3000);

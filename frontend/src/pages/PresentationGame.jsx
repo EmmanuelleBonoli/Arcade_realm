@@ -105,8 +105,8 @@ function PresentationGame() {
           <div className="containerGames2">
             <button type="button" className="retourpicture">
               <img
-                src="/images/Utilisateur/retour 1.png"
-                alt="Retour"
+                src="../images/Utilisateur/retour 1.png"
+                alt="retour"
                 className="firstimage"
                 onClick={handleBackClick}
                 role="presentation"
