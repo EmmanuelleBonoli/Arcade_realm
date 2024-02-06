@@ -237,7 +237,7 @@ function Echange() {
 
   function handleBuyMysteryBox() {
     if (userConnected && pointsUser) {
-      if (pointsUser.points >= 50000) {
+      if (pointsUser.points >= 1) {
         setBuyMystery(true);
         const buyMysteryBox = async () => {
           const updatedUser = {
@@ -246,7 +246,7 @@ function Echange() {
             email: userConnected.email,
             image: userConnected.image,
             admin: userConnected.admin,
-            points: userConnected.points - 50000,
+            points: userConnected.points - 1,
             podium: userConnected.podium,
             tickets: userConnected.tickets,
           };

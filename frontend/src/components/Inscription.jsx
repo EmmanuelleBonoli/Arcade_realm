@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import UserContext from "../contexts/UserContext";
 
 export default function Inscription({ onClose }) {
@@ -25,59 +25,71 @@ export default function Inscription({ onClose }) {
     setMotDePasseVisible(!motDePasseVisible);
   };
 
-  const handleInputClick = (e) => {
-    e.stopPropagation();
+  useEffect(() => {
     validateForm();
+  }, [inputPseudo, inputEmail, inputPassword]);
+
+  const fetchUser = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
+    if (user) {
+      const dataUser = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/userbytoken`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+      setUserConnected(dataUser.data[0]);
+    }
   };
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-
-    const userSignin = {
-      pseudo: inputPseudo,
-      email: inputEmail,
-      password: inputPassword,
-      image: `/images/Avatar/Avatar.png`,
-      admin: false,
-      points: 0,
-      podium: false,
-      tickets: 0,
-    };
-
-    try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
-        userSignin
-      );
-      setUserConnected(res.data);
-      const userLocal = {
-        ...res.data,
-        token: res.data.token,
+    validateForm();
+    if (formValid) {
+      const userSignin = {
+        pseudo: inputPseudo,
+        email: inputEmail,
+        password: inputPassword,
+        image: `/images/Avatar/Avatar.png`,
+        admin: false,
+        points: 0,
+        podium: 0,
+        tickets: 0,
       };
-      localStorage.setItem(
-        "token",
-        JSON.stringify({
-          ...userLocal,
-        })
-      );
 
-      if (!formValid) {
-        alert("Veuillez remplir tous les champs du formulaire.");
-        return;
-      }
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
+          userSignin
+        );
 
-      if (res.data.admin === 1) {
-        setAdminOrNot(true);
-      }
+        const userLocal = {
+          token: res.data.token,
+        };
+        localStorage.setItem(
+          "token",
+          JSON.stringify({
+            ...userLocal,
+          })
+        );
+        fetchUser();
+        if (res.data.admin === 1) {
+          setAdminOrNot(true);
+        }
 
-      if (res.status === 201) {
-        setInscription("Inscription réussie !");
-        setTimeout(() => {
-          onClose();
-        }, 1500);
+        if (res.status === 201) {
+          setInscription("Inscription réussie !");
+          setTimeout(() => {
+            onClose();
+          }, 1500);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
+    } else {
+      setInscription("Veuillez remplir tous les champs.");
     }
   };
 
@@ -117,7 +129,6 @@ export default function Inscription({ onClose }) {
           <input
             type="text"
             className="pseudo"
-            onClick={handleInputClick}
             onChange={(event) => setInputPseudo(event.target.value)}
           />
 
@@ -125,7 +136,6 @@ export default function Inscription({ onClose }) {
           <input
             type="email"
             className="pseudo"
-            onClick={handleInputClick}
             onChange={(event) => setInputEmail(event.target.value)}
           />
 
@@ -134,7 +144,6 @@ export default function Inscription({ onClose }) {
             <input
               type={motDePasseVisible ? "text" : "password"}
               className="motdepasse"
-              onClick={handleInputClick}
               onChange={(event) => setInputPassword(event.target.value)}
             />
             <img
