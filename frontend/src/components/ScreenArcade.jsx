@@ -4,7 +4,13 @@ import GameContext from "../contexts/GameContext";
 import GuitarHero from "./GuitarHero";
 import JurassicPark from "./JurassicPark";
 
-function ScreenArcade({ gamesOnline, gamePlayed, setGameOver, gameOver }) {
+function ScreenArcade({
+  audio2,
+  gamesOnline,
+  gamePlayed,
+  setGameOver,
+  gameOver,
+}) {
   const { chooseScreen, gameSelected } = useContext(GameContext);
 
   return (
@@ -41,6 +47,7 @@ function ScreenArcade({ gamesOnline, gamePlayed, setGameOver, gameOver }) {
       )}
       {chooseScreen === "JurassicPark" ? (
         <JurassicPark
+          audio2={audio2}
           gamePlayed={gamePlayed}
           gameOverJP={gameOver}
           setGameOverJP={setGameOver}
@@ -62,6 +69,9 @@ function ScreenArcade({ gamesOnline, gamePlayed, setGameOver, gameOver }) {
 }
 
 ScreenArcade.propTypes = {
+  audio2: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+  }).isRequired,
   gameOver: PropTypes.bool.isRequired,
   setGameOver: PropTypes.func.isRequired,
   gamePlayed: PropTypes.number.isRequired,

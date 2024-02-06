@@ -8,6 +8,7 @@ export default function JurassicPark({
   gamePlayed,
   gameOverJP,
   setGameOverJP,
+  audio2,
 }) {
   const { userConnected } = useContext(userContext);
   const { setChooseScreen } = useContext(GameContext);
@@ -19,15 +20,13 @@ export default function JurassicPark({
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(null);
   const [getScoreUser, setGetScoreUser] = useState({});
-  const [audio] = useState(new Audio("/sons/JurassicPark.mp3"));
 
- 
   const startMusic = () => {
-    audio.play().catch((error) => {
+    // eslint-disable-next-line react/prop-types, no-param-reassign
+    audio2.play().catch((error) => {
       console.error("Erreur lors de la lecture de la musique:", error);
     });
   };
-
 
   useEffect(() => {
     if (timer === 0) {
@@ -224,25 +223,16 @@ export default function JurassicPark({
   function closeGame() {
     setChooseScreen("menu");
     setScore(0);
-    audio.pause();
+    // eslint-disable-next-line react/prop-types
+    audio2.pause();
+    // eslint-disable-next-line react/prop-types, no-param-reassign
+    audio2.currentTime = 0;
   }
 
   return (
     <div className="bord-jeux">
       <div className="int-jeux">
-        {/* {gameStarted ? (
-          <div
-            className="cursor"
-            style={{
-              left: `${cursorX}px`,
-              top: `${cursorY}px`,
-              pointerEvents: "none",
-              zIndex: 1,
-            }}
-          />
-        ) : null} */}
         <div className="information-jeux">
-          {/* <h3>Name :</h3> */}
           <h3>
             Score :{" "}
             {score > 0 ? (
@@ -304,6 +294,9 @@ export default function JurassicPark({
   );
 }
 JurassicPark.propTypes = {
+  audio2: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+  }).isRequired,
   gameOverJP: PropTypes.bool.isRequired,
   setGameOverJP: PropTypes.func.isRequired,
   gamePlayed: PropTypes.number.isRequired,
