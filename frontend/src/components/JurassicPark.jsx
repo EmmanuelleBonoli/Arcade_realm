@@ -71,20 +71,15 @@ export default function JurassicPark({
   }, [gameOverJP]);
 
   useEffect(() => {
-    if (score > 0) {
-      const tmpScore = getScoreUser.filter(
-        (scoreSearch) => scoreSearch.name === "Jurassic Parc"
-      );
-      if (tmpScore.length === 0) {
-        const postScore = async () => {
-          const user = JSON.parse(localStorage.getItem("token"));
-          try {
-            const NewScore = {
-              utilisateurId: userConnected.id,
-              jeuId: 9,
-              points: score,
-            };
+    const user = JSON.parse(localStorage.getItem("token"));
+    if (user) {
+      if (score > 0) {
+        const tmpScore = getScoreUser.filter(
+          (scoreSearch) => scoreSearch.name === "Jurassic Parc"
+        );
 
+        const updatedUser = async () => {
+          try {
             const NewUser = {
               pseudo: userConnected.pseudo,
               email: userConnected.email,
@@ -95,16 +90,6 @@ export default function JurassicPark({
               podium: userConnected.podium,
               tickets: userConnected.tickets,
             };
-
-            await axios.post(
-              `${import.meta.env.VITE_BACKEND_URL}/api/score`,
-              NewScore,
-              {
-                headers: {
-                  Authorization: `Bearer ${user.token}`,
-                },
-              }
-            );
             await axios.put(
               `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
                 userConnected.id
@@ -120,32 +105,56 @@ export default function JurassicPark({
             console.error(err);
           }
         };
-        postScore();
-      } else if (score > tmpScore[0].points) {
-        const postScore = async () => {
-          const user = JSON.parse(localStorage.getItem("token"));
-          try {
-            const UpdatedScore = {
-              utilisateurId: userConnected.id,
-              jeuId: gamePlayed,
-              points: score,
-            };
-            await axios.put(
-              `${import.meta.env.VITE_BACKEND_URL}/api/score/${
-                tmpScore[0].ScoreId
-              }`,
-              UpdatedScore,
-              {
-                headers: {
-                  Authorization: `Bearer ${user.token}`,
-                },
-              }
-            );
-          } catch (err) {
-            console.error(err);
-          }
-        };
-        postScore();
+        updatedUser();
+        if (tmpScore.length === 0) {
+          const postScore = async () => {
+            try {
+              const NewScore = {
+                utilisateurId: userConnected.id,
+                jeuId: 9,
+                points: score,
+              };
+
+              await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}/api/score`,
+                NewScore,
+                {
+                  headers: {
+                    Authorization: `Bearer ${user.token}`,
+                  },
+                }
+              );
+            } catch (err) {
+              console.error(err);
+            }
+          };
+          postScore();
+        } else if (score > tmpScore[0].points) {
+          const postScore = async () => {
+            try {
+              const UpdatedScore = {
+                utilisateurId: userConnected.id,
+                jeuId: gamePlayed,
+                points: score,
+              };
+
+              await axios.put(
+                `${import.meta.env.VITE_BACKEND_URL}/api/score/${
+                  tmpScore[0].ScoreId
+                }`,
+                UpdatedScore,
+                {
+                  headers: {
+                    Authorization: `Bearer ${user.token}`,
+                  },
+                }
+              );
+            } catch (err) {
+              console.error(err);
+            }
+          };
+          postScore();
+        }
       }
     }
   }, [getScoreUser]);

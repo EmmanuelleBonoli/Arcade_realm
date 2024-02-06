@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { React, useState, useEffect, useMemo } from "react";
-// import axios from "axios";
+import axios from "axios";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import UserContext from "./contexts/UserContext";
@@ -25,6 +25,7 @@ function App() {
   const [scorePlayer, setScorePlayer] = useState(0);
   const [missedArrow, setMissedArrow] = useState([]);
   const [intervalIsActive, setIntervalIsActive] = useState(true);
+  const [winPlayer, setWinPlayer] = useState(false);
 
   useEffect(() => {
     const currentUrl = location.pathname;
@@ -36,10 +37,28 @@ function App() {
   }, [location]);
 
   useEffect(() => {
-    const user = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("token"));
     if (user) {
-      setUserConnected(JSON.parse(user));
-      setAdminOrNot(JSON.parse(user).admin === 1);
+      const fetchUser = async () => {
+        try {
+          const dataUser = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/userbytoken`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
+          );
+          setUserConnected(dataUser.data[0]);
+
+          if (dataUser.data[0].admin) {
+            setAdminOrNot(true);
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      fetchUser();
     }
   }, []);
 
@@ -53,6 +72,8 @@ function App() {
       <GameContext.Provider
         value={useMemo(
           () => ({
+            winPlayer,
+            setWinPlayer,
             setIntervalIsActive,
             intervalIsActive,
             missedArrow,
@@ -79,6 +100,8 @@ function App() {
             setChooseScreen,
           }),
           [
+            winPlayer,
+            setWinPlayer,
             missedArrow,
             setMissedArrow,
             chooseArrow,

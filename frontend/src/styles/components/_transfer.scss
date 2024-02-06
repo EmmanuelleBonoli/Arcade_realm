@@ -107,17 +107,19 @@
         .avatarAndNameContainer {
           display: flex;
           flex-direction: column;
-          height: 55%;
+          width: 500px;
+          height: 500px;
           justify-content: center;
           align-items: center;
           gap: 1vh;
           padding: 2%;
 
           .avatarContainer {
+            overflow: hidden;
             height: 150px;
             width: 150px;
             border: 1px solid white;
-            border-radius: 50%;
+            border-radius: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -278,7 +280,8 @@
             }
           }
           .avatarAndNameContainer {
-            height: 30%;
+            width: 400px;
+            height: 400px;
             .avatarContainer {
               height: 70px;
               width: 70px;

@@ -95,7 +95,7 @@ VALUES
 
 (
     "Mug Space Invaders",
-    "/images/Lots/InvadersMug.png",
+    "/images/lots/InvadersMug.png",
     "Égayez vos pauses café avec ce mug rétro arborant les emblématiques extraterrestres pixélisés du célèbre jeu vidéo",
     4,
     1,
@@ -104,7 +104,7 @@ VALUES
     0
 ), (
     "Peluche Pac-Man",
-    "/images/Lots/PeluchePacman.png",
+    "/images/lots/PeluchePacman.png",
     "Adoptez ce compagnon doux et nostalgique inspiré du jeu d'arcade classique, idéal pour les fans de rétro gaming!",
     1,
     1,
@@ -113,7 +113,7 @@ VALUES
     0
 ), (
     "Mini Arcade",
-    "/images/Lots/MiniArcade.png",
+    "/images/lots/MiniArcade.png",
     "blabla2",
     2,
     1,
@@ -122,7 +122,7 @@ VALUES
     0
 ), (
     "Monopoly Pacman",
-    "/images/Lots/MonopolyPacman.png",
+    "/images/lots/MonopolyPacman.png",
     "blabla",
     2,
     1,
@@ -131,7 +131,7 @@ VALUES
     0
 ), (
     "Super Nes",
-    "/images/Lots/SuperNes.png",
+    "/images/lots/SuperNes.png",
     "blabla3",
     1,
     1,
@@ -140,7 +140,7 @@ VALUES
     0
 ), (
     "Tasse Mario",
-    "/images/Lots/TasseMario.png",
+    "/images/lots/TasseMario.png",
     "blabla3",
     2,
     1,
@@ -149,7 +149,7 @@ VALUES
     0
 ), (
     "Statue Zelda",
-    "/images/Lots/TriforceZelda.png",
+    "/images/lots/TriforceZelda.png",
     "blabla3",
     4,
     1,
@@ -158,7 +158,7 @@ VALUES
     0
 ), (
     "Mug Lego",
-    "/images/Lots/mugLego.png",
+    "/images/lots/mugLego.png",
     "blabla3",
     1,
     1,
@@ -167,7 +167,7 @@ VALUES
     0
 ), (
     "Switch",
-    "/images/Lots/Switch.png",
+    "/images/lots/Switch.png",
     "blabla3",
     null,
     0,
@@ -176,7 +176,7 @@ VALUES
     0
 ), (
     "Déco Mario",
-    "/images/Lots/decoMario.png",
+    "/images/lots/decoMario.png",
     "blabla3",
     null,
     0,
@@ -185,7 +185,7 @@ VALUES
     0
 ), (
     "Lampe Batman",
-    "/images/Lots/LampeBatman.png",
+    "/images/lots/LampeBatman.png",
     "blabla3",
     null,
     0,
@@ -195,7 +195,7 @@ VALUES
 ),
 (
     "Boite Lego Harry Potter",
-    "/images/Lots/chateauPoudlard.png",
+    "/images/lots/chateauPoudlard.png",
     "blabla3",
     null,
     1,

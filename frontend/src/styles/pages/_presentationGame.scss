@@ -42,8 +42,9 @@
   font-family: var(--secondary-font);
 
   img {
+    cursor: pointer;
     height: 75px;
-    width: auto !important;
+    width: auto;
     top: 5px;
     right: 5px;
     position: absolute;
@@ -139,7 +140,7 @@
     height: auto;
     padding: 10px;
     margin: 0;
-    text-size-adjust: auto;
+    font-size: 1.5rem;
 
     img {
       height: 10px;
@@ -176,7 +177,6 @@
     padding: 10px;
     margin: 0;
     width: 125%;
-    font-size: 25px;
 
     img {
       height: 50px;
@@ -217,14 +217,9 @@
     height: auto;
     padding: 30px;
     margin: 0;
-    text-size-adjust: auto;
 
     img {
       height: 75px;
-      width: auto !important;
-      top: 5px;
-      right: 10px;
-      position: absolute;
     }
   }
 }

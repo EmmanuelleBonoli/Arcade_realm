@@ -9,73 +9,78 @@ function MesLotsEchanges() {
 
   const fetchLot = async () => {
     const user = JSON.parse(localStorage.getItem("token"));
+    if (user) {
+      try {
+        axios
+          .get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${
+              userConnected.id
+            }`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.token}`,
+              },
+            }
+          )
 
-    try {
-      axios
-        .get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/lot/win/${userConnected.id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          }
-        )
-
-        .then((response) => {
-          setLots(response.data);
-        })
-        .catch((error) => console.error(error));
-    } catch (error) {
-      console.error(error);
+          .then((response) => {
+            setLots(response.data);
+          })
+          .catch((error) => console.error(error));
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
   useEffect(() => {
     if (userConnected) {
       fetchLot();
     }
-  }, []);
+  }, [userConnected]);
 
   async function handleStartExchange(lot) {
     let updatedExchangeLot = {};
     const user = JSON.parse(localStorage.getItem("token"));
-    try {
-      if (lot.exchange === 1) {
-        updatedExchangeLot = {
-          name: lot.name,
-          image: lot.image,
-          description: lot.description,
-          utilisateurId: userConnected.id,
-          win: lot.win,
-          exchange: 0,
-          podium: lot.podium,
-          mystery: lot.mystery,
-        };
-      } else if (lot.exchange === 0) {
-        updatedExchangeLot = {
-          name: lot.name,
-          image: lot.image,
-          description: lot.description,
-          utilisateurId: userConnected.id,
-          win: lot.win,
-          exchange: 1,
-          podium: lot.podium,
-          mystery: lot.mystery,
-        };
-      }
-
-      await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
-        updatedExchangeLot,
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
+    if (user) {
+      try {
+        if (lot.exchange === 1) {
+          updatedExchangeLot = {
+            name: lot.name,
+            image: lot.image,
+            description: lot.description,
+            utilisateurId: userConnected.id,
+            win: lot.win,
+            exchange: 0,
+            podium: lot.podium,
+            mystery: lot.mystery,
+          };
+        } else if (lot.exchange === 0) {
+          updatedExchangeLot = {
+            name: lot.name,
+            image: lot.image,
+            description: lot.description,
+            utilisateurId: userConnected.id,
+            win: lot.win,
+            exchange: 1,
+            podium: lot.podium,
+            mystery: lot.mystery,
+          };
         }
-      );
 
-      fetchLot();
-    } catch (err) {
-      console.error(err);
+        await axios.put(
+          `${import.meta.env.VITE_BACKEND_URL}/api/lot/${lot.id}`,
+          updatedExchangeLot,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+
+        fetchLot();
+      } catch (err) {
+        console.error(err);
+      }
     }
   }
 

@@ -32,20 +32,12 @@ export default function Connexion({ onClose }) {
         userlogin
       );
 
-      // if (dataUser.data.pseudo !== inputPseudo) {
-      //   console.error("Incorrect pseudo case. Please enter the correct case.");
-      //   return;
-      // }
-
       setUserConnected(dataUser.data.user);
-      const userLocal = {
-        ...dataUser.data.user,
-        token: dataUser.data.token,
-      };
+
       localStorage.setItem(
         "token",
         JSON.stringify({
-          ...userLocal,
+          token: dataUser.data.token,
         })
       );
       if (dataUser.data.user.admin === 1) {

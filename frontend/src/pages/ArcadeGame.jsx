@@ -18,7 +18,6 @@ function ArcadeGame() {
     isPressedGreen,
     isPressedBlue,
     isPressedRed,
-    openGames,
     setOpenGames,
     chooseScreen,
     setChooseScreen,
@@ -31,6 +30,7 @@ function ArcadeGame() {
     setMissedArrow,
     setIntervalIsActive,
     intervalIsActive,
+    setWinPlayer,
   } = useContext(GameContext);
 
   const audio = useRef(null);
@@ -41,6 +41,7 @@ function ArcadeGame() {
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
+    setOpenGames(true);
     const getGames = async () => {
       try {
         const fetchGames = await axios.get(
@@ -73,9 +74,10 @@ function ArcadeGame() {
   }, [chooseArrow]);
 
   function handleClose() {
-    setOpenGames(!openGames);
+    setOpenGames(false);
     setChooseScreen("start");
     setGameOver(false);
+    setWinPlayer(false);
     setScorePlayer(0);
     setMissedArrow([]);
     navigate("/");
@@ -342,9 +344,25 @@ function ArcadeGame() {
           <div className="spaceScores2">
             <h2>Meilleurs scores</h2>
             <img src="/images/Jeux_ligne/CoupeScores.png" alt="coupe" />
-            <p>1 - Rondoudou - 1350 pts</p>
-            <p>2 - Gertrude - 1275 pts</p>
-            <p>3 - Max - 899 pts</p>
+            {chooseScreen === "start"
+              ? ""
+              : bestScoresOnline
+                  .filter((gameFilter, indexOfGame) => {
+                    return indexOfGame === gameSelected;
+                  })
+                  .map((game) => {
+                    return (
+                      <div key={game.id}>
+                        {game.meilleursScores.map((score) => {
+                          return (
+                            <p key={uid(5)}>
+                              {score.utilisateur} - {score.score}pts
+                            </p>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
           </div>
         </div>
       </div>

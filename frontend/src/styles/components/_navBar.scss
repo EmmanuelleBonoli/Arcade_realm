@@ -69,10 +69,14 @@
         .bloc-image {
           border: 2px solid white;
           background-color: var(--primary-color);
-          width: 5vw;
-
+          width: 100px;
+          height: 100px;
           border-radius: 50%;
+          overflow: hidden;
           cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         img {
           padding: 15%;
@@ -140,7 +144,8 @@
         }
         .avatar_user {
           .bloc-image {
-            width: 6vw;
+            width: 75px;
+            height: 75px;
           }
         }
       }
@@ -173,7 +178,6 @@
           padding-left: 5%;
           flex-direction: row-reverse;
           .bloc-image {
-            width: 8vw;
           }
           .pseudo {
             p {
@@ -314,7 +318,8 @@
             display: none;
           }
           .bloc-image {
-            width: 50%;
+            width: 60px;
+            height: 60px;
           }
         }
       }
