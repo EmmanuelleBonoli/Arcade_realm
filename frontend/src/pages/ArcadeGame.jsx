@@ -40,6 +40,8 @@ function ArcadeGame() {
   const [gamePlayed, setGamePlayed] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
+  const [audio2] = useState(new Audio("/sons/JurassicPark.mp3"));
+
   useEffect(() => {
     setOpenGames(true);
     const getGames = async () => {
@@ -81,6 +83,8 @@ function ArcadeGame() {
     setScorePlayer(0);
     setMissedArrow([]);
     navigate("/");
+    audio2.pause();
+    audio2.currentTime = 0;
   }
   useEffect(() => {
     if (chooseScreen === "guitarHero") {
@@ -215,6 +219,7 @@ function ArcadeGame() {
           />
           <div className="screenArcade">
             <ScreenArcade
+              audio2={audio2}
               gamesOnline={gamesOnline}
               gamePlayed={gamePlayed}
               setGameOver={setGameOver}
