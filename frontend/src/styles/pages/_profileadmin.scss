@@ -210,12 +210,15 @@
   @media screen and (max-width: 500px) {
     .profileAdmin {
       .avatar {
+        height: 100px;
+      width: 100px;
         top: 2%;
       }
       .adminLayout {
         .buttonsChoice {
           a {
             img {
+              
               width: 100%;
             }
           }
@@ -228,8 +231,6 @@
     .profileAdmin {
       .avatar {
         top: 2%;
-        height: 115px;
-        width: 115px;
       }
     }
   }

@@ -435,6 +435,10 @@
 }
 @media screen and (max-width: 550px) {
   .home-echange {
+    .avatar {
+      height: 100px;
+      width: 100px;
+    }
     .container-echange {
       a {
         transform: translate(5%);
