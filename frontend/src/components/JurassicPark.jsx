@@ -8,6 +8,7 @@ export default function JurassicPark({
   gamePlayed,
   gameOverJP,
   setGameOverJP,
+  audio2,
 }) {
   const { userConnected } = useContext(userContext);
   const { setChooseScreen } = useContext(GameContext);
@@ -20,23 +21,12 @@ export default function JurassicPark({
   const [timer, setTimer] = useState(null);
   const [getScoreUser, setGetScoreUser] = useState({});
 
-  // const [cursorX, setCursorX] = useState();
-  // const [cursorY, setCursorY] = useState();
-  // const [gameStarted, setGameStarted] = useState(false);
-
-  // const cursorWidth = 1300;
-  // const cursorHeight = 530;
-
-  // useEffect(() => {
-  //   window.addEventListener("mousemove", (e) => {
-  //     if (gameStarted) {
-  //       setCursorX(e.pageX - cursorWidth / 2);
-  //       setCursorY(e.pageY - cursorHeight / 2);
-  //     }
-  //   });
-  // }, [gameStarted]);
-
-  // const [gameOver, setGameOver] = useState(false);
+  const startMusic = () => {
+    // eslint-disable-next-line react/prop-types, no-param-reassign
+    audio2.play().catch((error) => {
+      console.error("Erreur lors de la lecture de la musique:", error);
+    });
+  };
 
   useEffect(() => {
     if (timer === 0) {
@@ -206,7 +196,7 @@ export default function JurassicPark({
     }, 1000 * i);
   };
   const launchTimer = () => {
-    //  setGameStarted(true);
+    startMusic();
     for (let i = 30; i > 0; i -= 1) {
       decreaseTimer(i);
     }
@@ -233,24 +223,16 @@ export default function JurassicPark({
   function closeGame() {
     setChooseScreen("menu");
     setScore(0);
+    // eslint-disable-next-line react/prop-types
+    audio2.pause();
+    // eslint-disable-next-line react/prop-types, no-param-reassign
+    audio2.currentTime = 0;
   }
 
   return (
     <div className="bord-jeux">
       <div className="int-jeux">
-        {/* {gameStarted ? (
-          <div
-            className="cursor"
-            style={{
-              left: `${cursorX}px`,
-              top: `${cursorY}px`,
-              pointerEvents: "none",
-              zIndex: 1,
-            }}
-          />
-        ) : null} */}
         <div className="information-jeux">
-          {/* <h3>Name :</h3> */}
           <h3>
             Score :{" "}
             {score > 0 ? (
@@ -312,6 +294,9 @@ export default function JurassicPark({
   );
 }
 JurassicPark.propTypes = {
+  audio2: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+  }).isRequired,
   gameOverJP: PropTypes.bool.isRequired,
   setGameOverJP: PropTypes.func.isRequired,
   gamePlayed: PropTypes.number.isRequired,
