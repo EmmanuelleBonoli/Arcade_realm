@@ -25,7 +25,7 @@ const login = async (req, res, next) => {
         { sub: user[0].id, admin: user[0].admin },
         process.env.APP_SECRET,
         {
-          expiresIn: "1h",
+          expiresIn: "1m",
         }
       );
       res.json({
