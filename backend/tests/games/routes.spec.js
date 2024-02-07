@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { app, request, tables } = require("../setup");
 
 // Générez un token valide pour les tests
-const generateValidToken = () => {
+const generateValidToken = async () => {
   const user = {
     id: 1,
     admin: 0,
@@ -47,7 +47,7 @@ describe("GET api/jeu && api/jeu/:id", () => {
 
 describe("POST /api/jeu", () => {
   it("should insert a game successfully", async () => {
-    const token = generateValidToken();
+    const token = await generateValidToken();
     const dateTest = new Date("2024-01-29");
     const testGame = {
       name: "Sample game",
@@ -81,7 +81,7 @@ describe("POST /api/jeu", () => {
 describe("PUT /api/jeu/:id", () => {
   it("should update an existing game successfully", async () => {
     // Define a sample game for testing
-    const token = generateValidToken();
+    const token = await generateValidToken();
     const dateTest = new Date("1990-10-01");
     const testGame = {
       name: "Pokemon",
@@ -141,7 +141,7 @@ describe("PUT /api/jeu/:id", () => {
 describe("DELETE /api/jeu/:id", () => {
   it("should delete an existing game successfully", async () => {
     // Define a sample game for testing
-    const token = generateValidToken();
+    const token = await generateValidToken();
     const dateTest = new Date("1990-10-01");
     const testGame = {
       name: "Pokemon",
