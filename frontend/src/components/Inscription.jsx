@@ -129,6 +129,7 @@ export default function Inscription({ onClose }) {
           <input
             type="text"
             className="pseudo"
+            autoComplete="username"
             onChange={(event) => setInputPseudo(event.target.value)}
           />
 
@@ -136,6 +137,7 @@ export default function Inscription({ onClose }) {
           <input
             type="email"
             className="pseudo"
+            autoComplete="email"
             onChange={(event) => setInputEmail(event.target.value)}
           />
 
@@ -144,6 +146,7 @@ export default function Inscription({ onClose }) {
             <input
               type={motDePasseVisible ? "text" : "password"}
               className="motdepasse"
+              autoComplete="current-password"
               onChange={(event) => setInputPassword(event.target.value)}
             />
             <img
