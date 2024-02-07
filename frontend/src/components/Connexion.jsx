@@ -89,6 +89,7 @@ export default function Connexion({ onClose }) {
           <input
             type="text"
             className="pseudo"
+            autoComplete="username"
             onClick={handleInputClick}
             onChange={(event) => setInputPseudo(event.target.value)}
           />
@@ -98,6 +99,7 @@ export default function Connexion({ onClose }) {
             <input
               type={motDePasseVisible ? "text" : "password"}
               className="motdepasse"
+              autoComplete="current-password"
               onClick={handleInputClick}
               onChange={(event) => setInputPassword(event.target.value)}
             />
