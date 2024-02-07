@@ -11,7 +11,6 @@ function App() {
   const [background, setBackground] = useState("fond1");
   const [userConnected, setUserConnected] = useState(null);
   const [adminOrNot, setAdminOrNot] = useState(false);
-
   // States pour la borne d'arcade en ligne
   const [openGames, setOpenGames] = useState(false);
   const [isPressedRed, setIsPressedRed] = useState(false);
@@ -49,13 +48,18 @@ function App() {
               },
             }
           );
+
           setUserConnected(dataUser.data[0]);
 
           if (dataUser.data[0].admin) {
             setAdminOrNot(true);
           }
         } catch (err) {
-          console.error(err);
+          if (err.response.data.error === "token expired") {
+            localStorage.removeItem("token");
+          } else {
+            console.error(err);
+          }
         }
       };
       fetchUser();
